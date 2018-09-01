@@ -1,0 +1,835 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06FB3A40E98DA1039D43CD33C50301E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		08A05947C7875BC0006503F024C544C7 /* RSClipperWrapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1953D5B72CD697E4AADB3EECEC805EA2 /* RSClipperWrapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0954D2750211AFC5C5C5C02E53EAC2A8 /* Pods-patterns-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C558639731C59CC1009C67AC72BF9F02 /* Pods-patterns-dummy.m */; };
+		0AEAA2EFC9EA75F2130719EAE33B185E /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF9100A7F4D2DBB28387B3EE4D0A4E /* Assertions.swift */; };
+		1B688AC44F141D864EC7E51E602F9D37 /* _Clipper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 274A2E51B7C35141C5BA32ED781C74D6 /* _Clipper.mm */; };
+		25F1CA92647FC326262186F5BFAA6065 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1464150BE29E10FF8AFE29E2DBB255 /* Middleware.swift */; };
+		2679CFFCCEAE5723ECC67549CA26241F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		2BCCE4738780B16F0AC694FB5591A16C /* StoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAD7822DCCD5F0664F16B38CF4454C0 /* StoreSubscriber.swift */; };
+		324735CF49C9CCFE574716912578A648 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83759577DCF0F2360D6A35C1710780 /* Reducer.swift */; };
+		3983430200104B8CA7298CABDD249BE9 /* RSClipperWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 58750A1CCFA5A2F31783CA75F1BB0479 /* RSClipperWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E9CB6218D7D64BB46C3EB35A636C4E9 /* DispatchingStoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93448CC09060A3E09FA02360A0F9AAD /* DispatchingStoreType.swift */; };
+		66A20C74C6994A00523A510D10DD8A76 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF599A393DB7D23ABB0C980A04C3B9DC /* Action.swift */; };
+		691EB866250D72873AEFD91C02F07C50 /* ReSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 680A60BA6395613694444B0DA4A49FBD /* ReSwift-dummy.m */; };
+		6D1658E0E75D7C317D2A6AF297FD7334 /* ReSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 872F2DE3DBD2BC0C6388A238CF867E2B /* ReSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9547BF318C7FBCFFF520A28FFB19FA25 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A278C2FD17F2A25B4B5B1DCE9F364 /* Subscription.swift */; };
+		A0A76A795FEC50AFDF4AB8D57BA6D53B /* _Clipper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E0710FD809B42F8528414763290DD9E /* _Clipper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2106E6D776D4062CC9131E3C421036E /* RSClipperWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D7F5FC62054DBDAA3B4E7D8D135460 /* RSClipperWrapper-dummy.m */; };
+		A8B372A8699A61753E5E9CE5DF369250 /* clipper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A52A5A7B349F7F680EE88295B68A6980 /* clipper.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
+		AE2913DE3F4C48952AF23012124AC2FC /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F658686A8014423C1A86E57A421880C /* StoreType.swift */; };
+		B9D10F9DC12FAD6B9B3F2BAC8935941D /* Clipper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C3B4E75A4126B57FE248EC80BC61E /* Clipper.swift */; };
+		BB428127EE6525EA51AB95B81C786ADA /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03729367D45D69EDFF176FEDED0D5149 /* clipper.cpp */; };
+		C2C52D6D756E4C20F369E29662127417 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		C2EED98DAD64D5708936DF0F13868645 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78BB7306ED1987613A47D8C9FB933F /* State.swift */; };
+		DCB0C3CE047AA2AA7FA3E377B770B3BE /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B96FEDE5D51628C32E430B572DD1A30 /* Coding.swift */; };
+		DF136537436EC3037717DABA0E9F349B /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C69E54A920935AD9BF9BAB6119521 /* TypeHelper.swift */; };
+		F6ADE6035F6C29A4187660DE6BDF1A5C /* Pods-patterns-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA0AC1FCEE15AFE3373D3132783FE3B /* Pods-patterns-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB4A0418EA609FFCDA4FBC3B39D1ED2C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C8DA5C6B3ADB3549062099410706A /* Store.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9D13ED161D7CE99334DA777F59573BEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0701A0E2A6CCAEA65C723F800F8BE479;
+			remoteInfo = ReSwift;
+		};
+		B609241AC512F1459D2283398018175A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BBE3366B750DAFEC2186AA56B55FD4D;
+			remoteInfo = RSClipperWrapper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03729367D45D69EDFF176FEDED0D5149 /* clipper.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = clipper.cpp; path = "RSClipperWrapper/RSClipperWrapper/Clipper 6.2.1/clipper.cpp"; sourceTree = "<group>"; };
+		046CD99B7EA65A4DC3708275A094CF8D /* Pods_patterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_patterns.framework; path = "Pods-patterns.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		152C3B4E75A4126B57FE248EC80BC61E /* Clipper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Clipper.swift; path = RSClipperWrapper/RSClipperWrapper/Clipper.swift; sourceTree = "<group>"; };
+		1953D5B72CD697E4AADB3EECEC805EA2 /* RSClipperWrapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RSClipperWrapper-umbrella.h"; sourceTree = "<group>"; };
+		1A1464150BE29E10FF8AFE29E2DBB255 /* Middleware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = ReSwift/CoreTypes/Middleware.swift; sourceTree = "<group>"; };
+		1B96FEDE5D51628C32E430B572DD1A30 /* Coding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = ReSwift/Utils/Coding.swift; sourceTree = "<group>"; };
+		1DD386BD29ED667B3732C69945A1A9AA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F658686A8014423C1A86E57A421880C /* StoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreType.swift; path = ReSwift/CoreTypes/StoreType.swift; sourceTree = "<group>"; };
+		24F4436C5E0702CB2C4197A38FA22A8F /* ReSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReSwift.xcconfig; sourceTree = "<group>"; };
+		274A2E51B7C35141C5BA32ED781C74D6 /* _Clipper.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = _Clipper.mm; path = RSClipperWrapper/RSClipperWrapper/_Clipper.mm; sourceTree = "<group>"; };
+		2DDABD60C66AF0867223EA59B24B79EA /* Pods-patterns-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-patterns-acknowledgements.plist"; sourceTree = "<group>"; };
+		2E0710FD809B42F8528414763290DD9E /* _Clipper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _Clipper.h; path = RSClipperWrapper/RSClipperWrapper/_Clipper.h; sourceTree = "<group>"; };
+		35DF9100A7F4D2DBB28387B3EE4D0A4E /* Assertions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assertions.swift; path = ReSwift/Utils/Assertions.swift; sourceTree = "<group>"; };
+		390C8DA5C6B3ADB3549062099410706A /* Store.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Store.swift; path = ReSwift/CoreTypes/Store.swift; sourceTree = "<group>"; };
+		3B2DAAA0AABBF5A490B8FE57C2FADB03 /* RSClipperWrapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RSClipperWrapper-prefix.pch"; sourceTree = "<group>"; };
+		410BE2217CB0AFFEB8139EC3B3C41059 /* Pods-patterns.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-patterns.debug.xcconfig"; sourceTree = "<group>"; };
+		44CE22B7604C3007E13DEC2F3E0E3FCF /* Pods-patterns-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-patterns-resources.sh"; sourceTree = "<group>"; };
+		58750A1CCFA5A2F31783CA75F1BB0479 /* RSClipperWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSClipperWrapper.h; path = RSClipperWrapper/RSClipperWrapper/RSClipperWrapper.h; sourceTree = "<group>"; };
+		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5A6A7687A9AF5D9973D6E054DD3CC664 /* ReSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ReSwift.modulemap; sourceTree = "<group>"; };
+		5DA0AC1FCEE15AFE3373D3132783FE3B /* Pods-patterns-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-patterns-umbrella.h"; sourceTree = "<group>"; };
+		64DF8FA567674C3B3ECB796FEDB16CF8 /* Pods-patterns-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-patterns-acknowledgements.markdown"; sourceTree = "<group>"; };
+		680A60BA6395613694444B0DA4A49FBD /* ReSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReSwift-dummy.m"; sourceTree = "<group>"; };
+		75BB0C1433E8FCF8041E062E83015C38 /* RSClipperWrapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RSClipperWrapper.modulemap; sourceTree = "<group>"; };
+		7A9C69E54A920935AD9BF9BAB6119521 /* TypeHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TypeHelper.swift; path = ReSwift/Utils/TypeHelper.swift; sourceTree = "<group>"; };
+		8510A2B9FB393C7743F08F833AC27FCE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		872F2DE3DBD2BC0C6388A238CF867E2B /* ReSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReSwift-umbrella.h"; sourceTree = "<group>"; };
+		8B51D813FB9AB083554D727BC9830398 /* ReSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReSwift-prefix.pch"; sourceTree = "<group>"; };
+		91C33F45EC51933AF69EA47F2493935A /* Pods-patterns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-patterns.release.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A52A5A7B349F7F680EE88295B68A6980 /* clipper.hpp */ = {isa = PBXFileReference; includeInIndex = 1; name = clipper.hpp; path = "RSClipperWrapper/RSClipperWrapper/Clipper 6.2.1/clipper.hpp"; sourceTree = "<group>"; };
+		AAAD7822DCCD5F0664F16B38CF4454C0 /* StoreSubscriber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreSubscriber.swift; path = ReSwift/CoreTypes/StoreSubscriber.swift; sourceTree = "<group>"; };
+		B8F173EA7993A30F962BF4D120F42C29 /* RSClipperWrapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RSClipperWrapper.xcconfig; sourceTree = "<group>"; };
+		B9D7F5FC62054DBDAA3B4E7D8D135460 /* RSClipperWrapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RSClipperWrapper-dummy.m"; sourceTree = "<group>"; };
+		BC3A278C2FD17F2A25B4B5B1DCE9F364 /* Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subscription.swift; path = ReSwift/CoreTypes/Subscription.swift; sourceTree = "<group>"; };
+		BEE3A6AEF308DC145E69732321761DFB /* ReSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ReSwift.framework; path = ReSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C558639731C59CC1009C67AC72BF9F02 /* Pods-patterns-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-patterns-dummy.m"; sourceTree = "<group>"; };
+		CED4945CBE8FF45622F92D31ACEA9783 /* RSClipperWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RSClipperWrapper.framework; path = RSClipperWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB5B1F82322338CAC750FFE6348C5678 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E14D78B1AF131E0E7ABC8F90D5186270 /* Pods-patterns.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-patterns.modulemap"; sourceTree = "<group>"; };
+		E93448CC09060A3E09FA02360A0F9AAD /* DispatchingStoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DispatchingStoreType.swift; path = ReSwift/CoreTypes/DispatchingStoreType.swift; sourceTree = "<group>"; };
+		EE83759577DCF0F2360D6A35C1710780 /* Reducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reducer.swift; path = ReSwift/CoreTypes/Reducer.swift; sourceTree = "<group>"; };
+		EF599A393DB7D23ABB0C980A04C3B9DC /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Action.swift; path = ReSwift/CoreTypes/Action.swift; sourceTree = "<group>"; };
+		F9D249816123F4454898D7C44DFB8189 /* Pods-patterns-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-patterns-frameworks.sh"; sourceTree = "<group>"; };
+		FB78BB7306ED1987613A47D8C9FB933F /* State.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = State.swift; path = ReSwift/CoreTypes/State.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8CBF5DE5FFD81020BCD43C070A9DF3CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2C52D6D756E4C20F369E29662127417 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B430C12BD85CBA1FED479355622ED834 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06FB3A40E98DA1039D43CD33C50301E2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C620BB5883CCE60EBDC5F19D593DC12A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2679CFFCCEAE5723ECC67549CA26241F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2FFB0683BE53259168A3A04F073E39A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				046CD99B7EA65A4DC3708275A094CF8D /* Pods_patterns.framework */,
+				BEE3A6AEF308DC145E69732321761DFB /* ReSwift.framework */,
+				CED4945CBE8FF45622F92D31ACEA9783 /* RSClipperWrapper.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		332A7FE252EF8819C5C12C31C13A8036 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8510A2B9FB393C7743F08F833AC27FCE /* Info.plist */,
+				5A6A7687A9AF5D9973D6E054DD3CC664 /* ReSwift.modulemap */,
+				24F4436C5E0702CB2C4197A38FA22A8F /* ReSwift.xcconfig */,
+				680A60BA6395613694444B0DA4A49FBD /* ReSwift-dummy.m */,
+				8B51D813FB9AB083554D727BC9830398 /* ReSwift-prefix.pch */,
+				872F2DE3DBD2BC0C6388A238CF867E2B /* ReSwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ReSwift";
+			sourceTree = "<group>";
+		};
+		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		711D7D7A8EB535F80B205E1E03E3976A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81C8D34795DF57969EADFC435E0D1577 /* ReSwift */,
+				85499A5D0F9CFCDCCD09F93EBC233818 /* RSClipperWrapper */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				711D7D7A8EB535F80B205E1E03E3976A /* Pods */,
+				2FFB0683BE53259168A3A04F073E39A9 /* Products */,
+				C0D61B708EA09F8D04F75486D969DF8F /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		81C8D34795DF57969EADFC435E0D1577 /* ReSwift */ = {
+			isa = PBXGroup;
+			children = (
+				EF599A393DB7D23ABB0C980A04C3B9DC /* Action.swift */,
+				35DF9100A7F4D2DBB28387B3EE4D0A4E /* Assertions.swift */,
+				1B96FEDE5D51628C32E430B572DD1A30 /* Coding.swift */,
+				E93448CC09060A3E09FA02360A0F9AAD /* DispatchingStoreType.swift */,
+				1A1464150BE29E10FF8AFE29E2DBB255 /* Middleware.swift */,
+				EE83759577DCF0F2360D6A35C1710780 /* Reducer.swift */,
+				FB78BB7306ED1987613A47D8C9FB933F /* State.swift */,
+				390C8DA5C6B3ADB3549062099410706A /* Store.swift */,
+				AAAD7822DCCD5F0664F16B38CF4454C0 /* StoreSubscriber.swift */,
+				1F658686A8014423C1A86E57A421880C /* StoreType.swift */,
+				BC3A278C2FD17F2A25B4B5B1DCE9F364 /* Subscription.swift */,
+				7A9C69E54A920935AD9BF9BAB6119521 /* TypeHelper.swift */,
+				332A7FE252EF8819C5C12C31C13A8036 /* Support Files */,
+			);
+			name = ReSwift;
+			path = ReSwift;
+			sourceTree = "<group>";
+		};
+		85499A5D0F9CFCDCCD09F93EBC233818 /* RSClipperWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				2E0710FD809B42F8528414763290DD9E /* _Clipper.h */,
+				274A2E51B7C35141C5BA32ED781C74D6 /* _Clipper.mm */,
+				03729367D45D69EDFF176FEDED0D5149 /* clipper.cpp */,
+				A52A5A7B349F7F680EE88295B68A6980 /* clipper.hpp */,
+				152C3B4E75A4126B57FE248EC80BC61E /* Clipper.swift */,
+				58750A1CCFA5A2F31783CA75F1BB0479 /* RSClipperWrapper.h */,
+				EF8290D0EE6DE584302AAEECBF4D92E4 /* Support Files */,
+			);
+			name = RSClipperWrapper;
+			path = RSClipperWrapper;
+			sourceTree = "<group>";
+		};
+		B116891006F5BAE4A4FA14076DA98628 /* Pods-patterns */ = {
+			isa = PBXGroup;
+			children = (
+				DB5B1F82322338CAC750FFE6348C5678 /* Info.plist */,
+				E14D78B1AF131E0E7ABC8F90D5186270 /* Pods-patterns.modulemap */,
+				64DF8FA567674C3B3ECB796FEDB16CF8 /* Pods-patterns-acknowledgements.markdown */,
+				2DDABD60C66AF0867223EA59B24B79EA /* Pods-patterns-acknowledgements.plist */,
+				C558639731C59CC1009C67AC72BF9F02 /* Pods-patterns-dummy.m */,
+				F9D249816123F4454898D7C44DFB8189 /* Pods-patterns-frameworks.sh */,
+				44CE22B7604C3007E13DEC2F3E0E3FCF /* Pods-patterns-resources.sh */,
+				5DA0AC1FCEE15AFE3373D3132783FE3B /* Pods-patterns-umbrella.h */,
+				410BE2217CB0AFFEB8139EC3B3C41059 /* Pods-patterns.debug.xcconfig */,
+				91C33F45EC51933AF69EA47F2493935A /* Pods-patterns.release.xcconfig */,
+			);
+			name = "Pods-patterns";
+			path = "Target Support Files/Pods-patterns";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E0D919E635D23B70123790B8308F8EF /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0D61B708EA09F8D04F75486D969DF8F /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B116891006F5BAE4A4FA14076DA98628 /* Pods-patterns */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		EF8290D0EE6DE584302AAEECBF4D92E4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DD386BD29ED667B3732C69945A1A9AA /* Info.plist */,
+				75BB0C1433E8FCF8041E062E83015C38 /* RSClipperWrapper.modulemap */,
+				B8F173EA7993A30F962BF4D120F42C29 /* RSClipperWrapper.xcconfig */,
+				B9D7F5FC62054DBDAA3B4E7D8D135460 /* RSClipperWrapper-dummy.m */,
+				3B2DAAA0AABBF5A490B8FE57C2FADB03 /* RSClipperWrapper-prefix.pch */,
+				1953D5B72CD697E4AADB3EECEC805EA2 /* RSClipperWrapper-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RSClipperWrapper";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4D47C897D4127F310529AC0A92281BD9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D1658E0E75D7C317D2A6AF297FD7334 /* ReSwift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F32360E749D7588BA945C5B47AB8DDC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0A76A795FEC50AFDF4AB8D57BA6D53B /* _Clipper.h in Headers */,
+				A8B372A8699A61753E5E9CE5DF369250 /* clipper.hpp in Headers */,
+				08A05947C7875BC0006503F024C544C7 /* RSClipperWrapper-umbrella.h in Headers */,
+				3983430200104B8CA7298CABDD249BE9 /* RSClipperWrapper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA57C0E2F529D80129EAC7F788E353A6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6ADE6035F6C29A4187660DE6BDF1A5C /* Pods-patterns-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0701A0E2A6CCAEA65C723F800F8BE479 /* ReSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EE3F73873111C5FE88BC1DB301A0AFE /* Build configuration list for PBXNativeTarget "ReSwift" */;
+			buildPhases = (
+				4D47C897D4127F310529AC0A92281BD9 /* Headers */,
+				58A5B81765CC9990266F133536FFCE52 /* Sources */,
+				B430C12BD85CBA1FED479355622ED834 /* Frameworks */,
+				0624419819C231240F5A4305E94677C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReSwift;
+			productName = ReSwift;
+			productReference = BEE3A6AEF308DC145E69732321761DFB /* ReSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4BBE3366B750DAFEC2186AA56B55FD4D /* RSClipperWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C253D27BDFB006E09AA2E0983075D5C1 /* Build configuration list for PBXNativeTarget "RSClipperWrapper" */;
+			buildPhases = (
+				4F32360E749D7588BA945C5B47AB8DDC /* Headers */,
+				88E1BA56D6A47D4980ADB5ACD03D00B0 /* Sources */,
+				8CBF5DE5FFD81020BCD43C070A9DF3CD /* Frameworks */,
+				089AB7E8EE43FB1F0A6F37DAC989DA2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RSClipperWrapper;
+			productName = RSClipperWrapper;
+			productReference = CED4945CBE8FF45622F92D31ACEA9783 /* RSClipperWrapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5BBB72E9D4A0D06E341DC73D94D142B9 /* Pods-patterns */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2E6C208B32E519AA81131FDB951DAB6 /* Build configuration list for PBXNativeTarget "Pods-patterns" */;
+			buildPhases = (
+				AA57C0E2F529D80129EAC7F788E353A6 /* Headers */,
+				5B952A25F404007010A06218EA2B4FFA /* Sources */,
+				C620BB5883CCE60EBDC5F19D593DC12A /* Frameworks */,
+				E00320CD3C8F6662A4F1A3BB27A0EB57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAA160DB55D0655B206A977DF69E91A2 /* PBXTargetDependency */,
+				B9D49274CF7C4B52DC8ADB38A4717CA6 /* PBXTargetDependency */,
+			);
+			name = "Pods-patterns";
+			productName = "Pods-patterns";
+			productReference = 046CD99B7EA65A4DC3708275A094CF8D /* Pods_patterns.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 2FFB0683BE53259168A3A04F073E39A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BBB72E9D4A0D06E341DC73D94D142B9 /* Pods-patterns */,
+				0701A0E2A6CCAEA65C723F800F8BE479 /* ReSwift */,
+				4BBE3366B750DAFEC2186AA56B55FD4D /* RSClipperWrapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0624419819C231240F5A4305E94677C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		089AB7E8EE43FB1F0A6F37DAC989DA2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E00320CD3C8F6662A4F1A3BB27A0EB57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58A5B81765CC9990266F133536FFCE52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66A20C74C6994A00523A510D10DD8A76 /* Action.swift in Sources */,
+				0AEAA2EFC9EA75F2130719EAE33B185E /* Assertions.swift in Sources */,
+				DCB0C3CE047AA2AA7FA3E377B770B3BE /* Coding.swift in Sources */,
+				3E9CB6218D7D64BB46C3EB35A636C4E9 /* DispatchingStoreType.swift in Sources */,
+				25F1CA92647FC326262186F5BFAA6065 /* Middleware.swift in Sources */,
+				324735CF49C9CCFE574716912578A648 /* Reducer.swift in Sources */,
+				691EB866250D72873AEFD91C02F07C50 /* ReSwift-dummy.m in Sources */,
+				C2EED98DAD64D5708936DF0F13868645 /* State.swift in Sources */,
+				FB4A0418EA609FFCDA4FBC3B39D1ED2C /* Store.swift in Sources */,
+				2BCCE4738780B16F0AC694FB5591A16C /* StoreSubscriber.swift in Sources */,
+				AE2913DE3F4C48952AF23012124AC2FC /* StoreType.swift in Sources */,
+				9547BF318C7FBCFFF520A28FFB19FA25 /* Subscription.swift in Sources */,
+				DF136537436EC3037717DABA0E9F349B /* TypeHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B952A25F404007010A06218EA2B4FFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0954D2750211AFC5C5C5C02E53EAC2A8 /* Pods-patterns-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88E1BA56D6A47D4980ADB5ACD03D00B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B688AC44F141D864EC7E51E602F9D37 /* _Clipper.mm in Sources */,
+				BB428127EE6525EA51AB95B81C786ADA /* clipper.cpp in Sources */,
+				B9D10F9DC12FAD6B9B3F2BAC8935941D /* Clipper.swift in Sources */,
+				A2106E6D776D4062CC9131E3C421036E /* RSClipperWrapper-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B9D49274CF7C4B52DC8ADB38A4717CA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ReSwift;
+			target = 0701A0E2A6CCAEA65C723F800F8BE479 /* ReSwift */;
+			targetProxy = 9D13ED161D7CE99334DA777F59573BEF /* PBXContainerItemProxy */;
+		};
+		CAA160DB55D0655B206A977DF69E91A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RSClipperWrapper;
+			target = 4BBE3366B750DAFEC2186AA56B55FD4D /* RSClipperWrapper */;
+			targetProxy = B609241AC512F1459D2283398018175A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3B427C6F6282AD062023055668830410 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91C33F45EC51933AF69EA47F2493935A /* Pods-patterns.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-patterns/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-patterns/Pods-patterns.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3B4506D3EA70E7C4848849CF1CBC7230 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F4436C5E0702CB2C4197A38FA22A8F /* ReSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ReSwift/ReSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReSwift/ReSwift.modulemap";
+				PRODUCT_MODULE_NAME = ReSwift;
+				PRODUCT_NAME = ReSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		56A05ADD3BABDA1B56D1F979845809B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		9C64E654D97C01ABA073074B71320B57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8F173EA7993A30F962BF4D120F42C29 /* RSClipperWrapper.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RSClipperWrapper/RSClipperWrapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RSClipperWrapper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RSClipperWrapper/RSClipperWrapper.modulemap";
+				PRODUCT_MODULE_NAME = RSClipperWrapper;
+				PRODUCT_NAME = RSClipperWrapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A2CC1302C3894C5EFF6EDA8B13E991AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8F173EA7993A30F962BF4D120F42C29 /* RSClipperWrapper.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RSClipperWrapper/RSClipperWrapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RSClipperWrapper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RSClipperWrapper/RSClipperWrapper.modulemap";
+				PRODUCT_MODULE_NAME = RSClipperWrapper;
+				PRODUCT_NAME = RSClipperWrapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BEFDB93BF207328A04F1220475D02C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		DF97C8FE4EF252B495577D490F082BAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 410BE2217CB0AFFEB8139EC3B3C41059 /* Pods-patterns.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-patterns/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-patterns/Pods-patterns.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FADA79E4B4664C8A2BCB0C474D5862F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F4436C5E0702CB2C4197A38FA22A8F /* ReSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ReSwift/ReSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReSwift/ReSwift.modulemap";
+				PRODUCT_MODULE_NAME = ReSwift;
+				PRODUCT_NAME = ReSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EE3F73873111C5FE88BC1DB301A0AFE /* Build configuration list for PBXNativeTarget "ReSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B4506D3EA70E7C4848849CF1CBC7230 /* Debug */,
+				FADA79E4B4664C8A2BCB0C474D5862F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEFDB93BF207328A04F1220475D02C3B /* Debug */,
+				56A05ADD3BABDA1B56D1F979845809B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C253D27BDFB006E09AA2E0983075D5C1 /* Build configuration list for PBXNativeTarget "RSClipperWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2CC1302C3894C5EFF6EDA8B13E991AB /* Debug */,
+				9C64E654D97C01ABA073074B71320B57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2E6C208B32E519AA81131FDB951DAB6 /* Build configuration list for PBXNativeTarget "Pods-patterns" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF97C8FE4EF252B495577D490F082BAC /* Debug */,
+				3B427C6F6282AD062023055668830410 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
