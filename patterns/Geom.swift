@@ -4,7 +4,7 @@ import RSClipperWrapper
 
 class Geom{
 	
-	var SIZE:CGFloat = 200.0
+	var SIZE:CGFloat = 500.0
 	var origin = CGPoint(x: 0.0, y: 0.0)
 	var transforms:[CGAffineTransform]
 	var lineGraph:LineGraph
@@ -29,7 +29,7 @@ class Geom{
 	private func makePolygons(){
 		var transPolys:[Polygon] = []
 		for lineGraph:LineGraph in transLineGraphs{
-			transPolys = transPolys + lineGraph.toPolygonArray(thickness: 10)
+			transPolys = transPolys + lineGraph.toPolygonArray(thickness: 30)
 		}
 		let uTransPolys = MathUtils.union(ps: transPolys)
 		let uTransPolys2 = MathUtils.union(ps: uTransPolys)
