@@ -3,7 +3,58 @@ import CoreGraphics
 import RSClipperWrapper
 
 class MathUtils {
-
+	
+	public static func getViewContainingPoint(p:CGPoint, views:[UIView]) -> UIView?{
+		for i in 0..<views.count{
+			if(views[i].frame.contains(p)){
+				return views[i]
+			}
+		}
+		return nil
+	}
+	
+	public static func getDeletedAt<T>(a:[T], index:Int) -> [T]{
+		//eg.  a,b,c,d,e,f,g,h,i   getDeletedAt  3  ->   a,b,c,e,f,g,h,i
+		if(a.count == 0){
+			return []
+		}
+		if(index < 0){
+			return a
+		}
+		if(index > a.count - 1){
+			return a
+		}
+		let left = a.prefix(index)
+		let right = a.suffix(a.count - index - 1)
+		return Array(left + right)
+	}
+	
+	public static func getInsertedAt<T>(a:[T], index:Int, element:T) -> [T]{
+		//eg.  a,b,c,d,e,f,g,h,i   getInsertedAt  3, "X"   ->   a,b,c,X,d,e,f,g,h,i
+		if(a.count == 0){
+			return []
+		}
+		if(index <= 0){
+			return [element] + a
+		}
+		if(index >= a.count + 1){
+			return a + [element]
+		}
+		//else index >= 1 and index <= a.count
+		let left = a.prefix(index)
+		let right = a.suffix(a.count - index)
+		return left + [element] + right
+	}
+	
+	public static func getRectContainingPoint(p:CGPoint, rects:[CGRect]) -> CGRect?{
+		for i in 0..<rects.count{
+			if(rects[i].contains(p)){
+				return rects[i]
+			}
+		}
+		return nil
+	}
+	
 	public static func getTransSteps(origin:CGPoint, frame:CGRect, w:CGFloat, h:CGFloat) -> MinMax {
 		var xmin:Int = 0
 		var xmax:Int = 0

@@ -6,7 +6,7 @@ class TextEntryController: UIViewController, StoreSubscriber {
 	
 	typealias StoreSubscriberStateType = AppState
 	
-	var textField:UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 400, height: 200))
+	var textField:UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 500, height: 200))
 	var okButton:UIButton = UIButton(type: UIButtonType.system)
 
 	override func viewDidLoad() {
@@ -15,7 +15,7 @@ class TextEntryController: UIViewController, StoreSubscriber {
 		okButton.setTitle("Ok", for: UIControlState.normal)
 		textField.backgroundColor = UIColor.blue
 		textField.minimumFontSize = 32.0
-		textField.font = UIFont(name: "Verdana", size: 24)
+		textField.font = UIFont(name: "Verdana", size: 18)
 		self.view.addSubview(textField)
 		self.view.addSubview(okButton)
 		okButton.addTarget(self, action: #selector(TextEntryController.buttonClicked(_:)), for: .touchUpInside)
@@ -23,7 +23,7 @@ class TextEntryController: UIViewController, StoreSubscriber {
 	}
 	
 	func newState(state: AppState) {
-		print("new state", state)
+		//print("new state", state)
 		textField.text = state.text
 	}
 	

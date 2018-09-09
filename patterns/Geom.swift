@@ -47,7 +47,7 @@ class Geom{
 		var lines:[LineSegment] = []
 		var textArr = text.split(separator: " ")
 		var state = ""
-		var ORIGIN = CGPoint(x: 500, y: 380)
+		let ORIGIN = CGPoint(x: 500, y: 380)
 		var p:CGPoint = CGPoint(x: ORIGIN.x, y: ORIGIN.y)
 		var dir:CGFloat = 0
 		var newX:CGFloat
@@ -96,7 +96,7 @@ class Geom{
 	}
 	
 	private func update(){
-		print("Geom update polygons")
+		//print("Geom update polygons")
 		makeLines()
 		makeTransformedLines()
 		makePolygons()

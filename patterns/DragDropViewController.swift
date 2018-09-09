@@ -2,46 +2,14 @@
 import UIKit
 import ReSwift
 
-private let reuseIdentifier = "PhotoCell"
-
-class PhotoCell: UICollectionViewCell {
-	var imageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-	init() {
-		super.init(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-		self.addSubview(imageView)
-	}
-	
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		self.addSubview(imageView)
-	}
-	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
-}
-
-class Photo {
-	var imageData: Data
-	init(imageData: Data) {
-		self.imageData = imageData
-	}
-}
+private let REUSE_IDENTIFIER = "PhotoCell"
 
 class DragDropViewController: UICollectionViewController, StoreSubscriber {
 	
 	typealias StoreSubscriberStateType = AppState
 	var gDel:UIGestureRecognizerDelegate
-	
-	var dataItems:[Photo] = {
-		var photos = [] as [Photo]
-		for index in 0...35 {
-			let image:UIImage = UIImage(named: "img.png")!
-			let imageData:Data? = UIImagePNGRepresentation(image)
-			photos.append(Photo(imageData: imageData!))
-		}
-		return photos
-	}()
+	var dataItems:[DragItemModel] = []
+	var placeholderItem:DragItemModel = DragItemModel(type: "temp", label: "fd", imageSrc: "img2.png")
 	
 	init(collectionViewLayout: UICollectionViewLayout, _gDel:UIGestureRecognizerDelegate){
 		self.gDel = _gDel
@@ -57,34 +25,84 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		let item = dataItems.remove(at: sIndex)
 		dataItems.insert(item, at:dIndex)
 	}
-
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.installsStandardGestureForInteractiveMovement = true
 		self.view.backgroundColor = UIColor.cyan
 		let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
 		self.collectionView?.addGestureRecognizer(longPressGesture)
+		self.collectionView?.backgroundColor = .green
+		longPressGesture.minimumPressDuration = 0.0001
 		longPressGesture.delegate = self.gDel
 	}
 	
 	@objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
-		switch(gesture.state) {
-			case .began:
-				guard let selectedIndexPath = self.collectionView?.indexPathForItem(at: gesture.location(in: self.collectionView)) else {
-					break
-				}
-				self.collectionView?.beginInteractiveMovementForItem(at: selectedIndexPath)
-			case .changed:
-				self.collectionView?.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
-			case .ended:
-				self.collectionView?.endInteractiveMovement()
-			default:
-				self.collectionView?.cancelInteractiveMovement()
+		if(gesture.state == .began){
+			guard let selectedIndexPath = self.collectionView?.indexPathForItem(at: gesture.location(in: self.collectionView)) else {
+				return
+			}
+			self.collectionView?.beginInteractiveMovementForItem(at: selectedIndexPath)
+		}
+		else if(gesture.state == .changed){
+			self.collectionView?.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+		}
+		else if(gesture.state == .ended){
+			self.collectionView?.endInteractiveMovement()
+		}
+		else{
+			self.collectionView?.cancelInteractiveMovement()
+		}
+	}
+	
+	func getPlaceHolderIndex() -> Int{
+		if let index:Int = dataItems.index(where: {$0.type == "temp"}) {
+			return index
+		}
+		else {
+			return -1
 		}
 	}
 	
 	func newState(state: AppState) {
-		print("new state", state)
+		print("ds, ph", state.dragState, state.placeholderIndex)
+		if(state.dragState == "dragging"){
+			movePlaceholder(newIndex:state.placeholderIndex)
+		}
+		if(state.dragState == "idle"){
+			dataItems = state.dataItems
+			self.collectionView?.reloadData()
+		}
+	}
+	
+	func movePlaceholder(newIndex:Int){
+		let currentIndex = getPlaceHolderIndex()
+		print(currentIndex,"->", newIndex)
+		if(currentIndex >= 0){
+			// it existed
+			if(newIndex >= 0){
+				// moved
+				print("mv", currentIndex, newIndex)
+				self.move(from: currentIndex, to: newIndex)
+			}
+			else{
+				// deleted
+				print("del", currentIndex)
+				self.deleteAt(index: currentIndex)
+			}
+		}
+		else{
+			// didnt exist
+			if(newIndex >= 0){
+				// add
+				print("add", newIndex)
+				self.insert(d: placeholderItem, index: newIndex)
+				print("NOW", getPlaceHolderIndex())
+			}
+			else{
+				// nothing
+			}
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -96,7 +114,7 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		super.viewWillDisappear(animated)
 		store.unsubscribe(self)
 	}
-
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
@@ -110,11 +128,11 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 	}
 	
 	override public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-		collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-		let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath)
+		collectionView.register(ItemCell.self, forCellWithReuseIdentifier: REUSE_IDENTIFIER)
+		let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: REUSE_IDENTIFIER, for: indexPath as IndexPath)
 		let index:Int = IndexUtils.indexOf(indexPath: indexPath)
-		if let cell = cell as? PhotoCell{
-			cell.imageView.image = UIImage(data: dataItems[index].imageData)
+		if let cell = cell as? ItemCell{
+			cell.loadData(p:dataItems[index])
 		}
 		return cell
 	}
@@ -125,13 +143,32 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		moveDataItem(sIndex: sIndex, dIndex)
 	}
 	
-	public func insert(src:String, index:Int){
-		let image:UIImage = UIImage(named: src)!
-		let imageData:Data? = UIImagePNGRepresentation(image)
-		dataItems.insert(Photo(imageData: imageData!), at: index)
-		let indexPath = IndexPath(row:index, section: 0)
-		self.collectionView?.insertItems(at: [indexPath])
+	public func move(from:Int, to:Int){
+		let element = self.dataItems.remove(at: from)
+		self.dataItems.insert(element, at:to)
+		self.collectionView?.moveItem(at: IndexPath(row:from, section: 0), to: IndexPath(row:to, section: 0))
 	}
-
+	
+	public func insert(d:DragItemModel, index:Int){
+		if(index >= dataItems.count){
+			self.dataItems.append(d)
+		}
+		else{
+			self.dataItems.insert(d, at: index)
+		}
+		print("now", dataItems)
+		self.collectionView?.insertItems(at: [IndexPath(row:index, section: 0)])
+	}
+	
+	public func insert(type:String, src:String, index:Int){
+		self.insert(d: DragItemModel(type: type, label: "fd", imageSrc: src), index: index)
+	}
+	
+	public func deleteAt(index:Int){
+		dataItems = MathUtils.getDeletedAt(a:self.dataItems, index:index)
+		self.collectionView?.deleteItems(at: [IndexPath(row:index, section: 0)])
+	}
+	
+	
 }
 

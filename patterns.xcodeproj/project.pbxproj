@@ -16,6 +16,9 @@
 		52ADA12A2140755E00C1862F /* IndexUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADA1292140755E00C1862F /* IndexUtils.swift */; };
 		52ADA12C2140830C00C1862F /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADA12B2140830C00C1862F /* ListController.swift */; };
 		52ADA12E214088BF00C1862F /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 52ADA12D214088BF00C1862F /* img1.png */; };
+		52B4A65D21452DE900E761C3 /* DragItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4A65C21452DE900E761C3 /* DragItemModel.swift */; };
+		52B4A65F214532C600E761C3 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4A65E214532C600E761C3 /* ItemCell.swift */; };
+		52B4A66121453FDB00E761C3 /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B4A66021453FDB00E761C3 /* img2.png */; };
 		52C7C254213AA62B00920520 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7C253213AA62B00920520 /* DrawingViewController.swift */; };
 		52C7C256213AA6DF00920520 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7C255213AA6DF00920520 /* DrawingView.swift */; };
 		52C7C258213AA8DC00920520 /* TextEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7C257213AA8DC00920520 /* TextEntryController.swift */; };
@@ -46,6 +49,9 @@
 		52ADA1292140755E00C1862F /* IndexUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexUtils.swift; sourceTree = "<group>"; };
 		52ADA12B2140830C00C1862F /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		52ADA12D214088BF00C1862F /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
+		52B4A65C21452DE900E761C3 /* DragItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragItemModel.swift; sourceTree = "<group>"; };
+		52B4A65E214532C600E761C3 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		52B4A66021453FDB00E761C3 /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
 		52C7C253213AA62B00920520 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		52C7C255213AA6DF00920520 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		52C7C257213AA8DC00920520 /* TextEntryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEntryController.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 		52ADA12621406D8200C1862F /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				52B4A66021453FDB00E761C3 /* img2.png */,
 				52ADA12D214088BF00C1862F /* img1.png */,
 				52ADA12721406D8200C1862F /* img.png */,
 			);
@@ -137,6 +144,8 @@
 				52497132210CBFAC00EBE3B1 /* LineSegment.swift */,
 				5249712D210CBF7800EBE3B1 /* LineGraph.swift */,
 				5249712E210CBF7800EBE3B1 /* LineList.swift */,
+				52B4A65C21452DE900E761C3 /* DragItemModel.swift */,
+				52B4A65E214532C600E761C3 /* ItemCell.swift */,
 				52E85AEF2104BA81004CDB27 /* MinMax.swift */,
 				52CE634E20F9F860003278E9 /* Extensions.swift */,
 				52CE633C20F9F3DC003278E9 /* AppDelegate.swift */,
@@ -235,6 +244,7 @@
 			files = (
 				52CE634720F9F3DC003278E9 /* LaunchScreen.storyboard in Resources */,
 				52ADA12E214088BF00C1862F /* img1.png in Resources */,
+				52B4A66121453FDB00E761C3 /* img2.png in Resources */,
 				52CE634420F9F3DC003278E9 /* Assets.xcassets in Resources */,
 				52CE634220F9F3DC003278E9 /* Main.storyboard in Resources */,
 				52ADA12821406D8200C1862F /* img.png in Resources */,
@@ -294,6 +304,7 @@
 				52497131210CBF7900EBE3B1 /* LineList.swift in Sources */,
 				52ADA12A2140755E00C1862F /* IndexUtils.swift in Sources */,
 				52E85AF12104BA81004CDB27 /* MinMax.swift in Sources */,
+				52B4A65D21452DE900E761C3 /* DragItemModel.swift in Sources */,
 				52E85AF32104BB51004CDB27 /* MathUtils.swift in Sources */,
 				52E85AF62104C078004CDB27 /* GroupP3M1.swift in Sources */,
 				52C7C264213AAE2300920520 /* AppState.swift in Sources */,
@@ -302,6 +313,7 @@
 				52C7C258213AA8DC00920520 /* TextEntryController.swift in Sources */,
 				52ADA12C2140830C00C1862F /* ListController.swift in Sources */,
 				52497133210CBFAC00EBE3B1 /* LineSegment.swift in Sources */,
+				52B4A65F214532C600E761C3 /* ItemCell.swift in Sources */,
 				52CE633D20F9F3DC003278E9 /* AppDelegate.swift in Sources */,
 				52C7C256213AA6DF00920520 /* DrawingView.swift in Sources */,
 				52C7C26A213AB47400920520 /* Geom.swift in Sources */,

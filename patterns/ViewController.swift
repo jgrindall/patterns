@@ -5,7 +5,9 @@ import ReSwift
 
 class GDelegate : NSObject, UIGestureRecognizerDelegate {
 	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-		return true
+		//print(gestureRecognizer)
+		//print(otherGestureRecognizer)
+		return false
 	}
 }
 
@@ -30,6 +32,7 @@ class ViewController: UIViewController, StoreSubscriber {
 		flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
 		flowLayout.minimumInteritemSpacing = 0.0
 		self.dragController = DragDropViewController(collectionViewLayout: flowLayout, _gDel:gDel)
+		dragController.view.backgroundColor = .green
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -38,12 +41,14 @@ class ViewController: UIViewController, StoreSubscriber {
 		self.drawingController = DrawingViewController()
 		self.textEntryController = TextEntryController()
 		self.listController = ListController(_gDel:gDel)
+		listController.view.backgroundColor = UIColor.purple
 		let flowLayout = UICollectionViewFlowLayout()
 		flowLayout.itemSize = CGSize(width: 60, height: 60)
 		flowLayout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5)
 		flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
 		flowLayout.minimumInteritemSpacing = 0.0
 		self.dragController = DragDropViewController(collectionViewLayout: flowLayout, _gDel:gDel)
+		dragController.view.backgroundColor = .green
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -55,12 +60,8 @@ class ViewController: UIViewController, StoreSubscriber {
 		super.viewDidLoad()
 		self.displayContentController(content: drawingController, frame: self.view.frame)
 		self.displayContentController(content: textEntryController, frame: CGRect(x: 0, y: 0, width: 600, height: 400))
-		self.displayContentController(content: dragController, frame: CGRect(x: 0, y: self.view.frame.height/2.0, width: self.view.frame.width, height: self.view.frame.height/2.0))
-		self.displayContentController(content: listController, frame: CGRect(x: 0, y: self.view.frame.height/2.0, width: self.view.frame.width, height: self.view.frame.height/2.0))
-		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-			self.dragController.insert(src: "img1.png", index: 8)
-		}
+		self.displayContentController(content: dragController, frame: CGRect(x: 0, y: self.view.frame.height/2.0, width: self.view.frame.width, height: self.view.frame.height/4.0))
+		self.displayContentController(content: listController, frame: CGRect(x: 0, y: 3.0*self.view.frame.height/4.0, width: self.view.frame.width, height: self.view.frame.height/4.0))
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +75,7 @@ class ViewController: UIViewController, StoreSubscriber {
 	}
 	
 	func newState(state: AppState) {
-		print("newstate")
+		//print("newstate")
 	}
 	
 	func displayContentController(content: UIViewController, frame:CGRect){
