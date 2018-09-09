@@ -15,17 +15,18 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 			let index:Int = action.payload
 			let newItem = DragItemModel(type: "fd", label: "fd", imageSrc: "img1.png")
 			state.dataItems = MathUtils.getInsertedAt(a: state.dataItems, index: index, element: newItem)
+			state.placeholderIndex = -1
 		case let action as SetDragStateAction:
 			let s:String = action.payload
 			state.dragState = s
 		case let action as SetPlaceholderAction:
-			let realDataItems:[DragItemModel] = state.dataItems.filter({$0.type != "temp"})
+			let realDataItems:[DragItemModel] = state.dataItems
 			var placeholderIndex:Int = action.payload
 			if(placeholderIndex < 0){
-				placeholderIndex = 0
+				placeholderIndex = -1
 			}
 			if(placeholderIndex > realDataItems.count){
-				placeholderIndex = realDataItems.count
+				placeholderIndex = -1
 			}
 			state.placeholderIndex = placeholderIndex
 		default:

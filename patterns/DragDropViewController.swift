@@ -64,30 +64,45 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		}
 	}
 	
+	func getPaths() -> [IndexPath]{
+		var p:[IndexPath] = []
+		for i in 0..<dataItems.count{
+			p.append(IndexPath(row:i, section: 0))
+		}
+		return p
+	}
+	
 	func newState(state: AppState) {
-		print("ds, ph", state.dragState, state.placeholderIndex)
 		if(state.dragState == "dragging"){
 			movePlaceholder(newIndex:state.placeholderIndex)
 		}
 		if(state.dragState == "idle"){
+			movePlaceholder(newIndex:-1)
 			dataItems = state.dataItems
-			self.collectionView?.reloadData()
+			for i in 0..<dataItems.count{
+				print (i, dataItems[i].imageSrc)
+			}
+			
+			UIView.setAnimationsEnabled(false)
+			self.collectionView?.performBatchUpdates({
+				self.collectionView?.reloadItems(at: getPaths())
+				self.collectionView?.reloadData()
+			}, completion: { (done:Bool) in
+				UIView.setAnimationsEnabled(true)
+			})
 		}
 	}
 	
 	func movePlaceholder(newIndex:Int){
 		let currentIndex = getPlaceHolderIndex()
-		print(currentIndex,"->", newIndex)
 		if(currentIndex >= 0){
 			// it existed
 			if(newIndex >= 0){
 				// moved
-				print("mv", currentIndex, newIndex)
 				self.move(from: currentIndex, to: newIndex)
 			}
 			else{
 				// deleted
-				print("del", currentIndex)
 				self.deleteAt(index: currentIndex)
 			}
 		}
@@ -95,9 +110,7 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 			// didnt exist
 			if(newIndex >= 0){
 				// add
-				print("add", newIndex)
 				self.insert(d: placeholderItem, index: newIndex)
-				print("NOW", getPlaceHolderIndex())
 			}
 			else{
 				// nothing
@@ -156,7 +169,6 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		else{
 			self.dataItems.insert(d, at: index)
 		}
-		print("now", dataItems)
 		self.collectionView?.insertItems(at: [IndexPath(row:index, section: 0)])
 	}
 	

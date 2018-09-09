@@ -12,8 +12,6 @@ class ItemCell: UICollectionViewCell {
 	public func loadData(p:DragItemModel){
 		self.imageView.image = UIImage(named: p.imageSrc)
 		self.textView.text = p.label
-		self.addSubview(imageView)
-		self.addSubview(textView)
 		textView.font = UIFont(name: "Verdana", size: 14)
 		textView.layer.borderWidth = 1.0;
 		textView.layer.borderColor = UIColor.brown.cgColor
@@ -22,6 +20,7 @@ class ItemCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.addSubview(imageView)
+		self.addSubview(textView)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

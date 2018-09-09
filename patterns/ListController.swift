@@ -84,7 +84,6 @@ class ListController: UIViewController, StoreSubscriber {
 			draggedView!.center = translation + centres[draggedIndex]
 		}
 		else if(sender.state == .ended){
-			store.dispatch(SetPlaceholderAction(payload: -1))
 			store.dispatch(SetDragStateAction(payload: "idle"))
 			store.dispatch(InsertItemAction(payload: getInsertIndex()))
 			reset()
