@@ -4,17 +4,35 @@ import ReSwift
 
 private let REUSE_IDENTIFIER = "PhotoCell"
 
+class EditorViewController:UIViewController{
+	override func viewDidLoad() {
+		self.view.backgroundColor = UIColor.orange
+	}
+}
+
+struct ClickPos{
+	var pos:CGPoint
+	var time:TimeInterval
+	func isCloseTo(clickPos:ClickPos) -> Bool {
+		let p0 = clickPos.pos
+		let p1 = self.pos
+		let dx = p0.x - p1.x
+		let dy = p0.y - p1.y
+		let dt = clickPos.time - self.time
+		return (abs(dx) < 10 && abs(dy) < 10 && abs(dt) < 500)
+	}
+}
+
 class DragDropViewController: UICollectionViewController, StoreSubscriber {
 	
-	typealias StoreSubscriberStateType = AppState
 	var gDel:UIGestureRecognizerDelegate
 	var dataItems:[DragItemModel] = []
 	var placeholderItem:DragItemModel = DragItemModel(type: "temp", label: "fd", imageSrc: "img2.png")
+	var clickPos:ClickPos?
 	
 	init(collectionViewLayout: UICollectionViewLayout, _gDel:UIGestureRecognizerDelegate){
 		self.gDel = _gDel
 		super.init(collectionViewLayout:collectionViewLayout)
-		
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -32,16 +50,18 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		self.view.backgroundColor = UIColor.cyan
 		let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
 		self.collectionView?.addGestureRecognizer(longPressGesture)
-		self.collectionView?.backgroundColor = .green
-		longPressGesture.minimumPressDuration = 0.0001
+		self.collectionView?.backgroundColor = UIColor.cyan
+		longPressGesture.minimumPressDuration = 0.0000001
 		longPressGesture.delegate = self.gDel
+		self.view.backgroundColor = UIColor.red
 	}
-	
+
 	@objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
 		if(gesture.state == .began){
 			guard let selectedIndexPath = self.collectionView?.indexPathForItem(at: gesture.location(in: self.collectionView)) else {
 				return
 			}
+			clickPos = ClickPos(pos: gesture.location(in: self.view), time: Date().timeIntervalSince1970)
 			self.collectionView?.beginInteractiveMovementForItem(at: selectedIndexPath)
 		}
 		else if(gesture.state == .changed){
@@ -49,9 +69,22 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		}
 		else if(gesture.state == .ended){
 			self.collectionView?.endInteractiveMovement()
+			self.checkClick(clickPos:ClickPos(pos: gesture.location(in: self.view), time: Date().timeIntervalSince1970))
 		}
 		else{
 			self.collectionView?.cancelInteractiveMovement()
+		}
+	}
+	
+	func checkClick(clickPos:ClickPos){
+		if(clickPos.isCloseTo(clickPos: self.clickPos!)){
+			let editor = EditorViewController()
+			editor.preferredContentSize = CGSize(width: 400, height: 300)
+			editor.modalPresentationStyle = .popover
+			let popover = editor.popoverPresentationController
+			popover?.sourceView = self.view
+			popover?.sourceRect = CGRect(x: clickPos.pos.x, y: clickPos.pos.y, width: 64, height: 64)
+			self.present(editor, animated: true, completion: nil)
 		}
 	}
 	
@@ -64,28 +97,37 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		}
 	}
 	
-	func getPaths() -> [IndexPath]{
+	func getIndexAt(x:Double, y:Double) -> Int{
+		var numX:Int = Int(floor(x/60.0))
+		let min = 0
+		let max = self.dataItems.count
+		if(numX < min){
+			numX = min
+		}
+		if(numX > max){
+			numX = max
+		}
+		return numX
+	}
+	
+	func getAllPaths() -> [IndexPath]{
 		var p:[IndexPath] = []
-		for i in 0..<dataItems.count{
+		for i in 0..<self.dataItems.count{
 			p.append(IndexPath(row:i, section: 0))
 		}
 		return p
 	}
 	
-	func newState(state: AppState) {
-		if(state.dragState == "dragging"){
-			movePlaceholder(newIndex:state.placeholderIndex)
+	func newState(state: (dragState: DragState, items: DragItems)) {
+		if(state.dragState.state == .dragging){
+			movePlaceholder(newIndex:state.dragState.placeholderIndex)
 		}
-		if(state.dragState == "idle"){
+		if(state.dragState.state == .idle){
 			movePlaceholder(newIndex:-1)
-			dataItems = state.dataItems
-			for i in 0..<dataItems.count{
-				print (i, dataItems[i].imageSrc)
-			}
-			
+			dataItems = state.items
 			UIView.setAnimationsEnabled(false)
 			self.collectionView?.performBatchUpdates({
-				self.collectionView?.reloadItems(at: getPaths())
+				self.collectionView?.reloadItems(at: getAllPaths())
 				self.collectionView?.reloadData()
 			}, completion: { (done:Bool) in
 				UIView.setAnimationsEnabled(true)
@@ -120,7 +162,15 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		store.subscribe(self)
+		store.subscribe(self) {
+			$0
+			.select {
+				(dragState:$0.dragState, items:$0.items)
+			}
+			.skipRepeats{
+				return $0.dragState == $1.dragState
+			}
+		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -130,6 +180,14 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
+	}
+	
+	override public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		print(indexPath)
+	}
+	
+	override public func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+		print(indexPath)
 	}
 	
 	override public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{

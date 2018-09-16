@@ -19,8 +19,7 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 	}
 	
 	func newState(state: AppState) {
-		//print("d new state")
-		if(state.codeStatus == "started"){
+		if(state.codeState == .started){
 			geom.setText(_text: state.text)
 			(self.view as! DrawingView).setPolygons(ps: geom.getPolygons())
 			(self.view as! DrawingView).update()

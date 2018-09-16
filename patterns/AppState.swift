@@ -1,29 +1,37 @@
 import ReSwift
 
+typealias DragItems = [DragItemModel]
+
+enum CodeState: String {
+	case stopped = "stopped"
+	case started = "started"
+	case stopping = "stopping"
+}
+
+enum NavState: String {
+	case draw = "draw"
+}
+
 struct AppState: StateType {
-	var counter: Int = 0
-	var codeStatus:String = "stopped"
-	var navigationState = "draw"
+	var dragState: DragState = DragState()
+	var codeState:CodeState = .stopped
+	var navigationState:NavState = .draw
 	var text:String = "fd 250 rt 150 fd 380 lt 135 fd 250 lt 200 fd 500"
-	var dataItems:[DragItemModel] = {
-		var photos = [] as [DragItemModel]
+	var items:DragItems = {
+		var items = [] as [DragItemModel]
 		for index in 0...5 {
-			photos.append(DragItemModel(type: "fd", label: "fd", imageSrc: "img.png"))
+			items.append(DragItemModel(type: "fd", label: "fd", imageSrc: "img.png"))
 		}
-		return photos
+		return items
 	}()
-	var placeholderIndex:Int = -1
-	var dragState = "idle"
 }
 
 extension AppState: Equatable {
 	static func == (lhs: AppState, rhs: AppState) -> Bool {
-		return lhs.counter == rhs.counter
-		&& lhs.codeStatus == rhs.codeStatus
+		return lhs.codeState == rhs.codeState
 		&& lhs.navigationState == rhs.navigationState
 		&& lhs.text == rhs.text
-		&& lhs.dataItems.count == rhs.dataItems.count
-		&& lhs.placeholderIndex == rhs.placeholderIndex
+		&& lhs.items.count == rhs.items.count
 		&& lhs.dragState == rhs.dragState
 	}
 }

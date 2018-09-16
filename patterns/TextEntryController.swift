@@ -42,7 +42,6 @@ class TextEntryController: UIViewController, StoreSubscriber {
 	}
 	
 	@objc func buttonClicked(_ sender: AnyObject?){
-		print("click")
 		store.dispatch(StatusActionStart())
 	}
 

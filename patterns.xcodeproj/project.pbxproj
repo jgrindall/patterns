@@ -35,6 +35,9 @@
 		52E85AF12104BA81004CDB27 /* MinMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E85AEF2104BA81004CDB27 /* MinMax.swift */; };
 		52E85AF32104BB51004CDB27 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E85AF22104BB51004CDB27 /* MathUtils.swift */; };
 		52E85AF62104C078004CDB27 /* GroupP3M1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E85AF52104C078004CDB27 /* GroupP3M1.swift */; };
+		52F075D1214E594E0085BB21 /* ConnectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F075D0214E594E0085BB21 /* ConnectedController.swift */; };
+		52F075D3214E611C0085BB21 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F075D2214E611C0085BB21 /* DragState.swift */; };
+		52F075D5214EB63F0085BB21 /* del.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F075D4214EB63F0085BB21 /* del.png */; };
 		8283E47F42C413BDBB390E98 /* Pods_patterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFBCFFBE9296BEA4667D638 /* Pods_patterns.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,9 @@
 		52E85AEF2104BA81004CDB27 /* MinMax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinMax.swift; sourceTree = "<group>"; };
 		52E85AF22104BB51004CDB27 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		52E85AF52104C078004CDB27 /* GroupP3M1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupP3M1.swift; sourceTree = "<group>"; };
+		52F075D0214E594E0085BB21 /* ConnectedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedController.swift; sourceTree = "<group>"; };
+		52F075D2214E611C0085BB21 /* DragState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
+		52F075D4214EB63F0085BB21 /* del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = del.png; sourceTree = "<group>"; };
 		88CB83FAA9C12238FBDBA1CF /* Pods-patterns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-patterns.release.xcconfig"; path = "Pods/Target Support Files/Pods-patterns/Pods-patterns.release.xcconfig"; sourceTree = "<group>"; };
 		CAFBCFFBE9296BEA4667D638 /* Pods_patterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_patterns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,6 +103,7 @@
 		52ADA12621406D8200C1862F /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				52F075D4214EB63F0085BB21 /* del.png */,
 				52B4A66021453FDB00E761C3 /* img2.png */,
 				52ADA12D214088BF00C1862F /* img1.png */,
 				52ADA12721406D8200C1862F /* img.png */,
@@ -136,6 +143,7 @@
 				52ADA12621406D8200C1862F /* assets */,
 				52C7C259213AAE2200920520 /* actions */,
 				52C7C261213AAE2300920520 /* AppReducer.swift */,
+				52F075D2214E611C0085BB21 /* DragState.swift */,
 				52C7C25C213AAE2300920520 /* AppState.swift */,
 				52E85AF42104C078004CDB27 /* groups */,
 				52E85AF22104BB51004CDB27 /* MathUtils.swift */,
@@ -151,6 +159,7 @@
 				52CE633C20F9F3DC003278E9 /* AppDelegate.swift */,
 				52C7C253213AA62B00920520 /* DrawingViewController.swift */,
 				52ADA124214065B100C1862F /* DraggerView.swift */,
+				52F075D0214E594E0085BB21 /* ConnectedController.swift */,
 				52ADA1222140646B00C1862F /* DragDropViewController.swift */,
 				52C7C257213AA8DC00920520 /* TextEntryController.swift */,
 				52C7C269213AB47400920520 /* Geom.swift */,
@@ -245,6 +254,7 @@
 				52CE634720F9F3DC003278E9 /* LaunchScreen.storyboard in Resources */,
 				52ADA12E214088BF00C1862F /* img1.png in Resources */,
 				52B4A66121453FDB00E761C3 /* img2.png in Resources */,
+				52F075D5214EB63F0085BB21 /* del.png in Resources */,
 				52CE634420F9F3DC003278E9 /* Assets.xcassets in Resources */,
 				52CE634220F9F3DC003278E9 /* Main.storyboard in Resources */,
 				52ADA12821406D8200C1862F /* img.png in Resources */,
@@ -300,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52CE633F20F9F3DC003278E9 /* ViewController.swift in Sources */,
+				52F075D3214E611C0085BB21 /* DragState.swift in Sources */,
 				52C7C262213AAE2300920520 /* Actions.swift in Sources */,
 				52497131210CBF7900EBE3B1 /* LineList.swift in Sources */,
 				52ADA12A2140755E00C1862F /* IndexUtils.swift in Sources */,
@@ -313,6 +324,7 @@
 				52C7C258213AA8DC00920520 /* TextEntryController.swift in Sources */,
 				52ADA12C2140830C00C1862F /* ListController.swift in Sources */,
 				52497133210CBFAC00EBE3B1 /* LineSegment.swift in Sources */,
+				52F075D1214E594E0085BB21 /* ConnectedController.swift in Sources */,
 				52B4A65F214532C600E761C3 /* ItemCell.swift in Sources */,
 				52CE633D20F9F3DC003278E9 /* AppDelegate.swift in Sources */,
 				52C7C256213AA6DF00920520 /* DrawingView.swift in Sources */,

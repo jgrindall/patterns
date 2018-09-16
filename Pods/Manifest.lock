@@ -1,9 +1,9 @@
 PODS:
-  - ReSwift (4.0.0)
+  - ReSwift (4.0.1)
   - RSClipperWrapper (1.3)
 
 DEPENDENCIES:
-  - ReSwift
+  - ReSwift (~> 4.0.0)
   - RSClipperWrapper (from `https://github.com/rusty1s/RSClipperWrapper.git`)
 
 SPEC REPOS:
@@ -20,9 +20,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/rusty1s/RSClipperWrapper.git
 
 SPEC CHECKSUMS:
-  ReSwift: f058ef13b46ae5f463f10605ccbbb7fb04424d8d
+  ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
   RSClipperWrapper: e8105534f0db6b1e03d8b92a100ea438a67a6679
 
-PODFILE CHECKSUM: 356a39008a234a6529423c2ca74b06b9a2c4afd5
+PODFILE CHECKSUM: 69ff7ef3f5f52f771c678412694c195415e2e9df
 
 COCOAPODS: 1.5.3

@@ -4,6 +4,20 @@ import ReSwift
 
 var store = Store<AppState>(reducer: appReducer, state: AppState())
 
+func displayContentController(container:UIViewController, content: UIViewController, frame:CGRect){
+	container.addChildViewController(content)
+	container.view.addSubview(content.view)
+	content.view.frame = frame
+	print("Add", content, "to", container, "frame", frame)
+	content.didMove(toParentViewController: container)
+}
+
+func hideContentController(container:UIViewController, content: UIViewController) {
+	content.willMove(toParentViewController: nil)
+	content.view.removeFromSuperview()
+	content.removeFromParentViewController()
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

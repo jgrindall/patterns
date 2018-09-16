@@ -12,6 +12,7 @@ class ListController: UIViewController, StoreSubscriber {
 	var itemView2:UIView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
 	var draggedView:UIView?
 	var draggedIndex:Int = 0
+	var _target:DragDropViewController?
 	
 	init(_gDel:UIGestureRecognizerDelegate){
 		self.gDel = _gDel
@@ -43,6 +44,7 @@ class ListController: UIViewController, StoreSubscriber {
 		self.view.addSubview(itemView2)
 		let panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target:self, action:#selector(ListController.detectPan(_:)))
 		self.view.addGestureRecognizer(panRecognizer)
+		self.view.backgroundColor = UIColor.purple
 	}
 	
 	func reset(){
@@ -61,22 +63,20 @@ class ListController: UIViewController, StoreSubscriber {
 	}
 	
 	func getInsertIndex() -> Int{
-		let px:Double = Double((draggedView?.center.x)!)
-		let py:Double = Double((draggedView?.center.y)!) + (768.0/4.0)
-		let xd:Double = Double(px/60.0)
-		let yd:Double = Double(py/60.0)
-		let x:Double = floor(xd)
-		let y:Double = floor(yd)
-		let index:Int = Int(16*y + x)
-		return index
+		var px:Double = Double((draggedView?.center.x)!)
+		var py:Double = Double((draggedView?.center.y)!)
+		let f0:CGRect = self.view.frame
+		let f1:CGRect = (_target?.view.frame)!
+		px = px + (Double(f0.minX) - Double(f1.minX))
+		py = py + (Double(f0.minY) - Double(f1.minY))
+		return _target!.getIndexAt(x:px, y:py)
 	}
 	
 	@objc func detectPan(_ sender:UIPanGestureRecognizer) {
-		//print(sender.state)
 		let translation:CGPoint  = sender.translation(in: self.view!)
 		if(sender.state == .began){
 			let p:CGPoint = sender.location(in: self.view)
-			store.dispatch(SetDragStateAction(payload: "dragging"))
+			store.dispatch(SetDragStateAction(payload: .dragging))
 			setDragged(p:p)
 		}
 		else if(sender.state == .changed){
@@ -84,10 +84,15 @@ class ListController: UIViewController, StoreSubscriber {
 			draggedView!.center = translation + centres[draggedIndex]
 		}
 		else if(sender.state == .ended){
-			store.dispatch(SetDragStateAction(payload: "idle"))
+			store.dispatch(SetDragStateAction(payload: .idle))
 			store.dispatch(InsertItemAction(payload: getInsertIndex()))
+			store.dispatch(SetPlaceholderAction(payload: -1))
 			reset()
 		}
+	}
+	
+	func setTarget(target:DragDropViewController){
+		self._target = target
 	}
 	
 	func newState(state: AppState) {
