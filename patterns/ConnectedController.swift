@@ -9,18 +9,16 @@ class ConnectedController: UIViewController, StoreSubscriber {
 	
 	private var dragController:DragDropViewController
 	private var listController:ListController
-	private var gDel:UIGestureRecognizerDelegate
 	private var delButton:UIImageView = UIImageView(frame: CGRect(x: 700, y: 100, width: 60, height: 60))
 	init(frame:CGRect){
-		gDel = GDelegate()
-		self.listController = ListController(_gDel:gDel)
+		self.listController = ListController()
 		listController.view.backgroundColor = UIColor.purple
 		let flowLayout = UICollectionViewFlowLayout()
 		flowLayout.itemSize = CGSize(width: 60, height: 60)
 		flowLayout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5)
 		flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
 		flowLayout.minimumInteritemSpacing = 0.0
-		self.dragController = DragDropViewController(collectionViewLayout: flowLayout, _gDel:gDel)
+		self.dragController = DragDropViewController(collectionViewLayout: flowLayout)
 		dragController.view.backgroundColor = .green
 		super.init(nibName: nil, bundle: nil)
 		self.delButton.image = UIImage(named: "del.png")

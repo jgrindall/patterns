@@ -24,6 +24,13 @@ struct AppState: StateType {
 		}
 		return items
 	}()
+	var listItems = ListItemsState(items: {
+		var items = [] as [ListItemModel]
+		for index in 0...5 {
+			items.append(ListItemModel(type: "fd", clr:UIColor.red, label: "fd", imageSrc: "img.png"))
+		}
+		return items
+	}())
 }
 
 extension AppState: Equatable {
@@ -32,6 +39,7 @@ extension AppState: Equatable {
 		&& lhs.navigationState == rhs.navigationState
 		&& lhs.text == rhs.text
 		&& lhs.items.count == rhs.items.count
+		&& lhs.listItems == rhs.listItems
 		&& lhs.dragState == rhs.dragState
 	}
 }

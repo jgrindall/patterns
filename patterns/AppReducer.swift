@@ -6,7 +6,8 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 		codeState: statusReducer(action: action, codeState: state?.codeState),
 		navigationState: navReducer(action: action, state: state?.navigationState),
 		text: textReducer(action: action, state: state?.text),
-		items: itemsReducer(action: action, items: state?.items)
+		items: itemsReducer(action: action, items: state?.items),
+		listItems: (state?.listItems)!
 	)
 }
 

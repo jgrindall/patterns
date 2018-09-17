@@ -3,14 +3,6 @@ import UIKit
 import RSClipperWrapper
 import ReSwift
 
-class GDelegate : NSObject, UIGestureRecognizerDelegate {
-	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-		//print(gestureRecognizer)
-		//print(otherGestureRecognizer)
-		return false
-	}
-}
-
 class ViewController: UIViewController, StoreSubscriber {
 	
 	typealias StoreSubscriberStateType = AppState

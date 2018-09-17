@@ -12,3 +12,9 @@ class DragItemModel {
 		self.imageSrc = imageSrc
 	}
 }
+
+extension DragItemModel: Equatable {}
+
+func ==(lhs: DragItemModel, rhs: DragItemModel) -> Bool {
+	return (lhs.type == rhs.type && lhs.label == rhs.label && lhs.imageSrc == rhs.imageSrc)
+}

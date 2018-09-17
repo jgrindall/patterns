@@ -3,28 +3,16 @@ import UIKit
 import ReSwift
 
 class ListController: UIViewController, StoreSubscriber {
-	
-	typealias StoreSubscriberStateType = AppState
-	var gDel:UIGestureRecognizerDelegate
+
 	var centres:[CGPoint] = []
-	var itemView0:UIView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-	var itemView1:UIView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-	var itemView2:UIView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+	var listItems:[ListItemModel] = []
+	var views:[UIView] = []
 	var draggedView:UIView?
 	var draggedIndex:Int = 0
 	var _target:DragDropViewController?
 	
-	init(_gDel:UIGestureRecognizerDelegate){
-		self.gDel = _gDel
+	init(){
 		super.init(nibName: nil, bundle: nil)
-		centres = [
-			CGPoint(x:50.0, y:80.0),
-			CGPoint(x:150.0, y:80.0),
-			CGPoint(x:250.0, y:80.0)
-		]
-		itemView0.center = centres[0]
-		itemView1.center = centres[1]
-		itemView2.center = centres[2]
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -33,15 +21,6 @@ class ListController: UIViewController, StoreSubscriber {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		itemView0.backgroundColor = .red
-		itemView0.layer.cornerRadius = 30
-		itemView1.backgroundColor = .green
-		itemView1.layer.cornerRadius = 30
-		itemView2.backgroundColor = .blue
-		itemView2.layer.cornerRadius = 30
-		self.view.addSubview(itemView0)
-		self.view.addSubview(itemView1)
-		self.view.addSubview(itemView2)
 		let panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target:self, action:#selector(ListController.detectPan(_:)))
 		self.view.addGestureRecognizer(panRecognizer)
 		self.view.backgroundColor = UIColor.purple
@@ -52,14 +31,14 @@ class ListController: UIViewController, StoreSubscriber {
 	}
 	
 	func setDragged(p:CGPoint){
-		let d:UIView? = MathUtils.getViewContainingPoint(p: p, views: [itemView0, itemView1, itemView2])
+		let d:UIView? = MathUtils.getViewContainingPoint(p: p, views: self.views)
 		if d != nil {
 			draggedView = d
 		}
 		else{
-			draggedView = itemView0
+			draggedView = self.views[0]
 		}
-		draggedIndex = [itemView0, itemView1, itemView2].index(of: draggedView!)!
+		draggedIndex = self.views.index(of: draggedView!)!
 	}
 	
 	func getInsertIndex() -> Int{
@@ -95,13 +74,35 @@ class ListController: UIViewController, StoreSubscriber {
 		self._target = target
 	}
 	
-	func newState(state: AppState) {
-		//print("new state", state)
+	func addChildren(){
+		self.view.subviews.forEach({ $0.removeFromSuperview() })
+		self.centres = []
+		var v:UIView
+		var p:CGPoint
+		for i in 0..<listItems.count{
+			p = CGPoint(x:50.0 + Double(i)*60.0, y:80.0)
+			centres.append(p)
+			v = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 60, height: 60))
+			self.view.addSubview(v)
+			v.layer.cornerRadius = 30
+			v.backgroundColor = listItems[i].clr
+			v.center = p
+		}
+	}
+	
+	func newState(state: ListItemsState) {
+		listItems = state.items
+		addChildren()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		store.subscribe(self)
+		store.subscribe(self) {
+			$0
+			.select {
+				$0.listItems
+			}
+		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {

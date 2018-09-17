@@ -25,13 +25,11 @@ struct ClickPos{
 
 class DragDropViewController: UICollectionViewController, StoreSubscriber {
 	
-	var gDel:UIGestureRecognizerDelegate
 	var dataItems:[DragItemModel] = []
 	var placeholderItem:DragItemModel = DragItemModel(type: "temp", label: "fd", imageSrc: "img2.png")
 	var clickPos:ClickPos?
 	
-	init(collectionViewLayout: UICollectionViewLayout, _gDel:UIGestureRecognizerDelegate){
-		self.gDel = _gDel
+	override init(collectionViewLayout: UICollectionViewLayout){
 		super.init(collectionViewLayout:collectionViewLayout)
 	}
 	
@@ -52,7 +50,6 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		self.collectionView?.addGestureRecognizer(longPressGesture)
 		self.collectionView?.backgroundColor = UIColor.cyan
 		longPressGesture.minimumPressDuration = 0.0000001
-		longPressGesture.delegate = self.gDel
 		self.view.backgroundColor = UIColor.red
 	}
 
