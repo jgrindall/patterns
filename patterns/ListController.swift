@@ -77,6 +77,7 @@ class ListController: UIViewController, StoreSubscriber {
 	func addChildren(){
 		self.view.subviews.forEach({ $0.removeFromSuperview() })
 		self.centres = []
+		self.views = []
 		var v:UIView
 		var p:CGPoint
 		for i in 0..<listItems.count{
@@ -87,6 +88,7 @@ class ListController: UIViewController, StoreSubscriber {
 			v.layer.cornerRadius = 30
 			v.backgroundColor = listItems[i].clr
 			v.center = p
+			views.append(v)
 		}
 	}
 	
