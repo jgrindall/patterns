@@ -6,8 +6,8 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 	
 	typealias StoreSubscriberStateType = AppState
 	
-	var panGesture  = UIPanGestureRecognizer()
-	var geom:Geom = Geom()
+	private var panGesture  = UIPanGestureRecognizer()
+	private var geom:Geom = Geom()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

@@ -6,8 +6,8 @@ class TextEntryController: UIViewController, StoreSubscriber {
 	
 	typealias StoreSubscriberStateType = AppState
 	
-	var textField:UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 500, height: 200))
-	var okButton:UIButton = UIButton(type: UIButtonType.system)
+	private var textField:UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 500, height: 200))
+	private var okButton:UIButton = UIButton(type: UIButtonType.system)
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

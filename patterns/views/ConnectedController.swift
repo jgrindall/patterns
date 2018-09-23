@@ -14,6 +14,7 @@ class ConnectedController: UIViewController, StoreSubscriber, PDragDelegate {
 	private var dragController:DragDropViewController
 	private var listController:ListController
 	private var delButton:UIImageView = UIImageView(frame: CGRect(x: 700, y: 100, width: 60, height: 60))
+	
 	init(frame:CGRect){
 		self.listController = ListController()
 		listController.view.backgroundColor = UIColor.purple

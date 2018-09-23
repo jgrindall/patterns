@@ -4,7 +4,7 @@ import RSClipperWrapper
 
 class DrawingView : UIView{
 	
-	var polygons:[Polygon] = []
+	private var polygons:[Polygon] = []
 	
 	override init(frame:CGRect){
 		super.init(frame: frame)

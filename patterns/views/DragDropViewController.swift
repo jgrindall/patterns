@@ -68,7 +68,6 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber, PEdit
 	func checkClick(clickPos:ClickPos){
 		if(clickPos.isCloseTo(clickPos: self.clickPos!)){
 			let index:Int = self.getIndexAt(x: Double(clickPos.pos.x), y: Double(clickPos.pos.y), allowEnd: false)
-			print("index", index, self.dataItems)
 			let data = self.dataItems[index]
 			let cell = collectionView!.cellForItem(at: IndexPath(row:index, section: 0))
 			let editor = EditorViewController()

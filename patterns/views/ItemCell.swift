@@ -3,8 +3,8 @@ import UIKit
 import ReSwift
 
 class ItemCell: UICollectionViewCell {
-	var imageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-	var textView: UITextView = UITextView(frame: CGRect(x: 10, y: 10, width: 40, height: 40))
+	private var imageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+	private var textView: UITextView = UITextView(frame: CGRect(x: 10, y: 10, width: 40, height: 40))
 	init() {
 		super.init(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
 	}

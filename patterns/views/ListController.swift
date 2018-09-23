@@ -4,12 +4,12 @@ import ReSwift
 
 class ListController: UIViewController, StoreSubscriber {
 
-	var centres:[CGPoint] = []
-	var listItems:[ListItemModel] = []
-	var views:[UIView] = []
-	var draggedView:UIView? = nil
-	var draggedIndex:Int = -1
-	var _target:DragDropViewController? // to be a protocol
+	private var centres:[CGPoint] = []
+	private var listItems:[ListItemModel] = []
+	private var views:[UIView] = []
+	private var draggedView:UIView? = nil
+	private var draggedIndex:Int = -1
+	private var _target:DragDropViewController? // to be a protocol
 	
 	init(){
 		super.init(nibName: nil, bundle: nil)
