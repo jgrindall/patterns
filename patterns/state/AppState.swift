@@ -35,9 +35,6 @@ struct AppState: StateType {
 
 extension AppState: Equatable {
 	static func == (lhs: AppState, rhs: AppState) -> Bool {
-		print(lhs.items)
-		print(rhs.items)
-		print(lhs.items.elementsEqual(rhs.items))
 		return lhs.codeState == rhs.codeState
 		&& lhs.navigationState == rhs.navigationState
 		&& lhs.text == rhs.text

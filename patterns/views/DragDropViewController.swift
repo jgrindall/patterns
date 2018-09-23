@@ -109,28 +109,15 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber, PEdit
 	
 	func newState(state: DragItems) {
 		dataItems = state
-		print("newState", dataItems)
-		for i in 0..<dataItems.count{
-			print(i,dataItems[i].imageSrc)
-			print(i,dataItems[i].label)
-			print(i,dataItems[i].type)
-		}
 		UIView.setAnimationsEnabled(false)
-		//self.collectionView?.performBatchUpdates({
-			self.collectionView?.reloadData()
+		self.collectionView?.reloadData()
 		self.collectionView?.reloadItems(at: getAllPaths())
-		
-		//}, completion: { (done:Bool) in
-			UIView.setAnimationsEnabled(true)
-		//})
-		//self.collectionView?.reloadItems(at: getAllPaths())
-		//self.collectionView?.reloadData()
+		UIView.setAnimationsEnabled(true)
 	}
 	
 	func movePlaceholder(index:Int){
 		var numActualDataItems:Int
 		var newIndex:Int
-		print("0", self.placeholderIndex, index)
 		if(self.placeholderIndex != index){
 			if(self.placeholderIndex >= 0){
 				// it existed
@@ -157,7 +144,6 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber, PEdit
 			}
 			self.placeholderIndex = newIndex
 		}
-		print("now", self.placeholderIndex)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -181,19 +167,16 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber, PEdit
 	
 	@objc(collectionView:layout:insetForSectionAtIndex:)
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-		print("1", section)
 		return UIEdgeInsetsMake(5, 5, 5, 5)
 	}
 	
 	@objc(collectionView:layout:minimumLineSpacingForSectionAtIndex:)
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-		print("2", section)
 		return 5
 	}
 	
 	@objc(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-		print("3", section)
 		return 5
 	}
 
@@ -242,21 +225,10 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber, PEdit
 	}
 	
 	public func deleteAt(index:Int){
-		print("remove", index)
 		UIView.setAnimationsEnabled(false)
 		self.dataItems = MathUtils.getDeletedAt(a:self.dataItems, index:index)
-		print(self.dataItems.count)
 		self.collectionView?.deleteItems(at: [IndexPath(row:index, section: 0)])
 		UIView.setAnimationsEnabled(true)
-			/*
-		dataItems = MathUtils.getDeletedAt(a:self.dataItems, index:index)
-		UIView.setAnimationsEnabled(false)
-		self.collectionView?.performBatchUpdates({
-			self.collectionView?.deleteItems(at: [IndexPath(row:index, section: 0)])
-		}, completion: { (done:Bool) in
-			UIView.setAnimationsEnabled(true)
-		})
-*/
 	}
 	
 	

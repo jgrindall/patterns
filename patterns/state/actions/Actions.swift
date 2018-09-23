@@ -12,10 +12,6 @@ struct InsertItemAction:Action {
 	let payload: Int
 }
 
-struct SetDragStateAction:Action{
-	let payload: DragStates
-}
-
 struct Edit{
 	let index:Int
 	let model:DragItemModel

@@ -61,7 +61,6 @@ class ListController: UIViewController, StoreSubscriber {
 		let translation:CGPoint  = sender.translation(in: self.view!)
 		if(sender.state == .began){
 			let p:CGPoint = sender.location(in: self.view)
-			//store.dispatch(SetDragStateAction(payload: .dragging))
 			setDragged(p:p)
 		}
 		else if(sender.state == .changed){
@@ -69,11 +68,9 @@ class ListController: UIViewController, StoreSubscriber {
 			_target?.movePlaceholder(index: getInsertIndex())
 		}
 		else if(sender.state == .ended){
-			print("end")
 			_target?.movePlaceholder(index: -1)
-			//store.dispatch(SetDragStateAction(payload: .idle))
-			print("InsertItemAction")
-			store.dispatch(InsertItemAction(payload: draggedIndex))
+			print("InsertItemAction", draggedIndex)
+			store.dispatch(InsertItemAction(payload: getInsertIndex()))
 			reset()
 		}
 	}
@@ -106,7 +103,6 @@ class ListController: UIViewController, StoreSubscriber {
 	}
 	
 	func newState(state: ListItemsState) {
-		print("list")
 		listItems = state.items
 		addChildren()
 	}

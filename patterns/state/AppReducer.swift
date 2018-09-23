@@ -56,12 +56,6 @@ func statusReducer(action: Action, codeState: CodeState?) -> CodeState {
 
 func dragReducer(action: Action, state: DragState?) -> DragState {
 	var state = state ?? DragState()
-	switch action {
-		case let action as SetDragStateAction:
-			state.state = action.payload
-		default:
-			break
-	}
 	return state
 }
 
