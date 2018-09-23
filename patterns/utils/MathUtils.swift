@@ -29,6 +29,21 @@ class MathUtils {
 		return Array(left + right)
 	}
 	
+	public static func getReplacedAt<T>(a:[T], index:Int, element:T) -> [T]{
+		if(a.count == 0){
+			return []
+		}
+		if(index < 0){
+			return a
+		}
+		if(index > a.count - 1){
+			return a
+		}
+		let left = a.prefix(index)
+		let right = a.suffix(a.count - index - 1)
+		return Array(left + [element] + right)
+	}
+	
 	public static func getInsertedAt<T>(a:[T], index:Int, element:T) -> [T]{
 		//eg.  a,b,c,d,e,f,g,h,i   getInsertedAt  3, "X"   ->   a,b,c,X,d,e,f,g,h,i
 		if(a.count == 0){

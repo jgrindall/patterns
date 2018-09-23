@@ -30,6 +30,12 @@ func itemsReducer(action: Action, items: DragItems?) -> DragItems {
 			let index:Int = action.payload
 			let newItem = DragItemModel(type: "fd", label: "fd", imageSrc: "img1.png")
 			return MathUtils.getInsertedAt(a: items!, index: index, element: newItem)
+		case let action as UpdateItemAction:
+			let edit:Edit = action.payload
+			let newItem = edit.model
+			return MathUtils.getReplacedAt(a: items!, index: edit.index, element: newItem)
+		case let action as DeleteItemAction:
+			return MathUtils.getDeletedAt(a: items!, index: action.payload)
 		default:
 			return items!
 	}
@@ -53,8 +59,6 @@ func dragReducer(action: Action, state: DragState?) -> DragState {
 	switch action {
 		case let action as SetDragStateAction:
 			state.state = action.payload
-		case let action as SetPlaceholderAction:
-			state.placeholderIndex = action.payload
 		default:
 			break
 	}

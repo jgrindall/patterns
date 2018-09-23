@@ -7,9 +7,9 @@ class ListController: UIViewController, StoreSubscriber {
 	var centres:[CGPoint] = []
 	var listItems:[ListItemModel] = []
 	var views:[UIView] = []
-	var draggedView:UIView?
-	var draggedIndex:Int = 0
-	var _target:DragDropViewController?
+	var draggedView:UIView? = nil
+	var draggedIndex:Int = -1
+	var _target:DragDropViewController? // to be a protocol
 	
 	init(){
 		super.init(nibName: nil, bundle: nil)
@@ -27,18 +27,24 @@ class ListController: UIViewController, StoreSubscriber {
 	}
 	
 	func reset(){
-		draggedView!.center = centres[draggedIndex]
+		if draggedView != nil {
+			draggedView?.removeFromSuperview()
+		}
+		draggedView = nil
+		draggedIndex = -1
 	}
 	
 	func setDragged(p:CGPoint){
 		let d:UIView? = MathUtils.getViewContainingPoint(p: p, views: self.views)
 		if d != nil {
-			draggedView = d
+			draggedIndex = self.views.index(of: d!)!
+			draggedView = self.makeView(model: self.listItems[draggedIndex], center: centres[draggedIndex])
+			self.view.addSubview(draggedView!)
 		}
 		else{
-			draggedView = self.views[0]
+			draggedIndex = -1
+			draggedView = nil
 		}
-		draggedIndex = self.views.index(of: draggedView!)!
 	}
 	
 	func getInsertIndex() -> Int{
@@ -55,23 +61,33 @@ class ListController: UIViewController, StoreSubscriber {
 		let translation:CGPoint  = sender.translation(in: self.view!)
 		if(sender.state == .began){
 			let p:CGPoint = sender.location(in: self.view)
-			store.dispatch(SetDragStateAction(payload: .dragging))
+			//store.dispatch(SetDragStateAction(payload: .dragging))
 			setDragged(p:p)
 		}
 		else if(sender.state == .changed){
-			store.dispatch(SetPlaceholderAction(payload: getInsertIndex()))
 			draggedView!.center = translation + centres[draggedIndex]
+			_target?.movePlaceholder(index: getInsertIndex())
 		}
 		else if(sender.state == .ended){
-			store.dispatch(SetDragStateAction(payload: .idle))
-			store.dispatch(InsertItemAction(payload: getInsertIndex()))
-			store.dispatch(SetPlaceholderAction(payload: -1))
+			print("end")
+			_target?.movePlaceholder(index: -1)
+			//store.dispatch(SetDragStateAction(payload: .idle))
+			print("InsertItemAction")
+			store.dispatch(InsertItemAction(payload: draggedIndex))
 			reset()
 		}
 	}
 	
 	func setTarget(target:DragDropViewController){
 		self._target = target
+	}
+	
+	func makeView(model:ListItemModel, center:CGPoint) -> UIView{
+		let v:UIView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 60, height: 60))
+		v.layer.cornerRadius = 30
+		v.backgroundColor = model.clr
+		v.center = center
+		return v
 	}
 	
 	func addChildren(){
@@ -81,18 +97,16 @@ class ListController: UIViewController, StoreSubscriber {
 		var v:UIView
 		var p:CGPoint
 		for i in 0..<listItems.count{
-			p = CGPoint(x:50.0 + Double(i)*60.0, y:80.0)
+			p = CGPoint(x:50.0 + Double(i)*70.0, y:80.0)
 			centres.append(p)
-			v = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 60, height: 60))
+			v = self.makeView(model: listItems[i], center: p)
 			self.view.addSubview(v)
-			v.layer.cornerRadius = 30
-			v.backgroundColor = listItems[i].clr
-			v.center = p
 			views.append(v)
 		}
 	}
 	
 	func newState(state: ListItemsState) {
+		print("list")
 		listItems = state.items
 		addChildren()
 	}

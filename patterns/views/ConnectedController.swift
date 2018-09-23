@@ -3,7 +3,11 @@ import UIKit
 import RSClipperWrapper
 import ReSwift
 
-class ConnectedController: UIViewController, StoreSubscriber {
+protocol PDragDelegate{
+	func onDragEnd(index:IndexPath, pos:CGPoint)
+}
+
+class ConnectedController: UIViewController, StoreSubscriber, PDragDelegate {
 	
 	typealias StoreSubscriberStateType = AppState
 	
@@ -26,6 +30,13 @@ class ConnectedController: UIViewController, StoreSubscriber {
 		self.view.frame = frame
 	}
 	
+	func onDragEnd(index:IndexPath, pos:CGPoint) {
+		let delFrame:CGRect = self.delButton.frame
+		if(delFrame.contains(pos)){
+			store.dispatch(DeleteItemAction(payload: index.row))
+		}
+	}
+	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
@@ -37,6 +48,7 @@ class ConnectedController: UIViewController, StoreSubscriber {
 		displayContentController(container:self, content: dragController, frame: CGRect(x: 0, y: 0, width: w, height: h))
 		displayContentController(container:self, content: listController, frame: CGRect(x: 0, y: h, width: w, height: h))
 		self.listController.setTarget(target:self.dragController)
+		self.dragController.dragDelegate = self
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

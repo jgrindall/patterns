@@ -7,78 +7,82 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52497130210CBF7900EBE3B1 /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249712D210CBF7800EBE3B1 /* LineGraph.swift */; };
-		52497131210CBF7900EBE3B1 /* LineList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249712E210CBF7800EBE3B1 /* LineList.swift */; };
-		52497133210CBFAC00EBE3B1 /* LineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52497132210CBFAC00EBE3B1 /* LineSegment.swift */; };
-		52A969EA215044E2002FF140 /* ListItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A969E9215044E1002FF140 /* ListItemModel.swift */; };
-		52A969EC21504642002FF140 /* ListItemsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A969EB21504642002FF140 /* ListItemsState.swift */; };
-		52ADA1232140646B00C1862F /* DragDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADA1222140646B00C1862F /* DragDropViewController.swift */; };
-		52ADA125214065B100C1862F /* DraggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADA124214065B100C1862F /* DraggerView.swift */; };
+		5212FF5221568B5D00579B08 /* ConnectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF4A21568B5C00579B08 /* ConnectedController.swift */; };
+		5212FF5321568B5D00579B08 /* DragDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF4B21568B5C00579B08 /* DragDropViewController.swift */; };
+		5212FF5421568B5D00579B08 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF4C21568B5C00579B08 /* DrawingView.swift */; };
+		5212FF5521568B5D00579B08 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF4D21568B5C00579B08 /* DrawingViewController.swift */; };
+		5212FF5621568B5D00579B08 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF4E21568B5C00579B08 /* EditorViewController.swift */; };
+		5212FF5721568B5D00579B08 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF4F21568B5C00579B08 /* ListController.swift */; };
+		5212FF5821568B5D00579B08 /* TextEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF5021568B5C00579B08 /* TextEntryController.swift */; };
+		5212FF5921568B5D00579B08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF5121568B5C00579B08 /* ViewController.swift */; };
+		5212FF6A21568BD300579B08 /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF5B21568BD200579B08 /* LineGraph.swift */; };
+		5212FF6B21568BD300579B08 /* LineList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF5C21568BD200579B08 /* LineList.swift */; };
+		5212FF6C21568BD300579B08 /* LineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF5D21568BD200579B08 /* LineSegment.swift */; };
+		5212FF6D21568BD300579B08 /* MinMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF5E21568BD200579B08 /* MinMax.swift */; };
+		5212FF6E21568BD300579B08 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6021568BD200579B08 /* AppReducer.swift */; };
+		5212FF6F21568BD300579B08 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6121568BD200579B08 /* AppState.swift */; };
+		5212FF7021568BD300579B08 /* DragItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6221568BD200579B08 /* DragItemModel.swift */; };
+		5212FF7121568BD300579B08 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6321568BD200579B08 /* DragState.swift */; };
+		5212FF7221568BD300579B08 /* ListItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6421568BD200579B08 /* ListItemModel.swift */; };
+		5212FF7321568BD300579B08 /* ListItemsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6521568BD200579B08 /* ListItemsState.swift */; };
+		5212FF7421568BD300579B08 /* Geom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6721568BD200579B08 /* Geom.swift */; };
+		5212FF7521568BD300579B08 /* IndexUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6821568BD200579B08 /* IndexUtils.swift */; };
+		5212FF7621568BD300579B08 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6921568BD200579B08 /* MathUtils.swift */; };
+		5212FF7921568BF600579B08 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7821568BF600579B08 /* Actions.swift */; };
+		5212FF7C21568CCE00579B08 /* DraggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7A21568CCD00579B08 /* DraggerView.swift */; };
+		5212FF7D21568CCE00579B08 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7B21568CCD00579B08 /* ItemCell.swift */; };
+		5212FF7F215693F200579B08 /* ClickPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7E215693F100579B08 /* ClickPos.swift */; };
 		52ADA12821406D8200C1862F /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = 52ADA12721406D8200C1862F /* img.png */; };
-		52ADA12A2140755E00C1862F /* IndexUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADA1292140755E00C1862F /* IndexUtils.swift */; };
-		52ADA12C2140830C00C1862F /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADA12B2140830C00C1862F /* ListController.swift */; };
 		52ADA12E214088BF00C1862F /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 52ADA12D214088BF00C1862F /* img1.png */; };
-		52B4A65D21452DE900E761C3 /* DragItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4A65C21452DE900E761C3 /* DragItemModel.swift */; };
-		52B4A65F214532C600E761C3 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4A65E214532C600E761C3 /* ItemCell.swift */; };
 		52B4A66121453FDB00E761C3 /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B4A66021453FDB00E761C3 /* img2.png */; };
-		52C7C254213AA62B00920520 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7C253213AA62B00920520 /* DrawingViewController.swift */; };
-		52C7C256213AA6DF00920520 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7C255213AA6DF00920520 /* DrawingView.swift */; };
-		52C7C258213AA8DC00920520 /* TextEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7C257213AA8DC00920520 /* TextEntryController.swift */; };
-		52C7C262213AAE2300920520 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7C25A213AAE2200920520 /* Actions.swift */; };
-		52C7C264213AAE2300920520 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7C25C213AAE2300920520 /* AppState.swift */; };
-		52C7C268213AAE2300920520 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7C261213AAE2300920520 /* AppReducer.swift */; };
-		52C7C26A213AB47400920520 /* Geom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7C269213AB47400920520 /* Geom.swift */; };
 		52CE633D20F9F3DC003278E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE633C20F9F3DC003278E9 /* AppDelegate.swift */; };
-		52CE633F20F9F3DC003278E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE633E20F9F3DC003278E9 /* ViewController.swift */; };
 		52CE634220F9F3DC003278E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CE634020F9F3DC003278E9 /* Main.storyboard */; };
 		52CE634420F9F3DC003278E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CE634320F9F3DC003278E9 /* Assets.xcassets */; };
 		52CE634720F9F3DC003278E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CE634520F9F3DC003278E9 /* LaunchScreen.storyboard */; };
 		52CE634F20F9F860003278E9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE634E20F9F860003278E9 /* Extensions.swift */; };
-		52E85AF12104BA81004CDB27 /* MinMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E85AEF2104BA81004CDB27 /* MinMax.swift */; };
-		52E85AF32104BB51004CDB27 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E85AF22104BB51004CDB27 /* MathUtils.swift */; };
 		52E85AF62104C078004CDB27 /* GroupP3M1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E85AF52104C078004CDB27 /* GroupP3M1.swift */; };
-		52F075D1214E594E0085BB21 /* ConnectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F075D0214E594E0085BB21 /* ConnectedController.swift */; };
-		52F075D3214E611C0085BB21 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F075D2214E611C0085BB21 /* DragState.swift */; };
 		52F075D5214EB63F0085BB21 /* del.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F075D4214EB63F0085BB21 /* del.png */; };
 		8283E47F42C413BDBB390E98 /* Pods_patterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFBCFFBE9296BEA4667D638 /* Pods_patterns.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		016FDC4AB5A8AC4B98B6D16E /* Pods-patterns.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-patterns.debug.xcconfig"; path = "Pods/Target Support Files/Pods-patterns/Pods-patterns.debug.xcconfig"; sourceTree = "<group>"; };
-		5249712D210CBF7800EBE3B1 /* LineGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
-		5249712E210CBF7800EBE3B1 /* LineList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineList.swift; sourceTree = "<group>"; };
-		52497132210CBFAC00EBE3B1 /* LineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSegment.swift; sourceTree = "<group>"; };
-		52A969E9215044E1002FF140 /* ListItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemModel.swift; sourceTree = "<group>"; };
-		52A969EB21504642002FF140 /* ListItemsState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemsState.swift; sourceTree = "<group>"; };
-		52ADA1222140646B00C1862F /* DragDropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropViewController.swift; sourceTree = "<group>"; };
-		52ADA124214065B100C1862F /* DraggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggerView.swift; sourceTree = "<group>"; };
+		5212FF4A21568B5C00579B08 /* ConnectedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedController.swift; sourceTree = "<group>"; };
+		5212FF4B21568B5C00579B08 /* DragDropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropViewController.swift; sourceTree = "<group>"; };
+		5212FF4C21568B5C00579B08 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		5212FF4D21568B5C00579B08 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		5212FF4E21568B5C00579B08 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		5212FF4F21568B5C00579B08 /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
+		5212FF5021568B5C00579B08 /* TextEntryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEntryController.swift; sourceTree = "<group>"; };
+		5212FF5121568B5C00579B08 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5212FF5B21568BD200579B08 /* LineGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
+		5212FF5C21568BD200579B08 /* LineList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineList.swift; sourceTree = "<group>"; };
+		5212FF5D21568BD200579B08 /* LineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSegment.swift; sourceTree = "<group>"; };
+		5212FF5E21568BD200579B08 /* MinMax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinMax.swift; sourceTree = "<group>"; };
+		5212FF6021568BD200579B08 /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		5212FF6121568BD200579B08 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		5212FF6221568BD200579B08 /* DragItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragItemModel.swift; sourceTree = "<group>"; };
+		5212FF6321568BD200579B08 /* DragState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
+		5212FF6421568BD200579B08 /* ListItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemModel.swift; sourceTree = "<group>"; };
+		5212FF6521568BD200579B08 /* ListItemsState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemsState.swift; sourceTree = "<group>"; };
+		5212FF6721568BD200579B08 /* Geom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geom.swift; sourceTree = "<group>"; };
+		5212FF6821568BD200579B08 /* IndexUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexUtils.swift; sourceTree = "<group>"; };
+		5212FF6921568BD200579B08 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
+		5212FF7821568BF600579B08 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		5212FF7A21568CCD00579B08 /* DraggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggerView.swift; sourceTree = "<group>"; };
+		5212FF7B21568CCD00579B08 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		5212FF7E215693F100579B08 /* ClickPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickPos.swift; sourceTree = "<group>"; };
 		52ADA12721406D8200C1862F /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
-		52ADA1292140755E00C1862F /* IndexUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexUtils.swift; sourceTree = "<group>"; };
-		52ADA12B2140830C00C1862F /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		52ADA12D214088BF00C1862F /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
-		52B4A65C21452DE900E761C3 /* DragItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragItemModel.swift; sourceTree = "<group>"; };
-		52B4A65E214532C600E761C3 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		52B4A66021453FDB00E761C3 /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
-		52C7C253213AA62B00920520 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
-		52C7C255213AA6DF00920520 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
-		52C7C257213AA8DC00920520 /* TextEntryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEntryController.swift; sourceTree = "<group>"; };
-		52C7C25A213AAE2200920520 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
-		52C7C25C213AAE2300920520 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		52C7C261213AAE2300920520 /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
-		52C7C269213AB47400920520 /* Geom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geom.swift; sourceTree = "<group>"; };
 		52CE633920F9F3DC003278E9 /* patterns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = patterns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52CE633C20F9F3DC003278E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52CE633E20F9F3DC003278E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52CE634120F9F3DC003278E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52CE634320F9F3DC003278E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52CE634620F9F3DC003278E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52CE634820F9F3DC003278E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52CE634E20F9F860003278E9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		52E85AEF2104BA81004CDB27 /* MinMax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinMax.swift; sourceTree = "<group>"; };
-		52E85AF22104BB51004CDB27 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		52E85AF52104C078004CDB27 /* GroupP3M1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupP3M1.swift; sourceTree = "<group>"; };
-		52F075D0214E594E0085BB21 /* ConnectedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedController.swift; sourceTree = "<group>"; };
-		52F075D2214E611C0085BB21 /* DragState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
 		52F075D4214EB63F0085BB21 /* del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = del.png; sourceTree = "<group>"; };
 		88CB83FAA9C12238FBDBA1CF /* Pods-patterns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-patterns.release.xcconfig"; path = "Pods/Target Support Files/Pods-patterns/Pods-patterns.release.xcconfig"; sourceTree = "<group>"; };
 		CAFBCFFBE9296BEA4667D638 /* Pods_patterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_patterns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +108,67 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5212FF4921568B5C00579B08 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				5212FF7E215693F100579B08 /* ClickPos.swift */,
+				5212FF7A21568CCD00579B08 /* DraggerView.swift */,
+				5212FF7B21568CCD00579B08 /* ItemCell.swift */,
+				5212FF4A21568B5C00579B08 /* ConnectedController.swift */,
+				5212FF4B21568B5C00579B08 /* DragDropViewController.swift */,
+				5212FF4C21568B5C00579B08 /* DrawingView.swift */,
+				5212FF4D21568B5C00579B08 /* DrawingViewController.swift */,
+				5212FF4E21568B5C00579B08 /* EditorViewController.swift */,
+				5212FF4F21568B5C00579B08 /* ListController.swift */,
+				5212FF5021568B5C00579B08 /* TextEntryController.swift */,
+				5212FF5121568B5C00579B08 /* ViewController.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		5212FF5A21568BD200579B08 /* paths */ = {
+			isa = PBXGroup;
+			children = (
+				5212FF5B21568BD200579B08 /* LineGraph.swift */,
+				5212FF5C21568BD200579B08 /* LineList.swift */,
+				5212FF5D21568BD200579B08 /* LineSegment.swift */,
+				5212FF5E21568BD200579B08 /* MinMax.swift */,
+			);
+			path = paths;
+			sourceTree = "<group>";
+		};
+		5212FF5F21568BD200579B08 /* state */ = {
+			isa = PBXGroup;
+			children = (
+				5212FF7721568BF600579B08 /* actions */,
+				5212FF6021568BD200579B08 /* AppReducer.swift */,
+				5212FF6121568BD200579B08 /* AppState.swift */,
+				5212FF6221568BD200579B08 /* DragItemModel.swift */,
+				5212FF6321568BD200579B08 /* DragState.swift */,
+				5212FF6421568BD200579B08 /* ListItemModel.swift */,
+				5212FF6521568BD200579B08 /* ListItemsState.swift */,
+			);
+			path = state;
+			sourceTree = "<group>";
+		};
+		5212FF6621568BD200579B08 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				5212FF6721568BD200579B08 /* Geom.swift */,
+				5212FF6821568BD200579B08 /* IndexUtils.swift */,
+				5212FF6921568BD200579B08 /* MathUtils.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		5212FF7721568BF600579B08 /* actions */ = {
+			isa = PBXGroup;
+			children = (
+				5212FF7821568BF600579B08 /* Actions.swift */,
+			);
+			path = actions;
+			sourceTree = "<group>";
+		};
 		52ADA12621406D8200C1862F /* assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,14 +178,6 @@
 				52ADA12721406D8200C1862F /* img.png */,
 			);
 			path = assets;
-			sourceTree = "<group>";
-		};
-		52C7C259213AAE2200920520 /* actions */ = {
-			isa = PBXGroup;
-			children = (
-				52C7C25A213AAE2200920520 /* Actions.swift */,
-			);
-			path = actions;
 			sourceTree = "<group>";
 		};
 		52CE633020F9F3DC003278E9 = {
@@ -144,33 +201,14 @@
 		52CE633B20F9F3DC003278E9 /* patterns */ = {
 			isa = PBXGroup;
 			children = (
+				5212FF5A21568BD200579B08 /* paths */,
+				5212FF5F21568BD200579B08 /* state */,
+				5212FF6621568BD200579B08 /* utils */,
 				52ADA12621406D8200C1862F /* assets */,
-				52C7C259213AAE2200920520 /* actions */,
-				52C7C261213AAE2300920520 /* AppReducer.swift */,
-				52F075D2214E611C0085BB21 /* DragState.swift */,
-				52C7C25C213AAE2300920520 /* AppState.swift */,
+				5212FF4921568B5C00579B08 /* views */,
 				52E85AF42104C078004CDB27 /* groups */,
-				52E85AF22104BB51004CDB27 /* MathUtils.swift */,
-				52ADA1292140755E00C1862F /* IndexUtils.swift */,
-				52A969E9215044E1002FF140 /* ListItemModel.swift */,
-				52A969EB21504642002FF140 /* ListItemsState.swift */,
-				52ADA12B2140830C00C1862F /* ListController.swift */,
-				52497132210CBFAC00EBE3B1 /* LineSegment.swift */,
-				5249712D210CBF7800EBE3B1 /* LineGraph.swift */,
-				5249712E210CBF7800EBE3B1 /* LineList.swift */,
-				52B4A65C21452DE900E761C3 /* DragItemModel.swift */,
-				52B4A65E214532C600E761C3 /* ItemCell.swift */,
-				52E85AEF2104BA81004CDB27 /* MinMax.swift */,
 				52CE634E20F9F860003278E9 /* Extensions.swift */,
 				52CE633C20F9F3DC003278E9 /* AppDelegate.swift */,
-				52C7C253213AA62B00920520 /* DrawingViewController.swift */,
-				52ADA124214065B100C1862F /* DraggerView.swift */,
-				52F075D0214E594E0085BB21 /* ConnectedController.swift */,
-				52ADA1222140646B00C1862F /* DragDropViewController.swift */,
-				52C7C257213AA8DC00920520 /* TextEntryController.swift */,
-				52C7C269213AB47400920520 /* Geom.swift */,
-				52C7C255213AA6DF00920520 /* DrawingView.swift */,
-				52CE633E20F9F3DC003278E9 /* ViewController.swift */,
 				52CE634020F9F3DC003278E9 /* Main.storyboard */,
 				52CE634320F9F3DC003278E9 /* Assets.xcassets */,
 				52CE634520F9F3DC003278E9 /* LaunchScreen.storyboard */,
@@ -315,32 +353,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52CE633F20F9F3DC003278E9 /* ViewController.swift in Sources */,
-				52F075D3214E611C0085BB21 /* DragState.swift in Sources */,
-				52C7C262213AAE2300920520 /* Actions.swift in Sources */,
-				52497131210CBF7900EBE3B1 /* LineList.swift in Sources */,
-				52ADA12A2140755E00C1862F /* IndexUtils.swift in Sources */,
-				52E85AF12104BA81004CDB27 /* MinMax.swift in Sources */,
-				52B4A65D21452DE900E761C3 /* DragItemModel.swift in Sources */,
-				52E85AF32104BB51004CDB27 /* MathUtils.swift in Sources */,
+				5212FF6D21568BD300579B08 /* MinMax.swift in Sources */,
+				5212FF7921568BF600579B08 /* Actions.swift in Sources */,
+				5212FF7D21568CCE00579B08 /* ItemCell.swift in Sources */,
+				5212FF5221568B5D00579B08 /* ConnectedController.swift in Sources */,
+				5212FF6F21568BD300579B08 /* AppState.swift in Sources */,
+				5212FF6C21568BD300579B08 /* LineSegment.swift in Sources */,
+				5212FF6B21568BD300579B08 /* LineList.swift in Sources */,
+				5212FF5821568B5D00579B08 /* TextEntryController.swift in Sources */,
+				5212FF6A21568BD300579B08 /* LineGraph.swift in Sources */,
+				5212FF7421568BD300579B08 /* Geom.swift in Sources */,
 				52E85AF62104C078004CDB27 /* GroupP3M1.swift in Sources */,
-				52C7C264213AAE2300920520 /* AppState.swift in Sources */,
+				5212FF5321568B5D00579B08 /* DragDropViewController.swift in Sources */,
 				52CE634F20F9F860003278E9 /* Extensions.swift in Sources */,
-				52497130210CBF7900EBE3B1 /* LineGraph.swift in Sources */,
-				52C7C258213AA8DC00920520 /* TextEntryController.swift in Sources */,
-				52ADA12C2140830C00C1862F /* ListController.swift in Sources */,
-				52497133210CBFAC00EBE3B1 /* LineSegment.swift in Sources */,
-				52F075D1214E594E0085BB21 /* ConnectedController.swift in Sources */,
-				52A969EA215044E2002FF140 /* ListItemModel.swift in Sources */,
-				52B4A65F214532C600E761C3 /* ItemCell.swift in Sources */,
-				52A969EC21504642002FF140 /* ListItemsState.swift in Sources */,
+				5212FF7021568BD300579B08 /* DragItemModel.swift in Sources */,
+				5212FF7521568BD300579B08 /* IndexUtils.swift in Sources */,
+				5212FF7121568BD300579B08 /* DragState.swift in Sources */,
+				5212FF7221568BD300579B08 /* ListItemModel.swift in Sources */,
+				5212FF5721568B5D00579B08 /* ListController.swift in Sources */,
+				5212FF6E21568BD300579B08 /* AppReducer.swift in Sources */,
+				5212FF7621568BD300579B08 /* MathUtils.swift in Sources */,
+				5212FF5521568B5D00579B08 /* DrawingViewController.swift in Sources */,
+				5212FF7F215693F200579B08 /* ClickPos.swift in Sources */,
+				5212FF5921568B5D00579B08 /* ViewController.swift in Sources */,
+				5212FF7321568BD300579B08 /* ListItemsState.swift in Sources */,
 				52CE633D20F9F3DC003278E9 /* AppDelegate.swift in Sources */,
-				52C7C256213AA6DF00920520 /* DrawingView.swift in Sources */,
-				52C7C26A213AB47400920520 /* Geom.swift in Sources */,
-				52ADA1232140646B00C1862F /* DragDropViewController.swift in Sources */,
-				52ADA125214065B100C1862F /* DraggerView.swift in Sources */,
-				52C7C268213AAE2300920520 /* AppReducer.swift in Sources */,
-				52C7C254213AA62B00920520 /* DrawingViewController.swift in Sources */,
+				5212FF5621568B5D00579B08 /* EditorViewController.swift in Sources */,
+				5212FF5421568B5D00579B08 /* DrawingView.swift in Sources */,
+				5212FF7C21568CCE00579B08 /* DraggerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

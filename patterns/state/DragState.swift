@@ -6,13 +6,12 @@ enum DragStates: String {
 }
 
 struct DragState: StateType {
-	var placeholderIndex:Int = -1
 	var state:DragStates = .idle
 }
 
 extension DragState: Equatable {}
 
 func ==(lhs: DragState, rhs: DragState) -> Bool {
-	return (lhs.placeholderIndex == rhs.placeholderIndex && lhs.state == rhs.state)
+	return (lhs.state == rhs.state)
 }
 

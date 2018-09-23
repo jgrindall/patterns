@@ -4,30 +4,13 @@ import ReSwift
 
 private let REUSE_IDENTIFIER = "PhotoCell"
 
-class EditorViewController:UIViewController{
-	override func viewDidLoad() {
-		self.view.backgroundColor = UIColor.orange
-	}
-}
-
-struct ClickPos{
-	var pos:CGPoint
-	var time:TimeInterval
-	func isCloseTo(clickPos:ClickPos) -> Bool {
-		let p0 = clickPos.pos
-		let p1 = self.pos
-		let dx = p0.x - p1.x
-		let dy = p0.y - p1.y
-		let dt = clickPos.time - self.time
-		return (abs(dx) < 10 && abs(dy) < 10 && abs(dt) < 500)
-	}
-}
-
-class DragDropViewController: UICollectionViewController, StoreSubscriber {
-	
-	var dataItems:[DragItemModel] = []
-	var placeholderItem:DragItemModel = DragItemModel(type: "temp", label: "fd", imageSrc: "img2.png")
-	var clickPos:ClickPos?
+class DragDropViewController: UICollectionViewController, StoreSubscriber, PEditorControllerDelegate  {
+	private var dataItems:[DragItemModel] = []
+	private var placeholderItem:DragItemModel = DragItemModel(type: "temp", label: "fd", imageSrc: "img2.png")
+	private var clickPos:ClickPos?
+	private var placeholderIndex:Int = -1
+	private var draggedIndex:IndexPath?
+	var dragDelegate : PDragDelegate?
 	
 	override init(collectionViewLayout: UICollectionViewLayout){
 		super.init(collectionViewLayout:collectionViewLayout)
@@ -35,6 +18,10 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	func updateData(index:Int, model: DragItemModel){
+		store.dispatch(UpdateItemAction(payload: Edit(index: index, model: model)))
 	}
 	
 	func moveDataItem(sIndex: Int, _ dIndex: Int) {
@@ -55,9 +42,10 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 
 	@objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
 		if(gesture.state == .began){
-			guard let selectedIndexPath = self.collectionView?.indexPathForItem(at: gesture.location(in: self.collectionView)) else {
+			guard let selectedIndexPath:IndexPath = self.collectionView?.indexPathForItem(at: gesture.location(in: self.collectionView)) else {
 				return
 			}
+			self.draggedIndex = selectedIndexPath
 			clickPos = ClickPos(pos: gesture.location(in: self.view), time: Date().timeIntervalSince1970)
 			self.collectionView?.beginInteractiveMovementForItem(at: selectedIndexPath)
 		}
@@ -66,31 +54,31 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		}
 		else if(gesture.state == .ended){
 			self.collectionView?.endInteractiveMovement()
-			self.checkClick(clickPos:ClickPos(pos: gesture.location(in: self.view), time: Date().timeIntervalSince1970))
+			let pos:CGPoint = gesture.location(in: self.view)
+			self.checkClick(clickPos:ClickPos(pos: pos, time: Date().timeIntervalSince1970))
+			if (self.dragDelegate) != nil{
+				dragDelegate?.onDragEnd(index:self.draggedIndex!, pos:pos)
+			}
 		}
 		else{
 			self.collectionView?.cancelInteractiveMovement()
 		}
 	}
-	
+
 	func checkClick(clickPos:ClickPos){
 		if(clickPos.isCloseTo(clickPos: self.clickPos!)){
+			let index:Int = self.getIndexAt(x: Double(clickPos.pos.x), y: Double(clickPos.pos.y))
+			let data = self.dataItems[index]
+			let cell = collectionView!.cellForItem(at: IndexPath(row:index, section: 0))
 			let editor = EditorViewController()
+			editor.delegate = self
 			editor.preferredContentSize = CGSize(width: 400, height: 300)
 			editor.modalPresentationStyle = .popover
+			editor.loadData(index, data)
 			let popover = editor.popoverPresentationController
 			popover?.sourceView = self.view
-			popover?.sourceRect = CGRect(x: clickPos.pos.x, y: clickPos.pos.y, width: 64, height: 64)
+			popover?.sourceRect = (cell?.frame)!
 			self.present(editor, animated: true, completion: nil)
-		}
-	}
-	
-	func getPlaceHolderIndex() -> Int{
-		if let index:Int = dataItems.index(where: {$0.type == "temp"}) {
-			return index
-		}
-		else {
-			return -1
 		}
 	}
 	
@@ -107,54 +95,69 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		return numX
 	}
 	
-	func getAllPaths() -> [IndexPath]{
+	func getPaths(_ num:Int) -> [IndexPath]{
 		var p:[IndexPath] = []
-		for i in 0..<self.dataItems.count{
+		for i in 0..<num{
 			p.append(IndexPath(row:i, section: 0))
 		}
 		return p
 	}
 	
-	func newState(state: (dragState: DragState, items: DragItems)) {
-		if(state.dragState.state == .dragging){
-			movePlaceholder(newIndex:state.dragState.placeholderIndex)
-		}
-		if(state.dragState.state == .idle){
-			movePlaceholder(newIndex:-1)
-			dataItems = state.items
-			UIView.setAnimationsEnabled(false)
-			self.collectionView?.performBatchUpdates({
-				self.collectionView?.reloadItems(at: getAllPaths())
-				self.collectionView?.reloadData()
-			}, completion: { (done:Bool) in
-				UIView.setAnimationsEnabled(true)
-			})
-		}
+	func getAllPaths() -> [IndexPath]{
+		return getPaths(self.dataItems.count)
 	}
 	
-	func movePlaceholder(newIndex:Int){
-		let currentIndex = getPlaceHolderIndex()
-		if(currentIndex >= 0){
-			// it existed
-			if(newIndex >= 0){
-				// moved
-				self.move(from: currentIndex, to: newIndex)
+	func newState(state: DragItems) {
+		dataItems = state
+		print("newState", dataItems)
+		for i in 0..<dataItems.count{
+			print(i,dataItems[i].imageSrc)
+			print(i,dataItems[i].label)
+			print(i,dataItems[i].type)
+		}
+		UIView.setAnimationsEnabled(false)
+		//self.collectionView?.performBatchUpdates({
+			self.collectionView?.reloadData()
+		self.collectionView?.reloadItems(at: getAllPaths())
+		
+		//}, completion: { (done:Bool) in
+			UIView.setAnimationsEnabled(true)
+		//})
+		//self.collectionView?.reloadItems(at: getAllPaths())
+		//self.collectionView?.reloadData()
+	}
+	
+	func movePlaceholder(index:Int){
+		var numActualDataItems:Int
+		var newIndex:Int
+		print("0", self.placeholderIndex, index)
+		if(self.placeholderIndex != index){
+			if(self.placeholderIndex >= 0){
+				// it existed
+				numActualDataItems = self.dataItems.count - 1
+				if(index >= 0 && index != self.placeholderIndex){
+					newIndex = min(numActualDataItems, index)
+					self.move(from: self.placeholderIndex, to: newIndex)
+				}
+				else{
+					newIndex = -1
+					self.deleteAt(index: self.placeholderIndex)
+				}
 			}
 			else{
-				// deleted
-				self.deleteAt(index: currentIndex)
+				// didnt exist
+				numActualDataItems = self.dataItems.count
+				if(index >= 0){
+					newIndex = min(numActualDataItems, index)
+					self.insert(d: placeholderItem, index: min(numActualDataItems, index))
+				}
+				else{
+					newIndex = -1
+				}
 			}
+			self.placeholderIndex = newIndex
 		}
-		else{
-			// didnt exist
-			if(newIndex >= 0){
-				// add
-				self.insert(d: placeholderItem, index: newIndex)
-			}
-			else{
-				// nothing
-			}
-		}
+		print("now", self.placeholderIndex)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -162,10 +165,7 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		store.subscribe(self) {
 			$0
 			.select {
-				(dragState:$0.dragState, items:$0.items)
-			}
-			.skipRepeats{
-				return $0.dragState == $1.dragState
+				$0.items
 			}
 		}
 	}
@@ -179,14 +179,24 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 		super.didReceiveMemoryWarning()
 	}
 	
-	override public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		print(indexPath)
+	@objc(collectionView:layout:insetForSectionAtIndex:)
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+		print("1", section)
+		return UIEdgeInsetsMake(5, 5, 5, 5)
 	}
 	
-	override public func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-		print(indexPath)
+	@objc(collectionView:layout:minimumLineSpacingForSectionAtIndex:)
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		print("2", section)
+		return 5
 	}
 	
+	@objc(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+		print("3", section)
+		return 5
+	}
+
 	override public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
 		return dataItems.count
 	}
@@ -232,8 +242,21 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber {
 	}
 	
 	public func deleteAt(index:Int){
-		dataItems = MathUtils.getDeletedAt(a:self.dataItems, index:index)
+		print("remove", index)
+		UIView.setAnimationsEnabled(false)
+		self.dataItems = MathUtils.getDeletedAt(a:self.dataItems, index:index)
+		print(self.dataItems.count)
 		self.collectionView?.deleteItems(at: [IndexPath(row:index, section: 0)])
+		UIView.setAnimationsEnabled(true)
+			/*
+		dataItems = MathUtils.getDeletedAt(a:self.dataItems, index:index)
+		UIView.setAnimationsEnabled(false)
+		self.collectionView?.performBatchUpdates({
+			self.collectionView?.deleteItems(at: [IndexPath(row:index, section: 0)])
+		}, completion: { (done:Bool) in
+			UIView.setAnimationsEnabled(true)
+		})
+*/
 	}
 	
 	

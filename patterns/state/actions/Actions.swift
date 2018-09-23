@@ -12,11 +12,20 @@ struct InsertItemAction:Action {
 	let payload: Int
 }
 
-struct SetPlaceholderAction:Action {
-	let payload: Int
-}
-
 struct SetDragStateAction:Action{
 	let payload: DragStates
+}
+
+struct Edit{
+	let index:Int
+	let model:DragItemModel
+}
+
+struct UpdateItemAction:Action{
+	let payload:Edit
+}
+
+struct DeleteItemAction:Action{
+	let payload:Int
 }
 
