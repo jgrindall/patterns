@@ -13,7 +13,12 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 }
 
 func navReducer(action: Action, state: NavState?) -> NavState {
-	return state!
+	switch action {
+	case let action as NavigateAction:
+		return action.payload
+	default:
+		return .files
+	}
 }
 
 func textReducer(action: Action, state: String?) -> String {

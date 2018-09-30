@@ -42,7 +42,10 @@ class FilesViewController: UIViewController, StoreSubscriber {
 	}
 	
 	@objc func buttonClicked(_ sender: AnyObject?){
-		print("click")
+		let file:FileModel? = store.state.fileState.selected
+		if (file != nil){
+			store.dispatch(NavigateAction(payload: .draw))
+		}
 	}
 	
 	func save(){

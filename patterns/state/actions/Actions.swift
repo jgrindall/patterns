@@ -43,3 +43,7 @@ struct SetSelectedAction:Action{
 	let payload:FileModel
 }
 
+struct NavigateAction:Action{
+	let payload:NavState
+}
+
