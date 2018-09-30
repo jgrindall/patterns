@@ -143,10 +143,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Disk/Disk.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RSClipperWrapper/RSClipperWrapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Disk/Disk.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RSClipperWrapper/RSClipperWrapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework"
 fi

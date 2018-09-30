@@ -8,7 +8,6 @@ func displayContentController(container:UIViewController, content: UIViewControl
 	container.addChildViewController(content)
 	container.view.addSubview(content.view)
 	content.view.frame = frame
-	print("Add", content, "to", container, "frame", frame)
 	content.didMove(toParentViewController: container)
 }
 
@@ -26,6 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		self.window = UIWindow(frame: UIScreen.main.bounds)
+		let nav1 = NavViewController()
+		nav1.viewControllers = []
+		self.window!.rootViewController = nav1
+		self.window?.makeKeyAndVisible()
 		return true
 	}
 

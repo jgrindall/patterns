@@ -10,12 +10,13 @@ enum CodeState: String {
 
 enum NavState: String {
 	case draw = "draw"
+	case files = "files"
 }
 
 struct AppState: StateType {
 	var dragState: DragState = DragState()
 	var codeState:CodeState = .stopped
-	var navigationState:NavState = .draw
+	var navigationState:NavState = .files
 	var text:String = "fd 250 rt 150 fd 380 lt 135 fd 250 lt 200 fd 500"
 	var items:DragItems = {
 		var items = [] as [DragItemModel]
@@ -31,6 +32,7 @@ struct AppState: StateType {
 		}
 		return items
 	}())
+	var fileState = FileState()
 }
 
 extension AppState: Equatable {

@@ -3,7 +3,7 @@ import UIKit
 import RSClipperWrapper
 import ReSwift
 
-class ViewController: UIViewController, StoreSubscriber {
+class DesignViewController: UIViewController, StoreSubscriber {
 	
 	typealias StoreSubscriberStateType = AppState
 	
@@ -11,15 +11,15 @@ class ViewController: UIViewController, StoreSubscriber {
 	private var textEntryController:TextEntryController
 	private var connectedController:ConnectedController
 	
-	required init?(coder aDecoder: NSCoder) {
+	required init(){
 		self.drawingController = DrawingViewController()
 		self.textEntryController = TextEntryController()
 		self.connectedController = ConnectedController(frame:CGRect())
 		super.init(nibName: nil, bundle: nil)
 	}
 	
-	func addChildren(){
-		
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
 	}
 	
 	override func viewDidLoad() {

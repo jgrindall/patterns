@@ -25,3 +25,21 @@ struct DeleteItemAction:Action{
 	let payload:Int
 }
 
+struct LoadFilesAction:Action{
+	init() {
+		let files:[FileModel] = Files.loadAll()
+		store.dispatch(SetFilesAction(payload: files))
+		if(files.count >= 1){
+			store.dispatch(SetSelectedAction(payload: files[0]))
+		}
+	}
+}
+
+struct SetFilesAction:Action{
+	let payload:[FileModel]
+}
+
+struct SetSelectedAction:Action{
+	let payload:FileModel
+}
+
