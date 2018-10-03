@@ -9,12 +9,18 @@ struct EditTextAction: Action {
 }
 
 struct InsertItemAction:Action {
-	let payload: Int
+	let payload: Insert
 }
 
 struct Edit{
 	let index:Int
 	let model:DragItemModel
+	let key:String
+}
+
+struct Insert{
+	let key:String
+	let index:Int
 }
 
 struct UpdateItemAction:Action{

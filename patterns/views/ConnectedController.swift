@@ -9,21 +9,21 @@ protocol PDragDelegate{
 
 class ConnectedController: UIViewController, StoreSubscriber, PDragDelegate {
 	
-	typealias StoreSubscriberStateType = AppState
-	
 	private var dragController:DragDropViewController
 	private var listController:ListController
 	private var delButton:UIImageView = UIImageView(frame: CGRect(x: 700, y: 100, width: 60, height: 60))
+	private var _key:String = ""
 	
-	init(frame:CGRect){
-		self.listController = ListController()
+	init(frame:CGRect, key:String){
+		_key = key
+		self.listController = ListController(key: _key)
 		listController.view.backgroundColor = UIColor.purple
 		let flowLayout = UICollectionViewFlowLayout()
 		flowLayout.itemSize = CGSize(width: 60, height: 60)
 		flowLayout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5)
 		flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
 		flowLayout.minimumInteritemSpacing = 0.0
-		self.dragController = DragDropViewController(collectionViewLayout: flowLayout)
+		self.dragController = DragDropViewController(collectionViewLayout: flowLayout, key:key)
 		dragController.view.backgroundColor = .green
 		super.init(nibName: nil, bundle: nil)
 		self.delButton.image = UIImage(named: "del.png")
@@ -53,8 +53,14 @@ class ConnectedController: UIViewController, StoreSubscriber, PDragDelegate {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
+		//print("appear", self._key)
 		super.viewWillAppear(animated)
-		store.subscribe(self)
+		store.subscribe(self) {
+			$0
+				.select {
+					$0.items[self._key]!
+			}
+		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -62,10 +68,9 @@ class ConnectedController: UIViewController, StoreSubscriber, PDragDelegate {
 		store.unsubscribe(self)
 	}
 	
-	func newState(state: AppState) {
-		//print("newstate")
+	func newState(state: DragItems) {
+		self.dragController.setData(items: state)
 	}
 	
 	
 }
-

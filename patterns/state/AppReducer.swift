@@ -13,11 +13,12 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 }
 
 func navReducer(action: Action, state: NavState?) -> NavState {
+	let state = state ?? .files
 	switch action {
 	case let action as NavigateAction:
 		return action.payload
 	default:
-		return .files
+		return state
 	}
 }
 
@@ -30,18 +31,21 @@ func textReducer(action: Action, state: String?) -> String {
 	}
 }
 
-func itemsReducer(action: Action, items: DragItems?) -> DragItems {
+func itemsReducer(action: Action, items: DragItemsHash?) -> DragItemsHash {
+	var itemsCopy:DragItemsHash = items!
 	switch action {
 		case let action as InsertItemAction:
-			let index:Int = action.payload
+			let index:Int = action.payload.index
 			let newItem = DragItemModel(type: "fd", label: "fd", imageSrc: "img1.png")
-			return MathUtils.getInsertedAt(a: items!, index: index, element: newItem)
+			itemsCopy[action.payload.key] = MathUtils.getInsertedAt(a: items![action.payload.key]!, index: index, element: newItem)
+			return itemsCopy
 		case let action as UpdateItemAction:
 			let edit:Edit = action.payload
-			let newItem = edit.model
-			return MathUtils.getReplacedAt(a: items!, index: edit.index, element: newItem)
+			itemsCopy[action.payload.key] = MathUtils.getReplacedAt(a: items![action.payload.key]!, index: edit.index, element: edit.model)
+			return itemsCopy
 		case let action as DeleteItemAction:
-			return MathUtils.getDeletedAt(a: items!, index: action.payload)
+			itemsCopy["0"] = MathUtils.getDeletedAt(a: items!["0"]!, index: action.payload)
+			return itemsCopy
 		default:
 			return items!
 	}
@@ -61,7 +65,7 @@ func statusReducer(action: Action, codeState: CodeState?) -> CodeState {
 }
 
 func dragReducer(action: Action, state: DragState?) -> DragState {
-	var state = state ?? DragState()
+	let state = state ?? DragState()
 	return state
 }
 

@@ -12,6 +12,7 @@ class NavViewController: UINavigationController, StoreSubscriber {
 			.select {
 				$0.navigationState
 			}
+			.skipRepeats()
 		}
 	}
 	
@@ -36,6 +37,7 @@ class NavViewController: UINavigationController, StoreSubscriber {
 	}
 	
 	func newState(state: NavState) {
+		print(state)
 		let shouldAnimate = self.topViewController != nil
 		self.gotoViewController(state: state, animated: shouldAnimate)
 	}

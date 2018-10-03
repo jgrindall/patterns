@@ -4,15 +4,17 @@ import ReSwift
 
 private let REUSE_IDENTIFIER = "PhotoCell"
 
-class DragDropViewController: UICollectionViewController, StoreSubscriber, PEditorControllerDelegate  {
+class DragDropViewController: UICollectionViewController, PEditorControllerDelegate  {
 	private var dataItems:[DragItemModel] = []
 	private var placeholderItem:DragItemModel = DragItemModel(type: "temp", label: "fd", imageSrc: "img2.png")
 	private var clickPos:ClickPos?
 	private var placeholderIndex:Int = -1
 	private var draggedIndex:IndexPath?
+	private var _key:String = ""
 	var dragDelegate : PDragDelegate?
 	
-	override init(collectionViewLayout: UICollectionViewLayout){
+	init(collectionViewLayout: UICollectionViewLayout, key:String){
+		_key = key
 		super.init(collectionViewLayout:collectionViewLayout)
 	}
 	
@@ -21,7 +23,7 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber, PEdit
 	}
 	
 	func updateData(index:Int, model: DragItemModel){
-		store.dispatch(UpdateItemAction(payload: Edit(index: index, model: model)))
+		store.dispatch(UpdateItemAction(payload: Edit(index: index, model: model, key:_key)))
 	}
 	
 	func moveDataItem(sIndex: Int, _ dIndex: Int) {
@@ -107,8 +109,8 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber, PEdit
 		return getPaths(self.dataItems.count)
 	}
 	
-	func newState(state: DragItems) {
-		dataItems = state
+	func setData(items:DragItems){
+		dataItems = items
 		UIView.setAnimationsEnabled(false)
 		self.collectionView?.reloadData()
 		self.collectionView?.reloadItems(at: getAllPaths())
@@ -144,25 +146,6 @@ class DragDropViewController: UICollectionViewController, StoreSubscriber, PEdit
 			}
 			self.placeholderIndex = newIndex
 		}
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		store.subscribe(self) {
-			$0
-			.select {
-				$0.items
-			}
-		}
-	}
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-		store.unsubscribe(self)
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
 	}
 	
 	@objc(collectionView:layout:insetForSectionAtIndex:)

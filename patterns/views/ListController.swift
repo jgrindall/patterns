@@ -10,8 +10,10 @@ class ListController: UIViewController, StoreSubscriber {
 	private var draggedView:UIView? = nil
 	private var draggedIndex:Int = -1
 	private var _target:DragDropViewController? // to be a protocol
+	private var _key:String = ""
 	
-	init(){
+	init(key:String){
+		_key = key
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -70,7 +72,7 @@ class ListController: UIViewController, StoreSubscriber {
 		else if(sender.state == .ended){
 			_target?.movePlaceholder(index: -1)
 			print("InsertItemAction", draggedIndex)
-			store.dispatch(InsertItemAction(payload: getInsertIndex()))
+			store.dispatch(InsertItemAction(payload: Insert(key: _key, index: getInsertIndex())))
 			reset()
 		}
 	}
