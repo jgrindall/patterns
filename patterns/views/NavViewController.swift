@@ -17,7 +17,7 @@ class NavViewController: UINavigationController, StoreSubscriber {
 	}
 	
 	func getViewController(state: NavState) -> UIViewController{
-		if(state == .draw){
+		if(state == .design){
 			return DesignViewController()
 		}
 		else if(state == .files){
@@ -27,6 +27,11 @@ class NavViewController: UINavigationController, StoreSubscriber {
 	}
 	
 	fileprivate func gotoViewController(state: NavState, animated: Bool) {
+		let c:String = self.getVisibleName()
+		print("goto", c, state)
+		if(c == state.rawValue){
+			return
+		}
 		let viewController = self.getViewController(state: state)
 		self.pushViewController(viewController, animated: animated)
 	}
@@ -36,11 +41,38 @@ class NavViewController: UINavigationController, StoreSubscriber {
 		store.unsubscribe(self)
 	}
 	
+	func getVisibleName()->String{
+		if(self.visibleViewController == nil){
+			return ""
+		}
+		let page = self.visibleViewController as! PPageViewController
+		return page.getName()
+	}
+	
 	func newState(state: NavState) {
-		print(state)
+		print("nav!", state)
 		let shouldAnimate = self.topViewController != nil
 		self.gotoViewController(state: state, animated: shouldAnimate)
 	}
 
+}
+
+
+extension NavViewController: UINavigationBarDelegate  {
+	
+	public func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem) {
+		let page = self.visibleViewController as! PPageViewController
+		print(page, page.getName())
+		if(page.getName() == "files"){
+			store.dispatch(NavigateAction(payload: .files))
+		}
+		else if(page.getName() == "design"){
+			store.dispatch(NavigateAction(payload: .design))
+		}
+		//let newRoute = Array(store.state.navigationState.route.dropLast())
+		//let routeAction = ReSwiftRouter.SetRouteAction(newRoute)
+		//store.dispatch(routeAction)
+	}
+	
 }
 

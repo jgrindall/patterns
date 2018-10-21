@@ -34,6 +34,7 @@ struct DeleteItemAction:Action{
 struct LoadFilesAction:Action{
 	init() {
 		let files:[FileModel] = Files.loadAll()
+		print("files", files)
 		store.dispatch(SetFilesAction(payload: files))
 		if(files.count >= 1){
 			store.dispatch(SetSelectedAction(payload: files[0]))
@@ -43,6 +44,10 @@ struct LoadFilesAction:Action{
 
 struct SetFilesAction:Action{
 	let payload:[FileModel]
+}
+
+struct OpenFileAction:Action{
+	let payload:FileModel?
 }
 
 struct SetSelectedAction:Action{

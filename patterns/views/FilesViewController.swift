@@ -4,11 +4,12 @@ import RSClipperWrapper
 import ReSwift
 import Disk
 
-class FilesViewController: UIViewController, StoreSubscriber {
+class FilesViewController: UIViewController, StoreSubscriber, PPageViewController {
 	
 	private var listController:FileListController
 	private var detailController:DetailViewController
 	private var openButton:UIButton = UIButton(frame:CGRect(x: 900, y: 700, width: 80, height: 40))
+	private var newButton:UIButton = UIButton(frame:CGRect(x: 0, y: 700, width: 80, height: 40))
 	
 	required init(){
 		let flowLayout = UICollectionViewFlowLayout()
@@ -19,6 +20,10 @@ class FilesViewController: UIViewController, StoreSubscriber {
 		self.listController = FileListController(collectionViewLayout: flowLayout)
 		self.detailController = DetailViewController()
 		super.init(nibName: nil, bundle: nil)
+	}
+	
+	public func getName() -> String {
+		return "files"
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -33,23 +38,35 @@ class FilesViewController: UIViewController, StoreSubscriber {
 		displayContentController(container: self, content: listController, frame: CGRect(x: 0, y: 0, width: 150, height: 900))
 		displayContentController(container: self, content: detailController, frame: CGRect(x: 200, y: 0, width: 800, height: 800))
 		openButton.setTitle("Open", for: .normal)
-		openButton.addTarget(self, action: #selector(FilesViewController.buttonClicked(_:)), for: .touchUpInside)
+		openButton.addTarget(self, action: #selector(FilesViewController.openButtonClicked(_:)), for: .touchUpInside)
 		openButton.backgroundColor = .green
 		self.view.addSubview(openButton)
-		//self.save()
+		newButton.setTitle("New", for: .normal)
+		newButton.addTarget(self, action: #selector(FilesViewController.newButtonClicked(_:)), for: .touchUpInside)
+		newButton.backgroundColor = .green
+		self.view.addSubview(newButton)
 		self.loadFiles()
 		super.viewDidLoad()
 	}
 	
-	@objc func buttonClicked(_ sender: AnyObject?){
+	private func open(_ file:FileModel?){
+		store.dispatch(OpenFileAction(payload: file))
+		store.dispatch(NavigateAction(payload: .design))
+	}
+	
+	@objc func newButtonClicked(_ sender: AnyObject?){
+		self.open(nil)
+	}
+	
+	@objc func openButtonClicked(_ sender: AnyObject?){
 		let file:FileModel? = store.state.fileState.selected
 		if (file != nil){
-			store.dispatch(NavigateAction(payload: .draw))
+			self.open(file)
 		}
 	}
 	
 	func save(){
-		let file:FileModel = FileModel(userId: 123, id: 123, title: "title", body: "body body body body")
+		let file:FileModel = FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"")
 		_ = Files.save(name: "name34", fileModel: file)
 	}
 	
@@ -71,6 +88,9 @@ class FilesViewController: UIViewController, StoreSubscriber {
 	func newState(state: FileState) {
 		print("newstate", state)
 		self.listController.update(items:state.files, selected:state.selected)
+		if(state.selected != nil){
+			self.detailController.loadFile(f: state.selected!)
+		}
 	}
 
 }

@@ -12,7 +12,6 @@
 		520D348F2160EAC800AE8AE0 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D348E2160EAC800AE8AE0 /* FileCell.swift */; };
 		520D34912160EB3F00AE8AE0 /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D34902160EB3F00AE8AE0 /* FileModel.swift */; };
 		520D34932160ED8400AE8AE0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D34922160ED8400AE8AE0 /* DetailViewController.swift */; };
-		520D34952160EE5A00AE8AE0 /* pat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 520D34942160EE5A00AE8AE0 /* pat.jpg */; };
 		520D3499216114CB00AE8AE0 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D3498216114CB00AE8AE0 /* Files.swift */; };
 		520D349B21611D4900AE8AE0 /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 520D349A21611D4900AE8AE0 /* tick.png */; };
 		5212FF5221568B5D00579B08 /* ConnectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF4A21568B5C00579B08 /* ConnectedController.swift */; };
@@ -41,6 +40,12 @@
 		5212FF7D21568CCE00579B08 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7B21568CCD00579B08 /* ItemCell.swift */; };
 		5212FF7F215693F200579B08 /* ClickPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7E215693F100579B08 /* ClickPos.swift */; };
 		523CA96E215C21E9001BE9E0 /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523CA96D215C21E9001BE9E0 /* DesignViewController.swift */; };
+		5276A911217CE015004F6047 /* FileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276A910217CE015004F6047 /* FileState.swift */; };
+		5276A914217CE053004F6047 /* CodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276A912217CE053004F6047 /* CodeState.swift */; };
+		5276A915217CE053004F6047 /* NavState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276A913217CE053004F6047 /* NavState.swift */; };
+		5276A917217CEF09004F6047 /* PPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276A916217CEF09004F6047 /* PPageViewController.swift */; };
+		5276A91A217CF3CA004F6047 /* pat1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5276A918217CF3C9004F6047 /* pat1.jpg */; };
+		5276A91B217CF3CA004F6047 /* pat2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5276A919217CF3C9004F6047 /* pat2.jpg */; };
 		52ADA12821406D8200C1862F /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = 52ADA12721406D8200C1862F /* img.png */; };
 		52ADA12E214088BF00C1862F /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 52ADA12D214088BF00C1862F /* img1.png */; };
 		52B4A66121453FDB00E761C3 /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B4A66021453FDB00E761C3 /* img2.png */; };
@@ -61,7 +66,6 @@
 		520D348E2160EAC800AE8AE0 /* FileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCell.swift; sourceTree = "<group>"; };
 		520D34902160EB3F00AE8AE0 /* FileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
 		520D34922160ED8400AE8AE0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		520D34942160EE5A00AE8AE0 /* pat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pat.jpg; sourceTree = "<group>"; };
 		520D3498216114CB00AE8AE0 /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		520D349A21611D4900AE8AE0 /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick.png; sourceTree = "<group>"; };
 		5212FF4A21568B5C00579B08 /* ConnectedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,12 @@
 		5212FF7B21568CCD00579B08 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		5212FF7E215693F100579B08 /* ClickPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickPos.swift; sourceTree = "<group>"; };
 		523CA96D215C21E9001BE9E0 /* DesignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
+		5276A910217CE015004F6047 /* FileState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileState.swift; sourceTree = "<group>"; };
+		5276A912217CE053004F6047 /* CodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeState.swift; sourceTree = "<group>"; };
+		5276A913217CE053004F6047 /* NavState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavState.swift; sourceTree = "<group>"; };
+		5276A916217CEF09004F6047 /* PPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPageViewController.swift; sourceTree = "<group>"; };
+		5276A918217CF3C9004F6047 /* pat1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pat1.jpg; sourceTree = "<group>"; };
+		5276A919217CF3C9004F6047 /* pat2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pat2.jpg; sourceTree = "<group>"; };
 		52ADA12721406D8200C1862F /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 		52ADA12D214088BF00C1862F /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
 		52B4A66021453FDB00E761C3 /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
@@ -129,8 +139,8 @@
 		5212FF4921568B5C00579B08 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				5276A916217CEF09004F6047 /* PPageViewController.swift */,
 				520D34922160ED8400AE8AE0 /* DetailViewController.swift */,
-				520D34902160EB3F00AE8AE0 /* FileModel.swift */,
 				520D348E2160EAC800AE8AE0 /* FileCell.swift */,
 				520D348C2160EA2600AE8AE0 /* FileListController.swift */,
 				520D348A2160E87C00AE8AE0 /* FilesViewController.swift */,
@@ -166,9 +176,13 @@
 			children = (
 				5212FF7721568BF600579B08 /* actions */,
 				5212FF6021568BD200579B08 /* AppReducer.swift */,
+				520D34902160EB3F00AE8AE0 /* FileModel.swift */,
+				5276A912217CE053004F6047 /* CodeState.swift */,
+				5276A913217CE053004F6047 /* NavState.swift */,
 				5212FF6121568BD200579B08 /* AppState.swift */,
 				5212FF6221568BD200579B08 /* DragItemModel.swift */,
 				5212FF6321568BD200579B08 /* DragState.swift */,
+				5276A910217CE015004F6047 /* FileState.swift */,
 				5212FF6421568BD200579B08 /* ListItemModel.swift */,
 				5212FF6521568BD200579B08 /* ListItemsState.swift */,
 			);
@@ -197,8 +211,9 @@
 		52ADA12621406D8200C1862F /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				5276A918217CF3C9004F6047 /* pat1.jpg */,
+				5276A919217CF3C9004F6047 /* pat2.jpg */,
 				520D349A21611D4900AE8AE0 /* tick.png */,
-				520D34942160EE5A00AE8AE0 /* pat.jpg */,
 				52F075D4214EB63F0085BB21 /* del.png */,
 				52B4A66021453FDB00E761C3 /* img2.png */,
 				52ADA12D214088BF00C1862F /* img1.png */,
@@ -326,8 +341,9 @@
 				52ADA12E214088BF00C1862F /* img1.png in Resources */,
 				520D349B21611D4900AE8AE0 /* tick.png in Resources */,
 				52B4A66121453FDB00E761C3 /* img2.png in Resources */,
-				520D34952160EE5A00AE8AE0 /* pat.jpg in Resources */,
+				5276A91A217CF3CA004F6047 /* pat1.jpg in Resources */,
 				52F075D5214EB63F0085BB21 /* del.png in Resources */,
+				5276A91B217CF3CA004F6047 /* pat2.jpg in Resources */,
 				52CE634420F9F3DC003278E9 /* Assets.xcassets in Resources */,
 				52CE634220F9F3DC003278E9 /* Main.storyboard in Resources */,
 				52ADA12821406D8200C1862F /* img.png in Resources */,
@@ -400,6 +416,7 @@
 				52E85AF62104C078004CDB27 /* GroupP3M1.swift in Sources */,
 				5212FF5321568B5D00579B08 /* DragDropViewController.swift in Sources */,
 				52CE634F20F9F860003278E9 /* Extensions.swift in Sources */,
+				5276A917217CEF09004F6047 /* PPageViewController.swift in Sources */,
 				5212FF7021568BD300579B08 /* DragItemModel.swift in Sources */,
 				5212FF7521568BD300579B08 /* IndexUtils.swift in Sources */,
 				5212FF7121568BD300579B08 /* DragState.swift in Sources */,
@@ -407,8 +424,11 @@
 				5212FF5721568B5D00579B08 /* ListController.swift in Sources */,
 				523CA96E215C21E9001BE9E0 /* DesignViewController.swift in Sources */,
 				5212FF6E21568BD300579B08 /* AppReducer.swift in Sources */,
+				5276A911217CE015004F6047 /* FileState.swift in Sources */,
 				5212FF7621568BD300579B08 /* MathUtils.swift in Sources */,
+				5276A914217CE053004F6047 /* CodeState.swift in Sources */,
 				5212FF5521568B5D00579B08 /* DrawingViewController.swift in Sources */,
+				5276A915217CE053004F6047 /* NavState.swift in Sources */,
 				520D348D2160EA2600AE8AE0 /* FileListController.swift in Sources */,
 				5212FF7F215693F200579B08 /* ClickPos.swift in Sources */,
 				5212FF5921568B5D00579B08 /* NavViewController.swift in Sources */,

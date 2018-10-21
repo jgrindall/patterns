@@ -12,10 +12,12 @@ class FileCell: UICollectionViewCell {
 	override var isSelected: Bool{
 		didSet{
 			if self.isSelected{
+				self.backgroundColor = UIColor.orange
 				self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
 				self.tickImageView.isHidden = false
 			}
 			else{
+				self.backgroundColor = UIColor.clear
 				self.transform = CGAffineTransform.identity
 				self.tickImageView.isHidden = true
 			}

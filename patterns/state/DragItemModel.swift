@@ -2,6 +2,9 @@
 import UIKit
 import ReSwift
 
+typealias DragItems = [DragItemModel]
+typealias DragItemsHash = [String: DragItems]
+
 class DragItemModel {
 	public var type: String
 	public var label:String

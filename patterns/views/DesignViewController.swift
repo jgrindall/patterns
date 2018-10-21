@@ -3,7 +3,7 @@ import UIKit
 import RSClipperWrapper
 import ReSwift
 
-class DesignViewController: UIViewController, StoreSubscriber {
+class DesignViewController: UIViewController, StoreSubscriber, PPageViewController {
 	
 	typealias StoreSubscriberStateType = AppState
 	
@@ -24,6 +24,10 @@ class DesignViewController: UIViewController, StoreSubscriber {
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	public func getName() -> String {
+		return "design"
 	}
 	
 	override func viewDidLoad() {

@@ -1,20 +1,5 @@
 import ReSwift
 
-typealias DragItems = [DragItemModel]
-
-enum CodeState: String {
-	case stopped = "stopped"
-	case started = "started"
-	case stopping = "stopping"
-}
-
-enum NavState: String {
-	case draw = "draw"
-	case files = "files"
-}
-
-typealias DragItemsHash = [String: DragItems]
-
 class FileMaker{
 	static func getStuff(_ n: Int) -> DragItems {
 		var items = [] as [DragItemModel]

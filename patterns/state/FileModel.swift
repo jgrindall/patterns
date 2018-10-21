@@ -6,4 +6,5 @@ struct FileModel: Codable {
 	let id: Int
 	let title: String
 	let body: String
+	let imageSrc:String
 }

@@ -71,10 +71,16 @@ func dragReducer(action: Action, state: DragState?) -> DragState {
 
 func filesReducer(action: Action, state: FileState?) -> FileState {
 	switch action {
+		case let action as OpenFileAction:
+			var model:FileModel? = action.payload
+			if(model == nil){
+				model = Files.getBlank()
+			}
+			return FileState(selected: state?.selected, files: (state?.files)!, loaded:model)
 		case let action as SetFilesAction:
-			return FileState(selected: nil, files: action.payload)
+			return FileState(selected: state?.selected, files: action.payload, loaded:state?.loaded)
 		case let action as SetSelectedAction:
-			return FileState(selected: action.payload, files: (state?.files)!)
+			return FileState(selected: action.payload, files: (state?.files)!, loaded:state?.loaded)
 		default:
 			return state ?? FileState()
 	}

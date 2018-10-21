@@ -14,11 +14,3 @@ extension DragState: Equatable {}
 func ==(lhs: DragState, rhs: DragState) -> Bool {
 	return (lhs.state == rhs.state)
 }
-
-struct FileState{
-	var selected:FileModel? = nil
-	var files:[FileModel] = []
-}
-
-
-

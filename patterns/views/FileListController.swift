@@ -16,16 +16,16 @@ class FileListController: UICollectionViewController  {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-		let file = items[indexPath.item]
-		// dispatch
-		print(file)
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+		let file:FileModel = items[indexPath.item]
+		store.dispatch(SetSelectedAction(payload: file))
+		self.collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition.centeredVertically)
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.collectionView?.delegate = self
 		self.view.frame = CGRect(x: 0, y: 0, width: 120, height: 900)
-		self.view.backgroundColor = UIColor.cyan
 		self.collectionView?.backgroundColor = UIColor.cyan
 		self.view.backgroundColor = UIColor.red
 	}
@@ -49,10 +49,6 @@ class FileListController: UICollectionViewController  {
 		if(selected != nil){
 			self.collectionView?.selectItem(at: IndexPath(row:0, section: 0), animated: false, scrollPosition: .centeredVertically)
 		}
-	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
 	}
 	
 	@objc(collectionView:layout:insetForSectionAtIndex:)
