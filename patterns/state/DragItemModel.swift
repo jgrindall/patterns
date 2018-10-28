@@ -1,9 +1,7 @@
-
-import UIKit
 import ReSwift
 
 typealias DragItems = [DragItemModel]
-typealias DragItemsHash = [String: DragItems]
+typealias DragItemsState = [String: DragItems]
 
 class DragItemModel {
 	public var type: String
@@ -16,8 +14,21 @@ class DragItemModel {
 	}
 }
 
+extension Array where Element == DragItemModel {
+	static func ==(lhs: Array<Element>, rhs: Array<Element>) -> Bool {
+		//TODO - fix?
+		return (lhs.count == rhs.count)
+	}
+}
+
+func ==(lhs: DragItemsState, rhs: DragItemsState) -> Bool {
+	return (lhs.count == rhs.count)
+}
+
 extension DragItemModel: Equatable {}
 
 func ==(lhs: DragItemModel, rhs: DragItemModel) -> Bool {
 	return (lhs.type == rhs.type && lhs.label == rhs.label && lhs.imageSrc == rhs.imageSrc)
 }
+
+

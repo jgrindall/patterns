@@ -68,9 +68,12 @@ class ConnectedController: UIViewController, StoreSubscriber, PDragDelegate {
 		store.unsubscribe(self)
 	}
 	
-	func newState(state: DragItems) {
+	public func setItems(state: DragItems){
 		self.dragController.setData(items: state)
 	}
 	
+	func newState(state: DragItems) {
+		self.setItems(state: state)
+	}
 	
 }

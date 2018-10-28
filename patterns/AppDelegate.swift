@@ -4,6 +4,8 @@ import ReSwift
 
 var store = Store<AppState>(reducer: appReducer, state: AppState())
 
+var manager:Manager?
+
 func displayContentController(container:UIViewController, content: UIViewController, frame:CGRect){
 	container.addChildViewController(content)
 	container.view.addSubview(content.view)
@@ -22,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		manager = Manager()
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		let nav1 = NavViewController()
 		nav1.viewControllers = []

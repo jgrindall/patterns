@@ -9,16 +9,14 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 	
 	private var drawingController:DrawingViewController
 	private var textEntryController:TextEntryController
-	private var connectedController0:ConnectedController
-	private var connectedController1:ConnectedController
-	
-	//private var tabbedController:TabbedController()
+	private var tabButtonsController:TabButtonsController
+	private var tabContentController:TabContentController
 	
 	required init(){
+		self.tabButtonsController = TabButtonsController()
+		self.tabContentController = TabContentController()
 		self.drawingController = DrawingViewController()
 		self.textEntryController = TextEntryController()
-		self.connectedController0 = ConnectedController(frame:CGRect(), key:"0")
-		self.connectedController1 = ConnectedController(frame:CGRect(), key:"1")
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -35,8 +33,8 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		let h:CGFloat = self.view.frame.height/2.0;
 		displayContentController(container: self, content: drawingController, frame: self.view.frame)
 		displayContentController(container: self, content: textEntryController, frame: CGRect(x: 0, y: 0, width: 600, height: 400))
-		displayContentController(container: self, content: connectedController0, frame: CGRect(x: 0, y: self.view.frame.height/2.0, width: self.view.frame.width, height: self.view.frame.height/2.0))
-		displayContentController(container: self, content: connectedController1, frame: CGRect(x: 400, y: self.view.frame.height/2.0, width: self.view.frame.width, height: self.view.frame.height/2.0))
+		displayContentController(container: self, content: tabButtonsController, frame: CGRect(x: 0, y: h-50, width: self.view.frame.width, height: 50))
+		displayContentController(container: self, content: tabContentController, frame: CGRect(x: 0, y: h, width: self.view.frame.width, height: h))
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +48,7 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 	}
 	
 	func newState(state: AppState) {
-		//print("newstate")
+		print("newstate", state)
 	}
 
 }

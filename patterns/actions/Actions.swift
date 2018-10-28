@@ -42,6 +42,14 @@ struct LoadFilesAction:Action{
 	}
 }
 
+struct SetTabsAction:Action{
+	let payload:[String]
+}
+
+struct SetItemsAction:Action{
+	let payload:DragItemsState
+}
+
 struct SetFilesAction:Action{
 	let payload:[FileModel]
 }

@@ -4,8 +4,6 @@ import ReSwift
 
 class TextEntryController: UIViewController, StoreSubscriber {
 	
-	typealias StoreSubscriberStateType = AppState
-	
 	private var textField:UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 500, height: 200))
 	private var okButton:UIButton = UIButton(type: UIButtonType.system)
 
@@ -22,14 +20,20 @@ class TextEntryController: UIViewController, StoreSubscriber {
 		textField.addTarget(self, action: #selector(TextEntryController.textChanged(_:)), for: .editingChanged)
 	}
 	
-	func newState(state: AppState) {
+	func newState(state: String) {
 		//print("new state", state)
-		textField.text = state.text
+		textField.text = state
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		store.subscribe(self)
+		store.subscribe(self) {
+			$0
+				.select {
+					$0.text
+				}
+				.skipRepeats()
+		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {

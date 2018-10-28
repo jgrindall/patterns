@@ -11,8 +11,14 @@ class Files {
 	
 	public static func loadAll() -> [FileModel]{
 		let fileManager = FileManager.default
-		let dummyModel1 = FileModel(userId: 1, id: 1, title: "title1", body: "title1", imageSrc: "pat1.jpg")
-		let dummyModel2 = FileModel(userId: 1, id: 2, title: "title2", body: "title2", imageSrc: "pat2.jpg")
+		let dummyModel1 = FileModel(userId: 1, id: 1, title: "title1", body: "title1", imageSrc: "pat1.jpg", data:[
+			Flow(name: "page0", data: [1, 2, 3, 4]),
+			Flow(name: "page1", data: [8, 6, 5, 1])
+		])
+		let dummyModel2 = FileModel(userId: 1, id: 2, title: "title2", body: "title2", imageSrc: "pat2.jpg", data:[
+			Flow(name: "page0", data: [11, 2, 13, -4]),
+			Flow(name: "page1", data: [4, 16, 15, 1])
+		])
 		var files:[FileModel] = [dummyModel1, dummyModel2]
 		let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
 		do {
@@ -46,7 +52,7 @@ class Files {
 	}
 	
 	public static func save(name:String, fileModel:FileModel) -> Bool{
-		let file:FileModel = FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"")
+		let file:FileModel = FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"", data:[])
 		do {
 			try Disk.save(file, to: .documents, as: _getFile(name))
 		}
@@ -59,7 +65,7 @@ class Files {
 	}
 	
 	public static func getBlank() -> FileModel{
-		return FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"")
+		return FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"", data:[])
 	}
 
 }

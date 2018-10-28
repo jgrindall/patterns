@@ -19,12 +19,14 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 	}
 	
 	func newState(state: AppState) {
+		/*
 		if(state.codeState == .started){
 			geom.setText(_text: state.text)
 			(self.view as! DrawingView).setPolygons(ps: geom.getPolygons())
 			(self.view as! DrawingView).update()
 			store.dispatch(StatusActionStopped())
 		}
+		*/
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
