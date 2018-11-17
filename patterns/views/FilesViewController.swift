@@ -47,6 +47,12 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 		self.view.addSubview(newButton)
 		self.loadFiles()
 		super.viewDidLoad()
+		self.initLayout()
+	}
+	
+	func initLayout(){
+		LayoutUtils.layoutToLeft(v: self.listController.view, parent: self.view, multiplier: 0.25)
+		LayoutUtils.layoutToRight(v: self.detailController.view, parent: self.view, multiplier:0.75)
 	}
 	
 	private func open(_ file:FileModel?){

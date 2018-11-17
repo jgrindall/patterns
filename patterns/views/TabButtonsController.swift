@@ -31,6 +31,12 @@ class TabButtonsController: UIViewController, StoreSubscriber {
 		}
 	}
 	
+	public func setSelected(_ index:Int){
+		for i in 0..<self.buttons.count{
+			self.buttons[i].isEnabled = (i == index)
+		}
+	}
+	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		store.unsubscribe(self)
@@ -47,17 +53,19 @@ class TabButtonsController: UIViewController, StoreSubscriber {
 	public func addButtons(_ names:[String]){
 		print("SET TAVS", names)
 		for i in 0..<names.count{
-			let b:UIButton = self.getButton(i)
+			let b:UIButton = self.getButton(index:i, label:names[i])
 			self.buttons.append(b)
 			self.view.addSubview(b)
 		}
+		self.setSelected(0)
 	}
 	
-	private func getButton(_ i:Int) -> UIButton{
-		let b:UIButton = UIButton(frame:CGRect(x: i*200, y: 0, width: 80, height: 30))
-		b.setTitle("Page " + String(i), for: .normal)
+	private func getButton(index:Int, label:String) -> UIButton{
+		let b:UIButton = UIButton(frame:CGRect(x: index*200, y: 0, width: 80, height: 30))
+		b.setTitle("Page " + label, for: .normal)
 		b.addTarget(self, action: #selector(TabButtonsController.buttonClicked(_:)), for: .touchUpInside)
 		b.backgroundColor = .green
+		b.setBackgroundColor(color: .gray, forState: .disabled)
 		return b
 	}
 	

@@ -14,6 +14,7 @@ class TextEntryController: UIViewController, StoreSubscriber {
 		textField.backgroundColor = UIColor.blue
 		textField.minimumFontSize = 32.0
 		textField.font = UIFont(name: "Verdana", size: 18)
+		textField.text = store.state.text
 		self.view.addSubview(textField)
 		self.view.addSubview(okButton)
 		okButton.addTarget(self, action: #selector(TextEntryController.buttonClicked(_:)), for: .touchUpInside)

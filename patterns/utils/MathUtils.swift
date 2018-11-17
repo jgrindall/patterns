@@ -70,6 +70,11 @@ class MathUtils {
 		return nil
 	}
 	
+	public static func randomFloat(_ min:CGFloat, _ max:CGFloat) -> CGFloat{
+		let f:CGFloat = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
+		return f * (max - min) + min
+	}
+	
 	public static func getTransSteps(origin:CGPoint, frame:CGRect, w:CGFloat, h:CGFloat) -> MinMax {
 		var xmin:Int = 0
 		var xmax:Int = 0

@@ -2,10 +2,10 @@
 import UIKit
 import ReSwift
 
-class ListController: UIViewController, StoreSubscriber {
+class ListController: UIViewController {
 
 	private var centres:[CGPoint] = []
-	private var listItems:[ListItemModel] = []
+	private var listItems:[ListItemModel] = ListMaker.getStuff()
 	private var views:[UIView] = []
 	private var draggedView:UIView? = nil
 	private var draggedIndex:Int = -1
@@ -26,6 +26,8 @@ class ListController: UIViewController, StoreSubscriber {
 		let panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target:self, action:#selector(ListController.detectPan(_:)))
 		self.view.addGestureRecognizer(panRecognizer)
 		self.view.backgroundColor = UIColor.purple
+		self.addChildren()
+		self.view.clipsToBounds = true
 	}
 	
 	func reset(){
@@ -56,7 +58,8 @@ class ListController: UIViewController, StoreSubscriber {
 		let f1:CGRect = (_target?.view.frame)!
 		px = px + (Double(f0.minX) - Double(f1.minX))
 		py = py + (Double(f0.minY) - Double(f1.minY))
-		return _target!.getIndexAt(x:px, y:py)
+		//return _target!.getIndexAt(x:px, y:py)
+		return 0
 	}
 	
 	@objc func detectPan(_ sender:UIPanGestureRecognizer) {
@@ -67,10 +70,10 @@ class ListController: UIViewController, StoreSubscriber {
 		}
 		else if(sender.state == .changed){
 			draggedView!.center = translation + centres[draggedIndex]
-			_target?.movePlaceholder(index: getInsertIndex())
+			//_target?.movePlaceholder(index: getInsertIndex())
 		}
 		else if(sender.state == .ended){
-			_target?.movePlaceholder(index: -1)
+			//_target?.movePlaceholder(index: -1)
 			print("InsertItemAction", draggedIndex)
 			store.dispatch(InsertItemAction(payload: Insert(key: _key, index: getInsertIndex())))
 			reset()
@@ -102,30 +105,6 @@ class ListController: UIViewController, StoreSubscriber {
 			self.view.addSubview(v)
 			views.append(v)
 		}
-	}
-	
-	func newState(state: ListItemsState) {
-		listItems = state.items
-		addChildren()
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		store.subscribe(self) {
-			$0
-			.select {
-				$0.listItems
-			}
-		}
-	}
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-		store.unsubscribe(self)
-	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
 	}
 
 

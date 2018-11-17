@@ -8,8 +8,8 @@ struct AppState: StateType {
 	var text:String = ""
 	var tabs:TabsState = TabsState()
 	var items:DragItemsState = [:]
-	var listItems = ListItemsState(items: ListMaker.getStuff())
 	var fileState = FileState()
+	var selectedTabState:Int = 0
 }
 
 extension AppState: Equatable {
@@ -18,8 +18,8 @@ extension AppState: Equatable {
 		&& lhs.text == rhs.text
 		&& lhs.tabs == rhs.tabs
 		&& lhs.items.keys == rhs.items.keys
-		&& lhs.listItems == rhs.listItems
 		&& lhs.activeFileState == rhs.activeFileState
+		&& lhs.selectedTabState == rhs.selectedTabState
 	}
 }
 

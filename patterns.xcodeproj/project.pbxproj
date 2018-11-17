@@ -36,6 +36,7 @@
 		5212FF7D21568CCE00579B08 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7B21568CCD00579B08 /* ItemCell.swift */; };
 		5212FF7F215693F200579B08 /* ClickPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7E215693F100579B08 /* ClickPos.swift */; };
 		523CA96E215C21E9001BE9E0 /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523CA96D215C21E9001BE9E0 /* DesignViewController.swift */; };
+		5272C69021A0C7D6000ACED1 /* LayoutUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272C68F21A0C7D5000ACED1 /* LayoutUtils.swift */; };
 		5276A911217CE015004F6047 /* FileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276A910217CE015004F6047 /* FileState.swift */; };
 		5276A915217CE053004F6047 /* NavState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276A913217CE053004F6047 /* NavState.swift */; };
 		5276A917217CEF09004F6047 /* PPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276A916217CEF09004F6047 /* PPageViewController.swift */; };
@@ -93,6 +94,7 @@
 		5212FF7B21568CCD00579B08 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		5212FF7E215693F100579B08 /* ClickPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickPos.swift; sourceTree = "<group>"; };
 		523CA96D215C21E9001BE9E0 /* DesignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
+		5272C68F21A0C7D5000ACED1 /* LayoutUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutUtils.swift; sourceTree = "<group>"; };
 		5276A910217CE015004F6047 /* FileState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileState.swift; sourceTree = "<group>"; };
 		5276A913217CE053004F6047 /* NavState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavState.swift; sourceTree = "<group>"; };
 		5276A916217CEF09004F6047 /* PPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPageViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		5212FF6621568BD200579B08 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				5272C68F21A0C7D5000ACED1 /* LayoutUtils.swift */,
 				52A54D3B2186244100DF0ADD /* ListMaker.swift */,
 				52A54D2A2185EC5B00DF0ADD /* FileMaker.swift */,
 				520D3498216114CB00AE8AE0 /* Files.swift */,
@@ -444,6 +447,7 @@
 				5212FF6E21568BD300579B08 /* AppReducer.swift in Sources */,
 				5276A911217CE015004F6047 /* FileState.swift in Sources */,
 				5212FF7621568BD300579B08 /* MathUtils.swift in Sources */,
+				5272C69021A0C7D6000ACED1 /* LayoutUtils.swift in Sources */,
 				52A54D3A21861FD700DF0ADD /* TabContentController.swift in Sources */,
 				5212FF5521568B5D00579B08 /* DrawingViewController.swift in Sources */,
 				5276A915217CE053004F6047 /* NavState.swift in Sources */,

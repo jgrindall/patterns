@@ -30,14 +30,6 @@ class FileListController: UICollectionViewController  {
 		self.view.backgroundColor = UIColor.red
 	}
 	
-	func getPaths(_ num:Int) -> [IndexPath]{
-		var p:[IndexPath] = []
-		for i in 0..<num{
-			p.append(IndexPath(row:i, section: 0))
-		}
-		return p
-	}
-	
 	func getAllPaths() -> [IndexPath]{
 		return getPaths(self.items.count)
 	}

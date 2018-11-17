@@ -7,9 +7,14 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 		text: textReducer(action: action, state: state?.text),
 		tabs:tabsReducer(action: action, state: (state?.tabs)!),
 		items: itemsReducer(action: action, items: state?.items),
-		listItems: (state?.listItems)!,
-		fileState:filesReducer(action: action, state: state?.fileState)
+		fileState:filesReducer(action: action, state: state?.fileState),
+		selectedTabState:selectedTabReducer(action: action, state: state!.selectedTabState)
 	)
+}
+
+func selectedTabReducer(action: Action, state: Int) -> Int {
+	let state = state
+	return state
 }
 
 func tabsReducer(action: Action, state: TabsState) -> TabsState {
@@ -51,7 +56,7 @@ func textReducer(action: Action, state: String?) -> String {
 		case let action as EditTextAction:
 			return action.payload
 		default:
-			return ""
+			return state!
 	}
 }
 

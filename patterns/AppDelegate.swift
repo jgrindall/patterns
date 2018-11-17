@@ -2,15 +2,33 @@
 import UIKit
 import ReSwift
 
-var store = Store<AppState>(reducer: appReducer, state: AppState())
+let loggingMiddleware: Middleware<Any> = { dispatch, getState in
+	return { next in
+		return { action in
+			// perform middleware logic
+			//print("ACTION", action)
+			// call next middleware
+			return next(action)
+		}
+	}
+}
+
+var store:Store = Store<AppState>(reducer: appReducer, state: AppState(), middleware: [loggingMiddleware])
 
 var manager:Manager?
 
 func displayContentController(container:UIViewController, content: UIViewController, frame:CGRect){
-	container.addChildViewController(content)
+	//content.view.frame = frame
 	container.view.addSubview(content.view)
-	content.view.frame = frame
+	print("content", content, content.view, frame)
+	//if let vc = content as? UICollectionViewController {
+		//print("contentvc", vc)
+		//vc.collectionView?.frame = frame
+	//}
+	container.addChildViewController(content)
 	content.didMove(toParentViewController: container)
+	print("add", content, "to", container, "frame", frame)
+	print(2,content.view.frame)
 }
 
 func hideContentController(container:UIViewController, content: UIViewController) {
