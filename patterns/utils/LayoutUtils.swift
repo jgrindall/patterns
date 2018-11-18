@@ -3,6 +3,15 @@ import UIKit
 
 class LayoutUtils {
 	
+	public static func absolute(v:UIView, parent:UIView, rect:CGRect)->[NSLayoutConstraint] {
+		return [
+			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant:rect.minX),
+			v.topAnchor.constraint(equalTo: parent.topAnchor, constant:rect.minY),
+			v.widthAnchor.constraint(equalToConstant: rect.width),
+			v.heightAnchor.constraint(equalToConstant: rect.height)
+		]
+	}
+	
 	public static func bottomLeft(v:UIView, parent:UIView, margin:CGFloat, width:CGFloat, height:CGFloat)->[NSLayoutConstraint] {
 		return [
 			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: margin),

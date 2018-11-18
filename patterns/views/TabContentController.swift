@@ -25,7 +25,6 @@ class TabContentController: UIViewController, StoreSubscriber {
 	private func initLayout(){
 		self.removeLayout()
 		for i in 0..<self.content.count{
-			print("FULL", i)
 			let constraints:[NSLayoutConstraint] = LayoutUtils.layoutFull(v: self.content[i].view, parent: self.view)
 			self.contentConstraints.append(constraints)
 			NSLayoutConstraint.activate(constraints)
