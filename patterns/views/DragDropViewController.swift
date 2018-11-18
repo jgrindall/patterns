@@ -14,12 +14,11 @@ class DragDropViewController: UICollectionViewController, PEditorControllerDeleg
 	private var _key:String = ""
 	var dragDelegate : PDragDelegate?
 	
-	init(collectionViewLayout: UICollectionViewLayout, key:String, frame:CGRect){
+	init(collectionViewLayout: UICollectionViewLayout, key:String){
 		_key = key
 		super.init(collectionViewLayout:collectionViewLayout)
-		self.collectionView?.backgroundColor = UIColor.brown
-		self.view.frame  = frame
-		self.collectionView?.frame  = frame
+		self.collectionView?.backgroundColor = UIColor(red: 0.17, green: 0.3, blue: 0.8, alpha: 0.5)
+		self.view.clipsToBounds = true
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -66,7 +65,7 @@ class DragDropViewController: UICollectionViewController, PEditorControllerDeleg
 			let data = self.dataItems[index]
 			let cell = collectionView!.cellForItem(at: IndexPath(row:index, section: 0))
 			let editor = EditorViewController()
-			//editor.delegate = self
+			editor.delegate = self
 			editor.preferredContentSize = CGSize(width: 400, height: 300)
 			editor.modalPresentationStyle = .popover
 			editor.loadData(index, data)

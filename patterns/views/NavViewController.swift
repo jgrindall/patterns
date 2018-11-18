@@ -28,7 +28,6 @@ class NavViewController: UINavigationController, StoreSubscriber {
 	
 	fileprivate func gotoViewController(state: NavState, animated: Bool) {
 		let c:String = self.getVisibleName()
-		print("goto", c, state)
 		if(c == state.rawValue){
 			return
 		}
@@ -50,7 +49,6 @@ class NavViewController: UINavigationController, StoreSubscriber {
 	}
 	
 	func newState(state: NavState) {
-		print("nav!", state)
 		let shouldAnimate = self.topViewController != nil
 		self.gotoViewController(state: state, animated: shouldAnimate)
 	}
@@ -62,7 +60,6 @@ extension NavViewController: UINavigationBarDelegate  {
 	
 	public func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem) {
 		let page = self.visibleViewController as! PPageViewController
-		print(page, page.getName())
 		if(page.getName() == "files"){
 			store.dispatch(NavigateAction(payload: .files))
 		}

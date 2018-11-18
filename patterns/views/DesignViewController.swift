@@ -6,9 +6,12 @@ import ReSwift
 class DesignViewController: UIViewController, StoreSubscriber, PPageViewController {
 	
 	private var drawingController:DrawingViewController
+	private var drawingConstraints:[NSLayoutConstraint] = []
 	private var textEntryController:TextEntryController
 	private var tabButtonsController:TabButtonsController
+	private var tabButtonsConstraints:[NSLayoutConstraint] = []
 	private var tabContentController:TabContentController
+	private var tabContentConstraints:[NSLayoutConstraint] = []
 	
 	required init(){
 		self.tabButtonsController = TabButtonsController()
@@ -28,7 +31,6 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let h:CGFloat = self.view.frame.height/2.0;
 		displayContentController(container: self, content: drawingController)
 		displayContentController(container: self, content: textEntryController)
 		displayContentController(container: self, content: tabButtonsController)
@@ -37,10 +39,20 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 	}
 	
 	func initLayout(){
-		LayoutUtils.layoutToBottom(v: self.tabContentController.view, parent: self.view, multiplier: 0.5)
+		drawingConstraints = LayoutUtils.layoutFull(v: self.drawingController.view, parent: self.view)
+		tabContentConstraints = LayoutUtils.layoutToBottom(v: self.tabContentController.view, parent: self.view, multiplier: 0.5)
+		tabButtonsConstraints = LayoutUtils.layoutAboveWithHeight(v: self.tabButtonsController.view, viewToBeAbove: self.tabContentController.view, height: 60)
+		
+		self.drawingController.view.translatesAutoresizingMaskIntoConstraints = false
+		self.tabContentController.view.translatesAutoresizingMaskIntoConstraints = false
+		self.tabButtonsController.view.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate(drawingConstraints)
+		NSLayoutConstraint.activate(tabContentConstraints)
+		NSLayoutConstraint.activate(tabButtonsConstraints)
+		
 		//LayoutUtils.layoutToTop(v: self.textEntryController.view, parent: self.view, multiplier: 0)
-		LayoutUtils.layoutFull(v: self.drawingController.view, parent: self.view)
-		LayoutUtils.layoutAboveWithHeight(v: self.tabButtonsController.view, viewToBeAbove: self.tabContentController.view, height: 60)
+		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +72,6 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 	}
 	
 	func newState(state: Int) {
-		print("design state", state)
 		self.tabButtonsController.setSelected(state)
 		self.tabContentController.setSelected(state)
 	}

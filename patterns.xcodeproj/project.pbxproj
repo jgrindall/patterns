@@ -60,6 +60,7 @@
 		52CE634F20F9F860003278E9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE634E20F9F860003278E9 /* Extensions.swift */; };
 		52E85AF62104C078004CDB27 /* GroupP3M1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E85AF52104C078004CDB27 /* GroupP3M1.swift */; };
 		52F075D5214EB63F0085BB21 /* del.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F075D4214EB63F0085BB21 /* del.png */; };
+		52F59D2421A18D1300225E81 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F59D2321A18D1300225E81 /* Consts.swift */; };
 		8283E47F42C413BDBB390E98 /* Pods_patterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFBCFFBE9296BEA4667D638 /* Pods_patterns.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		52CE634E20F9F860003278E9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		52E85AF52104C078004CDB27 /* GroupP3M1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupP3M1.swift; sourceTree = "<group>"; };
 		52F075D4214EB63F0085BB21 /* del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = del.png; sourceTree = "<group>"; };
+		52F59D2321A18D1300225E81 /* Consts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		88CB83FAA9C12238FBDBA1CF /* Pods-patterns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-patterns.release.xcconfig"; path = "Pods/Target Support Files/Pods-patterns/Pods-patterns.release.xcconfig"; sourceTree = "<group>"; };
 		CAFBCFFBE9296BEA4667D638 /* Pods_patterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_patterns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -260,6 +262,7 @@
 		52CE633B20F9F3DC003278E9 /* patterns */ = {
 			isa = PBXGroup;
 			children = (
+				52F59D2021A18BD700225E81 /* consts */,
 				52A54D2C2186077600DF0ADD /* Manager.swift */,
 				52A54D302186131C00DF0ADD /* model */,
 				5212FF7721568BF600579B08 /* actions */,
@@ -285,6 +288,14 @@
 				52E85AF52104C078004CDB27 /* GroupP3M1.swift */,
 			);
 			path = groups;
+			sourceTree = "<group>";
+		};
+		52F59D2021A18BD700225E81 /* consts */ = {
+			isa = PBXGroup;
+			children = (
+				52F59D2321A18D1300225E81 /* Consts.swift */,
+			);
+			path = consts;
 			sourceTree = "<group>";
 		};
 		CD136021DFFA6DF9790B3A15 /* Pods */ = {
@@ -436,6 +447,7 @@
 				520D348F2160EAC800AE8AE0 /* FileCell.swift in Sources */,
 				52A54D272185E73700DF0ADD /* DragItemModel.swift in Sources */,
 				5212FF7421568BD300579B08 /* Geom.swift in Sources */,
+				52F59D2421A18D1300225E81 /* Consts.swift in Sources */,
 				52E85AF62104C078004CDB27 /* GroupP3M1.swift in Sources */,
 				5212FF5321568B5D00579B08 /* DragDropViewController.swift in Sources */,
 				52CE634F20F9F860003278E9 /* Extensions.swift in Sources */,

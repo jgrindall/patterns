@@ -10,8 +10,11 @@ protocol PDragDelegate{
 class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 	
 	private var dragController:DragDropViewController
+	private var dragConstraints:[NSLayoutConstraint] = []
 	private var listController:ListController
+	private var listConstraints:[NSLayoutConstraint] = []
 	private var delButton:UIImageView = UIImageView(frame: CGRect())
+	private var delConstraints:[NSLayoutConstraint] = []
 	private var _key:String = ""
 	
 	required init(key:String){
@@ -23,11 +26,15 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 		flowLayout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5)
 		flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
 		flowLayout.minimumInteritemSpacing = 0.0
-		self.dragController = DragDropViewController(collectionViewLayout: flowLayout, key:key, frame:CGRect(x: 0, y: 0, width: 1000, height: 200))
+		self.dragController = DragDropViewController(collectionViewLayout: flowLayout, key:key)
 		super.init(nibName: nil, bundle: nil)
 		self.delButton.image = UIImage(named: "del.png")
 		self.view.addSubview(self.delButton)
 		self.view.clipsToBounds = true
+		self.view.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 0.2)
+		
+		self.view.layer.borderWidth = 5
+		self.view.layer.borderColor = UIColor.red.cgColor
 	}
 	
 	func onDragEnd(index:IndexPath, pos:CGPoint) {
@@ -68,9 +75,16 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 	}
 	
 	private func initLayout(){
+		self.dragController.view.translatesAutoresizingMaskIntoConstraints = false
+		self.dragConstraints = LayoutUtils.layoutToTop(v: dragController.view, parent: self.view, multiplier: 0.5)
+		NSLayoutConstraint.activate(self.dragConstraints)
+		
+		self.listController.view.translatesAutoresizingMaskIntoConstraints = false
+		self.listConstraints = LayoutUtils.layoutToBottom(v: listController.view, parent: self.view, multiplier: 0.5)
+		NSLayoutConstraint.activate(self.listConstraints)
+		
 		//LayoutUtils.bottomRight(v: delButton, parent: self.view, margin: 10, width: 60, height: 60)
-		LayoutUtils.layoutToTop(v: dragController.view, parent: self.view, multiplier: 0.5)
-		LayoutUtils.layoutToBottom(v: listController.view, parent: self.view, multiplier: 0.5)
+		
 	}
 	
 	public func setItems(state: DragItems){

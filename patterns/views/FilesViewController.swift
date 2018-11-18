@@ -7,9 +7,13 @@ import Disk
 class FilesViewController: UIViewController, StoreSubscriber, PPageViewController {
 	
 	private var listController:FileListController
+	private var listConstraints:[NSLayoutConstraint] = []
 	private var detailController:DetailViewController
+	private var detailConstraints:[NSLayoutConstraint] = []
 	private var openButton:UIButton = UIButton(frame:CGRect())
+	private var openConstraints:[NSLayoutConstraint] = []
 	private var newButton:UIButton = UIButton(frame:CGRect(x: 0, y: 700, width: 80, height: 40))
+	private var newConstraints:[NSLayoutConstraint] = []
 	
 	required init(){
 		let flowLayout = UICollectionViewFlowLayout()
@@ -51,10 +55,22 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	}
 	
 	func initLayout(){
-		LayoutUtils.layoutToLeftWithWidth(v: self.listController.view, parent: self.view, width: 150)
-		LayoutUtils.layoutToRightWithMargin(v: self.detailController.view, parent: self.view, margin:150)
-		LayoutUtils.bottomLeft(v: self.newButton, parent: self.view, margin:10, width:120, height:60)
-		LayoutUtils.bottomRight(v: self.openButton, parent: self.view, margin:10, width:120, height:60)
+		self.listController.view.translatesAutoresizingMaskIntoConstraints = false
+		self.listConstraints = LayoutUtils.layoutToLeftWithWidth(v: self.listController.view, parent: self.view, width: Constants.SIZE.FILES_WIDTH)
+		NSLayoutConstraint.activate(self.listConstraints)
+		
+		self.detailController.view.translatesAutoresizingMaskIntoConstraints = false
+		self.detailConstraints = LayoutUtils.layoutToRightWithMargin(v: self.detailController.view, parent: self.view, margin:Constants.SIZE.FILES_WIDTH)
+		NSLayoutConstraint.activate(self.detailConstraints)
+		
+		self.newButton.translatesAutoresizingMaskIntoConstraints = false
+		self.newConstraints = LayoutUtils.bottomLeft(v: self.newButton, parent: self.view, margin:10, width:120, height:60)
+		NSLayoutConstraint.activate(self.newConstraints)
+		
+		self.openButton.translatesAutoresizingMaskIntoConstraints = false
+		self.openConstraints = LayoutUtils.bottomRight(v: self.openButton, parent: self.view, margin:10, width:120, height:60)
+		NSLayoutConstraint.activate(self.openConstraints)
+
 	}
 	
 	private func open(_ file:FileModel?){
@@ -94,7 +110,6 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	}
 	
 	func newState(state: FileState) {
-		print("newstate", state)
 		self.listController.update(items:state.files, selected:state.selected)
 		if(state.selected != nil){
 			self.detailController.loadFile(f: state.selected!)

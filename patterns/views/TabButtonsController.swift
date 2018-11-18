@@ -6,6 +6,7 @@ import ReSwift
 class TabButtonsController: UIViewController, StoreSubscriber {
 	
 	private var buttons:[UIButton] = []
+	private var buttonConstraints:[NSLayoutConstraint] = []
 	
 	required init(){
 		super.init(nibName: nil, bundle: nil)
@@ -51,7 +52,6 @@ class TabButtonsController: UIViewController, StoreSubscriber {
 	}
 	
 	public func addButtons(_ names:[String]){
-		print("SET TAVS", names)
 		for i in 0..<names.count{
 			let b:UIButton = self.getButton(index:i, label:names[i])
 			self.buttons.append(b)
@@ -74,7 +74,6 @@ class TabButtonsController: UIViewController, StoreSubscriber {
 	}
 	
 	func newState(state: TabsState) {
-		print("newtabsstate", state)
 		self.remove()
 		self.addButtons(state.names)
 	}

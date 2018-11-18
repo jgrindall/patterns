@@ -40,7 +40,6 @@ class DrawingView : UIView{
 
 	public override func draw(_ rect: CGRect) {
 		super.draw(rect)
-		print("view update")
 		let context:CGContext? = UIGraphicsGetCurrentContext()
 		context?.clear(self.frame)
 		UIColor.white.setFill()

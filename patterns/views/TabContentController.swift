@@ -5,9 +5,11 @@ import ReSwift
 class TabContentController: UIViewController, StoreSubscriber {
 	
 	private var content:[ConnectedController] = []
-	
+	private var contentConstraints:[ [NSLayoutConstraint] ] = []
 	required init(){
 		super.init(nibName: nil, bundle: nil)
+		self.view.layer.borderWidth = 2
+		self.view.layer.borderColor = UIColor.green.cgColor
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -16,10 +18,20 @@ class TabContentController: UIViewController, StoreSubscriber {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.view.backgroundColor = .orange
+		self.view.backgroundColor = UIColor(red: 0.7, green: 0.3, blue: 0.3, alpha: 0.5)
 		self.view.clipsToBounds = true
 	}
-
+	
+	private func initLayout(){
+		self.removeLayout()
+		for i in 0..<self.content.count{
+			print("FULL", i)
+			let constraints:[NSLayoutConstraint] = LayoutUtils.layoutFull(v: self.content[i].view, parent: self.view)
+			self.contentConstraints.append(constraints)
+			NSLayoutConstraint.activate(constraints)
+		}
+	}
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		store.subscribe(self) {
@@ -38,11 +50,16 @@ class TabContentController: UIViewController, StoreSubscriber {
 		store.unsubscribe(self)
 	}
 	
-	private func remove(){
-		var c:ConnectedController
+	private func removeLayout(){
+		for i in 0..<self.contentConstraints.count{
+			NSLayoutConstraint.deactivate(self.contentConstraints[i])
+		}
+		self.contentConstraints = []
+	}
+	
+	private func removeContent(){
 		for i in 0..<self.content.count{
-			c = self.content[i]
-			hideContentController(container: self, content: c)
+			hideContentController(container: self, content: self.content[i])
 		}
 		self.content = []
 	}
@@ -54,24 +71,22 @@ class TabContentController: UIViewController, StoreSubscriber {
 	}
 	
 	private func updateContent(_ state:DragItemsState){
+		self.content = []
+		self.contentConstraints = []
 		for (key, _) in state {
-			let frame:CGRect = CGRect(x: 0, y: 0, width: 1000, height: 340)
-			let c:ConnectedController = ConnectedController(key:"0")
+			let c:ConnectedController = ConnectedController(key: key)
+			c.view.translatesAutoresizingMaskIntoConstraints = false
 			displayContentController(container: self, content: c)
-			LayoutUtils.layoutFull(v: c.view, parent: self.view)
-			print("F", self.view.frame)
 			self.content.append(c)
-			if(key != "0"){
-				c.view.isHidden = true
-			}
+			self.contentConstraints.append([])
 		}
 		self.setSelected(0)
 	}
 	
 	func newState(state: DragItemsState) {
-		print("content", state)
-		self.remove()
+		self.removeContent()
 		self.updateContent(state)
+		self.initLayout()
 	}
 
 }

@@ -25,7 +25,6 @@ class FileListController: UICollectionViewController  {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.collectionView?.delegate = self
-		self.view.frame = CGRect(x: 0, y: 0, width: 120, height: 900)
 		self.collectionView?.backgroundColor = UIColor.cyan
 		self.view.backgroundColor = UIColor.red
 	}
@@ -45,17 +44,17 @@ class FileListController: UICollectionViewController  {
 	
 	@objc(collectionView:layout:insetForSectionAtIndex:)
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-		return UIEdgeInsetsMake(5, 5, 5, 5)
+		return UIEdgeInsetsMake(0, 0, 0, 0)
 	}
 	
 	@objc(collectionView:layout:minimumLineSpacingForSectionAtIndex:)
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-		return 5
+		return 0
 	}
 	
 	@objc(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-		return 5
+		return 0
 	}
 
 	override public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
