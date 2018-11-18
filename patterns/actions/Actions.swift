@@ -1,8 +1,8 @@
 import ReSwift
 
-struct StatusActionStart: Action {}
-struct StatusActionStopping: Action {}
-struct StatusActionStopped: Action {}
+struct SetCodeStateAction: Action {
+	let payload: CodeState
+}
 
 struct EditTextAction: Action {
 	let payload: String
@@ -46,9 +46,22 @@ struct SetTabsAction:Action{
 	let payload:[String]
 }
 
+struct SetSelectedTabAction:Action{
+	let payload:Int
+}
+
+struct AddTabAction:Action{
+	
+}
+
 struct SetItemsAction:Action{
 	let payload:DragItemsState
 }
+
+struct AddFlowAction:Action{
+	
+}
+
 
 struct SetFilesAction:Action{
 	let payload:[FileModel]

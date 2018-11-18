@@ -20,7 +20,8 @@ class Manager: StoreSubscriber {
 			let fileModel = state.active!
 			store.dispatch(SetTabsAction(payload: fileModel.tabNames))
 			store.dispatch(EditTextAction(payload: fileModel.title + " TITLE"))
-			store.dispatch(SetItemsAction(payload: FileMaker.mapFileToItems(fileModel.data)))
+			store.dispatch(SetItemsAction(payload: FileMaker.mapFileDataToItems(fileModel.data)))
+			store.dispatch(SetSelectedTabAction(payload: 0))
 		}
 	}
 	

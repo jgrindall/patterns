@@ -4,8 +4,6 @@ import ReSwift
 
 class DrawingViewController: UIViewController, StoreSubscriber {
 	
-	typealias StoreSubscriberStateType = AppState
-	
 	private var panGesture  = UIPanGestureRecognizer()
 	private var geom:Geom = Geom()
 
@@ -18,25 +16,27 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 		self.view.addGestureRecognizer(panGesture)
 	}
 	
-	func newState(state: AppState) {
-		/*
-		if(state.codeState == .started){
-			geom.setText(_text: state.text)
-			(self.view as! DrawingView).setPolygons(ps: geom.getPolygons())
-			(self.view as! DrawingView).update()
-			store.dispatch(StatusActionStopped())
-		}
-		*/
-	}
-	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		store.subscribe(self)
+		store.subscribe(self) {
+			$0
+				.select {
+					$0.codeState
+			}
+			.skipRepeats({ (lhs:CodeState, rhs:CodeState) -> Bool in
+				return lhs == rhs
+			})
+		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		store.unsubscribe(self)
+	}
+	
+	func newState(state: CodeState) {
+		print("state", state, "--------")
+		print(store.state.items)
 	}
 	
 	@objc func draggedView(_ sender:UIPanGestureRecognizer){
@@ -47,6 +47,4 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 		super.didReceiveMemoryWarning()
 	}
 
-
 }
-

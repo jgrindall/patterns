@@ -12,18 +12,19 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	private var detailConstraints:[NSLayoutConstraint] = []
 	private var openButton:UIButton = UIButton(frame:CGRect())
 	private var openConstraints:[NSLayoutConstraint] = []
-	private var newButton:UIButton = UIButton(frame:CGRect(x: 0, y: 700, width: 80, height: 40))
+	private var newButton:UIButton = UIButton(frame:CGRect())
 	private var newConstraints:[NSLayoutConstraint] = []
 	
 	required init(){
 		let flowLayout = UICollectionViewFlowLayout()
-		flowLayout.itemSize = CGSize(width: 130, height: 50)
+		flowLayout.itemSize = CGSize(width: Constants.SIZE.FILE_CELL_WIDTH, height: Constants.SIZE.FILE_CELL_HEIGHT)
 		flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
 		flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
 		flowLayout.minimumInteritemSpacing = 0.0
 		self.listController = FileListController(collectionViewLayout: flowLayout)
 		self.detailController = DetailViewController()
 		super.init(nibName: nil, bundle: nil)
+		self.title = "Choose a file"
 	}
 	
 	public func getName() -> String {

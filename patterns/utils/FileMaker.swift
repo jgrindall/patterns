@@ -9,17 +9,14 @@ class FileMaker{
 		return items
 	}
 	
-	static func mapFileToItems(_ flows: [Flow]) -> DragItemsState {
-		let data:DragItemsState = ["0":FileMaker.getStuff(6), "1":FileMaker.getStuff(4)]
-		return data
+	static func mapFileDataToItems(_ flows: [Flow]) -> DragItemsState {
+		var dict:[String:DragItems] = [:]
+		for i in 0..<flows.count{
+			let f:Flow = flows[i]
+			dict[f.name] = FileMaker.getStuff(f.data.count)
+		}
+		return dict
 	}
 }
 
 
-
-/*
-
-typealias DragItems = [DragItemModel]
-typealias DragItemsState = [String: DragItems]
-
-*/

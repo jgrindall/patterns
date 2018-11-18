@@ -64,8 +64,7 @@ class ListController: UIViewController {
 	@objc func detectPan(_ sender:UIPanGestureRecognizer) {
 		let translation:CGPoint  = sender.translation(in: self.view!)
 		if(sender.state == .began){
-			let p:CGPoint = sender.location(in: self.view)
-			setDragged(p:p)
+			setDragged(p:sender.location(in: self.view))
 		}
 		else if(sender.state == .changed){
 			draggedView!.center = translation + centres[draggedIndex]
@@ -73,7 +72,6 @@ class ListController: UIViewController {
 		}
 		else if(sender.state == .ended){
 			_target?.movePlaceholder(index: -1)
-			print("InsertItemAction", draggedIndex)
 			store.dispatch(InsertItemAction(payload: Insert(key: _key, index: getInsertIndex())))
 			reset()
 		}

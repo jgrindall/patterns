@@ -19,6 +19,7 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		self.drawingController = DrawingViewController()
 		self.textEntryController = TextEntryController()
 		super.init(nibName: nil, bundle: nil)
+		self.title = "Edit your file"
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

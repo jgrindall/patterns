@@ -47,7 +47,7 @@ class TextEntryController: UIViewController, StoreSubscriber {
 	}
 	
 	@objc func buttonClicked(_ sender: AnyObject?){
-		store.dispatch(StatusActionStart())
+		store.dispatch(SetCodeStateAction(payload: CodeState.started))
 	}
 
 	override func didReceiveMemoryWarning() {

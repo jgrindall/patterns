@@ -8,8 +8,6 @@ class TabContentController: UIViewController, StoreSubscriber {
 	private var contentConstraints:[ [NSLayoutConstraint] ] = []
 	required init(){
 		super.init(nibName: nil, bundle: nil)
-		self.view.layer.borderWidth = 2
-		self.view.layer.borderColor = UIColor.green.cgColor
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -39,7 +37,7 @@ class TabContentController: UIViewController, StoreSubscriber {
 					$0.items
 			}
 			.skipRepeats({ (lhs:DragItemsState, rhs:DragItemsState) -> Bool in
-				return false
+				return lhs == rhs
 			})
 		}
 	}
@@ -65,7 +63,8 @@ class TabContentController: UIViewController, StoreSubscriber {
 	
 	public func setSelected(_ index:Int){
 		for i in 0..<self.content.count{
-			self.content[i].view.isHidden = (i != index)
+			let shouldHide:Bool = (i != index)
+			self.content[i].view.isHidden = shouldHide
 		}
 	}
 	
@@ -79,13 +78,13 @@ class TabContentController: UIViewController, StoreSubscriber {
 			self.content.append(c)
 			self.contentConstraints.append([])
 		}
-		self.setSelected(0)
 	}
 	
 	func newState(state: DragItemsState) {
 		self.removeContent()
 		self.updateContent(state)
 		self.initLayout()
+		self.setSelected(store.state.selectedTabState)
 	}
 
 }

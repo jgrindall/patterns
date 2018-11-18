@@ -71,5 +71,9 @@ extension NavViewController: UINavigationBarDelegate  {
 		//store.dispatch(routeAction)
 	}
 	
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
+	
 }
 

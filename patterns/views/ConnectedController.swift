@@ -16,6 +16,7 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 	private var delButton:UIImageView = UIImageView(frame: CGRect())
 	private var delConstraints:[NSLayoutConstraint] = []
 	private var _key:String = ""
+	private var label:UILabel = UILabel(frame: CGRect(x: 900, y: 50, width: 100, height: 40))
 	
 	required init(key:String){
 		_key = key
@@ -32,9 +33,8 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 		self.view.addSubview(self.delButton)
 		self.view.clipsToBounds = true
 		self.view.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 0.2)
-		
-		self.view.layer.borderWidth = 5
-		self.view.layer.borderColor = UIColor.red.cgColor
+		self.view.addSubview(self.label)
+		label.text = "KEY " + key
 	}
 	
 	func onDragEnd(index:IndexPath, pos:CGPoint) {
@@ -83,7 +83,9 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 		self.listConstraints = LayoutUtils.layoutToBottom(v: listController.view, parent: self.view, multiplier: 0.5)
 		NSLayoutConstraint.activate(self.listConstraints)
 		
-		//LayoutUtils.bottomRight(v: delButton, parent: self.view, margin: 10, width: 60, height: 60)
+		self.delButton.translatesAutoresizingMaskIntoConstraints = false
+		self.delConstraints = LayoutUtils.bottomRight(v: delButton, parent: self.view, margin: 10, width: 60, height: 60)
+		//NSLayoutConstraint.activate(self.delConstraints)
 		
 	}
 	

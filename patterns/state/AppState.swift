@@ -1,7 +1,5 @@
 import ReSwift
 
-//"0":FileMaker.getStuff(5), "1":FileMaker.getStuff(5), "2":FileMaker.getStuff(5)
-
 struct AppState: StateType {
 	var activeFileState:ActiveFileState = ActiveFileState()
 	var navigationState:NavState = .files
@@ -9,7 +7,8 @@ struct AppState: StateType {
 	var tabs:TabsState = TabsState()
 	var items:DragItemsState = [:]
 	var fileState = FileState()
-	var selectedTabState:Int = 0
+	var selectedTabState:Int = -1
+	var codeState:CodeState = .stopped
 }
 
 extension AppState: Equatable {
@@ -20,6 +19,7 @@ extension AppState: Equatable {
 		&& lhs.items.keys == rhs.items.keys
 		&& lhs.activeFileState == rhs.activeFileState
 		&& lhs.selectedTabState == rhs.selectedTabState
+		&& lhs.codeState == rhs.codeState
 	}
 }
 

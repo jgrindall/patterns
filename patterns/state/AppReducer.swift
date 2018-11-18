@@ -8,13 +8,29 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 		tabs:tabsReducer(action: action, state: (state?.tabs)!),
 		items: itemsReducer(action: action, items: state?.items),
 		fileState:filesReducer(action: action, state: state?.fileState),
-		selectedTabState:selectedTabReducer(action: action, state: state!.selectedTabState)
+		selectedTabState:selectedTabReducer(action: action, state: state!.selectedTabState),
+		codeState:codeReducer(action: action, state: state!.codeState)
 	)
+}
+
+func codeReducer(action: Action, state: CodeState) -> CodeState {
+	let state = state
+	switch action {
+	case let action as SetCodeStateAction:
+		return action.payload
+	default:
+		return state
+	}
 }
 
 func selectedTabReducer(action: Action, state: Int) -> Int {
 	let state = state
-	return state
+	switch action {
+	case let action as SetSelectedTabAction:
+		return action.payload
+	default:
+		return state
+	}
 }
 
 func tabsReducer(action: Action, state: TabsState) -> TabsState {
@@ -22,6 +38,8 @@ func tabsReducer(action: Action, state: TabsState) -> TabsState {
 	switch action {
 	case let action as SetTabsAction:
 		return TabsState(names: action.payload)
+	case let _ as AddTabAction:
+		return TabsState(names: state.names + ["New"])
 	default:
 		return state
 	}
@@ -65,6 +83,9 @@ func itemsReducer(action: Action, items: DragItemsState?) -> DragItemsState {
 	switch action {
 		case let action as SetItemsAction:
 			return action.payload
+		case let _ as AddFlowAction:
+			itemsCopy["New"] = FileMaker.getStuff(4)
+			return itemsCopy
 		case let action as InsertItemAction:
 			let index:Int = action.payload.index
 			let newItem = DragItemModel(type: "fd", label: "fd", imageSrc: "img1.png")

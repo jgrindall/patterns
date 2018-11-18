@@ -6,7 +6,7 @@ class FileCell: UICollectionViewCell {
 	private var textView: UILabel = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
 	private var tickImageView = UIImageView(frame: CGRect(x: 80, y: 10, width: 20, height: 20))
 	init() {
-		super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+		super.init(frame: CGRect(x: 0, y: 0, width: Constants.SIZE.FILE_CELL_WIDTH, height: Constants.SIZE.FILE_CELL_HEIGHT))
 	}
 	
 	override var isSelected: Bool{
