@@ -58,8 +58,7 @@ class ListController: UIViewController {
 		let f1:CGRect = (_target?.view.frame)!
 		px = px + (Double(f0.minX) - Double(f1.minX))
 		py = py + (Double(f0.minY) - Double(f1.minY))
-		//return _target!.getIndexAt(x:px, y:py)
-		return 0
+		return _target!.getIndexAt(x:px, y:py)
 	}
 	
 	@objc func detectPan(_ sender:UIPanGestureRecognizer) {
@@ -70,10 +69,10 @@ class ListController: UIViewController {
 		}
 		else if(sender.state == .changed){
 			draggedView!.center = translation + centres[draggedIndex]
-			//_target?.movePlaceholder(index: getInsertIndex())
+			_target?.movePlaceholder(index: getInsertIndex())
 		}
 		else if(sender.state == .ended){
-			//_target?.movePlaceholder(index: -1)
+			_target?.movePlaceholder(index: -1)
 			print("InsertItemAction", draggedIndex)
 			store.dispatch(InsertItemAction(payload: Insert(key: _key, index: getInsertIndex())))
 			reset()
@@ -106,7 +105,10 @@ class ListController: UIViewController {
 			views.append(v)
 		}
 	}
-
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+	}
 
 }
 

@@ -29,15 +29,16 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let h:CGFloat = self.view.frame.height/2.0;
-		displayContentController(container: self, content: drawingController, frame: self.view.frame)
-		displayContentController(container: self, content: textEntryController, frame: CGRect(x: 0, y: 0, width: 600, height: 400))
-		displayContentController(container: self, content: tabButtonsController, frame: CGRect(x: 10, y: h-60, width: self.view.frame.width-20, height: 50))
-		displayContentController(container: self, content: tabContentController, frame: CGRect(x: 10, y: h + 20, width: self.view.frame.width - 20, height: h - 40))
+		displayContentController(container: self, content: drawingController)
+		displayContentController(container: self, content: textEntryController)
+		displayContentController(container: self, content: tabButtonsController)
+		displayContentController(container: self, content: tabContentController)
 		self.initLayout()
 	}
 	
 	func initLayout(){
-		LayoutUtils.layoutToTop(v: self.tabContentController.view, parent: self.view, multiplier: 0.5)
+		LayoutUtils.layoutToBottom(v: self.tabContentController.view, parent: self.view, multiplier: 0.5)
+		//LayoutUtils.layoutToTop(v: self.textEntryController.view, parent: self.view, multiplier: 0)
 		LayoutUtils.layoutFull(v: self.drawingController.view, parent: self.view)
 		LayoutUtils.layoutAboveWithHeight(v: self.tabButtonsController.view, viewToBeAbove: self.tabContentController.view, height: 60)
 	}

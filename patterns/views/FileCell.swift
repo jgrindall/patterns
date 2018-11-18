@@ -27,8 +27,6 @@ class FileCell: UICollectionViewCell {
 	public func loadData(p:FileModel){
 		self.textView.text = p.title
 		textView.font = UIFont(name: "Verdana", size: 14)
-		textView.layer.borderWidth = 1.0;
-		textView.layer.borderColor = UIColor.brown.cgColor
 	}
 	
 	override init(frame: CGRect) {

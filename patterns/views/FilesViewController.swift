@@ -8,12 +8,12 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	
 	private var listController:FileListController
 	private var detailController:DetailViewController
-	private var openButton:UIButton = UIButton(frame:CGRect(x: 900, y: 700, width: 80, height: 40))
+	private var openButton:UIButton = UIButton(frame:CGRect())
 	private var newButton:UIButton = UIButton(frame:CGRect(x: 0, y: 700, width: 80, height: 40))
 	
 	required init(){
 		let flowLayout = UICollectionViewFlowLayout()
-		flowLayout.itemSize = CGSize(width: 120, height: 40)
+		flowLayout.itemSize = CGSize(width: 130, height: 50)
 		flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
 		flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
 		flowLayout.minimumInteritemSpacing = 0.0
@@ -35,8 +35,8 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	}
 	
 	override func viewDidLoad() {
-		displayContentController(container: self, content: listController, frame: CGRect(x: 0, y: 0, width: 150, height: 900))
-		displayContentController(container: self, content: detailController, frame: CGRect(x: 200, y: 0, width: 800, height: 800))
+		displayContentController(container: self, content: listController)
+		displayContentController(container: self, content: detailController)
 		openButton.setTitle("Open", for: .normal)
 		openButton.addTarget(self, action: #selector(FilesViewController.openButtonClicked(_:)), for: .touchUpInside)
 		openButton.backgroundColor = .green
@@ -51,8 +51,10 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	}
 	
 	func initLayout(){
-		LayoutUtils.layoutToLeft(v: self.listController.view, parent: self.view, multiplier: 0.25)
-		LayoutUtils.layoutToRight(v: self.detailController.view, parent: self.view, multiplier:0.75)
+		LayoutUtils.layoutToLeftWithWidth(v: self.listController.view, parent: self.view, width: 150)
+		LayoutUtils.layoutToRightWithMargin(v: self.detailController.view, parent: self.view, margin:150)
+		LayoutUtils.bottomLeft(v: self.newButton, parent: self.view, margin:10, width:120, height:60)
+		LayoutUtils.bottomRight(v: self.openButton, parent: self.view, margin:10, width:120, height:60)
 	}
 	
 	private func open(_ file:FileModel?){

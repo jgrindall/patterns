@@ -13,8 +13,6 @@ class ItemCell: UICollectionViewCell {
 		self.imageView.image = UIImage(named: p.imageSrc)
 		self.textView.text = p.label
 		textView.font = UIFont(name: "Verdana", size: 14)
-		textView.layer.borderWidth = 1.0;
-		textView.layer.borderColor = UIColor.brown.cgColor
 	}
 	
 	override init(frame: CGRect) {
