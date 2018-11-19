@@ -44,6 +44,14 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 			}, completion: nil)
 		}
 		
+		let g = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
+		self.view.addGestureRecognizer(g)
+		
+		
+	}
+	
+	@objc func someAction(_ sender:UITapGestureRecognizer){
+		print("TAP2", sender)
 	}
 	
 	func initLayout(){

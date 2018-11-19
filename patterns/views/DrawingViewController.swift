@@ -4,7 +4,8 @@ import ReSwift
 
 class DrawingViewController: UIViewController, StoreSubscriber {
 	
-	private var panGesture  = UIPanGestureRecognizer()
+	private var panGesture = UIPanGestureRecognizer()
+	private var tapGesture = UITapGestureRecognizer()
 	private var geom:Geom = Geom()
 
 	override func viewDidLoad() {
@@ -14,6 +15,12 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 		panGesture = UIPanGestureRecognizer(target: self, action: #selector(DrawingViewController.draggedView(_:)))
 		self.view.isUserInteractionEnabled = true
 		self.view.addGestureRecognizer(panGesture)
+		tapGesture = UITapGestureRecognizer(target: self, action:  #selector (DrawingViewController.someAction (_:)))
+		self.view.addGestureRecognizer(tapGesture)
+	}
+	
+	@objc func someAction(_ sender:UITapGestureRecognizer){
+		print("TAP")
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
