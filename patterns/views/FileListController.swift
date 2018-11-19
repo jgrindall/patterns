@@ -25,7 +25,7 @@ class FileListController: UICollectionViewController  {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.collectionView?.delegate = self
-		self.collectionView?.backgroundColor = UIColor.cyan
+		self.collectionView?.backgroundColor = UIColor.clear
 		self.view.backgroundColor = UIColor.red
 	}
 	

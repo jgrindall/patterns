@@ -27,6 +27,10 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 		self.title = "Choose a file"
 	}
 	
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
+	
 	public func getName() -> String {
 		return "files"
 	}

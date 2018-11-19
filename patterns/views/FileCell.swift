@@ -7,13 +7,22 @@ class FileCell: UICollectionViewCell {
 	private var tickImageView = UIImageView(frame: CGRect(x: 80, y: 10, width: 20, height: 20))
 	init() {
 		super.init(frame: CGRect(x: 0, y: 0, width: Constants.SIZE.FILE_CELL_WIDTH, height: Constants.SIZE.FILE_CELL_HEIGHT))
+		self.layer.masksToBounds = false
+		self.layer.shadowColor = UIColor.black.cgColor
+		self.layer.shadowOpacity = 0.5
+		self.layer.shadowOffset = CGSize(width: -1, height: 1)
+		self.layer.shadowRadius = 1
+		
+		self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+		self.layer.shouldRasterize = true
+		
+		self.layer.rasterizationScale = UIScreen.main.scale
 	}
 	
 	override var isSelected: Bool{
 		didSet{
 			if self.isSelected{
-				self.backgroundColor = UIColor.orange
-				self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+				self.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
 				self.tickImageView.isHidden = false
 			}
 			else{

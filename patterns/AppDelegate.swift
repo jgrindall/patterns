@@ -27,6 +27,9 @@ func hideContentController(container:UIViewController, content: UIViewController
 	content.removeFromParentViewController()
 }
 
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -42,8 +45,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.window?.makeKeyAndVisible()
 		let navigationBarAppearace = UINavigationBar.appearance()
 		navigationBarAppearace.tintColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 0.6)
-		navigationBarAppearace.barTintColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.2)
-		navigationBarAppearace.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 0.6)]
+		navigationBarAppearace.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
+		navigationBarAppearace.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.6)]
+		
+		let customFont = UIFont.appRegularFontWith(size: 17)
+		UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: customFont], for: .normal)
+		UITextField.appearance().substituteFontName = "Courier"
+		UILabel.appearance().substituteFontName = "Courier"
+		UILabel.appearance().substituteFontNameBold = "Courier"
+
+		
 		return true
 	}
 }

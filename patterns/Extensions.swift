@@ -99,4 +99,52 @@ public extension UICollectionViewController{
 	}
 }
 
+public extension UILabel {
+	var substituteFontName : String {
+		get { return self.font.fontName }
+		set {
+			if(self.font == nil){
+				self.font = UIFont(name: newValue, size: 17)
+			}
+			else if self.font.fontName.range(of:"-Bd") == nil {
+				self.font = UIFont(name: newValue, size: self.font.pointSize)
+			}
+		}
+	}
+	var substituteFontNameBold : String {
+		get { return self.font.fontName }
+		set {
+			if(self.font == nil){
+				self.font = UIFont(name: newValue, size: 17)
+			}
+			else if self.font.fontName.range(of:"-Bd") != nil {
+				self.font = UIFont(name: newValue, size: self.font.pointSize)
+			}
+		}
+	}
+}
+
+public extension UITextField {
+	var substituteFontName : String {
+		get { return self.font!.fontName }
+		set {
+			if(self.font == nil){
+				self.font = UIFont(name: newValue, size: 17)
+			}
+			else{
+				self.font = UIFont(name: newValue, size: (self.font?.pointSize)!)
+			}
+		}
+	}
+}
+
+public extension UIFont {
+	class func appRegularFontWith( size:CGFloat ) -> UIFont{
+		return  UIFont(name: "Courier", size: size)!
+	}
+	class func appBoldFontWith( size:CGFloat ) -> UIFont{
+		return  UIFont(name: "Courier", size: size)!
+	}
+}
+
 

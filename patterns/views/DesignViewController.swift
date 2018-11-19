@@ -37,6 +37,13 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		displayContentController(container: self, content: tabButtonsController)
 		displayContentController(container: self, content: tabContentController)
 		self.initLayout()
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+			UIView.animate(withDuration: 1, animations: {
+				self.tabContentController.view.frame.origin.y += 200
+			}, completion: nil)
+		}
+		
 	}
 	
 	func initLayout(){
