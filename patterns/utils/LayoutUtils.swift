@@ -75,6 +75,15 @@ class LayoutUtils {
 		]
 	}
 	
+	public static func layoutToTopWithMargin(v:UIView, parent:UIView, margin:CGFloat)->[NSLayoutConstraint]  {
+		return [
+			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
+			v.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+			v.topAnchor.constraint(equalTo: parent.topAnchor, constant: margin),
+			v.heightAnchor.constraint(equalTo: parent.heightAnchor, constant: -margin)
+		]
+	}
+	
 	public static func layoutToTop(v:UIView, parent:UIView, multiplier:CGFloat)->[NSLayoutConstraint]  {
 		return [
 			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor),

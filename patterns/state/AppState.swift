@@ -9,6 +9,7 @@ struct AppState: StateType {
 	var fileState = FileState()
 	var selectedTabState:Int = -1
 	var codeState:CodeState = .stopped
+	var uiState:UIState = .up
 }
 
 extension AppState: Equatable {

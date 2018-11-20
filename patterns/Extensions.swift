@@ -140,10 +140,10 @@ public extension UITextField {
 
 public extension UIFont {
 	class func appRegularFontWith( size:CGFloat ) -> UIFont{
-		return  UIFont(name: "Courier", size: size)!
+		return  UIFont(name: "KohinoorDevanagari-Light", size: size)!
 	}
 	class func appBoldFontWith( size:CGFloat ) -> UIFont{
-		return  UIFont(name: "Courier", size: size)!
+		return  UIFont(name: "KohinoorDevanagari-Light", size: size)!
 	}
 }
 

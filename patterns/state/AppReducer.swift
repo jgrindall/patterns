@@ -9,8 +9,19 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 		items: itemsReducer(action: action, items: state?.items),
 		fileState:filesReducer(action: action, state: state?.fileState),
 		selectedTabState:selectedTabReducer(action: action, state: state!.selectedTabState),
-		codeState:codeReducer(action: action, state: state!.codeState)
+		codeState:codeReducer(action: action, state: state!.codeState),
+		uiState:uiReducer(action: action, state: state!.uiState)
 	)
+}
+
+func uiReducer(action: Action, state: UIState) -> UIState {
+	let state = state
+	switch action {
+	case let action as SetUIStateAction:
+		return action.payload
+	default:
+		return state
+	}
 }
 
 func codeReducer(action: Action, state: CodeState) -> CodeState {
@@ -88,7 +99,8 @@ func itemsReducer(action: Action, items: DragItemsState?) -> DragItemsState {
 			return itemsCopy
 		case let action as InsertItemAction:
 			let index:Int = action.payload.index
-			let newItem = DragItemModel(type: "fd", label: "fd", imageSrc: "img1.png")
+			let dragModel = action.payload.model
+			let newItem = DragItemModel(type: dragModel.type, content:dragModel.content, label: dragModel.label, imageSrc: "img1.png")
 			itemsCopy[action.payload.key] = MathUtils.getInsertedAt(a: items![action.payload.key]!, index: index, element: newItem)
 			return itemsCopy
 		case let action as UpdateItemAction:

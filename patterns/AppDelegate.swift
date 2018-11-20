@@ -50,9 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		let customFont = UIFont.appRegularFontWith(size: 17)
 		UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: customFont], for: .normal)
-		UITextField.appearance().substituteFontName = "Courier"
-		UILabel.appearance().substituteFontName = "Courier"
-		UILabel.appearance().substituteFontNameBold = "Courier"
+		UITextField.appearance().substituteFontName = "KohinoorDevanagari-Light"
+		UILabel.appearance().substituteFontName = "KohinoorDevanagari-Light"
+		UILabel.appearance().substituteFontNameBold = "KohinoorDevanagari-Light"
 
 		
 		return true

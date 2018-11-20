@@ -71,8 +71,9 @@ class ListController: UIViewController {
 			_target?.movePlaceholder(index: getInsertIndex())
 		}
 		else if(sender.state == .ended){
+			let dragModel:ListItemModel = self.listItems[self.draggedIndex]
 			_target?.movePlaceholder(index: -1)
-			store.dispatch(InsertItemAction(payload: Insert(key: _key, index: getInsertIndex())))
+			store.dispatch(InsertItemAction(payload: Insert(key: _key, model:dragModel, index: getInsertIndex())))
 			reset()
 		}
 	}
@@ -82,9 +83,7 @@ class ListController: UIViewController {
 	}
 	
 	func makeView(model:ListItemModel, center:CGPoint) -> UIView{
-		let v:UIView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 60, height: 60))
-		v.layer.cornerRadius = 30
-		v.backgroundColor = model.clr
+		let v:ListItemView = ListItemView(frame: CGRect(x: 0.0, y: 0.0, width: 60, height: 60), model:model)
 		v.center = center
 		return v
 	}

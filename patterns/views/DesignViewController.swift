@@ -8,18 +8,21 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 	private var drawingController:DrawingViewController
 	private var drawingConstraints:[NSLayoutConstraint] = []
 	private var textEntryController:TextEntryController
-	private var tabButtonsController:TabButtonsController
-	private var tabButtonsConstraints:[NSLayoutConstraint] = []
-	private var tabContentController:TabContentController
-	private var tabContentConstraints:[NSLayoutConstraint] = []
+	private var tabController:TabController
+	private var tabConstraints:[NSLayoutConstraint] = []
+	private var openButton:UIButton = UIButton(frame: CGRect())
+	private var openConstraints:[NSLayoutConstraint] = []
 	
 	required init(){
-		self.tabButtonsController = TabButtonsController()
-		self.tabContentController = TabContentController()
+		self.tabController = TabController()
 		self.drawingController = DrawingViewController()
 		self.textEntryController = TextEntryController()
 		super.init(nibName: nil, bundle: nil)
 		self.title = "Edit your file"
+	}
+	
+	override var prefersStatusBarHidden: Bool {
+		return true
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -34,38 +37,35 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		super.viewDidLoad()
 		displayContentController(container: self, content: drawingController)
 		displayContentController(container: self, content: textEntryController)
-		displayContentController(container: self, content: tabButtonsController)
-		displayContentController(container: self, content: tabContentController)
+		displayContentController(container: self, content: tabController)
+		openButton.setTitle("@OPEN", for: .normal)
+		openButton.addTarget(self, action: #selector(DesignViewController.openButtonClicked(_:)), for: .touchUpInside)
+		self.view.addSubview(openButton)
 		self.initLayout()
-		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-			UIView.animate(withDuration: 1, animations: {
-				self.tabContentController.view.frame.origin.y += 200
-			}, completion: nil)
-		}
-		
 		let g = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
 		self.view.addGestureRecognizer(g)
-		
-		
+	}
+	
+	@objc func openButtonClicked(_ sender:UITapGestureRecognizer){
+		store.dispatch(SetUIStateAction(payload: .up))
 	}
 	
 	@objc func someAction(_ sender:UITapGestureRecognizer){
-		print("TAP2", sender)
+		store.dispatch(SetUIStateAction(payload: .down))
 	}
 	
 	func initLayout(){
 		drawingConstraints = LayoutUtils.layoutFull(v: self.drawingController.view, parent: self.view)
-		tabContentConstraints = LayoutUtils.layoutToBottom(v: self.tabContentController.view, parent: self.view, multiplier: 0.5)
-		tabButtonsConstraints = LayoutUtils.layoutAboveWithHeight(v: self.tabButtonsController.view, viewToBeAbove: self.tabContentController.view, height: 60)
+		tabConstraints = LayoutUtils.layoutToBottom(v: self.tabController.view, parent: self.view, multiplier: 0.5)
+		openConstraints = LayoutUtils.bottomRight(v: self.openButton, parent: self.view, margin: 0, width: 50, height: 50)
 		
 		self.drawingController.view.translatesAutoresizingMaskIntoConstraints = false
-		self.tabContentController.view.translatesAutoresizingMaskIntoConstraints = false
-		self.tabButtonsController.view.translatesAutoresizingMaskIntoConstraints = false
+		self.tabController.view.translatesAutoresizingMaskIntoConstraints = false
+		openButton.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate(drawingConstraints)
-		NSLayoutConstraint.activate(tabContentConstraints)
-		NSLayoutConstraint.activate(tabButtonsConstraints)
+		NSLayoutConstraint.activate(tabConstraints)
+		NSLayoutConstraint.activate(openConstraints)
 		
 		//LayoutUtils.layoutToTop(v: self.textEntryController.view, parent: self.view, multiplier: 0)
 		
@@ -76,9 +76,8 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		store.subscribe(self) {
 			$0
 				.select {
-					$0.selectedTabState
+					($0.selectedTabState, $0.uiState)
 				}
-				.skipRepeats()
 		}
 	}
 	
@@ -87,9 +86,9 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		store.unsubscribe(self)
 	}
 	
-	func newState(state: Int) {
-		self.tabButtonsController.setSelected(state)
-		self.tabContentController.setSelected(state)
+	func newState(state: (selectedTabState:Int, uiState:UIState)) {
+		self.tabController.setSelected(state.selectedTabState)
+		self.openButton.isHidden = (state.uiState == .up)
 	}
 
 }

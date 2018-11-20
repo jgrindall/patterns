@@ -1,5 +1,9 @@
 import ReSwift
 
+struct SetUIStateAction:Action{
+	let payload: UIState
+}
+
 struct SetCodeStateAction: Action {
 	let payload: CodeState
 }
@@ -20,6 +24,7 @@ struct Edit{
 
 struct Insert{
 	let key:String
+	let model:ListItemModel
 	let index:Int
 }
 
