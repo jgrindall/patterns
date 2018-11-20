@@ -7,7 +7,7 @@ private let REUSE_IDENTIFIER = "PhotoCell"
 class DragDropViewController: UICollectionViewController, PEditorControllerDelegate  {
 	
 	private var dataItems:[DragItemModel] = []
-    private var placeholderItem:DragItemModel = DragItemModel(type: "temp", label: "fd", imageSrc: "img2.png")
+	private var placeholderItem:DragItemModel = DragItemModel(type: "temp", content:"", label: "fd", imageSrc: "img2.png")
 	private var clickPos:ClickPos?
 	private var placeholderIndex:Int = -1
 	private var draggedIndex:IndexPath?
@@ -194,7 +194,7 @@ class DragDropViewController: UICollectionViewController, PEditorControllerDeleg
 	}
 	
 	public func insert(type:String, src:String, index:Int){
-		self.insert(d: DragItemModel(type: type, label: "fd", imageSrc: src), index: index)
+		self.insert(d: DragItemModel(type: type, content:"", label: "fd", imageSrc: src), index: index)
 	}
 	
 	public func deleteAt(index:Int){
