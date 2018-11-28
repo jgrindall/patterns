@@ -44,8 +44,8 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	}
 	
 	override func viewDidLoad() {
-		displayContentController(container: self, content: listController)
 		displayContentController(container: self, content: detailController)
+		displayContentController(container: self, content: listController)
 		openButton.setTitle("Open", for: .normal)
 		openButton.addTarget(self, action: #selector(FilesViewController.openButtonClicked(_:)), for: .touchUpInside)
 		openButton.backgroundColor = .green
@@ -61,23 +61,28 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	
 	func initLayout(){
 		self.listController.view.translatesAutoresizingMaskIntoConstraints = false
-		self.listConstraints = LayoutUtils.layoutToLeftWithWidth(v: self.listController.view, parent: self.view, width: Constants.SIZE.FILES_WIDTH)
+		self.listConstraints = LayoutUtils.layoutToLeftWithWidthAndTopMargin(v: self.listController.view, parent: self.view, width: Constants.SIZE.FILES_WIDTH, topMargin: self.navigationController!.navigationBar.frame.size.height)
 		NSLayoutConstraint.activate(self.listConstraints)
 		
 		self.detailController.view.translatesAutoresizingMaskIntoConstraints = false
-		self.detailConstraints = LayoutUtils.layoutToRightWithMargin(v: self.detailController.view, parent: self.view, margin:Constants.SIZE.FILES_WIDTH)
+		self.detailConstraints = LayoutUtils.layoutFull(v: self.detailController.view, parent: self.view)
 		NSLayoutConstraint.activate(self.detailConstraints)
 		
 		self.newButton.translatesAutoresizingMaskIntoConstraints = false
-		self.newConstraints = LayoutUtils.bottomLeft(v: self.newButton, parent: self.view, margin:10, width:120, height:60)
+		self.newConstraints = LayoutUtils.bottomLeft(v: self.newButton, parent: self.view, margin:10, width:Constants.SIZE.BUTTON_HEIGHT, height:Constants.SIZE.BUTTON_HEIGHT)
 		NSLayoutConstraint.activate(self.newConstraints)
 		
 		self.openButton.translatesAutoresizingMaskIntoConstraints = false
-		self.openConstraints = LayoutUtils.bottomRight(v: self.openButton, parent: self.view, margin:10, width:120, height:60)
+		self.openConstraints = LayoutUtils.bottomRight(v: self.openButton, parent: self.view, margin:10, width:Constants.SIZE.BUTTON_HEIGHT, height:Constants.SIZE.BUTTON_HEIGHT)
 		NSLayoutConstraint.activate(self.openConstraints)
+		
+		newButton.layer.masksToBounds = true
+		newButton.layer.cornerRadius = Constants.SIZE.BUTTON_HEIGHT/2
+		openButton.layer.masksToBounds = true
+		openButton.layer.cornerRadius = Constants.SIZE.BUTTON_HEIGHT/2
 
 	}
-	
+
 	private func open(_ file:FileModel?){
 		store.dispatch(OpenFileAction(payload: file))
 		store.dispatch(NavigateAction(payload: .design))

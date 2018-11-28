@@ -83,7 +83,7 @@ class ListController: UIViewController {
 	}
 	
 	func makeView(model:ListItemModel, center:CGPoint) -> UIView{
-		let v:ListItemView = ListItemView(frame: CGRect(x: 0.0, y: 0.0, width: 60, height: 60), model:model)
+		let v:ListItemView = ListItemView(frame: CGRect(x: 0.0, y: 0.0, width: Constants.SIZE.DRAG_SIZE, height: Constants.SIZE.DRAG_SIZE), model:model)
 		v.center = center
 		return v
 	}

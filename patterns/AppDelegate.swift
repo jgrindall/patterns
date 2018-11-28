@@ -41,12 +41,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		let navController = NavViewController()
 		navController.viewControllers = []
+		navController.navigationBar.shadowImage = UIImage()
+		
+		navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+		navController.navigationBar.isTranslucent = true
+		
+		for subview in navController.navigationBar.subviews {
+			for child in subview.subviews {
+				if(child is UIImageView) {
+					child.removeFromSuperview()
+				}
+			}
+		}
+		
 		self.window!.rootViewController = navController
 		self.window?.makeKeyAndVisible()
 		let navigationBarAppearace = UINavigationBar.appearance()
-		navigationBarAppearace.tintColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 0.6)
-		navigationBarAppearace.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
-		navigationBarAppearace.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.6)]
+		navigationBarAppearace.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.9)
+		//navigationBarAppearace.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
+		navigationBarAppearace.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.9)]
+		navigationBarAppearace.setBackgroundImage(UIImage(named: "nav.png"), for: .default)
 		
 		let customFont = UIFont.appRegularFontWith(size: 17)
 		UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: customFont], for: .normal)

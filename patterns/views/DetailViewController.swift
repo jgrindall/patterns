@@ -4,11 +4,20 @@ import ReSwift
 
 class DetailViewController: UIViewController {
 	
-	private var imgView:UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 800, height: 800))
+	private var imgView:UIImageView = UIImageView(frame: CGRect())
+	private var imgConstraints:[NSLayoutConstraint] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.view.backgroundColor = UIColor.red
+		self.view.backgroundColor = UIColor.clear
+		self.view.addSubview(imgView)
+		self.initLayout()
+	}
+	
+	func initLayout(){
+		self.imgView.translatesAutoresizingMaskIntoConstraints = false
+		self.imgConstraints = LayoutUtils.layoutFull(v: self.imgView, parent: self.view)
+		NSLayoutConstraint.activate(self.imgConstraints)
 	}
 	
 	func loadFile(f:FileModel){
@@ -18,7 +27,6 @@ class DetailViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.view.addSubview(imgView)
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {

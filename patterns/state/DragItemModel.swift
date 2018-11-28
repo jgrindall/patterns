@@ -5,12 +5,12 @@ typealias DragItemsState = [String: DragItems]
 
 class DragItemModel {
 	public var type: String
-	public var label:String
+	public var clr:String
 	public var content:String
 	public var imageSrc: String
 	init(type:String, content:String, label: String, imageSrc: String) {
 		self.type = type
-		self.label = label
+		self.clr = label
 		self.content = content
 		self.imageSrc = imageSrc
 	}
@@ -30,7 +30,7 @@ func ==(lhs: DragItemsState, rhs: DragItemsState) -> Bool {
 extension DragItemModel: Equatable {}
 
 func ==(lhs: DragItemModel, rhs: DragItemModel) -> Bool {
-	return (lhs.type == rhs.type && lhs.label == rhs.label && lhs.imageSrc == rhs.imageSrc)
+	return (lhs.type == rhs.type && lhs.clr == rhs.clr && lhs.imageSrc == rhs.imageSrc)
 }
 
 

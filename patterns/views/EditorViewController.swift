@@ -27,7 +27,7 @@ class EditorViewController:UIViewController{
 	}
 	
 	func loadData(_ index:Int, _ data:DragItemModel){
-		self.textField.text = data.label
+		self.textField.text = data.clr
 		self.index = index
 	}
 	

@@ -31,7 +31,6 @@
 		5212FF7521568BD300579B08 /* IndexUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6821568BD200579B08 /* IndexUtils.swift */; };
 		5212FF7621568BD300579B08 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF6921568BD200579B08 /* MathUtils.swift */; };
 		5212FF7921568BF600579B08 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7821568BF600579B08 /* Actions.swift */; };
-		5212FF7C21568CCE00579B08 /* DraggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7A21568CCD00579B08 /* DraggerView.swift */; };
 		5212FF7D21568CCE00579B08 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7B21568CCD00579B08 /* ItemCell.swift */; };
 		5212FF7F215693F200579B08 /* ClickPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7E215693F100579B08 /* ClickPos.swift */; };
 		523CA96E215C21E9001BE9E0 /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523CA96D215C21E9001BE9E0 /* DesignViewController.swift */; };
@@ -143,6 +142,13 @@
 		52F59D2421A18D1300225E81 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F59D2321A18D1300225E81 /* Consts.swift */; };
 		52F59D2821A1D2C500225E81 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F59D2721A1D2C500225E81 /* add.png */; };
 		52F59D2A21A211F600225E81 /* CodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F59D2921A211F600225E81 /* CodeState.swift */; };
+		52F65DEC21AF375500F2AD39 /* nav.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F65DEB21AF375500F2AD39 /* nav.png */; };
+		52F65DEF21AF437F00F2AD39 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F65DED21AF437F00F2AD39 /* up.png */; };
+		52F65DF021AF437F00F2AD39 /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F65DEE21AF437F00F2AD39 /* up@2x.png */; };
+		52F65DF521AF442200F2AD39 /* rt.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F65DF121AF442100F2AD39 /* rt.png */; };
+		52F65DF621AF442200F2AD39 /* lt.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F65DF221AF442200F2AD39 /* lt.png */; };
+		52F65DF721AF442200F2AD39 /* lt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F65DF321AF442200F2AD39 /* lt@2x.png */; };
+		52F65DF821AF442200F2AD39 /* rt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F65DF421AF442200F2AD39 /* rt@2x.png */; };
 		8283E47F42C413BDBB390E98 /* Pods_patterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFBCFFBE9296BEA4667D638 /* Pods_patterns.framework */; };
 /* End PBXBuildFile section */
 
@@ -172,7 +178,6 @@
 		5212FF6821568BD200579B08 /* IndexUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexUtils.swift; sourceTree = "<group>"; };
 		5212FF6921568BD200579B08 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		5212FF7821568BF600579B08 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
-		5212FF7A21568CCD00579B08 /* DraggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggerView.swift; sourceTree = "<group>"; };
 		5212FF7B21568CCD00579B08 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		5212FF7E215693F100579B08 /* ClickPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickPos.swift; sourceTree = "<group>"; };
 		523CA96D215C21E9001BE9E0 /* DesignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +291,13 @@
 		52F59D2321A18D1300225E81 /* Consts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		52F59D2721A1D2C500225E81 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		52F59D2921A211F600225E81 /* CodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeState.swift; sourceTree = "<group>"; };
+		52F65DEB21AF375500F2AD39 /* nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav.png; sourceTree = "<group>"; };
+		52F65DED21AF437F00F2AD39 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		52F65DEE21AF437F00F2AD39 /* up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up@2x.png"; sourceTree = "<group>"; };
+		52F65DF121AF442100F2AD39 /* rt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rt.png; sourceTree = "<group>"; };
+		52F65DF221AF442200F2AD39 /* lt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lt.png; sourceTree = "<group>"; };
+		52F65DF321AF442200F2AD39 /* lt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lt@2x.png"; sourceTree = "<group>"; };
+		52F65DF421AF442200F2AD39 /* rt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rt@2x.png"; sourceTree = "<group>"; };
 		88CB83FAA9C12238FBDBA1CF /* Pods-patterns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-patterns.release.xcconfig"; path = "Pods/Target Support Files/Pods-patterns/Pods-patterns.release.xcconfig"; sourceTree = "<group>"; };
 		CAFBCFFBE9296BEA4667D638 /* Pods_patterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_patterns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -324,7 +336,6 @@
 				520D348A2160E87C00AE8AE0 /* FilesViewController.swift */,
 				523CA96D215C21E9001BE9E0 /* DesignViewController.swift */,
 				5212FF7E215693F100579B08 /* ClickPos.swift */,
-				5212FF7A21568CCD00579B08 /* DraggerView.swift */,
 				5212FF7B21568CCD00579B08 /* ItemCell.swift */,
 				5212FF4A21568B5C00579B08 /* ConnectedController.swift */,
 				5212FF4B21568B5C00579B08 /* DragDropViewController.swift */,
@@ -389,6 +400,12 @@
 		5252293421A4B5300043E599 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				52F65DF221AF442200F2AD39 /* lt.png */,
+				52F65DF321AF442200F2AD39 /* lt@2x.png */,
+				52F65DF121AF442100F2AD39 /* rt.png */,
+				52F65DF421AF442200F2AD39 /* rt@2x.png */,
+				52F65DED21AF437F00F2AD39 /* up.png */,
+				52F65DEE21AF437F00F2AD39 /* up@2x.png */,
 				5252293521A4B5300043E599 /* add.png */,
 				5252293621A4B5300043E599 /* add@2x.png */,
 				5252293721A4B5300043E599 /* aim.png */,
@@ -482,6 +499,7 @@
 		52ADA12621406D8200C1862F /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				52F65DEB21AF375500F2AD39 /* nav.png */,
 				5252293421A4B5300043E599 /* icons */,
 				52F59D2721A1D2C500225E81 /* add.png */,
 				5276A918217CF3C9004F6047 /* pat1.jpg */,
@@ -630,7 +648,10 @@
 				525229CC21A4B5300043E599 /* waste@2x.png in Resources */,
 				5252299C21A4B5300043E599 /* email.png in Resources */,
 				525229C621A4B5300043E599 /* tri@2x.png in Resources */,
+				52F65DF621AF442200F2AD39 /* lt.png in Resources */,
 				52ADA12E214088BF00C1862F /* img1.png in Resources */,
+				52F65DF721AF442200F2AD39 /* lt@2x.png in Resources */,
+				52F65DEC21AF375500F2AD39 /* nav.png in Resources */,
 				5252298521A4B5300043E599 /* aim@2x.png in Resources */,
 				525229AE21A4B5300043E599 /* list.png in Resources */,
 				520D349B21611D4900AE8AE0 /* tick.png in Resources */,
@@ -658,6 +679,7 @@
 				525229B721A4B5300043E599 /* right@2x.png in Resources */,
 				525229C021A4B5300043E599 /* smallfont@2x.png in Resources */,
 				52F075D5214EB63F0085BB21 /* del.png in Resources */,
+				52F65DF021AF437F00F2AD39 /* up@2x.png in Resources */,
 				525229BD21A4B5300043E599 /* share.png in Resources */,
 				525229CB21A4B5300043E599 /* waste.png in Resources */,
 				5252299A21A4B5300043E599 /* document55@2x.png in Resources */,
@@ -665,6 +687,7 @@
 				525229B621A4B5300043E599 /* right.png in Resources */,
 				5252299B21A4B5300043E599 /* document55@2x.png alias in Resources */,
 				5252299E21A4B5300043E599 /* emptytick.png in Resources */,
+				52F65DF821AF442200F2AD39 /* rt@2x.png in Resources */,
 				525229A621A4B5300043E599 /* help.png in Resources */,
 				525229B521A4B5300043E599 /* redo@2x.png in Resources */,
 				525229A521A4B5300043E599 /* grid@2x.png in Resources */,
@@ -681,7 +704,9 @@
 				5252298A21A4B5300043E599 /* briefcase@2x.png in Resources */,
 				5252299521A4B5300043E599 /* char3.png in Resources */,
 				5252299721A4B5300043E599 /* clear.png in Resources */,
+				52F65DEF21AF437F00F2AD39 /* up.png in Resources */,
 				5252299321A4B5300043E599 /* char2.png in Resources */,
+				52F65DF521AF442200F2AD39 /* rt.png in Resources */,
 				525229B221A4B5300043E599 /* play.png in Resources */,
 				52CE634420F9F3DC003278E9 /* Assets.xcassets in Resources */,
 				5252298921A4B5300043E599 /* briefcase.png in Resources */,
@@ -810,7 +835,6 @@
 				5212FF5621568B5D00579B08 /* EditorViewController.swift in Sources */,
 				5212FF5421568B5D00579B08 /* DrawingView.swift in Sources */,
 				520D348B2160E87C00AE8AE0 /* FilesViewController.swift in Sources */,
-				5212FF7C21568CCE00579B08 /* DraggerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

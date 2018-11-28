@@ -39,6 +39,15 @@ class LayoutUtils {
 		]
 	}
 	
+	public static func layoutToLeftWithWidthAndTopMargin(v:UIView, parent:UIView, width:CGFloat, topMargin:CGFloat)->[NSLayoutConstraint]  {
+		return [
+			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
+			v.widthAnchor.constraint(equalToConstant: width),
+			v.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
+			v.topAnchor.constraint(equalTo: parent.topAnchor, constant: topMargin)
+		]
+	}
+	
 	public static func layoutToLeftWithWidth(v:UIView, parent:UIView, width:CGFloat)->[NSLayoutConstraint]  {
 		return [
 			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor),

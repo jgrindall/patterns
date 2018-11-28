@@ -17,6 +17,7 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 	private var delConstraints:[NSLayoutConstraint] = []
 	private var _key:String = ""
 	private var label:UILabel = UILabel(frame: CGRect(x: 900, y: 50, width: 100, height: 40))
+	private var labelConstraints:[NSLayoutConstraint] = []
 	
 	required init(key:String){
 		_key = key
@@ -30,10 +31,8 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 		self.dragController = DragDropViewController(collectionViewLayout: flowLayout, key:key)
 		super.init(nibName: nil, bundle: nil)
 		self.delButton.image = UIImage(named: "del.png")
-		self.view.addSubview(self.delButton)
 		self.view.clipsToBounds = true
 		self.view.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 0.2)
-		self.view.addSubview(self.label)
 		label.text = "KEY " + key
 	}
 	
@@ -51,6 +50,8 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 	override func viewDidLoad() {
 		displayContentController(container:self, content: dragController)
 		displayContentController(container:self, content: listController)
+		self.view.addSubview(self.delButton)
+		self.view.addSubview(self.label)
 		self.listController.setTarget(target:self.dragController)
 		self.dragController.dragDelegate = self
 		super.viewDidLoad()
@@ -84,8 +85,12 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 		NSLayoutConstraint.activate(self.listConstraints)
 		
 		self.delButton.translatesAutoresizingMaskIntoConstraints = false
-		self.delConstraints = LayoutUtils.bottomRight(v: delButton, parent: self.view, margin: 10, width: 60, height: 60)
-		//NSLayoutConstraint.activate(self.delConstraints)
+		self.delConstraints = LayoutUtils.centreRight(v: delButton, parent: self.view, margin: 10, width: 50, height: 50)
+		NSLayoutConstraint.activate(self.delConstraints)
+		
+		self.label.translatesAutoresizingMaskIntoConstraints = false
+		self.labelConstraints = LayoutUtils.centreRight(v: label, parent: self.view, margin: 50, width: 150, height: 50)
+		NSLayoutConstraint.activate(self.labelConstraints)
 		
 	}
 	

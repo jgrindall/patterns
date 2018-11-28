@@ -25,8 +25,8 @@ class FileListController: UICollectionViewController  {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.collectionView?.delegate = self
-		self.collectionView?.backgroundColor = UIColor.white
-		self.view.backgroundColor = UIColor.white
+		self.collectionView?.backgroundColor = Constants.COLORS.BG_COLOR
+		self.view.backgroundColor = UIColor.clear
 	}
 	
 	func getAllPaths() -> [IndexPath]{

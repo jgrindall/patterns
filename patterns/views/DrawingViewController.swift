@@ -10,7 +10,7 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.view.backgroundColor = UIColor.white
+		self.view.backgroundColor = Constants.COLORS.DARK_COLOR
 		self.view = DrawingView(frame: self.view.frame)
 		panGesture = UIPanGestureRecognizer(target: self, action: #selector(DrawingViewController.draggedView(_:)))
 		self.view.isUserInteractionEnabled = true
