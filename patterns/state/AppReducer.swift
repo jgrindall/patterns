@@ -49,8 +49,10 @@ func tabsReducer(action: Action, state: TabsState) -> TabsState {
 	switch action {
 	case let action as SetTabsAction:
 		return TabsState(names: action.payload)
-	case let _ as AddTabAction:
-		return TabsState(names: state.names + ["New"])
+	case let action as AddTabAction:
+		return TabsState(names: state.names + [action.name])
+	case let action as DeleteTabAction:
+		return TabsState(names: MathUtils.getDeleted(a: state.names, val: action.key))
 	default:
 		return state
 	}
@@ -94,9 +96,11 @@ func itemsReducer(action: Action, items: DragItemsState?) -> DragItemsState {
 	switch action {
 		case let action as SetItemsAction:
 			return action.payload
-		case let _ as AddFlowAction:
-			itemsCopy["New"] = FileMaker.getStuff(4)
+		case let action as AddFlowAction:
+			itemsCopy[action.name] = FileMaker.getStuff(4)
 			return itemsCopy
+		case let action as DeleteFlowAction:
+			return MathUtils.getDeletedByKey(a: itemsCopy, key: action.key)
 		case let action as InsertItemAction:
 			let index:Int = action.payload.index
 			let dragModel = action.payload.model
@@ -108,7 +112,7 @@ func itemsReducer(action: Action, items: DragItemsState?) -> DragItemsState {
 			itemsCopy[action.payload.key] = MathUtils.getReplacedAt(a: items![action.payload.key]!, index: edit.index, element: edit.model)
 			return itemsCopy
 		case let action as DeleteItemAction:
-			itemsCopy["0"] = MathUtils.getDeletedAt(a: items!["0"]!, index: action.payload)
+			itemsCopy[action.key] = MathUtils.getDeletedAt(a: items![action.key]!, index: action.index)
 			return itemsCopy
 		default:
 			return items!

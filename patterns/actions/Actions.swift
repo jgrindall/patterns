@@ -33,7 +33,8 @@ struct UpdateItemAction:Action{
 }
 
 struct DeleteItemAction:Action{
-	let payload:Int
+	let key:String
+	let index:Int
 }
 
 struct LoadFilesAction:Action{
@@ -56,7 +57,11 @@ struct SetSelectedTabAction:Action{
 }
 
 struct AddTabAction:Action{
-	
+	let name:String
+}
+
+struct DeleteTabAction:Action{
+	let key:String
 }
 
 struct SetItemsAction:Action{
@@ -64,9 +69,12 @@ struct SetItemsAction:Action{
 }
 
 struct AddFlowAction:Action{
-	
+	let name:String
 }
 
+struct DeleteFlowAction:Action{
+	let key:String
+}
 
 struct SetFilesAction:Action{
 	let payload:[FileModel]

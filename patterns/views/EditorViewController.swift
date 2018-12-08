@@ -8,7 +8,8 @@ protocol PEditorControllerDelegate{
 
 class EditorViewController:UIViewController{
 	
-	private var textField:UITextField = UITextField(frame: CGRect(x: 20, y: 20, width: 250, height: 150))
+	private var textField:UITextField = UITextField(frame: CGRect(x: 20, y: 20, width: 150, height: 150))
+	private var textField2:UITextField = UITextField(frame: CGRect(x: 200, y: 20, width: 150, height: 150))
 	private  var okButton:UIButton = UIButton(type: UIButtonType.system)
 	var delegate : PEditorControllerDelegate?
 	private var index:Int = 0
@@ -21,13 +22,15 @@ class EditorViewController:UIViewController{
 		textField.minimumFontSize = 32.0
 		textField.font = UIFont(name: "Verdana", size: 18)
 		self.view.addSubview(textField)
+		self.view.addSubview(textField2)
 		self.view.addSubview(okButton)
 		okButton.addTarget(self, action: #selector(TextEntryController.buttonClicked(_:)), for: .touchUpInside)
 		textField.addTarget(self, action: #selector(TextEntryController.textChanged(_:)), for: .editingChanged)
 	}
 	
 	func loadData(_ index:Int, _ data:DragItemModel){
-		self.textField.text = data.clr
+		self.textField.text = data.type
+		self.textField2.text = data.content
 		self.index = index
 	}
 	
@@ -37,7 +40,7 @@ class EditorViewController:UIViewController{
 	
 	@objc func buttonClicked(_ sender: AnyObject?){
 		if (self.delegate) != nil{
-			delegate?.updateData(index:self.index, model: DragItemModel(type: "FD", content:"2", label: "FD3245", imageSrc: ""))
+			delegate?.updateData(index:self.index, model: DragItemModel(type: textField.text!, content:textField2.text!, label: "FD3245", imageSrc: ""))
 		}
 		self.dismiss(animated: false, completion: nil)
 	}

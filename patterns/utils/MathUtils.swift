@@ -13,6 +13,20 @@ class MathUtils {
 		return nil
 	}
 	
+	public static func getDeletedByKey<T>(a:[String:T], key:String) -> [String:T]{
+		var output:[String:T] = [:]
+		for (_key, _) in a {
+			if(_key != key){
+				output[_key] = a[_key]
+			}
+		}
+		return output
+	}
+	
+	public static func getDeleted(a:[String], val:String) -> [String]{
+		return a.filter {$0 != val}
+	}
+
 	public static func getDeletedAt<T>(a:[T], index:Int) -> [T]{
 		//eg.  a,b,c,d,e,f,g,h,i   getDeletedAt  3  ->   a,b,c,e,f,g,h,i
 		if(a.count == 0){

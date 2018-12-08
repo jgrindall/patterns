@@ -102,11 +102,11 @@ class LayoutUtils {
 		]
 	}
 	
-	public static func layoutToBottom(v:UIView, parent:UIView, multiplier:CGFloat)->[NSLayoutConstraint] {
+	public static func layoutToBottom(v:UIView, parent:UIView, multiplier:CGFloat, constant:CGFloat = 0.0)->[NSLayoutConstraint] {
 		return [
 			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
 			v.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
-			v.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
+			v.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: constant),
 			v.heightAnchor.constraint(equalTo: parent.heightAnchor, multiplier: multiplier)
 		]
 	}

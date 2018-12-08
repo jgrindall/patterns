@@ -15,6 +15,10 @@ struct Constants {
 		static let BG_COLOR:UIColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.87)
 		static let DARK_COLOR:UIColor = UIColor(red: 8.0/255.0, green: 20.0/255.0, blue: 62.0/255.0, alpha: 1)
 	}
+	
+	struct ANIM{
+		static let ANIM_TIME:TimeInterval = 0.2
+	}
 }
 
 

@@ -38,7 +38,7 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		displayContentController(container: self, content: drawingController)
 		displayContentController(container: self, content: textEntryController)
 		displayContentController(container: self, content: tabController)
-		openButton.setTitle("@OPEN", for: .normal)
+		openButton.setTitle("OPEN", for: .normal)
 		openButton.addTarget(self, action: #selector(DesignViewController.openButtonClicked(_:)), for: .touchUpInside)
 		self.view.addSubview(openButton)
 		self.initLayout()

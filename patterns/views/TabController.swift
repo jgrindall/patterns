@@ -10,10 +10,6 @@ class TabController: UIViewController, StoreSubscriber {
 	private var tabContentController:TabContentController
 	private var tabContentConstraints:[NSLayoutConstraint] = []
 	
-	struct Constants {
-		static let TIME:TimeInterval = 0.2
-	}
-	
 	required init(){
 		self.tabButtonsController = TabButtonsController()
 		self.tabContentController = TabContentController()
@@ -32,18 +28,17 @@ class TabController: UIViewController, StoreSubscriber {
 	}
 	
 	private func down(){
-		let height:CGFloat = self.view.frame.height/2
-		UIView.animate(withDuration: Constants.TIME, animations: {
-			self.view.frame.origin.y += height
-			self.view.frame.origin.y += height
+		let height:CGFloat = self.view.frame.height
+		self.view.constraints[2].constant = height + Constants.SIZE.BUTTON_HEIGHT
+		UIView.animate(withDuration: Constants.ANIM.ANIM_TIME, animations: {
+			self.view.layoutIfNeeded()
 		}, completion: nil)
 	}
 	
 	private func up(){
-		let height:CGFloat = self.view.frame.height/2
-		UIView.animate(withDuration: Constants.TIME, animations: {
-			self.view.frame.origin.y -= height
-			self.view.frame.origin.y -= height
+		self.view.constraints[2].constant = Constants.SIZE.BUTTON_HEIGHT
+		UIView.animate(withDuration: Constants.ANIM.ANIM_TIME, animations: {
+			self.view.layoutIfNeeded()
 		}, completion: nil)
 	}
 	

@@ -13,7 +13,7 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 	private var dragConstraints:[NSLayoutConstraint] = []
 	private var listController:ListController
 	private var listConstraints:[NSLayoutConstraint] = []
-	private var delButton:UIImageView = UIImageView(frame: CGRect())
+	private var delButton:UIButton = UIButton(frame: CGRect())
 	private var delConstraints:[NSLayoutConstraint] = []
 	private var _key:String = ""
 	private var label:UILabel = UILabel(frame: CGRect(x: 900, y: 50, width: 100, height: 40))
@@ -30,16 +30,53 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 		flowLayout.minimumInteritemSpacing = 0.0
 		self.dragController = DragDropViewController(collectionViewLayout: flowLayout, key:key)
 		super.init(nibName: nil, bundle: nil)
-		self.delButton.image = UIImage(named: "del.png")
+		self.delButton.setImage(UIImage(named: "del.png"), for: UIControlState.normal)
+		delButton.addTarget(self, action: #selector(ConnectedController.delButtonClicked(_:)), for: .touchUpInside)
 		self.view.clipsToBounds = true
 		self.view.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 0.2)
 		label.text = "KEY " + key
 	}
 	
+	private func removeTab(){
+		if(store.state.tabs.names.count == 1){
+			print("nope")
+		}
+		else{
+			let newTabIndex = (store.state.selectedTabState == 0 ? 1 : 0)
+			store.dispatch(SetSelectedTabAction(payload: newTabIndex))
+			store.dispatch(DeleteTabAction(key:_key))
+			store.dispatch(DeleteFlowAction(key:_key))
+		}
+	}
+	
+	@objc func delButtonClicked(_ sender: AnyObject?){
+		print("del")
+		let refreshAlert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+		refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+			self.removeTab()
+		}))
+		refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+			
+		}))
+		let titleFont = [NSAttributedStringKey.font: UIFont(name: "AmericanTypewriter-Bold", size: 28.0)!]
+		let messageFont = [NSAttributedStringKey.font: UIFont(name: "Avenir-Roman", size: 12.0)!]
+		let titleAttrString = NSMutableAttributedString(string: "Title Here", attributes: titleFont)
+		let messageAttrString = NSMutableAttributedString(string: "Message Here", attributes: messageFont)
+		refreshAlert.setValue(titleAttrString, forKey: "attributedTitle")
+		refreshAlert.setValue(messageAttrString, forKey: "attributedMessage")
+		refreshAlert.view.tintColor = UIColor.red
+		refreshAlert.view.backgroundColor = Constants.COLORS.BG_COLOR
+		refreshAlert.view.layer.cornerRadius = 0
+		let subview = (refreshAlert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+		subview.layer.cornerRadius = 0
+		subview.backgroundColor = Constants.COLORS.BG_COLOR
+		present(refreshAlert, animated: true, completion: nil)
+	}
+	
 	func onDragEnd(index:IndexPath, pos:CGPoint) {
 		let delFrame:CGRect = self.delButton.frame
 		if(delFrame.contains(pos)){
-			store.dispatch(DeleteItemAction(payload: index.row))
+			store.dispatch(DeleteItemAction(key:_key, index: index.row))
 		}
 	}
 	
@@ -60,13 +97,19 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
-		//print("appear", self._key)
+		print("appear", self._key)
 		super.viewWillAppear(animated)
 		store.subscribe(self) {
 			$0
 				.select {
-					$0.items[self._key]!
+					$0.items[self._key]
 			}
+			.skipRepeats({ (lhs:DragItems?, rhs:DragItems?) -> Bool in
+				if(lhs == nil || rhs == nil){
+					return false
+				}
+				return lhs! == rhs!
+			})
 		}
 	}
 	
@@ -98,8 +141,10 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 		self.dragController.setData(items: state)
 	}
 	
-	func newState(state: DragItems) {
-		self.setItems(state: state)
+	func newState(state: DragItems?) {
+		if let _state = state {
+			self.setItems(state: _state)
+		}
 	}
 	
 }

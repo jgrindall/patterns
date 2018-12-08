@@ -4,7 +4,7 @@ class FileMaker{
 	static func getStuff(_ n: Int) -> DragItems {
 		var items = [] as [DragItemModel]
 		for _ in 0...n {
-			items.append(DragItemModel(type: "fd", content:"ccc", label: "fd", imageSrc: "up.png"))
+			items.append(DragItemModel(type: "fd", content:"50", label: "fd", imageSrc: "up.png"))
 		}
 		return items
 	}

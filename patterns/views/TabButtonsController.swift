@@ -97,8 +97,9 @@ class TabButtonsController: UIViewController, StoreSubscriber {
 	
 	@objc func addButtonClicked(_ sender: AnyObject?){
 		let numButtons:Int = store.state.tabs.names.count
-		store.dispatch(AddTabAction())
-		store.dispatch(AddFlowAction())
+		let r = round(MathUtils.randomFloat(0, 100000))
+		store.dispatch(AddTabAction(name: "New" + r.description))
+		store.dispatch(AddFlowAction(name: "New" + r.description))
 		store.dispatch(SetSelectedTabAction(payload: numButtons))
 		//store.dispatch(SetItemsAction(payload: store.state.
 	}

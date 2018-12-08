@@ -14,8 +14,9 @@ class DrawingView : UIView{
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	public func setPolygons(ps:[Polygon]){
+	public func setPolygons(ps:[Polygon]) -> DrawingView{
 		polygons = ps
+		return self
 	}
 	
 	public func update(){
@@ -23,8 +24,9 @@ class DrawingView : UIView{
 	}
 	
 	private func drawPolygon(context:CGContext, p:Polygon){
-		context.setLineWidth(1.0)
-		context.setStrokeColor(UIColor.gray.cgColor)
+		context.setLineWidth(6.0)
+		context.setStrokeColor(UIColor.white.cgColor)
+		context.setLineCap(.square)
 		for i in 0..<p.count{
 			if(i == 0){
 				context.move(to: p[i])
@@ -41,7 +43,7 @@ class DrawingView : UIView{
 		super.draw(rect)
 		let context:CGContext? = UIGraphicsGetCurrentContext()
 		context?.clear(self.frame)
-		UIColor.white.setFill()
+		Constants.COLORS.DARK_COLOR.setFill()
 		UIRectFill(self.frame)
 		for i in 0..<polygons.count{
 			drawPolygon(context: context!, p: polygons[i])

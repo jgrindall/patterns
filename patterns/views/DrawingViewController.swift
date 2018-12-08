@@ -7,16 +7,26 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 	private var panGesture = UIPanGestureRecognizer()
 	private var tapGesture = UITapGestureRecognizer()
 	private var geom:Geom = Geom()
+	private var drawingView:DrawingView = DrawingView(frame: CGRect())
+	private var drawingConstraints:[NSLayoutConstraint] = []
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = Constants.COLORS.DARK_COLOR
-		self.view = DrawingView(frame: self.view.frame)
+		self.drawingView.backgroundColor = Constants.COLORS.DARK_COLOR
 		panGesture = UIPanGestureRecognizer(target: self, action: #selector(DrawingViewController.draggedView(_:)))
+		self.view.addSubview(self.drawingView)
 		self.view.isUserInteractionEnabled = true
 		self.view.addGestureRecognizer(panGesture)
 		tapGesture = UITapGestureRecognizer(target: self, action:  #selector (DrawingViewController.someAction (_:)))
 		self.view.addGestureRecognizer(tapGesture)
+		self.initLayout()
+	}
+	
+	func initLayout(){
+		self.drawingConstraints = LayoutUtils.layoutFull(v: self.drawingView, parent: self.view)
+		self.drawingView.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate(drawingConstraints)
 	}
 	
 	@objc func someAction(_ sender:UITapGestureRecognizer){
@@ -30,7 +40,7 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 				.select {
 					$0.codeState
 			}
-			.skipRepeats({ (lhs:CodeState, rhs:CodeState) -> Bool in
+			.skipRepeats({(lhs:CodeState, rhs:CodeState) -> Bool in
 				return lhs == rhs
 			})
 		}
@@ -41,9 +51,24 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 		store.unsubscribe(self)
 	}
 	
+	private func play(_ itemsState:DragItemsState){
+		var commands:[String] = []
+		for (_, items) in itemsState {
+			for item in items{
+				commands.append(item.type + " " + item.content)
+			}
+		}
+		geom.setText(commands.joined(separator: " ")).update()
+		self.drawingView.setPolygons(ps: geom.getPolygons()).update()
+	}
+	
 	func newState(state: CodeState) {
-		print("state", state, "--------")
-		print(store.state.items)
+		if(state == .started){
+			self.play(store.state.items)
+			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+				store.dispatch(SetCodeStateAction(payload: CodeState.stopped))
+			}
+		}
 	}
 	
 	@objc func draggedView(_ sender:UIPanGestureRecognizer){

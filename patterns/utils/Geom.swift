@@ -18,8 +18,7 @@ class Geom{
 		lineGraph = LineGraph()
 		transLineGraphs = []
 		frame = CGRect(x: 0, y: 0, width: 1024, height: 768)
-		setTransGroup(name:"p3m1")
-		setText(_text: "")
+		_ = setTransGroup(name:"p3m1")
 	}
 	
 	public func getPolygons() -> [Polygon]{
@@ -95,21 +94,21 @@ class Geom{
 		lineGraph = LineGraph(list: LineList(lines: lines))
 	}
 	
-	private func update(){
+	public func update(){
 		//print("Geom update polygons")
 		makeLines()
 		makeTransformedLines()
 		makePolygons()
 	}
 	
-	public func setTransGroup(name:String){
+	public func setTransGroup(name:String) -> Geom{
 		transforms = MathUtils.getTrans(name: name, origin: origin, size: SIZE, frame: self.frame)
-		update()
+		return self
 	}
 	
-	public func setText(_text:String){
+	public func setText(_ _text:String) -> Geom{
 		text = _text
-		update()
+		return self
 	}
 	
 	
