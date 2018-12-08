@@ -4,6 +4,10 @@ struct SetUIStateAction:Action{
 	let payload: UIState
 }
 
+struct SetBgStateAction: Action {
+	let payload: UIColor
+}
+
 struct SetCodeStateAction: Action {
 	let payload: CodeState
 }

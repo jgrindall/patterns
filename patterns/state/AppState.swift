@@ -38,6 +38,8 @@ state.select { state in state.state2 }
 
 */
 
+//https://github.com/ReSwift/ReSwift/issues/318
+
 struct AppState: StateType {
 	var activeFileState:ActiveFileState = ActiveFileState()
 	var navigationState:NavState = .files
@@ -48,7 +50,7 @@ struct AppState: StateType {
 	var selectedTabState:Int = -1
 	var codeState:CodeState = .stopped
 	var uiState:UIState = .up
-	var drawingConfigState = DrawingConfigState()
+	var drawingConfigState = DrawingConfigState(bg: .red, fg: .green)
 }
 
 extension AppState: Equatable {

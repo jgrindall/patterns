@@ -34,6 +34,8 @@
 		5212FF7D21568CCE00579B08 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7B21568CCD00579B08 /* ItemCell.swift */; };
 		5212FF7F215693F200579B08 /* ClickPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF7E215693F100579B08 /* ClickPos.swift */; };
 		5218DCC521BC396900CEF010 /* DrawingConfigState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5218DCC421BC396900CEF010 /* DrawingConfigState.swift */; };
+		5232D9A821BC6AD500980051 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232D9A721BC6AD500980051 /* ConfigView.swift */; };
+		5232D9AA21BC6B1500980051 /* BlockSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232D9A921BC6B1500980051 /* BlockSubscriber.swift */; };
 		523CA96E215C21E9001BE9E0 /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523CA96D215C21E9001BE9E0 /* DesignViewController.swift */; };
 		5252292F21A4AA640043E599 /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252292E21A4AA630043E599 /* UIState.swift */; };
 		5252293121A4AB4D0043E599 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252293021A4AB4D0043E599 /* TabController.swift */; };
@@ -182,6 +184,8 @@
 		5212FF7B21568CCD00579B08 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		5212FF7E215693F100579B08 /* ClickPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickPos.swift; sourceTree = "<group>"; };
 		5218DCC421BC396900CEF010 /* DrawingConfigState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingConfigState.swift; sourceTree = "<group>"; };
+		5232D9A721BC6AD500980051 /* ConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
+		5232D9A921BC6B1500980051 /* BlockSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockSubscriber.swift; sourceTree = "<group>"; };
 		523CA96D215C21E9001BE9E0 /* DesignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
 		5252292E21A4AA630043E599 /* UIState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
 		5252293021A4AB4D0043E599 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 		5212FF4921568B5C00579B08 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				5232D9A721BC6AD500980051 /* ConfigView.swift */,
 				525229CF21A4B58B0043E599 /* ListItemView.swift */,
 				5252293021A4AB4D0043E599 /* TabController.swift */,
 				52A54D3921861FD600DF0ADD /* TabContentController.swift */,
@@ -381,6 +386,7 @@
 		5212FF6621568BD200579B08 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				5232D9A921BC6B1500980051 /* BlockSubscriber.swift */,
 				5272C68F21A0C7D5000ACED1 /* LayoutUtils.swift */,
 				52A54D3B2186244100DF0ADD /* ListMaker.swift */,
 				52A54D2A2185EC5B00DF0ADD /* FileMaker.swift */,
@@ -799,8 +805,10 @@
 				525229D021A4B58B0043E599 /* ListItemView.swift in Sources */,
 				52A54D2B2185EC5B00DF0ADD /* FileMaker.swift in Sources */,
 				5212FF7921568BF600579B08 /* Actions.swift in Sources */,
+				5232D9A821BC6AD500980051 /* ConfigView.swift in Sources */,
 				5218DCC521BC396900CEF010 /* DrawingConfigState.swift in Sources */,
 				5212FF7D21568CCE00579B08 /* ItemCell.swift in Sources */,
+				5232D9AA21BC6B1500980051 /* BlockSubscriber.swift in Sources */,
 				5212FF5221568B5D00579B08 /* ConnectedController.swift in Sources */,
 				5212FF6F21568BD300579B08 /* AppState.swift in Sources */,
 				5212FF6C21568BD300579B08 /* LineSegment.swift in Sources */,

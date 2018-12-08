@@ -2,13 +2,20 @@
 import UIKit
 import ReSwift
 
-class DrawingViewController: UIViewController, StoreSubscriber {
-	
+class DrawingViewController: UIViewController {
+
 	private var panGesture = UIPanGestureRecognizer()
 	private var tapGesture = UITapGestureRecognizer()
 	private var geom:Geom = Geom()
 	private var drawingView:DrawingView = DrawingView(frame: CGRect())
 	private var drawingConstraints:[NSLayoutConstraint] = []
+	
+	private lazy var state1Subscriber: BlockSubscriber<CodeState> = BlockSubscriber(block: {state in
+		self.newState(state: state)
+	})
+	private lazy var state2Subscriber: BlockSubscriber<DrawingConfigState> = BlockSubscriber(block: {state in
+		self.newState(state: state)
+	})
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -35,20 +42,33 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		store.subscribe(self) {
-			$0
-				.select {
-					$0.codeState
-			}
-			.skipRepeats({(lhs:CodeState, rhs:CodeState) -> Bool in
-				return lhs == rhs
-			})
+		store.subscribe(self.state1Subscriber) { state in
+			state.select { state in state.codeState }
+				.skipRepeats({(lhs:CodeState, rhs:CodeState) -> Bool in
+					return lhs == rhs
+				})
 		}
+		store.subscribe(self.state2Subscriber) { state in
+			state.select { state in state.drawingConfigState }
+		}
+	}
+	
+	func newState(state: CodeState) {
+		if(state == .started){
+			self.play(store.state.items)
+			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+				store.dispatch(SetCodeStateAction(payload: CodeState.stopped))
+			}
+		}
+	}
+	
+	func newState(state: DrawingConfigState) {
+		drawingView.setBg(state.bg).update()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		store.unsubscribe(self)
+		//store.unsubscribe(self)
 	}
 	
 	private func play(_ itemsState:DragItemsState){
@@ -60,15 +80,6 @@ class DrawingViewController: UIViewController, StoreSubscriber {
 		}
 		geom.setText(commands.joined(separator: " ")).update()
 		self.drawingView.setPolygons(ps: geom.getPolygons()).update()
-	}
-	
-	func newState(state: CodeState) {
-		if(state == .started){
-			self.play(store.state.items)
-			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-				store.dispatch(SetCodeStateAction(payload: CodeState.stopped))
-			}
-		}
 	}
 	
 	@objc func draggedView(_ sender:UIPanGestureRecognizer){

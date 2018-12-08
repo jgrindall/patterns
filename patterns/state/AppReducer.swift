@@ -16,7 +16,13 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 }
 
 func configReducer(action: Action, state: DrawingConfigState) -> DrawingConfigState {
-	return state
+	let state = state
+	switch action {
+	case let action as SetBgStateAction:
+		return DrawingConfigState(bg: action.payload, fg: state.fg)
+	default:
+		return state
+	}
 }
 
 func uiReducer(action: Action, state: UIState) -> UIState {

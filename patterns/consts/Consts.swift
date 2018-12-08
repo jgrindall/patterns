@@ -17,7 +17,7 @@ struct Constants {
 	}
 	
 	struct ANIM{
-		static let ANIM_TIME:TimeInterval = 0.2
+		static let ANIM_TIME:TimeInterval = 0.1
 	}
 }
 
