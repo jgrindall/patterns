@@ -10,8 +10,13 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 		fileState:filesReducer(action: action, state: state?.fileState),
 		selectedTabState:selectedTabReducer(action: action, state: state!.selectedTabState),
 		codeState:codeReducer(action: action, state: state!.codeState),
-		uiState:uiReducer(action: action, state: state!.uiState)
+		uiState:uiReducer(action: action, state: state!.uiState),
+		drawingConfigState:configReducer(action: action, state: state!.drawingConfigState)
 	)
+}
+
+func configReducer(action: Action, state: DrawingConfigState) -> DrawingConfigState {
+	return state
 }
 
 func uiReducer(action: Action, state: UIState) -> UIState {
