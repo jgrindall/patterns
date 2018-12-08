@@ -2,8 +2,9 @@
 import UIKit
 import RSClipperWrapper
 import ReSwift
+import EFColorPicker
 
-class DesignViewController: UIViewController, StoreSubscriber, PPageViewController {
+class DesignViewController: UIViewController, StoreSubscriber, PPageViewController, EFColorSelectionViewControllerDelegate, UIPopoverPresentationControllerDelegate {
 	
 	private var drawingController:DrawingViewController
 	private var drawingConstraints:[NSLayoutConstraint] = []
@@ -12,6 +13,7 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 	private var tabConstraints:[NSLayoutConstraint] = []
 	private var openButton:UIButton = UIButton(frame: CGRect())
 	private var openConstraints:[NSLayoutConstraint] = []
+	private var button3:UIButton?
 	
 	required init(){
 		self.tabController = TabController()
@@ -21,6 +23,11 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		self.title = "Edit your file"
 	}
 	
+	func colorViewController(colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
+		self.view.backgroundColor = color
+		print("New color: " + color.debugDescription)
+	}
+
 	override var prefersStatusBarHidden: Bool {
 		return true
 	}
@@ -44,6 +51,62 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		self.initLayout()
 		let g = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
 		self.view.addGestureRecognizer(g)
+		self.addNavButtons()
+	}
+	
+	private func addNavButtons(){
+		let viewFN = UIView(frame: CGRect.init(x: 0, y: 0, width: 180, height: 40))
+		viewFN.backgroundColor = .yellow
+		let button1 = UIButton(frame: CGRect.init(x: 0, y: 0, width: 40, height: 20))
+		button1.setImage(UIImage(named: "notification"), for: .normal)
+		button1.setTitle("one", for: .normal)
+		
+		button1.addTarget(self, action: #selector(DesignViewController.didTapOnRightButton), for: .touchUpInside)
+		let button2 = UIButton(frame: CGRect.init(x: 40, y: 8, width: 60, height: 20))
+		button2.setImage(UIImage(named: "notification"), for: .normal)
+		button2.setTitle("tow", for: .normal)
+		button3 = UIButton(frame: CGRect.init(x: 80, y: 8, width: 60, height: 20))
+		button3?.setImage(UIImage(named: "notification"), for: .normal)
+		button3?.setTitle("three", for: .normal)
+		
+		button3?.addTarget(self, action: #selector(DesignViewController.didTapOnRightButton), for: .touchUpInside)
+		
+		viewFN.addSubview(button1)
+		viewFN.addSubview(button2)
+		viewFN.addSubview(button3!)
+		
+		let rightBarButton = UIBarButtonItem(customView: viewFN)
+		self.navigationItem.rightBarButtonItem = rightBarButton
+	}
+	
+	@objc func didOk(_ sender:UITapGestureRecognizer){
+		print("ok")
+	}
+	
+	@objc func didTapOnRightButton(_ sender:UITapGestureRecognizer){
+		
+		let colorSelectionController = EFColorSelectionViewController()
+		let navCtrl = UINavigationController(rootViewController: colorSelectionController)
+		navCtrl.navigationBar.backgroundColor = UIColor.white
+		navCtrl.navigationBar.isTranslucent = false
+		navCtrl.modalPresentationStyle = UIModalPresentationStyle.popover
+		navCtrl.popoverPresentationController?.delegate = self
+		navCtrl.popoverPresentationController?.sourceView = button3
+		navCtrl.popoverPresentationController?.sourceRect = (button3?.bounds)!
+		navCtrl.preferredContentSize = colorSelectionController.view.systemLayoutSizeFitting(
+			UILayoutFittingCompressedSize
+		)
+		let doneBtn: UIBarButtonItem = UIBarButtonItem(
+			title: "Done",
+			style: UIBarButtonItemStyle.done,
+			target: self,
+			action: #selector(DesignViewController.didOk)
+		)
+		colorSelectionController.isColorTextFieldHidden = false
+		colorSelectionController.navigationItem.rightBarButtonItem = doneBtn
+		colorSelectionController.delegate = self
+		colorSelectionController.color = self.view.backgroundColor ?? UIColor.white
+		self.present(navCtrl, animated: true, completion: nil)
 	}
 	
 	@objc func openButtonClicked(_ sender:UITapGestureRecognizer){

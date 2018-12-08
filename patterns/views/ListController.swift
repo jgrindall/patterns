@@ -25,7 +25,7 @@ class ListController: UIViewController {
 		super.viewDidLoad()
 		let panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target:self, action:#selector(ListController.detectPan(_:)))
 		self.view.addGestureRecognizer(panRecognizer)
-		self.view.backgroundColor = UIColor(red: 0.3, green: 0.8, blue: 0.3, alpha: 0.5)
+		self.view.backgroundColor = UIColor.clear
 		self.addChildren()
 		self.view.clipsToBounds = false
 	}

@@ -7,153 +7,184 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		018EB905F523947E78F1D1439C1ABF89 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD9EEDF963FBE2B04E9D7EBBB97101 /* Store.swift */; };
-		05FDB877BFDDA5FB74889A48B79C194F /* Disk+InternalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E85C971F74F6F5CA1801EDF509B173 /* Disk+InternalHelpers.swift */; };
-		095CC177230E3249B6068AF0AD10221F /* RSClipperWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AF165A6A1DD08DFA84F4A1A873D3A /* RSClipperWrapper-dummy.m */; };
-		0977B3211F7AA7CAEF2294CA25E8009F /* Disk+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE60B178D42C875E10142202C31B29 /* Disk+Helpers.swift */; };
-		09AE97E68E0272DB6871EF8456A6BF20 /* Disk+[Data].swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA0866093EB8C988D41BE8ED8627F1 /* Disk+[Data].swift */; };
-		2F3E64990F45519696EB59569AE6F6C3 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1881C5E3AC90BBB56C107F8FB9090F1D /* TypeHelper.swift */; };
-		3D85762EADB8B47D5E0F88C0D6DFDDD5 /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710BA0022FD1040315C0F6B142CD0220 /* StoreType.swift */; };
-		3DF8203894146E649CC3C2EE1ECFBE98 /* Disk+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AAE2EE0DBBE5B5CC80606C788773C7 /* Disk+Errors.swift */; };
-		3F0D86F2F3951419333D9E1BEAF742DB /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C814DEB7852AE22BB8735515098F19C8 /* clipper.cpp */; };
-		43F71411735A9ADECD63FF2B5BEDEDFB /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE36D205A4188AD3B66CA3A39E3F443 /* Middleware.swift */; };
-		4D65EB7D07BA7540C18AED0A05C5F256 /* Pods-patterns-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C558639731C59CC1009C67AC72BF9F02 /* Pods-patterns-dummy.m */; };
-		4F81FD2EABFF6F954AF25F6D265195BE /* ReSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DDD13C2980C5D6BA739DCB640FB5247 /* ReSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5024E48B47EEF14E117CB50EC8184557 /* Disk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B0957BB25884AFB16172872F4B65B0D5 /* Disk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		541C8AB15DEFE9F1229ECE9A6FE1FED5 /* ReSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF6EF98291D9A6CEA95DFF2117689E6 /* ReSwift-dummy.m */; };
-		62C6FAA8A8FD7F4FDA62F22DBC5C7CD8 /* Disk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02490401A783A60AC525D49A1DC11546 /* Disk-dummy.m */; };
-		6D58B56A1FA71A884EC33569B67C621D /* DispatchingStoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7421CF992FA547A0FECB823E1892E975 /* DispatchingStoreType.swift */; };
-		725EDA331E9F41E33139BE9A7D75670D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		7D729E180979B567679116B208516DB9 /* StoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804E6FD3C1126A807B0EAC95D1061B4 /* StoreSubscriber.swift */; };
-		80CD56FDEA1B55D3AD2ECDBC92834BF9 /* Disk+[UIImage].swift in Sources */ = {isa = PBXBuildFile; fileRef = 61789EF3743209F63BD3685DA95CA3EA /* Disk+[UIImage].swift */; };
-		819D745928F372C4B1E3FFF524D58C66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		8312960301C48F77F526CC0F37C15782 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FA3E1BF4B3F42DA3273BF3C532E36 /* Coding.swift */; };
-		849EFBE5D310586632F84DAABA9EC51C /* clipper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D9026ED42B8E607A3FB44B9B2E6A573A /* clipper.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
-		85A724A742E485CE02045C769D7F3F59 /* Disk+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D985A8C696348BC11303219F4E9F4A8 /* Disk+Codable.swift */; };
-		87AAF8A895CEE9D2D3D90BD20AC32BDB /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019675E56B2182D448560371C55383D2 /* State.swift */; };
-		943308982464F317617A59F1FB293A26 /* RSClipperWrapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B38AF5BC59D1668B23FCBF5848C50C99 /* RSClipperWrapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9646030C38636B6C8763E0EED6CA01DD /* Pods-patterns-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA0AC1FCEE15AFE3373D3132783FE3B /* Pods-patterns-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03931CC61A19AE3DDED004EC0A672B24 /* Clipper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC155CB66A23F518D963952D7A608ED6 /* Clipper.swift */; };
+		05FDB877BFDDA5FB74889A48B79C194F /* Disk+InternalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A0E291856634C2010BDE0174493CC /* Disk+InternalHelpers.swift */; };
+		0977B3211F7AA7CAEF2294CA25E8009F /* Disk+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5581EEACC96693518C044546CA36D2 /* Disk+Helpers.swift */; };
+		09AE97E68E0272DB6871EF8456A6BF20 /* Disk+[Data].swift in Sources */ = {isa = PBXBuildFile; fileRef = 23285E6048C554CA149198993DBD104D /* Disk+[Data].swift */; };
+		0FF8BEE978A34E55E23B83626E6CC952 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308ED367D0696699007B649C906F78B0 /* State.swift */; };
+		110A874738016AE6EDCF6A955A06486C /* EFColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9D3F700C1FC84FA292ACF4DBEE612F /* EFColorSelectionView.swift */; };
+		1D31FF7924B54D055899328FEBC269C0 /* Pods-patterns-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA0AC1FCEE15AFE3373D3132783FE3B /* Pods-patterns-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AC0791E25503FEC2F62581573BC493C /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87A5F8044F903E190922C1EF63A81419 /* clipper.cpp */; };
+		35D7AC2CC684A28DBBDB6B52B372B957 /* DispatchingStoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983D8D71C87D303EE5FEDAF8680DCDA9 /* DispatchingStoreType.swift */; };
+		3DB1B69AB74A873A9CE02ED93ACF8B95 /* EFSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64929F18C54B50583EFC2B3DE27047 /* EFSliderView.swift */; };
+		3DF8203894146E649CC3C2EE1ECFBE98 /* Disk+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872F1773B78F2D9EB0DF86461EA29E8 /* Disk+Errors.swift */; };
+		3EE9AFA78073C878076AC54656010053 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E7AAE2C5FA179356ADEEAA9DBEF775 /* Coding.swift */; };
+		3F9533BD61E903CCFAFFFDB8B741C240 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		424FD960A9466FB0B9D27E50CC60C305 /* EFHSBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C037BD4D8E6C888323346F84D0036566 /* EFHSBView.swift */; };
+		49274666E5640CFA4352C1F7C954A23F /* RSClipperWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 227355CDAE3F662EA2365F5DDE9C09F8 /* RSClipperWrapper-dummy.m */; };
+		4BABD9D033AAE23CC8A2C5E8CFDBDD48 /* EFControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819C6F30F9F1477EA092E3C34988A840 /* EFControl.swift */; };
+		5024E48B47EEF14E117CB50EC8184557 /* Disk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 52EF32BC4C54E54CD2DB113AA67EC7CE /* Disk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5276AF94BFFAA32F0C4E3E1A43811142 /* ReSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD836D17B51B80595A6410A7D771AE5 /* ReSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A695AE9FA8BE6B8EC3A60C3B4679A6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		5BA94B98CE4707A45858013F5200509C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02B802914C982D2E8B7F63AC4BA5C2 /* Store.swift */; };
+		617B0936D9E46671A369408C1BA06251 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BC1E231F57B18055A0600CD444FD9 /* Action.swift */; };
+		6243297D2545E2D98AB51C534987A989 /* EFColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F0FBAFF4E8D7E47102A8E7BA4A4E54 /* EFColorPicker-dummy.m */; };
+		62C6FAA8A8FD7F4FDA62F22DBC5C7CD8 /* Disk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 438DA510221010F6B57E8BC7968D6BAD /* Disk-dummy.m */; };
+		6885A5D41848017A2832B32453FF09AB /* EFColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B052ADECCBE5284A76FB31E81A458 /* EFColorUtils.swift */; };
+		6A7329AEA6C6F38EABFFFC9E91B4983D /* EFColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6420B3C644430C5F08550EB45D571BFA /* EFColorView.swift */; };
+		6CCB3626D1E36F3CA65D289F6BC62A38 /* _Clipper.h in Headers */ = {isa = PBXBuildFile; fileRef = FAE1A539C70E27642C6B6AD876C8280A /* _Clipper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7476A8174190EE7EC7AE513C6DB12B6F /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E3B1A0C5C730ABECE7F8CF4B4CAED /* TypeHelper.swift */; };
+		80CD56FDEA1B55D3AD2ECDBC92834BF9 /* Disk+[UIImage].swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E3C3F9B82FE47AA5B93DCB2589057 /* Disk+[UIImage].swift */; };
+		82DA7AFF7FDF0D617947C96214A84807 /* RSClipperWrapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B9E70B8201AAE54DB64D196B7594DD8F /* RSClipperWrapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		85A724A742E485CE02045C769D7F3F59 /* Disk+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C82D99942FA9FF5A5413903E7A6EA /* Disk+Codable.swift */; };
+		937EFB2738F6EB8DCEFE69CE81B32B22 /* EFColorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02355F62E05D5A0698B20B817097F9F7 /* EFColorSelectionViewController.swift */; };
+		965D5E528EFD6E6B31C0985D44CA7014 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		9682154D32CB1D563DAA45D642164A6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		9820B0527D60254AD540231BEB915A2B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80263A686AA75230B50DE39100B9885 /* Action.swift */; };
-		99580290AAE8368D2845C68890724B9A /* Clipper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FDC6053E0BC01420D25D9F943726A /* Clipper.swift */; };
-		9A1347153B7E5E27D2EFFBA455203EC7 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A69B6AD251BE6A34AC1A3F7FD16F8 /* Reducer.swift */; };
-		A415E8FBD9917689FD899F97DCD5FF0C /* Disk.h in Headers */ = {isa = PBXBuildFile; fileRef = 653490DD5BC8E27C23F16B56B608EC1E /* Disk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ADE30DFD391DAC0F7E5A65906F10EF15 /* _Clipper.h in Headers */ = {isa = PBXBuildFile; fileRef = 7388B9FF331BD7F25F07BA35C531447F /* _Clipper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B3694FCB6F986D32CA77E41F096FC8B1 /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AEE62048029D4A3E28788A077E2225 /* Assertions.swift */; };
-		BB37FF10EBA050CD29145F84FEB31A07 /* Disk+VolumeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73E2496B4B77A0A94D2C0EC1B1DC660 /* Disk+VolumeInformation.swift */; };
-		CAAD24EE5717064C69DB3A3321055A65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		D8E5ABC0555B5361FD278962BBBE72D5 /* Disk+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39C5E3DB388E278F92E2A5745002FF /* Disk+UIImage.swift */; };
-		DA53FAE3E15E0FB555E6ACC58E71B9E9 /* _Clipper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4DD92F66ADF8B27D7BFCE5EAEC4BAFF /* _Clipper.mm */; };
-		DFE825525CF210D258392AA8B674B6CC /* RSClipperWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = E3FBE89A2FFAC6446AF704DE79D4D32B /* RSClipperWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E706559F9BFF201B274832BE337347C6 /* Disk+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C072698AFFF179204C43FFC76F0C2E7C /* Disk+Data.swift */; };
-		F2A0EFED451CF40A35064A62044876E2 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD1BD600F27AD5565B2A8BF1B1C810A /* Subscription.swift */; };
-		F7FCC4C410DF9C58DD2250209BF5485A /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E9790D4FC394C4E2F16676A745CFBD /* Disk.swift */; };
+		9FEAD97ED5231FA563CBE00423D88171 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E38D59D7A76BFE562CE7CB6AFE0A8F /* Middleware.swift */; };
+		A415E8FBD9917689FD899F97DCD5FF0C /* Disk.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C58A5B5A6EFAA78E11D415142F6CD3 /* Disk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAC9D4DDDCD2C18019BE9AF7DCF55D88 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F3651790E080C74A30F0E0FF047BAA /* Reducer.swift */; };
+		B3118820C0A7D76828048B213603868A /* EFColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C027D40265703B1D21EE35B2463C8 /* EFColorWheelView.swift */; };
+		B655B1B5EC38285AC08EA798A50200DC /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9BE3BDDAB772758559F68C01007C5 /* StoreType.swift */; };
+		B7B4983CED05283E862E9CC9CCF89EA3 /* _Clipper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 224656851B53810F0E7278F016AA020D /* _Clipper.mm */; };
+		BB37FF10EBA050CD29145F84FEB31A07 /* Disk+VolumeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C238F8F12A0400390E55995F4AA9B1C6 /* Disk+VolumeInformation.swift */; };
+		C1AC7E4465EDA631643656AA560D5BA1 /* EFRGBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2891DB2F4C332DE5F353523700509691 /* EFRGBView.swift */; };
+		C359983177BB77901B4B9D82693B520B /* EFThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE85513A3DD37CE4ACE500AF1C9DA6F /* EFThumbView.swift */; };
+		C58F49D04808FD84B70890579120625B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		C8A0CEA3E329C8923E6E7AD65E82C43C /* EFColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C834C01E423E12C91F76F73ADAD1DD7 /* EFColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E5ABC0555B5361FD278962BBBE72D5 /* Disk+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A98006083E015E7E933BE008984D90 /* Disk+UIImage.swift */; };
+		D96BB18BBB000F4DD001AB180F7C805D /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03EF69ED325A54AD4B8D42E6D8A01C0 /* Assertions.swift */; };
+		DE0F293B629C55167783F593148F8AF7 /* RSClipperWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 33421D15674EC8A8B0723E68B27F039A /* RSClipperWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF208CDAF8C8C7D6F3780EC780284DAD /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF693EE08DA8EEEC397A182F6F4728 /* Subscription.swift */; };
+		E33C53808D4A1C450EE8D5C62290BF7F /* ReSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6828D93426EA1CBFF9728CA56A59AAE /* ReSwift-dummy.m */; };
+		E706559F9BFF201B274832BE337347C6 /* Disk+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15475FD784A344C9335A88349DA53D2E /* Disk+Data.swift */; };
+		EA49D4DF91D75BB10D00E5E4AE190D89 /* EFColorComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3178BD0B15F7B1550DEE110277A3D89A /* EFColorComponentView.swift */; };
+		F1272FD66C38B9A5E67DE170A703C8DF /* clipper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 8CFB9E3D9D9DA45D20A3455756618D6F /* clipper.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
+		F1D590EB4A7424BAB05ADF6525EC9EEB /* Pods-patterns-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C558639731C59CC1009C67AC72BF9F02 /* Pods-patterns-dummy.m */; };
+		F7FCC4C410DF9C58DD2250209BF5485A /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A2AFF6CE8172F8BF86BAE1F8D4E082 /* Disk.swift */; };
+		FA9B7E97A2F404920E4BAAE4D12EA492 /* StoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA464973E6ADDCF8D04B1BEB20FEBAE /* StoreSubscriber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5847FCA1A0C7CF738402FDD60BF5A311 /* PBXContainerItemProxy */ = {
+		23C872A6B9E254EC72DEAEB2E7F973EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD795D42577D6E0512B3784D18CF323A;
-			remoteInfo = ReSwift;
-		};
-		BCC2E390BAF2C872B27C12F5DCD1CD1A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4E6F10D3F9ABDA4927D0AF36C7B8D078;
+			remoteGlobalIDString = 7AD31BA720C5D75CB17041EC52BB67AB;
 			remoteInfo = RSClipperWrapper;
 		};
-		FC85DD7CCCFEA4121B0378E585ACE48E /* PBXContainerItemProxy */ = {
+		35398B62D553F12CF7E3C703148F3D54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1B4FA8EB9FCA20954ADB63553812672;
+			remoteInfo = EFColorPicker;
+		};
+		9B92B141AF644C8BD8DA5AAA0AB5C198 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6CDC6F0CAFAE1779F0B239ED6E2B769B;
 			remoteInfo = Disk;
 		};
+		C94C695724B5A73BD826B1165101EC36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE4B9287B466D08E49037D964F1FBA95;
+			remoteInfo = ReSwift;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		005A69B6AD251BE6A34AC1A3F7FD16F8 /* Reducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reducer.swift; path = ReSwift/CoreTypes/Reducer.swift; sourceTree = "<group>"; };
-		019675E56B2182D448560371C55383D2 /* State.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = State.swift; path = ReSwift/CoreTypes/State.swift; sourceTree = "<group>"; };
-		02490401A783A60AC525D49A1DC11546 /* Disk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Disk-dummy.m"; sourceTree = "<group>"; };
-		0EF6EF98291D9A6CEA95DFF2117689E6 /* ReSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReSwift-dummy.m"; sourceTree = "<group>"; };
-		15CD9EEDF963FBE2B04E9D7EBBB97101 /* Store.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Store.swift; path = ReSwift/CoreTypes/Store.swift; sourceTree = "<group>"; };
-		1804E6FD3C1126A807B0EAC95D1061B4 /* StoreSubscriber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreSubscriber.swift; path = ReSwift/CoreTypes/StoreSubscriber.swift; sourceTree = "<group>"; };
-		1881C5E3AC90BBB56C107F8FB9090F1D /* TypeHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TypeHelper.swift; path = ReSwift/Utils/TypeHelper.swift; sourceTree = "<group>"; };
-		196EAB4368C42A823B0C2A9FB1E55EB6 /* RSClipperWrapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RSClipperWrapper.xcconfig; sourceTree = "<group>"; };
-		1FAB2088044D02E1975120AA217F92C7 /* Disk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Disk.modulemap; sourceTree = "<group>"; };
-		20AAE2EE0DBBE5B5CC80606C788773C7 /* Disk+Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Errors.swift"; path = "Sources/Disk+Errors.swift"; sourceTree = "<group>"; };
+		02355F62E05D5A0698B20B817097F9F7 /* EFColorSelectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorSelectionViewController.swift; path = EFColorPicker/Classes/EFColorSelectionViewController.swift; sourceTree = "<group>"; };
+		049B052ADECCBE5284A76FB31E81A458 /* EFColorUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorUtils.swift; path = EFColorPicker/Classes/EFColorUtils.swift; sourceTree = "<group>"; };
+		05AC1938EB202377648CA76EE27C3F6D /* Disk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-prefix.pch"; sourceTree = "<group>"; };
+		0D1E3C3F9B82FE47AA5B93DCB2589057 /* Disk+[UIImage].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[UIImage].swift"; path = "Sources/Disk+[UIImage].swift"; sourceTree = "<group>"; };
+		0EB79F0486A64BFE6EDC3D5B2C5255B8 /* RSClipperWrapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RSClipperWrapper.modulemap; sourceTree = "<group>"; };
+		106C027D40265703B1D21EE35B2463C8 /* EFColorWheelView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorWheelView.swift; path = EFColorPicker/Classes/EFColorWheelView.swift; sourceTree = "<group>"; };
+		126C82D99942FA9FF5A5413903E7A6EA /* Disk+Codable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Codable.swift"; path = "Sources/Disk+Codable.swift"; sourceTree = "<group>"; };
+		15475FD784A344C9335A88349DA53D2E /* Disk+Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Data.swift"; path = "Sources/Disk+Data.swift"; sourceTree = "<group>"; };
+		16E38D59D7A76BFE562CE7CB6AFE0A8F /* Middleware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = ReSwift/CoreTypes/Middleware.swift; sourceTree = "<group>"; };
+		1872F1773B78F2D9EB0DF86461EA29E8 /* Disk+Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Errors.swift"; path = "Sources/Disk+Errors.swift"; sourceTree = "<group>"; };
+		1BE85513A3DD37CE4ACE500AF1C9DA6F /* EFThumbView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFThumbView.swift; path = EFColorPicker/Classes/EFThumbView.swift; sourceTree = "<group>"; };
+		224656851B53810F0E7278F016AA020D /* _Clipper.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = _Clipper.mm; path = RSClipperWrapper/RSClipperWrapper/_Clipper.mm; sourceTree = "<group>"; };
+		227355CDAE3F662EA2365F5DDE9C09F8 /* RSClipperWrapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RSClipperWrapper-dummy.m"; sourceTree = "<group>"; };
+		23285E6048C554CA149198993DBD104D /* Disk+[Data].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[Data].swift"; path = "Sources/Disk+[Data].swift"; sourceTree = "<group>"; };
+		2891DB2F4C332DE5F353523700509691 /* EFRGBView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFRGBView.swift; path = EFColorPicker/Classes/EFRGBView.swift; sourceTree = "<group>"; };
+		2C60E0229D9315639365E38819A4BDED /* ReSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ReSwift.framework; path = ReSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDABD60C66AF0867223EA59B24B79EA /* Pods-patterns-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-patterns-acknowledgements.plist"; sourceTree = "<group>"; };
+		2FD8B06B767815F449ECD683A802DC43 /* Disk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Disk.framework; path = Disk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		308ED367D0696699007B649C906F78B0 /* State.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = State.swift; path = ReSwift/CoreTypes/State.swift; sourceTree = "<group>"; };
+		3178BD0B15F7B1550DEE110277A3D89A /* EFColorComponentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorComponentView.swift; path = EFColorPicker/Classes/EFColorComponentView.swift; sourceTree = "<group>"; };
+		32F3651790E080C74A30F0E0FF047BAA /* Reducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reducer.swift; path = ReSwift/CoreTypes/Reducer.swift; sourceTree = "<group>"; };
+		33421D15674EC8A8B0723E68B27F039A /* RSClipperWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSClipperWrapper.h; path = RSClipperWrapper/RSClipperWrapper/RSClipperWrapper.h; sourceTree = "<group>"; };
+		348817E52CE1DE3715DB228E866870CA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B5581EEACC96693518C044546CA36D2 /* Disk+Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Helpers.swift"; path = "Sources/Disk+Helpers.swift"; sourceTree = "<group>"; };
 		410BE2217CB0AFFEB8139EC3B3C41059 /* Pods-patterns.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-patterns.debug.xcconfig"; sourceTree = "<group>"; };
-		42CA0866093EB8C988D41BE8ED8627F1 /* Disk+[Data].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[Data].swift"; path = "Sources/Disk+[Data].swift"; sourceTree = "<group>"; };
+		43630BA3D210BC88FCE2E058A2F74DEA /* Disk.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Disk.xcconfig; sourceTree = "<group>"; };
+		438DA510221010F6B57E8BC7968D6BAD /* Disk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Disk-dummy.m"; sourceTree = "<group>"; };
+		43C58A5B5A6EFAA78E11D415142F6CD3 /* Disk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Disk.h; path = Sources/Disk.h; sourceTree = "<group>"; };
 		44CE22B7604C3007E13DEC2F3E0E3FCF /* Pods-patterns-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-patterns-resources.sh"; sourceTree = "<group>"; };
-		467DEA15EA33F4173DFDA52F80D51252 /* Disk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Disk.framework; path = Disk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4845AF9DE6D4087663460E8D77E28FFA /* Disk.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Disk.xcconfig; sourceTree = "<group>"; };
-		4C10B6149A7DDBCB5C72AC288E0DACB5 /* Disk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-prefix.pch"; sourceTree = "<group>"; };
-		4D985A8C696348BC11303219F4E9F4A8 /* Disk+Codable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Codable.swift"; path = "Sources/Disk+Codable.swift"; sourceTree = "<group>"; };
+		462A0E291856634C2010BDE0174493CC /* Disk+InternalHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+InternalHelpers.swift"; path = "Sources/Disk+InternalHelpers.swift"; sourceTree = "<group>"; };
+		52EF32BC4C54E54CD2DB113AA67EC7CE /* Disk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-umbrella.h"; sourceTree = "<group>"; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5DA0AC1FCEE15AFE3373D3132783FE3B /* Pods-patterns-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-patterns-umbrella.h"; sourceTree = "<group>"; };
-		608A8A3B6F34894BF26CBAA038168642 /* ReSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReSwift.xcconfig; sourceTree = "<group>"; };
-		61789EF3743209F63BD3685DA95CA3EA /* Disk+[UIImage].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[UIImage].swift"; path = "Sources/Disk+[UIImage].swift"; sourceTree = "<group>"; };
-		61FC17EB3D9B727FBBA80897DEC6DB19 /* ReSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReSwift-prefix.pch"; sourceTree = "<group>"; };
+		60EFA696F14776EA630D014CA495CA8C /* RSClipperWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RSClipperWrapper.framework; path = RSClipperWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6420B3C644430C5F08550EB45D571BFA /* EFColorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorView.swift; path = EFColorPicker/Classes/EFColorView.swift; sourceTree = "<group>"; };
+		64A98006083E015E7E933BE008984D90 /* Disk+UIImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+UIImage.swift"; path = "Sources/Disk+UIImage.swift"; sourceTree = "<group>"; };
 		64DF8FA567674C3B3ECB796FEDB16CF8 /* Pods-patterns-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-patterns-acknowledgements.markdown"; sourceTree = "<group>"; };
-		653490DD5BC8E27C23F16B56B608EC1E /* Disk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Disk.h; path = Sources/Disk.h; sourceTree = "<group>"; };
-		656D6C831732AFE125374571046FEDA0 /* Pods_patterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_patterns.framework; path = "Pods-patterns.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		702573D22F38F729D1D7A7FBDADCBFFC /* ReSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ReSwift.modulemap; sourceTree = "<group>"; };
-		710BA0022FD1040315C0F6B142CD0220 /* StoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreType.swift; path = ReSwift/CoreTypes/StoreType.swift; sourceTree = "<group>"; };
-		731AF165A6A1DD08DFA84F4A1A873D3A /* RSClipperWrapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RSClipperWrapper-dummy.m"; sourceTree = "<group>"; };
-		7388B9FF331BD7F25F07BA35C531447F /* _Clipper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _Clipper.h; path = RSClipperWrapper/RSClipperWrapper/_Clipper.h; sourceTree = "<group>"; };
-		7421CF992FA547A0FECB823E1892E975 /* DispatchingStoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DispatchingStoreType.swift; path = ReSwift/CoreTypes/DispatchingStoreType.swift; sourceTree = "<group>"; };
-		7DDD13C2980C5D6BA739DCB640FB5247 /* ReSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReSwift-umbrella.h"; sourceTree = "<group>"; };
-		82FF21F43067A4CD965D678A44C96E3C /* RSClipperWrapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RSClipperWrapper-prefix.pch"; sourceTree = "<group>"; };
-		852D15608D6AD0987EDC4029711B83B5 /* ReSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ReSwift.framework; path = ReSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7098D430316210E9D4E8AD6975E5AAA8 /* RSClipperWrapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RSClipperWrapper-prefix.pch"; sourceTree = "<group>"; };
+		73AF693EE08DA8EEEC397A182F6F4728 /* Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subscription.swift; path = ReSwift/CoreTypes/Subscription.swift; sourceTree = "<group>"; };
+		73BADB012B34CAE52BD6FC410152EE8F /* EFColorPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EFColorPicker-prefix.pch"; sourceTree = "<group>"; };
+		7728CDDB0127327D6C9C40095A4246C8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F9D3F700C1FC84FA292ACF4DBEE612F /* EFColorSelectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorSelectionView.swift; path = EFColorPicker/Classes/EFColorSelectionView.swift; sourceTree = "<group>"; };
+		80C8E4D5EDB902D7C798EC61FA7C2FAA /* ReSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ReSwift.modulemap; sourceTree = "<group>"; };
+		819C6F30F9F1477EA092E3C34988A840 /* EFControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFControl.swift; path = EFColorPicker/Classes/EFControl.swift; sourceTree = "<group>"; };
+		87A5F8044F903E190922C1EF63A81419 /* clipper.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = clipper.cpp; path = "RSClipperWrapper/RSClipperWrapper/Clipper 6.2.1/clipper.cpp"; sourceTree = "<group>"; };
+		88F0FBAFF4E8D7E47102A8E7BA4A4E54 /* EFColorPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EFColorPicker-dummy.m"; sourceTree = "<group>"; };
+		8C834C01E423E12C91F76F73ADAD1DD7 /* EFColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EFColorPicker-umbrella.h"; sourceTree = "<group>"; };
+		8CFB9E3D9D9DA45D20A3455756618D6F /* clipper.hpp */ = {isa = PBXFileReference; includeInIndex = 1; name = clipper.hpp; path = "RSClipperWrapper/RSClipperWrapper/Clipper 6.2.1/clipper.hpp"; sourceTree = "<group>"; };
 		91C33F45EC51933AF69EA47F2493935A /* Pods-patterns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-patterns.release.xcconfig"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A80263A686AA75230B50DE39100B9885 /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Action.swift; path = ReSwift/CoreTypes/Action.swift; sourceTree = "<group>"; };
-		AC09C70BEC12A45BF89C4D610F0CF981 /* RSClipperWrapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RSClipperWrapper.modulemap; sourceTree = "<group>"; };
-		B0957BB25884AFB16172872F4B65B0D5 /* Disk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-umbrella.h"; sourceTree = "<group>"; };
-		B2E9790D4FC394C4E2F16676A745CFBD /* Disk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disk.swift; path = Sources/Disk.swift; sourceTree = "<group>"; };
-		B38AF5BC59D1668B23FCBF5848C50C99 /* RSClipperWrapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RSClipperWrapper-umbrella.h"; sourceTree = "<group>"; };
-		C072698AFFF179204C43FFC76F0C2E7C /* Disk+Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Data.swift"; path = "Sources/Disk+Data.swift"; sourceTree = "<group>"; };
-		C26FA3E1BF4B3F42DA3273BF3C532E36 /* Coding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = ReSwift/Utils/Coding.swift; sourceTree = "<group>"; };
+		983D8D71C87D303EE5FEDAF8680DCDA9 /* DispatchingStoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DispatchingStoreType.swift; path = ReSwift/CoreTypes/DispatchingStoreType.swift; sourceTree = "<group>"; };
+		A6828D93426EA1CBFF9728CA56A59AAE /* ReSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReSwift-dummy.m"; sourceTree = "<group>"; };
+		A747D28FA4B28E25ACE77DB53B2706C9 /* ReSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReSwift.xcconfig; sourceTree = "<group>"; };
+		AA1F7B6681EE8F55B1F690D8716C34C1 /* Pods_patterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_patterns.framework; path = "Pods-patterns.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAA464973E6ADDCF8D04B1BEB20FEBAE /* StoreSubscriber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreSubscriber.swift; path = ReSwift/CoreTypes/StoreSubscriber.swift; sourceTree = "<group>"; };
+		AC08E5B8CF006B34E4B84DC077E84FCE /* ReSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReSwift-prefix.pch"; sourceTree = "<group>"; };
+		ACD836D17B51B80595A6410A7D771AE5 /* ReSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReSwift-umbrella.h"; sourceTree = "<group>"; };
+		ADC9CBF76556866C7DEF5F62FC8E93D3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF4BC1E231F57B18055A0600CD444FD9 /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Action.swift; path = ReSwift/CoreTypes/Action.swift; sourceTree = "<group>"; };
+		B03EF69ED325A54AD4B8D42E6D8A01C0 /* Assertions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assertions.swift; path = ReSwift/Utils/Assertions.swift; sourceTree = "<group>"; };
+		B7783974AE71CFD37BBC9E4967B31514 /* EFColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EFColorPicker.modulemap; sourceTree = "<group>"; };
+		B82C7B82E5A33AAE490A344B8A46ABA6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9E70B8201AAE54DB64D196B7594DD8F /* RSClipperWrapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RSClipperWrapper-umbrella.h"; sourceTree = "<group>"; };
+		BB02B802914C982D2E8B7F63AC4BA5C2 /* Store.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Store.swift; path = ReSwift/CoreTypes/Store.swift; sourceTree = "<group>"; };
+		C037BD4D8E6C888323346F84D0036566 /* EFHSBView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFHSBView.swift; path = EFColorPicker/Classes/EFHSBView.swift; sourceTree = "<group>"; };
+		C238F8F12A0400390E55995F4AA9B1C6 /* Disk+VolumeInformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+VolumeInformation.swift"; path = "Sources/Disk+VolumeInformation.swift"; sourceTree = "<group>"; };
+		C26D189C3719552F6856B72EA29C3F58 /* EFColorPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EFColorPicker.xcconfig; sourceTree = "<group>"; };
 		C558639731C59CC1009C67AC72BF9F02 /* Pods-patterns-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-patterns-dummy.m"; sourceTree = "<group>"; };
-		C814DEB7852AE22BB8735515098F19C8 /* clipper.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = clipper.cpp; path = "RSClipperWrapper/RSClipperWrapper/Clipper 6.2.1/clipper.cpp"; sourceTree = "<group>"; };
-		CBE36D205A4188AD3B66CA3A39E3F443 /* Middleware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = ReSwift/CoreTypes/Middleware.swift; sourceTree = "<group>"; };
-		D3E85C971F74F6F5CA1801EDF509B173 /* Disk+InternalHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+InternalHelpers.swift"; path = "Sources/Disk+InternalHelpers.swift"; sourceTree = "<group>"; };
-		D4DD92F66ADF8B27D7BFCE5EAEC4BAFF /* _Clipper.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = _Clipper.mm; path = RSClipperWrapper/RSClipperWrapper/_Clipper.mm; sourceTree = "<group>"; };
-		D73E2496B4B77A0A94D2C0EC1B1DC660 /* Disk+VolumeInformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+VolumeInformation.swift"; path = "Sources/Disk+VolumeInformation.swift"; sourceTree = "<group>"; };
-		D9026ED42B8E607A3FB44B9B2E6A573A /* clipper.hpp */ = {isa = PBXFileReference; includeInIndex = 1; name = clipper.hpp; path = "RSClipperWrapper/RSClipperWrapper/Clipper 6.2.1/clipper.hpp"; sourceTree = "<group>"; };
+		C9B9BE3BDDAB772758559F68C01007C5 /* StoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreType.swift; path = ReSwift/CoreTypes/StoreType.swift; sourceTree = "<group>"; };
+		CDA7AA8A060D533582B92CB4C8F71743 /* Disk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Disk.modulemap; sourceTree = "<group>"; };
+		D3A2AFF6CE8172F8BF86BAE1F8D4E082 /* Disk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disk.swift; path = Sources/Disk.swift; sourceTree = "<group>"; };
 		DB5B1F82322338CAC750FFE6348C5678 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD2FDC6053E0BC01420D25D9F943726A /* Clipper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Clipper.swift; path = RSClipperWrapper/RSClipperWrapper/Clipper.swift; sourceTree = "<group>"; };
-		DD39C5E3DB388E278F92E2A5745002FF /* Disk+UIImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+UIImage.swift"; path = "Sources/Disk+UIImage.swift"; sourceTree = "<group>"; };
+		DC155CB66A23F518D963952D7A608ED6 /* Clipper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Clipper.swift; path = RSClipperWrapper/RSClipperWrapper/Clipper.swift; sourceTree = "<group>"; };
+		DE64929F18C54B50583EFC2B3DE27047 /* EFSliderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFSliderView.swift; path = EFColorPicker/Classes/EFSliderView.swift; sourceTree = "<group>"; };
+		E00E3B1A0C5C730ABECE7F8CF4B4CAED /* TypeHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TypeHelper.swift; path = ReSwift/Utils/TypeHelper.swift; sourceTree = "<group>"; };
+		E03A0D091CA9C84C51F42B7E9E0CBF92 /* EFColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EFColorPicker.framework; path = EFColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1201EB517CBA3579955D8FA927ADCD0 /* RSClipperWrapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RSClipperWrapper.xcconfig; sourceTree = "<group>"; };
 		E14D78B1AF131E0E7ABC8F90D5186270 /* Pods-patterns.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-patterns.modulemap"; sourceTree = "<group>"; };
-		E3FBE89A2FFAC6446AF704DE79D4D32B /* RSClipperWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSClipperWrapper.h; path = RSClipperWrapper/RSClipperWrapper/RSClipperWrapper.h; sourceTree = "<group>"; };
-		EBD1BD600F27AD5565B2A8BF1B1C810A /* Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subscription.swift; path = ReSwift/CoreTypes/Subscription.swift; sourceTree = "<group>"; };
-		EE4F1918B15F2CB7430A46A9AA9025A6 /* RSClipperWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RSClipperWrapper.framework; path = RSClipperWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFFE60B178D42C875E10142202C31B29 /* Disk+Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Helpers.swift"; path = "Sources/Disk+Helpers.swift"; sourceTree = "<group>"; };
-		F1A736BE6A72C6D1E15BF4FE98493081 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F2AEE62048029D4A3E28788A077E2225 /* Assertions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assertions.swift; path = ReSwift/Utils/Assertions.swift; sourceTree = "<group>"; };
-		F42E583C718593F5952B2AD2516A4612 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F6F797423F98A71037F0F29E83F949D3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3E7AAE2C5FA179356ADEEAA9DBEF775 /* Coding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = ReSwift/Utils/Coding.swift; sourceTree = "<group>"; };
 		F9D249816123F4454898D7C44DFB8189 /* Pods-patterns-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-patterns-frameworks.sh"; sourceTree = "<group>"; };
+		FAE1A539C70E27642C6B6AD876C8280A /* _Clipper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _Clipper.h; path = RSClipperWrapper/RSClipperWrapper/_Clipper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		11582315F7B47F6B5440863D3001D6CA /* Frameworks */ = {
+		4898FD70BB637F828929D75E507CC988 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAAD24EE5717064C69DB3A3321055A65 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13B2B2BB8BBA141E74B45F0A5CBFB543 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				819D745928F372C4B1E3FFF524D58C66 /* Foundation.framework in Frameworks */,
+				C58F49D04808FD84B70890579120625B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,89 +196,89 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D40952791DC6583CA7572900A9FBF7BB /* Frameworks */ = {
+		5061F980EBFA2F7491FF8E5DE3D998DC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725EDA331E9F41E33139BE9A7D75670D /* Foundation.framework in Frameworks */,
+				965D5E528EFD6E6B31C0985D44CA7014 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6D52E8A754CC4081FE243A89BE6E02D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A695AE9FA8BE6B8EC3A60C3B4679A6A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7D9CF97242565D659C1E388AE97F6BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F9533BD61E903CCFAFFFDB8B741C240 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1D86353A9B76A40CA9680FAC2ADF54F4 /* Pods */ = {
+		04CF4C934308A008CE7A6CEF4C0EDA2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BD0C7E6B90B451699DA44C2B2277003C /* Disk */,
-				1DF16C44E086EDC089B58FE21D83D498 /* ReSwift */,
-				596DF631374086BFA79451AB6AEEEF21 /* RSClipperWrapper */,
+				A21143B28A69C3713B03C21736BF5F41 /* Disk */,
+				C4FA679D87FA8D273F9EEC3C0641E264 /* EFColorPicker */,
+				2CD1FBC16C96E7A7BF1BAF7FD7A383A8 /* ReSwift */,
+				F3FC19B7B452C995E2CC303BFB1B6290 /* RSClipperWrapper */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		1DF16C44E086EDC089B58FE21D83D498 /* ReSwift */ = {
+		2CD1FBC16C96E7A7BF1BAF7FD7A383A8 /* ReSwift */ = {
 			isa = PBXGroup;
 			children = (
-				A80263A686AA75230B50DE39100B9885 /* Action.swift */,
-				F2AEE62048029D4A3E28788A077E2225 /* Assertions.swift */,
-				C26FA3E1BF4B3F42DA3273BF3C532E36 /* Coding.swift */,
-				7421CF992FA547A0FECB823E1892E975 /* DispatchingStoreType.swift */,
-				CBE36D205A4188AD3B66CA3A39E3F443 /* Middleware.swift */,
-				005A69B6AD251BE6A34AC1A3F7FD16F8 /* Reducer.swift */,
-				019675E56B2182D448560371C55383D2 /* State.swift */,
-				15CD9EEDF963FBE2B04E9D7EBBB97101 /* Store.swift */,
-				1804E6FD3C1126A807B0EAC95D1061B4 /* StoreSubscriber.swift */,
-				710BA0022FD1040315C0F6B142CD0220 /* StoreType.swift */,
-				EBD1BD600F27AD5565B2A8BF1B1C810A /* Subscription.swift */,
-				1881C5E3AC90BBB56C107F8FB9090F1D /* TypeHelper.swift */,
-				7865B3F3AC26EF6F8E89A06CC8844F03 /* Support Files */,
+				AF4BC1E231F57B18055A0600CD444FD9 /* Action.swift */,
+				B03EF69ED325A54AD4B8D42E6D8A01C0 /* Assertions.swift */,
+				E3E7AAE2C5FA179356ADEEAA9DBEF775 /* Coding.swift */,
+				983D8D71C87D303EE5FEDAF8680DCDA9 /* DispatchingStoreType.swift */,
+				16E38D59D7A76BFE562CE7CB6AFE0A8F /* Middleware.swift */,
+				32F3651790E080C74A30F0E0FF047BAA /* Reducer.swift */,
+				308ED367D0696699007B649C906F78B0 /* State.swift */,
+				BB02B802914C982D2E8B7F63AC4BA5C2 /* Store.swift */,
+				AAA464973E6ADDCF8D04B1BEB20FEBAE /* StoreSubscriber.swift */,
+				C9B9BE3BDDAB772758559F68C01007C5 /* StoreType.swift */,
+				73AF693EE08DA8EEEC397A182F6F4728 /* Subscription.swift */,
+				E00E3B1A0C5C730ABECE7F8CF4B4CAED /* TypeHelper.swift */,
+				AA01FDEE80B4DA58ADD1A12954191166 /* Support Files */,
 			);
 			name = ReSwift;
 			path = ReSwift;
 			sourceTree = "<group>";
 		};
-		2D81C6AE529B1F2B690CF5EE8AF7633B /* Support Files */ = {
+		2D8F220418AB59D061D5347BA44FC883 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1FAB2088044D02E1975120AA217F92C7 /* Disk.modulemap */,
-				4845AF9DE6D4087663460E8D77E28FFA /* Disk.xcconfig */,
-				02490401A783A60AC525D49A1DC11546 /* Disk-dummy.m */,
-				4C10B6149A7DDBCB5C72AC288E0DACB5 /* Disk-prefix.pch */,
-				B0957BB25884AFB16172872F4B65B0D5 /* Disk-umbrella.h */,
-				F6F797423F98A71037F0F29E83F949D3 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Disk";
-			sourceTree = "<group>";
-		};
-		3C17F13DFD6658370E777F065D4DB23D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F1A736BE6A72C6D1E15BF4FE98493081 /* Info.plist */,
-				AC09C70BEC12A45BF89C4D610F0CF981 /* RSClipperWrapper.modulemap */,
-				196EAB4368C42A823B0C2A9FB1E55EB6 /* RSClipperWrapper.xcconfig */,
-				731AF165A6A1DD08DFA84F4A1A873D3A /* RSClipperWrapper-dummy.m */,
-				82FF21F43067A4CD965D678A44C96E3C /* RSClipperWrapper-prefix.pch */,
-				B38AF5BC59D1668B23FCBF5848C50C99 /* RSClipperWrapper-umbrella.h */,
+				ADC9CBF76556866C7DEF5F62FC8E93D3 /* Info.plist */,
+				0EB79F0486A64BFE6EDC3D5B2C5255B8 /* RSClipperWrapper.modulemap */,
+				E1201EB517CBA3579955D8FA927ADCD0 /* RSClipperWrapper.xcconfig */,
+				227355CDAE3F662EA2365F5DDE9C09F8 /* RSClipperWrapper-dummy.m */,
+				7098D430316210E9D4E8AD6975E5AAA8 /* RSClipperWrapper-prefix.pch */,
+				B9E70B8201AAE54DB64D196B7594DD8F /* RSClipperWrapper-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/RSClipperWrapper";
 			sourceTree = "<group>";
 		};
-		596DF631374086BFA79451AB6AEEEF21 /* RSClipperWrapper */ = {
+		5874B8C815EB15AAFD8281E451EF1376 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7388B9FF331BD7F25F07BA35C531447F /* _Clipper.h */,
-				D4DD92F66ADF8B27D7BFCE5EAEC4BAFF /* _Clipper.mm */,
-				C814DEB7852AE22BB8735515098F19C8 /* clipper.cpp */,
-				D9026ED42B8E607A3FB44B9B2E6A573A /* clipper.hpp */,
-				DD2FDC6053E0BC01420D25D9F943726A /* Clipper.swift */,
-				E3FBE89A2FFAC6446AF704DE79D4D32B /* RSClipperWrapper.h */,
-				3C17F13DFD6658370E777F065D4DB23D /* Support Files */,
+				2FD8B06B767815F449ECD683A802DC43 /* Disk.framework */,
+				E03A0D091CA9C84C51F42B7E9E0CBF92 /* EFColorPicker.framework */,
+				AA1F7B6681EE8F55B1F690D8716C34C1 /* Pods_patterns.framework */,
+				2C60E0229D9315639365E38819A4BDED /* ReSwift.framework */,
+				60EFA696F14776EA630D014CA495CA8C /* RSClipperWrapper.framework */,
 			);
-			name = RSClipperWrapper;
-			path = RSClipperWrapper;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
@@ -258,40 +289,49 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7865B3F3AC26EF6F8E89A06CC8844F03 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F42E583C718593F5952B2AD2516A4612 /* Info.plist */,
-				702573D22F38F729D1D7A7FBDADCBFFC /* ReSwift.modulemap */,
-				608A8A3B6F34894BF26CBAA038168642 /* ReSwift.xcconfig */,
-				0EF6EF98291D9A6CEA95DFF2117689E6 /* ReSwift-dummy.m */,
-				61FC17EB3D9B727FBBA80897DEC6DB19 /* ReSwift-prefix.pch */,
-				7DDD13C2980C5D6BA739DCB640FB5247 /* ReSwift-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/ReSwift";
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				1D86353A9B76A40CA9680FAC2ADF54F4 /* Pods */,
-				976982D0C4F5AD6166D84E92844D3E2C /* Products */,
+				04CF4C934308A008CE7A6CEF4C0EDA2B /* Pods */,
+				5874B8C815EB15AAFD8281E451EF1376 /* Products */,
 				C0D61B708EA09F8D04F75486D969DF8F /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		976982D0C4F5AD6166D84E92844D3E2C /* Products */ = {
+		A21143B28A69C3713B03C21736BF5F41 /* Disk */ = {
 			isa = PBXGroup;
 			children = (
-				467DEA15EA33F4173DFDA52F80D51252 /* Disk.framework */,
-				656D6C831732AFE125374571046FEDA0 /* Pods_patterns.framework */,
-				852D15608D6AD0987EDC4029711B83B5 /* ReSwift.framework */,
-				EE4F1918B15F2CB7430A46A9AA9025A6 /* RSClipperWrapper.framework */,
+				43C58A5B5A6EFAA78E11D415142F6CD3 /* Disk.h */,
+				D3A2AFF6CE8172F8BF86BAE1F8D4E082 /* Disk.swift */,
+				23285E6048C554CA149198993DBD104D /* Disk+[Data].swift */,
+				0D1E3C3F9B82FE47AA5B93DCB2589057 /* Disk+[UIImage].swift */,
+				126C82D99942FA9FF5A5413903E7A6EA /* Disk+Codable.swift */,
+				15475FD784A344C9335A88349DA53D2E /* Disk+Data.swift */,
+				1872F1773B78F2D9EB0DF86461EA29E8 /* Disk+Errors.swift */,
+				3B5581EEACC96693518C044546CA36D2 /* Disk+Helpers.swift */,
+				462A0E291856634C2010BDE0174493CC /* Disk+InternalHelpers.swift */,
+				64A98006083E015E7E933BE008984D90 /* Disk+UIImage.swift */,
+				C238F8F12A0400390E55995F4AA9B1C6 /* Disk+VolumeInformation.swift */,
+				B83FDBF86DDA7C3F9045EE68654B7E8E /* Support Files */,
 			);
-			name = Products;
+			name = Disk;
+			path = Disk;
+			sourceTree = "<group>";
+		};
+		AA01FDEE80B4DA58ADD1A12954191166 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				348817E52CE1DE3715DB228E866870CA /* Info.plist */,
+				80C8E4D5EDB902D7C798EC61FA7C2FAA /* ReSwift.modulemap */,
+				A747D28FA4B28E25ACE77DB53B2706C9 /* ReSwift.xcconfig */,
+				A6828D93426EA1CBFF9728CA56A59AAE /* ReSwift-dummy.m */,
+				AC08E5B8CF006B34E4B84DC077E84FCE /* ReSwift-prefix.pch */,
+				ACD836D17B51B80595A6410A7D771AE5 /* ReSwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ReSwift";
 			sourceTree = "<group>";
 		};
 		B116891006F5BAE4A4FA14076DA98628 /* Pods-patterns */ = {
@@ -312,32 +352,26 @@
 			path = "Target Support Files/Pods-patterns";
 			sourceTree = "<group>";
 		};
+		B83FDBF86DDA7C3F9045EE68654B7E8E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDA7AA8A060D533582B92CB4C8F71743 /* Disk.modulemap */,
+				43630BA3D210BC88FCE2E058A2F74DEA /* Disk.xcconfig */,
+				438DA510221010F6B57E8BC7968D6BAD /* Disk-dummy.m */,
+				05AC1938EB202377648CA76EE27C3F6D /* Disk-prefix.pch */,
+				52EF32BC4C54E54CD2DB113AA67EC7CE /* Disk-umbrella.h */,
+				7728CDDB0127327D6C9C40095A4246C8 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Disk";
+			sourceTree = "<group>";
+		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				5E0D919E635D23B70123790B8308F8EF /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BD0C7E6B90B451699DA44C2B2277003C /* Disk */ = {
-			isa = PBXGroup;
-			children = (
-				653490DD5BC8E27C23F16B56B608EC1E /* Disk.h */,
-				B2E9790D4FC394C4E2F16676A745CFBD /* Disk.swift */,
-				42CA0866093EB8C988D41BE8ED8627F1 /* Disk+[Data].swift */,
-				61789EF3743209F63BD3685DA95CA3EA /* Disk+[UIImage].swift */,
-				4D985A8C696348BC11303219F4E9F4A8 /* Disk+Codable.swift */,
-				C072698AFFF179204C43FFC76F0C2E7C /* Disk+Data.swift */,
-				20AAE2EE0DBBE5B5CC80606C788773C7 /* Disk+Errors.swift */,
-				EFFE60B178D42C875E10142202C31B29 /* Disk+Helpers.swift */,
-				D3E85C971F74F6F5CA1801EDF509B173 /* Disk+InternalHelpers.swift */,
-				DD39C5E3DB388E278F92E2A5745002FF /* Disk+UIImage.swift */,
-				D73E2496B4B77A0A94D2C0EC1B1DC660 /* Disk+VolumeInformation.swift */,
-				2D81C6AE529B1F2B690CF5EE8AF7633B /* Support Files */,
-			);
-			name = Disk;
-			path = Disk;
 			sourceTree = "<group>";
 		};
 		C0D61B708EA09F8D04F75486D969DF8F /* Targets Support Files */ = {
@@ -348,33 +382,90 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		C461FF786CCC0F0E8A0023E5A17AF7A2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B7783974AE71CFD37BBC9E4967B31514 /* EFColorPicker.modulemap */,
+				C26D189C3719552F6856B72EA29C3F58 /* EFColorPicker.xcconfig */,
+				88F0FBAFF4E8D7E47102A8E7BA4A4E54 /* EFColorPicker-dummy.m */,
+				73BADB012B34CAE52BD6FC410152EE8F /* EFColorPicker-prefix.pch */,
+				8C834C01E423E12C91F76F73ADAD1DD7 /* EFColorPicker-umbrella.h */,
+				B82C7B82E5A33AAE490A344B8A46ABA6 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/EFColorPicker";
+			sourceTree = "<group>";
+		};
+		C4FA679D87FA8D273F9EEC3C0641E264 /* EFColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				3178BD0B15F7B1550DEE110277A3D89A /* EFColorComponentView.swift */,
+				7F9D3F700C1FC84FA292ACF4DBEE612F /* EFColorSelectionView.swift */,
+				02355F62E05D5A0698B20B817097F9F7 /* EFColorSelectionViewController.swift */,
+				049B052ADECCBE5284A76FB31E81A458 /* EFColorUtils.swift */,
+				6420B3C644430C5F08550EB45D571BFA /* EFColorView.swift */,
+				106C027D40265703B1D21EE35B2463C8 /* EFColorWheelView.swift */,
+				819C6F30F9F1477EA092E3C34988A840 /* EFControl.swift */,
+				C037BD4D8E6C888323346F84D0036566 /* EFHSBView.swift */,
+				2891DB2F4C332DE5F353523700509691 /* EFRGBView.swift */,
+				DE64929F18C54B50583EFC2B3DE27047 /* EFSliderView.swift */,
+				1BE85513A3DD37CE4ACE500AF1C9DA6F /* EFThumbView.swift */,
+				C461FF786CCC0F0E8A0023E5A17AF7A2 /* Support Files */,
+			);
+			name = EFColorPicker;
+			path = EFColorPicker;
+			sourceTree = "<group>";
+		};
+		F3FC19B7B452C995E2CC303BFB1B6290 /* RSClipperWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				FAE1A539C70E27642C6B6AD876C8280A /* _Clipper.h */,
+				224656851B53810F0E7278F016AA020D /* _Clipper.mm */,
+				87A5F8044F903E190922C1EF63A81419 /* clipper.cpp */,
+				8CFB9E3D9D9DA45D20A3455756618D6F /* clipper.hpp */,
+				DC155CB66A23F518D963952D7A608ED6 /* Clipper.swift */,
+				33421D15674EC8A8B0723E68B27F039A /* RSClipperWrapper.h */,
+				2D8F220418AB59D061D5347BA44FC883 /* Support Files */,
+			);
+			name = RSClipperWrapper;
+			path = RSClipperWrapper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		49772A7B77EF9BF52B66C21F1CD5F10A /* Headers */ = {
+		14AC5E5E2CE7177824F067838CB93466 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADE30DFD391DAC0F7E5A65906F10EF15 /* _Clipper.h in Headers */,
-				849EFBE5D310586632F84DAABA9EC51C /* clipper.hpp in Headers */,
-				943308982464F317617A59F1FB293A26 /* RSClipperWrapper-umbrella.h in Headers */,
-				DFE825525CF210D258392AA8B674B6CC /* RSClipperWrapper.h in Headers */,
+				5276AF94BFFAA32F0C4E3E1A43811142 /* ReSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DC080AEF2B5F71AD2AEE5D30760C172 /* Headers */ = {
+		73328C52D225B07BBC53E34612CBE6C4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F81FD2EABFF6F954AF25F6D265195BE /* ReSwift-umbrella.h in Headers */,
+				6CCB3626D1E36F3CA65D289F6BC62A38 /* _Clipper.h in Headers */,
+				F1272FD66C38B9A5E67DE170A703C8DF /* clipper.hpp in Headers */,
+				82DA7AFF7FDF0D617947C96214A84807 /* RSClipperWrapper-umbrella.h in Headers */,
+				DE0F293B629C55167783F593148F8AF7 /* RSClipperWrapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D41908AAAA5410FF75CBFF80424069F5 /* Headers */ = {
+		C876616A4BE79E55A3A507A0D7F10E4E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9646030C38636B6C8763E0EED6CA01DD /* Pods-patterns-umbrella.h in Headers */,
+				C8A0CEA3E329C8923E6E7AD65E82C43C /* EFColorPicker-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFEF83A90A53144C368CEA5F938A9990 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D31FF7924B54D055899328FEBC269C0 /* Pods-patterns-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,24 +481,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4E6F10D3F9ABDA4927D0AF36C7B8D078 /* RSClipperWrapper */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9F9ACB0B150588C0D20EAFC3833AE460 /* Build configuration list for PBXNativeTarget "RSClipperWrapper" */;
-			buildPhases = (
-				49772A7B77EF9BF52B66C21F1CD5F10A /* Headers */,
-				0B5FA5CE650623D18255512646269B9B /* Sources */,
-				11582315F7B47F6B5440863D3001D6CA /* Frameworks */,
-				3BB8D5BD4D1182AB046A46E678721F47 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RSClipperWrapper;
-			productName = RSClipperWrapper;
-			productReference = EE4F1918B15F2CB7430A46A9AA9025A6 /* RSClipperWrapper.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		6CDC6F0CAFAE1779F0B239ED6E2B769B /* Disk */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57358B8801E359E63BDF6FE8C33A1C35 /* Build configuration list for PBXNativeTarget "Disk" */;
@@ -423,38 +496,75 @@
 			);
 			name = Disk;
 			productName = Disk;
-			productReference = 467DEA15EA33F4173DFDA52F80D51252 /* Disk.framework */;
+			productReference = 2FD8B06B767815F449ECD683A802DC43 /* Disk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D4383EA1061A4BF722AE1D9DAA56BB22 /* Pods-patterns */ = {
+		7AD31BA720C5D75CB17041EC52BB67AB /* RSClipperWrapper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACD959E15DEBE9AD3E571733ABA29FE3 /* Build configuration list for PBXNativeTarget "Pods-patterns" */;
+			buildConfigurationList = AB80CF31AD3D0CF1D5A636C607C69214 /* Build configuration list for PBXNativeTarget "RSClipperWrapper" */;
 			buildPhases = (
-				D41908AAAA5410FF75CBFF80424069F5 /* Headers */,
-				489291FFDF791A6E76645A5D4DDD22D1 /* Sources */,
-				D40952791DC6583CA7572900A9FBF7BB /* Frameworks */,
-				C181E705791D0E3BFE8CF98762E1E181 /* Resources */,
+				73328C52D225B07BBC53E34612CBE6C4 /* Headers */,
+				2F5FE02294DBC0E91C11B328B0092BE7 /* Sources */,
+				D7D9CF97242565D659C1E388AE97F6BE /* Frameworks */,
+				BBD1247B159549E4BACF50A2C80B797D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FC2CE71A3F309FAD0BAD37CA83FA3A16 /* PBXTargetDependency */,
-				E51AE8529717E537E7FD2924E9396D7F /* PBXTargetDependency */,
-				801A5AE1447212B69198FF9B255E134F /* PBXTargetDependency */,
+			);
+			name = RSClipperWrapper;
+			productName = RSClipperWrapper;
+			productReference = 60EFA696F14776EA630D014CA495CA8C /* RSClipperWrapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C1B4FA8EB9FCA20954ADB63553812672 /* EFColorPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A6F3BFD3722A848F8CBE5D704E3B652 /* Build configuration list for PBXNativeTarget "EFColorPicker" */;
+			buildPhases = (
+				C876616A4BE79E55A3A507A0D7F10E4E /* Headers */,
+				403DB427E18DBAC7325D6DE96B32A0FD /* Sources */,
+				4898FD70BB637F828929D75E507CC988 /* Frameworks */,
+				5D0DA3FCA6F0DD1502538391D01E6BEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EFColorPicker;
+			productName = EFColorPicker;
+			productReference = E03A0D091CA9C84C51F42B7E9E0CBF92 /* EFColorPicker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C5E394897DAF07F717043BFA2747339C /* Pods-patterns */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 754DEE61EF0239CC9CA2327D0CD538DC /* Build configuration list for PBXNativeTarget "Pods-patterns" */;
+			buildPhases = (
+				DFEF83A90A53144C368CEA5F938A9990 /* Headers */,
+				2215060666AD3E7DC7078F12B5A05CF4 /* Sources */,
+				5061F980EBFA2F7491FF8E5DE3D998DC /* Frameworks */,
+				373C95D36B0AD2CFC8F49E6BB3256801 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E7AE9D88F994F1DB2CDC9843E62350C /* PBXTargetDependency */,
+				58654595F06DB5939167DC545A3161E2 /* PBXTargetDependency */,
+				BC09EF2DCE377EC991D7837ECB36CFED /* PBXTargetDependency */,
+				6414BE401B4C88F1FCB6096562F6B605 /* PBXTargetDependency */,
 			);
 			name = "Pods-patterns";
 			productName = "Pods-patterns";
-			productReference = 656D6C831732AFE125374571046FEDA0 /* Pods_patterns.framework */;
+			productReference = AA1F7B6681EE8F55B1F690D8716C34C1 /* Pods_patterns.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DD795D42577D6E0512B3784D18CF323A /* ReSwift */ = {
+		EE4B9287B466D08E49037D964F1FBA95 /* ReSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FACAEAF626D1FE0AEEF888A86E02CD4A /* Build configuration list for PBXNativeTarget "ReSwift" */;
+			buildConfigurationList = 0CA30BE4C7537480B7507EE12BCDD743 /* Build configuration list for PBXNativeTarget "ReSwift" */;
 			buildPhases = (
-				4DC080AEF2B5F71AD2AEE5D30760C172 /* Headers */,
-				382ACB58A5396B3864AE575D0C80496E /* Sources */,
-				13B2B2BB8BBA141E74B45F0A5CBFB543 /* Frameworks */,
-				BDA8797C1F21D09E91D5395C610880D4 /* Resources */,
+				14AC5E5E2CE7177824F067838CB93466 /* Headers */,
+				16E3ACE2A768AB16BA2078433CFDF472 /* Sources */,
+				B6D52E8A754CC4081FE243A89BE6E02D /* Frameworks */,
+				D4D53382F11EE3D7B07B2AD0EA567E1B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -462,7 +572,7 @@
 			);
 			name = ReSwift;
 			productName = ReSwift;
-			productReference = 852D15608D6AD0987EDC4029711B83B5 /* ReSwift.framework */;
+			productReference = 2C60E0229D9315639365E38819A4BDED /* ReSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -482,20 +592,28 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 976982D0C4F5AD6166D84E92844D3E2C /* Products */;
+			productRefGroup = 5874B8C815EB15AAFD8281E451EF1376 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				6CDC6F0CAFAE1779F0B239ED6E2B769B /* Disk */,
-				D4383EA1061A4BF722AE1D9DAA56BB22 /* Pods-patterns */,
-				DD795D42577D6E0512B3784D18CF323A /* ReSwift */,
-				4E6F10D3F9ABDA4927D0AF36C7B8D078 /* RSClipperWrapper */,
+				C1B4FA8EB9FCA20954ADB63553812672 /* EFColorPicker */,
+				C5E394897DAF07F717043BFA2747339C /* Pods-patterns */,
+				EE4B9287B466D08E49037D964F1FBA95 /* ReSwift */,
+				7AD31BA720C5D75CB17041EC52BB67AB /* RSClipperWrapper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3BB8D5BD4D1182AB046A46E678721F47 /* Resources */ = {
+		373C95D36B0AD2CFC8F49E6BB3256801 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D0DA3FCA6F0DD1502538391D01E6BEE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -509,14 +627,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BDA8797C1F21D09E91D5395C610880D4 /* Resources */ = {
+		BBD1247B159549E4BACF50A2C80B797D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C181E705791D0E3BFE8CF98762E1E181 /* Resources */ = {
+		D4D53382F11EE3D7B07B2AD0EA567E1B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -526,14 +644,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0B5FA5CE650623D18255512646269B9B /* Sources */ = {
+		16E3ACE2A768AB16BA2078433CFDF472 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA53FAE3E15E0FB555E6ACC58E71B9E9 /* _Clipper.mm in Sources */,
-				3F0D86F2F3951419333D9E1BEAF742DB /* clipper.cpp in Sources */,
-				99580290AAE8368D2845C68890724B9A /* Clipper.swift in Sources */,
-				095CC177230E3249B6068AF0AD10221F /* RSClipperWrapper-dummy.m in Sources */,
+				617B0936D9E46671A369408C1BA06251 /* Action.swift in Sources */,
+				D96BB18BBB000F4DD001AB180F7C805D /* Assertions.swift in Sources */,
+				3EE9AFA78073C878076AC54656010053 /* Coding.swift in Sources */,
+				35D7AC2CC684A28DBBDB6B52B372B957 /* DispatchingStoreType.swift in Sources */,
+				9FEAD97ED5231FA563CBE00423D88171 /* Middleware.swift in Sources */,
+				AAC9D4DDDCD2C18019BE9AF7DCF55D88 /* Reducer.swift in Sources */,
+				E33C53808D4A1C450EE8D5C62290BF7F /* ReSwift-dummy.m in Sources */,
+				0FF8BEE978A34E55E23B83626E6CC952 /* State.swift in Sources */,
+				5BA94B98CE4707A45858013F5200509C /* Store.swift in Sources */,
+				FA9B7E97A2F404920E4BAAE4D12EA492 /* StoreSubscriber.swift in Sources */,
+				B655B1B5EC38285AC08EA798A50200DC /* StoreType.swift in Sources */,
+				DF208CDAF8C8C7D6F3780EC780284DAD /* Subscription.swift in Sources */,
+				7476A8174190EE7EC7AE513C6DB12B6F /* TypeHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2215060666AD3E7DC7078F12B5A05CF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1D590EB4A7424BAB05ADF6525EC9EEB /* Pods-patterns-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F5FE02294DBC0E91C11B328B0092BE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7B4983CED05283E862E9CC9CCF89EA3 /* _Clipper.mm in Sources */,
+				2AC0791E25503FEC2F62581573BC493C /* clipper.cpp in Sources */,
+				03931CC61A19AE3DDED004EC0A672B24 /* Clipper.swift in Sources */,
+				49274666E5640CFA4352C1F7C954A23F /* RSClipperWrapper-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,61 +701,58 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		382ACB58A5396B3864AE575D0C80496E /* Sources */ = {
+		403DB427E18DBAC7325D6DE96B32A0FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9820B0527D60254AD540231BEB915A2B /* Action.swift in Sources */,
-				B3694FCB6F986D32CA77E41F096FC8B1 /* Assertions.swift in Sources */,
-				8312960301C48F77F526CC0F37C15782 /* Coding.swift in Sources */,
-				6D58B56A1FA71A884EC33569B67C621D /* DispatchingStoreType.swift in Sources */,
-				43F71411735A9ADECD63FF2B5BEDEDFB /* Middleware.swift in Sources */,
-				9A1347153B7E5E27D2EFFBA455203EC7 /* Reducer.swift in Sources */,
-				541C8AB15DEFE9F1229ECE9A6FE1FED5 /* ReSwift-dummy.m in Sources */,
-				87AAF8A895CEE9D2D3D90BD20AC32BDB /* State.swift in Sources */,
-				018EB905F523947E78F1D1439C1ABF89 /* Store.swift in Sources */,
-				7D729E180979B567679116B208516DB9 /* StoreSubscriber.swift in Sources */,
-				3D85762EADB8B47D5E0F88C0D6DFDDD5 /* StoreType.swift in Sources */,
-				F2A0EFED451CF40A35064A62044876E2 /* Subscription.swift in Sources */,
-				2F3E64990F45519696EB59569AE6F6C3 /* TypeHelper.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		489291FFDF791A6E76645A5D4DDD22D1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4D65EB7D07BA7540C18AED0A05C5F256 /* Pods-patterns-dummy.m in Sources */,
+				EA49D4DF91D75BB10D00E5E4AE190D89 /* EFColorComponentView.swift in Sources */,
+				6243297D2545E2D98AB51C534987A989 /* EFColorPicker-dummy.m in Sources */,
+				110A874738016AE6EDCF6A955A06486C /* EFColorSelectionView.swift in Sources */,
+				937EFB2738F6EB8DCEFE69CE81B32B22 /* EFColorSelectionViewController.swift in Sources */,
+				6885A5D41848017A2832B32453FF09AB /* EFColorUtils.swift in Sources */,
+				6A7329AEA6C6F38EABFFFC9E91B4983D /* EFColorView.swift in Sources */,
+				B3118820C0A7D76828048B213603868A /* EFColorWheelView.swift in Sources */,
+				4BABD9D033AAE23CC8A2C5E8CFDBDD48 /* EFControl.swift in Sources */,
+				424FD960A9466FB0B9D27E50CC60C305 /* EFHSBView.swift in Sources */,
+				C1AC7E4465EDA631643656AA560D5BA1 /* EFRGBView.swift in Sources */,
+				3DB1B69AB74A873A9CE02ED93ACF8B95 /* EFSliderView.swift in Sources */,
+				C359983177BB77901B4B9D82693B520B /* EFThumbView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		801A5AE1447212B69198FF9B255E134F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ReSwift;
-			target = DD795D42577D6E0512B3784D18CF323A /* ReSwift */;
-			targetProxy = 5847FCA1A0C7CF738402FDD60BF5A311 /* PBXContainerItemProxy */;
-		};
-		E51AE8529717E537E7FD2924E9396D7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RSClipperWrapper;
-			target = 4E6F10D3F9ABDA4927D0AF36C7B8D078 /* RSClipperWrapper */;
-			targetProxy = BCC2E390BAF2C872B27C12F5DCD1CD1A /* PBXContainerItemProxy */;
-		};
-		FC2CE71A3F309FAD0BAD37CA83FA3A16 /* PBXTargetDependency */ = {
+		0E7AE9D88F994F1DB2CDC9843E62350C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Disk;
 			target = 6CDC6F0CAFAE1779F0B239ED6E2B769B /* Disk */;
-			targetProxy = FC85DD7CCCFEA4121B0378E585ACE48E /* PBXContainerItemProxy */;
+			targetProxy = 9B92B141AF644C8BD8DA5AAA0AB5C198 /* PBXContainerItemProxy */;
+		};
+		58654595F06DB5939167DC545A3161E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EFColorPicker;
+			target = C1B4FA8EB9FCA20954ADB63553812672 /* EFColorPicker */;
+			targetProxy = 35398B62D553F12CF7E3C703148F3D54 /* PBXContainerItemProxy */;
+		};
+		6414BE401B4C88F1FCB6096562F6B605 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ReSwift;
+			target = EE4B9287B466D08E49037D964F1FBA95 /* ReSwift */;
+			targetProxy = C94C695724B5A73BD826B1165101EC36 /* PBXContainerItemProxy */;
+		};
+		BC09EF2DCE377EC991D7837ECB36CFED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RSClipperWrapper;
+			target = 7AD31BA720C5D75CB17041EC52BB67AB /* RSClipperWrapper */;
+			targetProxy = 23C872A6B9E254EC72DEAEB2E7F973EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		02F54BE97FCFC5122309D3024459A488 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4845AF9DE6D4087663460E8D77E28FFA /* Disk.xcconfig */;
+			baseConfigurationReference = 43630BA3D210BC88FCE2E058A2F74DEA /* Disk.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -641,7 +784,76 @@
 			};
 			name = Release;
 		};
-		0BBD0B09D75A805EABB0367DC8886108 /* Release */ = {
+		0804750CA44EA835537DBA80237BBD42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A747D28FA4B28E25ACE77DB53B2706C9 /* ReSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ReSwift/ReSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReSwift/ReSwift.modulemap";
+				PRODUCT_MODULE_NAME = ReSwift;
+				PRODUCT_NAME = ReSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0CC12F0FDBCF055A7479550515006779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 410BE2217CB0AFFEB8139EC3B3C41059 /* Pods-patterns.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-patterns/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-patterns/Pods-patterns.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0FBDA997F02F6EFA58384CEC5D21132F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 91C33F45EC51933AF69EA47F2493935A /* Pods-patterns.release.xcconfig */;
 			buildSettings = {
@@ -738,7 +950,7 @@
 		};
 		5884F0E312AF6F84E980FC1F3067321C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4845AF9DE6D4087663460E8D77E28FFA /* Disk.xcconfig */;
+			baseConfigurationReference = 43630BA3D210BC88FCE2E058A2F74DEA /* Disk.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -768,11 +980,10 @@
 			};
 			name = Debug;
 		};
-		7360AAA95B283EEEDF19CA2F2E45FED6 /* Debug */ = {
+		74CDD31C147CD8B08A0CCDCB0C85B2A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 410BE2217CB0AFFEB8139EC3B3C41059 /* Pods-patterns.debug.xcconfig */;
+			baseConfigurationReference = C26D189C3719552F6856B72EA29C3F58 /* EFColorPicker.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -782,30 +993,60 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-patterns/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/EFColorPicker/EFColorPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EFColorPicker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-patterns/Pods-patterns.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/EFColorPicker/EFColorPicker.modulemap";
+				PRODUCT_MODULE_NAME = EFColorPicker;
+				PRODUCT_NAME = EFColorPicker;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		78BA7BF64CFCD4BD1E70E95AA63E794C /* Release */ = {
+		8932028EEC5AB84FB6EB15E1DD1E6966 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 196EAB4368C42A823B0C2A9FB1E55EB6 /* RSClipperWrapper.xcconfig */;
+			baseConfigurationReference = E1201EB517CBA3579955D8FA927ADCD0 /* RSClipperWrapper.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RSClipperWrapper/RSClipperWrapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RSClipperWrapper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RSClipperWrapper/RSClipperWrapper.modulemap";
+				PRODUCT_MODULE_NAME = RSClipperWrapper;
+				PRODUCT_NAME = RSClipperWrapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A7FED2F71C22DD4B6DA123D019596821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1201EB517CBA3579955D8FA927ADCD0 /* RSClipperWrapper.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -837,9 +1078,43 @@
 			};
 			name = Release;
 		};
-		808A1CA8515E0AB0470E3B5CA89A0290 /* Debug */ = {
+		B97F81D945AC62F85431DD6D639B3207 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 608A8A3B6F34894BF26CBAA038168642 /* ReSwift.xcconfig */;
+			baseConfigurationReference = C26D189C3719552F6856B72EA29C3F58 /* EFColorPicker.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/EFColorPicker/EFColorPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EFColorPicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/EFColorPicker/EFColorPicker.modulemap";
+				PRODUCT_MODULE_NAME = EFColorPicker;
+				PRODUCT_NAME = EFColorPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BEC758D1ECBEA45DB53BE6BE550950B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A747D28FA4B28E25ACE77DB53B2706C9 /* ReSwift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -858,38 +1133,6 @@
 				MODULEMAP_FILE = "Target Support Files/ReSwift/ReSwift.modulemap";
 				PRODUCT_MODULE_NAME = ReSwift;
 				PRODUCT_NAME = ReSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9FCF92DFF9662822B0D9FB0D6F0575B2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 196EAB4368C42A823B0C2A9FB1E55EB6 /* RSClipperWrapper.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/RSClipperWrapper/RSClipperWrapper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RSClipperWrapper/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/RSClipperWrapper/RSClipperWrapper.modulemap";
-				PRODUCT_MODULE_NAME = RSClipperWrapper;
-				PRODUCT_NAME = RSClipperWrapper;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -965,43 +1208,27 @@
 			};
 			name = Debug;
 		};
-		E59D0604908E15F1068ED8A4BF5FE287 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 608A8A3B6F34894BF26CBAA038168642 /* ReSwift.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ReSwift/ReSwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReSwift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReSwift/ReSwift.modulemap";
-				PRODUCT_MODULE_NAME = ReSwift;
-				PRODUCT_NAME = ReSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A6F3BFD3722A848F8CBE5D704E3B652 /* Build configuration list for PBXNativeTarget "EFColorPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74CDD31C147CD8B08A0CCDCB0C85B2A0 /* Debug */,
+				B97F81D945AC62F85431DD6D639B3207 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CA30BE4C7537480B7507EE12BCDD743 /* Build configuration list for PBXNativeTarget "ReSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEC758D1ECBEA45DB53BE6BE550950B6 /* Debug */,
+				0804750CA44EA835537DBA80237BBD42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1020,29 +1247,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9F9ACB0B150588C0D20EAFC3833AE460 /* Build configuration list for PBXNativeTarget "RSClipperWrapper" */ = {
+		754DEE61EF0239CC9CA2327D0CD538DC /* Build configuration list for PBXNativeTarget "Pods-patterns" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9FCF92DFF9662822B0D9FB0D6F0575B2 /* Debug */,
-				78BA7BF64CFCD4BD1E70E95AA63E794C /* Release */,
+				0CC12F0FDBCF055A7479550515006779 /* Debug */,
+				0FBDA997F02F6EFA58384CEC5D21132F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACD959E15DEBE9AD3E571733ABA29FE3 /* Build configuration list for PBXNativeTarget "Pods-patterns" */ = {
+		AB80CF31AD3D0CF1D5A636C607C69214 /* Build configuration list for PBXNativeTarget "RSClipperWrapper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7360AAA95B283EEEDF19CA2F2E45FED6 /* Debug */,
-				0BBD0B09D75A805EABB0367DC8886108 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FACAEAF626D1FE0AEEF888A86E02CD4A /* Build configuration list for PBXNativeTarget "ReSwift" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				808A1CA8515E0AB0470E3B5CA89A0290 /* Debug */,
-				E59D0604908E15F1068ED8A4BF5FE287 /* Release */,
+				8932028EEC5AB84FB6EB15E1DD1E6966 /* Debug */,
+				A7FED2F71C22DD4B6DA123D019596821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
