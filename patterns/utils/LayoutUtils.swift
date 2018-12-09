@@ -3,6 +3,15 @@ import UIKit
 
 class LayoutUtils {
 	
+	public static func layoutExact(v:UIView, parent:UIView, x:CGFloat, y:CGFloat, width:CGFloat, height:CGFloat)->[NSLayoutConstraint] {
+		return [
+			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: x),
+			v.topAnchor.constraint(equalTo: parent.topAnchor, constant: y),
+			v.widthAnchor.constraint(equalToConstant: width),
+			v.heightAnchor.constraint(equalToConstant: height)
+		];
+	}
+	
 	public static func centreRight(v:UIView, parent:UIView, margin:CGFloat, width:CGFloat, height:CGFloat)->[NSLayoutConstraint] {
 		return [
 			v.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -margin),

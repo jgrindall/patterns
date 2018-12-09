@@ -1,19 +1,16 @@
 PODS:
   - Disk (0.4.0)
-  - EFColorPicker (1.1.1)
   - ReSwift (4.0.1)
   - RSClipperWrapper (1.3)
 
 DEPENDENCIES:
   - Disk (~> 0.4.0)
-  - EFColorPicker
   - ReSwift (~> 4.0.0)
   - RSClipperWrapper (from `https://github.com/rusty1s/RSClipperWrapper.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Disk
-    - EFColorPicker
     - ReSwift
 
 EXTERNAL SOURCES:
@@ -27,10 +24,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Disk: ef2956657d5bb56034b38b29b352170165226440
-  EFColorPicker: 36c4d1e4dc446352085056c029a79056a0d16d9d
   ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
   RSClipperWrapper: e8105534f0db6b1e03d8b92a100ea438a67a6679
 
-PODFILE CHECKSUM: f75e1d2b525e08b2d3ed3a906316ab63ff0ca613
+PODFILE CHECKSUM: 5dd8b22ecaaa7390679524ebe9cae3f16ed9dfcb
 
 COCOAPODS: 1.5.3

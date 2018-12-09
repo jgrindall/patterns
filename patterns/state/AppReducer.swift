@@ -20,6 +20,8 @@ func configReducer(action: Action, state: DrawingConfigState) -> DrawingConfigSt
 	switch action {
 	case let action as SetBgStateAction:
 		return DrawingConfigState(bg: action.payload, fg: state.fg)
+	case let action as SetFgStateAction:
+		return DrawingConfigState(bg: state.bg, fg:action.payload)
 	default:
 		return state
 	}

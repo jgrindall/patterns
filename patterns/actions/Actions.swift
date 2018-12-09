@@ -8,6 +8,10 @@ struct SetBgStateAction: Action {
 	let payload: UIColor
 }
 
+struct SetFgStateAction: Action {
+	let payload: UIColor
+}
+
 struct SetCodeStateAction: Action {
 	let payload: CodeState
 }

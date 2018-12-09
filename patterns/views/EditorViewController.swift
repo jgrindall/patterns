@@ -24,8 +24,8 @@ class EditorViewController:UIViewController{
 		self.view.addSubview(textField)
 		self.view.addSubview(textField2)
 		self.view.addSubview(okButton)
-		okButton.addTarget(self, action: #selector(TextEntryController.buttonClicked(_:)), for: .touchUpInside)
-		textField.addTarget(self, action: #selector(TextEntryController.textChanged(_:)), for: .editingChanged)
+		okButton.addTarget(self, action: #selector(EditorViewController.buttonClicked(_:)), for: .touchUpInside)
+		textField.addTarget(self, action: #selector(EditorViewController.textChanged(_:)), for: .editingChanged)
 	}
 	
 	func loadData(_ index:Int, _ data:DragItemModel){

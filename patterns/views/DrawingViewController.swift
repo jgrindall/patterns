@@ -63,7 +63,7 @@ class DrawingViewController: UIViewController {
 	}
 	
 	func newState(state: DrawingConfigState) {
-		drawingView.setBg(state.bg).update()
+		drawingView.update(state)
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -79,7 +79,7 @@ class DrawingViewController: UIViewController {
 			}
 		}
 		geom.setText(commands.joined(separator: " ")).update()
-		self.drawingView.setPolygons(ps: geom.getPolygons()).update()
+		self.drawingView.setPolygons(ps: geom.getPolygons()).update(store.state.drawingConfigState)
 	}
 	
 	@objc func draggedView(_ sender:UIPanGestureRecognizer){

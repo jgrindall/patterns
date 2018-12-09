@@ -5,7 +5,7 @@ import RSClipperWrapper
 class DrawingView : UIView{
 	
 	private var polygons:[Polygon] = []
-	private var bg = Constants.COLORS.DARK_COLOR
+	private var drawingConfigState:DrawingConfigState = DrawingConfigState(bg: Constants.COLORS.DARK_COLOR, fg: .white)
 	
 	override init(frame:CGRect){
 		super.init(frame: frame)
@@ -20,18 +20,14 @@ class DrawingView : UIView{
 		return self
 	}
 	
-	public func update(){
+	public func update(_ state:DrawingConfigState){
+		self.drawingConfigState = state
 		self.setNeedsDisplay()
-	}
-	
-	public func setBg(_ bg:UIColor) -> DrawingView{
-		self.bg = bg
-		return self
 	}
 	
 	private func drawPolygon(context:CGContext, p:Polygon){
 		context.setLineWidth(6.0)
-		context.setStrokeColor(UIColor.white.cgColor)
+		context.setStrokeColor(self.drawingConfigState.fg.cgColor)
 		context.setLineCap(.square)
 		for i in 0..<p.count{
 			if(i == 0){
@@ -49,7 +45,7 @@ class DrawingView : UIView{
 		super.draw(rect)
 		let context:CGContext? = UIGraphicsGetCurrentContext()
 		context?.clear(self.frame)
-		bg.setFill()
+		self.drawingConfigState.bg.setFill()
 		UIRectFill(self.frame)
 		for i in 0..<polygons.count{
 			drawPolygon(context: context!, p: polygons[i])

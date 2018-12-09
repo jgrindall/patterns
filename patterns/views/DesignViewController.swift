@@ -2,9 +2,8 @@
 import UIKit
 import RSClipperWrapper
 import ReSwift
-import EFColorPicker
 
-class DesignViewController: UIViewController, StoreSubscriber, PPageViewController, EFColorSelectionViewControllerDelegate, UIPopoverPresentationControllerDelegate, ConfigDelegate {
+class DesignViewController: UIViewController, PPageViewController, PColorPickerDelegate, PLineWidthDelegate, UIPopoverPresentationControllerDelegate, ConfigDelegate {
 	
 	private var drawingController:DrawingViewController
 	private var drawingConstraints:[NSLayoutConstraint] = []
@@ -15,6 +14,17 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 	private var openConstraints:[NSLayoutConstraint] = []
 	private var selectedColor:UIColor?
 	private var config:ConfigView?
+	private var input:String = ""
+	
+	private lazy var state1Subscriber: BlockSubscriber<Int> = BlockSubscriber(block: {state in
+		self.newState(state: state)
+	})
+	private lazy var state2Subscriber: BlockSubscriber<UIState> = BlockSubscriber(block: {state in
+		self.newState(state: state)
+	})
+	private lazy var state3Subscriber: BlockSubscriber<DrawingConfigState> = BlockSubscriber(block: {state in
+		self.newState(state: state)
+	})
 	
 	required init(){
 		self.tabController = TabController()
@@ -24,34 +34,32 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		self.title = "Edit your file"
 	}
 	
-	func didReceiveConfig(input: String){
-		print("rec")
-		let colorSelectionController = EFColorSelectionViewController()
-		let navCtrl = UINavigationController(rootViewController: colorSelectionController)
-		navCtrl.navigationBar.backgroundColor = UIColor.white
-		navCtrl.navigationBar.isTranslucent = false
-		navCtrl.modalPresentationStyle = UIModalPresentationStyle.popover
-		navCtrl.popoverPresentationController?.delegate = self
-		navCtrl.popoverPresentationController?.sourceView = self.config
-		navCtrl.popoverPresentationController?.sourceRect = (self.config?.bounds)!
-		navCtrl.preferredContentSize = colorSelectionController.view.systemLayoutSizeFitting(
-			UILayoutFittingCompressedSize
-		)
-		let doneBtn: UIBarButtonItem = UIBarButtonItem(
-			title: "Done",
-			style: UIBarButtonItemStyle.done,
-			target: self,
-			action: #selector(DesignViewController.didOk)
-		)
-		colorSelectionController.isColorTextFieldHidden = false
-		colorSelectionController.navigationItem.rightBarButtonItem = doneBtn
-		colorSelectionController.delegate = self
-		colorSelectionController.color = self.view.backgroundColor ?? UIColor.white
-		self.present(navCtrl, animated: true, completion: nil)
+	func colorChosen(color: UIColor) {
+		if(input == "3"){
+			store.dispatch(SetBgStateAction(payload: color))
+		}
+		else if(input == "2"){
+			store.dispatch(SetFgStateAction(payload: color))
+		}
+		self.dismiss(animated: true, completion: nil)
 	}
 	
-	func colorViewController(colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
-		selectedColor = color
+	func widthChosen(width: CGFloat) {
+		print(width)
+	}
+	
+	func didReceiveConfig(input: String){
+		self.input = input
+		if(input == "2" || input == "3"){
+			let editor = ColorPickerViewController()
+			editor.delegate = self
+			editor.preferredContentSize = CGSize(width: 500, height: 500)
+			editor.modalPresentationStyle = .popover
+			let popover = editor.popoverPresentationController
+			popover?.sourceView = self.view
+			popover?.sourceRect = (config?.frame)!
+			self.present(editor, animated: true, completion: nil)
+		}
 	}
 
 	override var prefersStatusBarHidden: Bool {
@@ -87,11 +95,6 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 		self.navigationItem.rightBarButtonItem = rightBarButton
 	}
 	
-	@objc func didOk(_ sender:UITapGestureRecognizer){
-		store.dispatch(SetBgStateAction(payload: selectedColor!))
-		self.dismiss(animated: true, completion: nil)
-	}
-	
 	@objc func openButtonClicked(_ sender:UITapGestureRecognizer){
 		store.dispatch(SetUIStateAction(payload: .up))
 	}
@@ -119,23 +122,36 @@ class DesignViewController: UIViewController, StoreSubscriber, PPageViewControll
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		store.subscribe(self) {
-			$0
-				.select {
-					($0.selectedTabState, $0.uiState)
-				}
+		store.subscribe(self.state1Subscriber) { state in
+			state.select { state in state.selectedTabState }
+				.skipRepeats({(lhs:Int, rhs:Int) -> Bool in
+					return lhs == rhs
+				})
+		}
+		store.subscribe(self.state2Subscriber) { state in
+			state.select { state in state.uiState }
+		}
+		store.subscribe(self.state3Subscriber) { state in
+			state.select { state in state.drawingConfigState }
 		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		store.unsubscribe(self)
+		//store.unsubscribe(self)
 	}
 	
-	func newState(state: (selectedTabState:Int, uiState:UIState)) {
-		self.tabController.setSelected(state.selectedTabState)
-		self.openButton.isHidden = (state.uiState == .up)
+	func newState(state: Int) {
+		self.tabController.setSelected(state)
 	}
-
+	
+	func newState(state: UIState) {
+		self.openButton.isHidden = (state == .up)
+	}
+	
+	func newState(state: DrawingConfigState) {
+		self.config?.load(state: state)
+	}
+	
 }
 

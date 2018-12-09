@@ -145,6 +145,8 @@
 		52F59D2421A18D1300225E81 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F59D2321A18D1300225E81 /* Consts.swift */; };
 		52F59D2821A1D2C500225E81 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F59D2721A1D2C500225E81 /* add.png */; };
 		52F59D2A21A211F600225E81 /* CodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F59D2921A211F600225E81 /* CodeState.swift */; };
+		52F5C19B21BD699D0099229C /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F5C19A21BD699D0099229C /* ColorPickerViewController.swift */; };
+		52F5C19D21BD6AE90099229C /* LineWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F5C19C21BD6AE90099229C /* LineWidthViewController.swift */; };
 		52F65DEC21AF375500F2AD39 /* nav.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F65DEB21AF375500F2AD39 /* nav.png */; };
 		52F65DEF21AF437F00F2AD39 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F65DED21AF437F00F2AD39 /* up.png */; };
 		52F65DF021AF437F00F2AD39 /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F65DEE21AF437F00F2AD39 /* up@2x.png */; };
@@ -297,6 +299,8 @@
 		52F59D2321A18D1300225E81 /* Consts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		52F59D2721A1D2C500225E81 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		52F59D2921A211F600225E81 /* CodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeState.swift; sourceTree = "<group>"; };
+		52F5C19A21BD699D0099229C /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		52F5C19C21BD6AE90099229C /* LineWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineWidthViewController.swift; sourceTree = "<group>"; };
 		52F65DEB21AF375500F2AD39 /* nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav.png; sourceTree = "<group>"; };
 		52F65DED21AF437F00F2AD39 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		52F65DEE21AF437F00F2AD39 /* up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up@2x.png"; sourceTree = "<group>"; };
@@ -331,6 +335,8 @@
 		5212FF4921568B5C00579B08 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				52F5C19C21BD6AE90099229C /* LineWidthViewController.swift */,
+				52F5C19A21BD699D0099229C /* ColorPickerViewController.swift */,
 				5232D9A721BC6AD500980051 /* ConfigView.swift */,
 				525229CF21A4B58B0043E599 /* ListItemView.swift */,
 				5252293021A4AB4D0043E599 /* TabController.swift */,
@@ -758,14 +764,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-patterns/Pods-patterns-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
-				"${BUILT_PRODUCTS_DIR}/EFColorPicker/EFColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/RSClipperWrapper/RSClipperWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSClipperWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
 			);
@@ -825,6 +829,7 @@
 				5212FF5321568B5D00579B08 /* DragDropViewController.swift in Sources */,
 				52CE634F20F9F860003278E9 /* Extensions.swift in Sources */,
 				5276A917217CEF09004F6047 /* PPageViewController.swift in Sources */,
+				52F5C19B21BD699D0099229C /* ColorPickerViewController.swift in Sources */,
 				5212FF7521568BD300579B08 /* IndexUtils.swift in Sources */,
 				52A54D2D2186077700DF0ADD /* Manager.swift in Sources */,
 				5212FF5721568B5D00579B08 /* ListController.swift in Sources */,
@@ -837,6 +842,7 @@
 				5212FF5521568B5D00579B08 /* DrawingViewController.swift in Sources */,
 				5252292F21A4AA640043E599 /* UIState.swift in Sources */,
 				5276A915217CE053004F6047 /* NavState.swift in Sources */,
+				52F5C19D21BD6AE90099229C /* LineWidthViewController.swift in Sources */,
 				520D348D2160EA2600AE8AE0 /* FileListController.swift in Sources */,
 				52A54D2F218611DA00DF0ADD /* TabsState.swift in Sources */,
 				52A54D342186132F00DF0ADD /* FileModel.swift in Sources */,
