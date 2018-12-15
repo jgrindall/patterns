@@ -50,7 +50,11 @@ struct AppState: StateType {
 	var selectedTabState:Int = -1
 	var codeState:CodeState = .stopped
 	var uiState:UIState = .up
-	var drawingConfigState = DrawingConfigState(bg: .red, fg: .green)
+	var drawingConfigState = DrawingConfigState(bg: Constants.COLORS.DARK_COLOR, fg: .white, width:10.0)
+	func getCurrentTab() -> String{
+		let names:[String] = self.tabs.names
+		return names[self.selectedTabState]
+	}
 }
 
 extension AppState: Equatable {

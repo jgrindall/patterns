@@ -12,6 +12,8 @@ struct FileModel: Codable {
 	let body: String
 	let imageSrc:String
 	let data:[Flow]
+	let bgColor:[Int]
+	let fgColor:[Int]
 	var tabNames: [String] {
 		return data.map({ (f) -> String in
 			return f.name

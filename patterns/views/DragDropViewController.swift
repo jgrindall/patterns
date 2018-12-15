@@ -7,7 +7,7 @@ private let REUSE_IDENTIFIER = "PhotoCell"
 class DragDropViewController: UICollectionViewController, PEditorControllerDelegate  {
 	
 	private var dataItems:[DragItemModel] = []
-	private var placeholderItem:DragItemModel = DragItemModel(type: "temp", content:"", label: "fd", imageSrc: "img2.png")
+	private var placeholderItem:DragItemModel = DragItemModel(type: "", content:"", clr: Constants.COLORS.PLACEHOLDER, imageSrc: "add.png")
 	private var clickPos:ClickPos?
 	private var placeholderIndex:Int = -1
 	private var draggedIndex:IndexPath?
@@ -17,7 +17,7 @@ class DragDropViewController: UICollectionViewController, PEditorControllerDeleg
 	init(collectionViewLayout: UICollectionViewLayout, key:String){
 		_key = key
 		super.init(collectionViewLayout:collectionViewLayout)
-		self.collectionView?.backgroundColor = UIColor(red: 0.17, green: 0.3, blue: 0.8, alpha: 0.5)
+		self.collectionView?.backgroundColor = .clear
 		self.view.clipsToBounds = true
 	}
 	
@@ -145,12 +145,12 @@ class DragDropViewController: UICollectionViewController, PEditorControllerDeleg
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.installsStandardGestureForInteractiveMovement = true
-		self.collectionView?.backgroundColor = UIColor.cyan
+		self.collectionView?.backgroundColor = .clear
 		let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
 		self.collectionView?.addGestureRecognizer(longPressGesture)
 		longPressGesture.minimumPressDuration = 0.0000001
-		self.view.backgroundColor = UIColor.cyan
-		self.collectionView?.backgroundColor = .yellow
+		self.view.backgroundColor = .clear
+		self.collectionView?.backgroundColor = .clear
 	}
 	
 	override public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
@@ -194,7 +194,7 @@ class DragDropViewController: UICollectionViewController, PEditorControllerDeleg
 	}
 	
 	public func insert(type:String, src:String, index:Int){
-		self.insert(d: DragItemModel(type: type, content:"", label: "fd", imageSrc: src), index: index)
+		self.insert(d: DragItemModel(type: type, content:"", clr: .red, imageSrc: src), index: index)
 	}
 	
 	public func deleteAt(index:Int){

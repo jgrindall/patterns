@@ -5,12 +5,12 @@ typealias DragItemsState = [String: DragItems]
 
 class DragItemModel {
 	public var type: String
-	public var clr:String
+	public var clr:UIColor
 	public var content:String
 	public var imageSrc: String
-	init(type:String, content:String, label: String, imageSrc: String) {
+	init(type:String, content:String, clr: UIColor, imageSrc: String) {
 		self.type = type
-		self.clr = label
+		self.clr = clr
 		self.content = content
 		self.imageSrc = imageSrc
 	}

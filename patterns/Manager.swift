@@ -21,6 +21,8 @@ class Manager: StoreSubscriber {
 			store.dispatch(SetTabsAction(payload: fileModel.tabNames))
 			store.dispatch(EditTextAction(payload: fileModel.title + " TITLE"))
 			store.dispatch(SetItemsAction(payload: FileMaker.mapFileDataToItems(fileModel.data)))
+			store.dispatch(SetBgStateAction(payload: MathUtils.arrayToColor(fileModel.bgColor)))
+			store.dispatch(SetFgStateAction(payload: MathUtils.arrayToColor(fileModel.fgColor)))
 			store.dispatch(SetSelectedTabAction(payload: 0))
 		}
 	}

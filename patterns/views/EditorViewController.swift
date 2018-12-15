@@ -40,7 +40,7 @@ class EditorViewController:UIViewController{
 	
 	@objc func buttonClicked(_ sender: AnyObject?){
 		if (self.delegate) != nil{
-			delegate?.updateData(index:self.index, model: DragItemModel(type: textField.text!, content:textField2.text!, label: "FD3245", imageSrc: ""))
+			delegate?.updateData(index:self.index, model: DragItemModel(type: textField.text!, content:textField2.text!, clr: .red, imageSrc: ""))
 		}
 		self.dismiss(animated: false, completion: nil)
 	}

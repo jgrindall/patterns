@@ -122,16 +122,16 @@ class ColorPickerViewController:UIViewController{
 		colorSlider = UIView()
 		colorSlider.layer.borderColor = UIColor.black.cgColor
 		colorSlider.layer.borderWidth = 2.0
-		colorSlider.layer.cornerRadius = 20
-		colorSlider.backgroundColor = UIColor.green.withAlphaComponent(0.6)
+		colorSlider.layer.cornerRadius = Constants.SIZE.COLOR_SLIDER_SIZE/2.0
+		colorSlider.backgroundColor = UIColor.white.withAlphaComponent(0.6)
 		colorSlider.alpha = 0.5
 		colorSlider.isUserInteractionEnabled = false
 		
 		rainbowSlider = UIView()
 		rainbowSlider.layer.borderColor = UIColor.black.cgColor
 		rainbowSlider.layer.borderWidth = 2.0
-		rainbowSlider.layer.cornerRadius = 20
-		rainbowSlider.backgroundColor = UIColor.green.withAlphaComponent(0.6)
+		rainbowSlider.layer.cornerRadius = Constants.SIZE.COLOR_SLIDER_SIZE/2.0
+		rainbowSlider.backgroundColor = UIColor.white.withAlphaComponent(0.6)
 		rainbowSlider.alpha = 0.5
 		rainbowSlider.isUserInteractionEnabled = false
 		
@@ -155,34 +155,35 @@ class ColorPickerViewController:UIViewController{
 	}
 	
 	private func initLayout(){
+		let PADDING:CGFloat = 10.0
 		self.colorSlider.translatesAutoresizingMaskIntoConstraints = false
-		self.colorSliderConstraints = LayoutUtils.layoutExact(v: colorSlider, parent: self.view, x: 10, y: 10, width: 25, height: 25)
+		self.colorSliderConstraints = LayoutUtils.layoutExact(v: colorSlider, parent: self.view, x: PADDING, y: PADDING, width: Constants.SIZE.COLOR_SLIDER_SIZE, height: Constants.SIZE.COLOR_SLIDER_SIZE)
 		NSLayoutConstraint.activate(self.colorSliderConstraints)
 		
 		self.swatch.translatesAutoresizingMaskIntoConstraints = false
-		self.swatchConstraints = LayoutUtils.layoutExact(v: swatch, parent: self.view, x: 260, y: 10, width: 200, height: 200)
+		self.swatchConstraints = LayoutUtils.layoutExact(v: swatch, parent: self.view, x: 2*PADDING + Constants.SIZE.COLOR_SWATCH_SIZE, y: 10, width: Constants.SIZE.COLOR_SWATCH_SIZE, height: Constants.SIZE.COLOR_SWATCH_SIZE)
 		NSLayoutConstraint.activate(self.swatchConstraints)
 		
 		self.colorSqr.translatesAutoresizingMaskIntoConstraints = false
-		self.sqrConstraints = LayoutUtils.layoutExact(v: colorSqr, parent: self.view, x: 10, y: 10, width: 200, height: 200)
+		self.sqrConstraints = LayoutUtils.layoutExact(v: colorSqr, parent: self.view, x: PADDING, y: PADDING, width: Constants.SIZE.COLOR_SWATCH_SIZE, height: Constants.SIZE.COLOR_SWATCH_SIZE)
 		NSLayoutConstraint.activate(self.sqrConstraints)
 		
 		self.colorRainbow.translatesAutoresizingMaskIntoConstraints = false
-		self.rainbowConstraints = LayoutUtils.layoutExact(v: colorRainbow, parent: self.view, x: 10, y: 250, width: 400, height: 40)
+		self.rainbowConstraints = LayoutUtils.layoutExact(v: colorRainbow, parent: self.view, x: PADDING, y: 2*PADDING + Constants.SIZE.COLOR_SWATCH_SIZE, width: PADDING + 2*Constants.SIZE.COLOR_SWATCH_SIZE, height: 40)
 		NSLayoutConstraint.activate(self.rainbowConstraints)
 		
 		self.rainbowSlider.translatesAutoresizingMaskIntoConstraints = false
-		self.rainbowConstraints = LayoutUtils.layoutExact(v: rainbowSlider, parent: self.view, x: 10, y: 250, width: 25, height: 25)
+		self.rainbowConstraints = LayoutUtils.layoutExact(v: rainbowSlider, parent: self.view, x: 10, y: 250, width: Constants.SIZE.COLOR_SLIDER_SIZE, height: Constants.SIZE.COLOR_SLIDER_SIZE)
 		NSLayoutConstraint.activate(self.rainbowConstraints)
 	}
 	
 	private func posColorSlider(_ t:CGPoint){
-		colorSliderConstraints[0].constant = t.x
-		colorSliderConstraints[1].constant = t.y
+		colorSliderConstraints[0].constant = max(0.0, min(t.x, Constants.SIZE.COLOR_SWATCH_SIZE))
+		colorSliderConstraints[1].constant = max(0.0, min(t.y, Constants.SIZE.COLOR_SWATCH_SIZE))
 	}
 	
 	private func posRainbowSlider(_ t:CGPoint){
-		rainbowConstraints[0].constant = t.x
+		rainbowConstraints[0].constant = max(0.0, min(t.x, Constants.SIZE.COLOR_SWATCH_SIZE))
 		rainbowConstraints[1].constant = t.y
 	}
 	

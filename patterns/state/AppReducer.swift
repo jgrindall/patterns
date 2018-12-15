@@ -19,9 +19,11 @@ func configReducer(action: Action, state: DrawingConfigState) -> DrawingConfigSt
 	let state = state
 	switch action {
 	case let action as SetBgStateAction:
-		return DrawingConfigState(bg: action.payload, fg: state.fg)
+		return DrawingConfigState(bg: action.payload, fg: state.fg, width:state.width)
 	case let action as SetFgStateAction:
-		return DrawingConfigState(bg: state.bg, fg:action.payload)
+		return DrawingConfigState(bg: state.bg, fg:action.payload, width:state.width)
+	case let action as SetLineWidthStateAction:
+		return DrawingConfigState(bg: state.bg, fg:state.fg, width:action.payload)
 	default:
 		return state
 	}
@@ -64,6 +66,9 @@ func tabsReducer(action: Action, state: TabsState) -> TabsState {
 		return TabsState(names: action.payload)
 	case let action as AddTabAction:
 		return TabsState(names: state.names + [action.name])
+	case let action as EditNameAction:
+		let names = MathUtils.getReplacedAt(a: state.names, index: action.index, element: action.newName)
+		return TabsState(names: names)
 	case let action as DeleteTabAction:
 		return TabsState(names: MathUtils.getDeleted(a: state.names, val: action.key))
 	default:
@@ -117,7 +122,7 @@ func itemsReducer(action: Action, items: DragItemsState?) -> DragItemsState {
 		case let action as InsertItemAction:
 			let index:Int = action.payload.index
 			let dragModel = action.payload.model
-			let newItem = DragItemModel(type: dragModel.type, content:dragModel.content, label: dragModel.label, imageSrc: "img1.png")
+			let newItem = DragItemModel(type: dragModel.type, content:dragModel.content, clr: dragModel.clr, imageSrc: "book.png")
 			itemsCopy[action.payload.key] = MathUtils.getInsertedAt(a: items![action.payload.key]!, index: index, element: newItem)
 			return itemsCopy
 		case let action as UpdateItemAction:

@@ -22,7 +22,7 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 	required init(key:String){
 		_key = key
 		self.listController = ListController(key: _key)
-		self.listController.view.backgroundColor = UIColor.purple
+		self.listController.view.backgroundColor = .clear
 		let flowLayout = UICollectionViewFlowLayout()
 		flowLayout.itemSize = CGSize(width: 60, height: 60)
 		flowLayout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5)
@@ -33,7 +33,7 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 		self.delButton.setImage(UIImage(named: "del.png"), for: UIControlState.normal)
 		delButton.addTarget(self, action: #selector(ConnectedController.delButtonClicked(_:)), for: .touchUpInside)
 		self.view.clipsToBounds = true
-		self.view.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 0.2)
+		self.view.backgroundColor = Constants.COLORS.BG_COLOR
 		label.text = "KEY " + key
 	}
 	
@@ -50,7 +50,6 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 	}
 	
 	@objc func delButtonClicked(_ sender: AnyObject?){
-		print("del")
 		let refreshAlert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
 		refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
 			self.removeTab()
@@ -58,13 +57,12 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 		refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
 			
 		}))
-		let titleFont = [NSAttributedStringKey.font: UIFont(name: "AmericanTypewriter-Bold", size: 28.0)!]
-		let messageFont = [NSAttributedStringKey.font: UIFont(name: "Avenir-Roman", size: 12.0)!]
+		let titleFont = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12.0)]
+		let messageFont = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12.0)]
 		let titleAttrString = NSMutableAttributedString(string: "Title Here", attributes: titleFont)
 		let messageAttrString = NSMutableAttributedString(string: "Message Here", attributes: messageFont)
 		refreshAlert.setValue(titleAttrString, forKey: "attributedTitle")
 		refreshAlert.setValue(messageAttrString, forKey: "attributedMessage")
-		refreshAlert.view.tintColor = UIColor.red
 		refreshAlert.view.backgroundColor = Constants.COLORS.BG_COLOR
 		refreshAlert.view.layer.cornerRadius = 0
 		let subview = (refreshAlert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView

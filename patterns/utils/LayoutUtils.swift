@@ -39,6 +39,15 @@ class LayoutUtils {
 		];
 	}
 	
+	public static func bottomLeftWithMargins(v:UIView, parent:UIView, marginBottom:CGFloat, width:CGFloat, height:CGFloat, marginLeft:CGFloat)->[NSLayoutConstraint] {
+		return [
+			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: marginLeft),
+			v.widthAnchor.constraint(equalToConstant: width),
+			v.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -marginBottom),
+			v.heightAnchor.constraint(equalToConstant: height)
+		];
+	}
+	
 	public static func bottomRight(v:UIView, parent:UIView, margin:CGFloat, width:CGFloat, height:CGFloat)->[NSLayoutConstraint]  {
 		return [
 			v.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -margin),

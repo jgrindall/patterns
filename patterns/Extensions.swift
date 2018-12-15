@@ -138,15 +138,6 @@ public extension UITextField {
 	}
 }
 
-public extension UIFont {
-	class func appRegularFontWith( size:CGFloat ) -> UIFont{
-		return  UIFont(name: "KohinoorDevanagari-Light", size: size)!
-	}
-	class func appBoldFontWith( size:CGFloat ) -> UIFont{
-		return  UIFont(name: "KohinoorDevanagari-Light", size: size)!
-	}
-}
-
 public extension CALayer {
 	
 	func colorOfPoint(point:CGPoint) -> CGColor {
@@ -162,6 +153,19 @@ public extension CALayer {
 		let alpha: CGFloat = CGFloat(pixel[3]) / 255.0
 		let color = UIColor(red:red, green: green, blue:blue, alpha:alpha)
 		return color.cgColor
+	}
+}
+
+public extension UIImage {
+	class func pixelWithColor(color: UIColor) -> UIImage {
+		let rect = CGRect(origin: CGPoint(x: 0, y:0), size: CGSize(width: 1, height: 1))
+		UIGraphicsBeginImageContext(rect.size)
+		let context = UIGraphicsGetCurrentContext()!
+		context.setFillColor(color.cgColor)
+		context.fill(rect)
+		let image = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return image!
 	}
 }
 

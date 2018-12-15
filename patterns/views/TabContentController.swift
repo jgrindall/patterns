@@ -16,7 +16,7 @@ class TabContentController: UIViewController, StoreSubscriber {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.view.backgroundColor = UIColor(red: 0.7, green: 0.3, blue: 0.3, alpha: 0.5)
+		self.view.backgroundColor = UIColor.clear
 		self.view.clipsToBounds = true
 	}
 	

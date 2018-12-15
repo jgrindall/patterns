@@ -3,7 +3,7 @@ import UIKit
 import RSClipperWrapper
 import ReSwift
 
-class TabButtonsController: UIViewController, StoreSubscriber {
+class TabButtonsController: UIViewController, StoreSubscriber, PEditNameDelegate {
 	
 	private var buttons:[UIButton] = []
 	private var buttonConstraints:[ [NSLayoutConstraint] ] = []
@@ -24,8 +24,8 @@ class TabButtonsController: UIViewController, StoreSubscriber {
 		self.view.addSubview(addButton)
 		addButton.translatesAutoresizingMaskIntoConstraints = false
 		addButton.setImage(UIImage(named: "add.png"), for: .normal)
-		self.view.backgroundColor = UIColor.magenta
-		addConstraints = LayoutUtils.centreRight(v: addButton, parent: self.view, margin: 10, width: 60, height: 60)
+		self.view.backgroundColor = Constants.COLORS.BG_COLOR
+		addConstraints = LayoutUtils.centreRight(v: addButton, parent: self.view, margin: 10, width: Constants.SIZE.TAB_BUTTON_HEIGHT, height: Constants.SIZE.TAB_BUTTON_HEIGHT)
 		NSLayoutConstraint.activate(addConstraints)
 		addButton.addTarget(self, action: #selector(TabButtonsController.addButtonClicked(_:)), for: .touchUpInside)
 	}
@@ -89,26 +89,52 @@ class TabButtonsController: UIViewController, StoreSubscriber {
 	private func initLayout(){
 		self.removeLayout()
 		for i in 0..<self.buttons.count{
-			let constraints:[NSLayoutConstraint] = LayoutUtils.absolute(v: self.buttons[i], parent: self.view, rect:CGRect(x: CGFloat(i)*Constants.SIZE.BUTTON_WIDTH, y: 0, width: Constants.SIZE.BUTTON_WIDTH, height: Constants.SIZE.BUTTON_HEIGHT))
+			let constraints:[NSLayoutConstraint] = LayoutUtils.absolute(v: self.buttons[i], parent: self.view, rect:CGRect(x: CGFloat(i)*Constants.SIZE.TAB_BUTTON_WIDTH, y: 0, width: Constants.SIZE.TAB_BUTTON_WIDTH, height: Constants.SIZE.TAB_BUTTON_HEIGHT))
 			self.buttonConstraints.append(constraints)
 			NSLayoutConstraint.activate(constraints)
 		}
 	}
 	
+	private func nameIsOk(_ name:String) -> Bool{
+		if(name.count == 0){
+			return false
+		}
+		if(name.count >= 11){
+			return false
+		}
+		let names:[String] = store.state.tabs.names
+		return !names.contains(name)
+	}
+	
 	@objc func addButtonClicked(_ sender: AnyObject?){
+		var name = "New tab"
+		var i = 0
+		while(!nameIsOk(name)){
+			i = i + 1
+			name = "New tab (" + String(i) + ")"
+		}
 		let numButtons:Int = store.state.tabs.names.count
-		let r = round(MathUtils.randomFloat(0, 100000))
-		store.dispatch(AddTabAction(name: "New" + r.description))
-		store.dispatch(AddFlowAction(name: "New" + r.description))
+		store.dispatch(AddTabAction(name: name))
+		store.dispatch(AddFlowAction(name: name))
 		store.dispatch(SetSelectedTabAction(payload: numButtons))
-		//store.dispatch(SetItemsAction(payload: store.state.
+		_ = EditNameCommand(text:name, delegate: self, parentViewController: self)
 	}
 	
 	@objc func buttonClicked(_ sender: AnyObject?){
 		if let button:UIButton = sender as? UIButton {
-			if(!button.isSelected){
+			if(button.isSelected){
+				_ = EditNameCommand(text:store.state.getCurrentTab(), delegate: self, parentViewController: self)
+			}
+			else{
 				store.dispatch(SetSelectedTabAction(payload: self.buttons.index(of: button)!))
 			}
+		}
+	}
+	
+	func nameChosen(name: String) {
+		let index:Int = store.state.selectedTabState
+		if(nameIsOk(name)){
+			store.dispatch(EditNameAction(index: index, newName: name))
 		}
 	}
 	

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52037B9721C5BDB0007F5D14 /* tick2.png in Resources */ = {isa = PBXBuildFile; fileRef = 52037B9621C5BDB0007F5D14 /* tick2.png */; };
 		520D348B2160E87C00AE8AE0 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D348A2160E87C00AE8AE0 /* FilesViewController.swift */; };
 		520D348D2160EA2600AE8AE0 /* FileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D348C2160EA2600AE8AE0 /* FileListController.swift */; };
 		520D348F2160EAC800AE8AE0 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D348E2160EAC800AE8AE0 /* FileCell.swift */; };
 		520D34932160ED8400AE8AE0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D34922160ED8400AE8AE0 /* DetailViewController.swift */; };
 		520D3499216114CB00AE8AE0 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D3498216114CB00AE8AE0 /* Files.swift */; };
-		520D349B21611D4900AE8AE0 /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 520D349A21611D4900AE8AE0 /* tick.png */; };
 		5212FF5221568B5D00579B08 /* ConnectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF4A21568B5C00579B08 /* ConnectedController.swift */; };
 		5212FF5321568B5D00579B08 /* DragDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF4B21568B5C00579B08 /* DragDropViewController.swift */; };
 		5212FF5421568B5D00579B08 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212FF4C21568B5C00579B08 /* DrawingView.swift */; };
@@ -132,9 +132,8 @@
 		52A54D3721861F6800DF0ADD /* TabButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A54D3521861F6800DF0ADD /* TabButtonsController.swift */; };
 		52A54D3A21861FD700DF0ADD /* TabContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A54D3921861FD600DF0ADD /* TabContentController.swift */; };
 		52A54D3C2186244100DF0ADD /* ListMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A54D3B2186244100DF0ADD /* ListMaker.swift */; };
-		52ADA12821406D8200C1862F /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = 52ADA12721406D8200C1862F /* img.png */; };
-		52ADA12E214088BF00C1862F /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 52ADA12D214088BF00C1862F /* img1.png */; };
-		52B4A66121453FDB00E761C3 /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B4A66021453FDB00E761C3 /* img2.png */; };
+		52BBE34721C57C1E0084CD4F /* EditNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BBE34621C57C1E0084CD4F /* EditNameViewController.swift */; };
+		52BBE34A21C589BD0084CD4F /* EditNameCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BBE34921C589BD0084CD4F /* EditNameCommand.swift */; };
 		52CE633D20F9F3DC003278E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE633C20F9F3DC003278E9 /* AppDelegate.swift */; };
 		52CE634220F9F3DC003278E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CE634020F9F3DC003278E9 /* Main.storyboard */; };
 		52CE634420F9F3DC003278E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CE634320F9F3DC003278E9 /* Assets.xcassets */; };
@@ -159,12 +158,12 @@
 
 /* Begin PBXFileReference section */
 		016FDC4AB5A8AC4B98B6D16E /* Pods-patterns.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-patterns.debug.xcconfig"; path = "Pods/Target Support Files/Pods-patterns/Pods-patterns.debug.xcconfig"; sourceTree = "<group>"; };
+		52037B9621C5BDB0007F5D14 /* tick2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick2.png; sourceTree = "<group>"; };
 		520D348A2160E87C00AE8AE0 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 		520D348C2160EA2600AE8AE0 /* FileListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileListController.swift; sourceTree = "<group>"; };
 		520D348E2160EAC800AE8AE0 /* FileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCell.swift; sourceTree = "<group>"; };
 		520D34922160ED8400AE8AE0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		520D3498216114CB00AE8AE0 /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
-		520D349A21611D4900AE8AE0 /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick.png; sourceTree = "<group>"; };
 		5212FF4A21568B5C00579B08 /* ConnectedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedController.swift; sourceTree = "<group>"; };
 		5212FF4B21568B5C00579B08 /* DragDropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropViewController.swift; sourceTree = "<group>"; };
 		5212FF4C21568B5C00579B08 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
@@ -284,9 +283,8 @@
 		52A54D3521861F6800DF0ADD /* TabButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabButtonsController.swift; sourceTree = "<group>"; };
 		52A54D3921861FD600DF0ADD /* TabContentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabContentController.swift; sourceTree = "<group>"; };
 		52A54D3B2186244100DF0ADD /* ListMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMaker.swift; sourceTree = "<group>"; };
-		52ADA12721406D8200C1862F /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
-		52ADA12D214088BF00C1862F /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
-		52B4A66021453FDB00E761C3 /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
+		52BBE34621C57C1E0084CD4F /* EditNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNameViewController.swift; sourceTree = "<group>"; };
+		52BBE34921C589BD0084CD4F /* EditNameCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNameCommand.swift; sourceTree = "<group>"; };
 		52CE633920F9F3DC003278E9 /* patterns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = patterns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52CE633C20F9F3DC003278E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52CE634120F9F3DC003278E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -335,6 +333,7 @@
 		5212FF4921568B5C00579B08 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				52BBE34621C57C1E0084CD4F /* EditNameViewController.swift */,
 				52F5C19C21BD6AE90099229C /* LineWidthViewController.swift */,
 				52F5C19A21BD699D0099229C /* ColorPickerViewController.swift */,
 				5232D9A721BC6AD500980051 /* ConfigView.swift */,
@@ -514,18 +513,23 @@
 		52ADA12621406D8200C1862F /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				52037B9621C5BDB0007F5D14 /* tick2.png */,
 				52F65DEB21AF375500F2AD39 /* nav.png */,
 				5252293421A4B5300043E599 /* icons */,
 				52F59D2721A1D2C500225E81 /* add.png */,
 				5276A918217CF3C9004F6047 /* pat1.jpg */,
 				5276A919217CF3C9004F6047 /* pat2.jpg */,
-				520D349A21611D4900AE8AE0 /* tick.png */,
 				52F075D4214EB63F0085BB21 /* del.png */,
-				52B4A66021453FDB00E761C3 /* img2.png */,
-				52ADA12D214088BF00C1862F /* img1.png */,
-				52ADA12721406D8200C1862F /* img.png */,
 			);
 			path = assets;
+			sourceTree = "<group>";
+		};
+		52BBE34821C589BD0084CD4F /* commands */ = {
+			isa = PBXGroup;
+			children = (
+				52BBE34921C589BD0084CD4F /* EditNameCommand.swift */,
+			);
+			path = commands;
 			sourceTree = "<group>";
 		};
 		52CE633020F9F3DC003278E9 = {
@@ -549,6 +553,7 @@
 		52CE633B20F9F3DC003278E9 /* patterns */ = {
 			isa = PBXGroup;
 			children = (
+				52BBE34821C589BD0084CD4F /* commands */,
 				52F59D2021A18BD700225E81 /* consts */,
 				52A54D2C2186077600DF0ADD /* Manager.swift */,
 				52A54D302186131C00DF0ADD /* model */,
@@ -664,12 +669,10 @@
 				5252299C21A4B5300043E599 /* email.png in Resources */,
 				525229C621A4B5300043E599 /* tri@2x.png in Resources */,
 				52F65DF621AF442200F2AD39 /* lt.png in Resources */,
-				52ADA12E214088BF00C1862F /* img1.png in Resources */,
 				52F65DF721AF442200F2AD39 /* lt@2x.png in Resources */,
 				52F65DEC21AF375500F2AD39 /* nav.png in Resources */,
 				5252298521A4B5300043E599 /* aim@2x.png in Resources */,
 				525229AE21A4B5300043E599 /* list.png in Resources */,
-				520D349B21611D4900AE8AE0 /* tick.png in Resources */,
 				5252298721A4B5300043E599 /* book.png in Resources */,
 				525229B321A4B5300043E599 /* play@2x.png in Resources */,
 				5252299221A4B5300043E599 /* char1@2x.png in Resources */,
@@ -679,7 +682,6 @@
 				525229AA21A4B5300043E599 /* img.png in Resources */,
 				525229A921A4B5300043E599 /* hundred@2x.png in Resources */,
 				525229A421A4B5300043E599 /* grid.png in Resources */,
-				52B4A66121453FDB00E761C3 /* img2.png in Resources */,
 				525229BF21A4B5300043E599 /* smallfont.png in Resources */,
 				525229AF21A4B5300043E599 /* list@2x.png in Resources */,
 				525229CE21A4B5300043E599 /* zero@2x.png in Resources */,
@@ -739,11 +741,11 @@
 				5252299421A4B5300043E599 /* char2@2x.png in Resources */,
 				5252298621A4B5300043E599 /* aim@2x.png alias in Resources */,
 				525229C921A4B5300043E599 /* undo.png in Resources */,
-				52ADA12821406D8200C1862F /* img.png in Resources */,
 				5252298B21A4B5300043E599 /* bulb.png in Resources */,
 				525229A321A4B5300043E599 /* facebook@2x.png in Resources */,
 				525229AD21A4B5300043E599 /* largefont@2x.png in Resources */,
 				5252299821A4B5300043E599 /* clear@2x.png in Resources */,
+				52037B9721C5BDB0007F5D14 /* tick2.png in Resources */,
 				525229BB21A4B5300043E599 /* saveas@2x.png in Resources */,
 				525229C121A4B5300043E599 /* stop.png in Resources */,
 				5252298F21A4B5300043E599 /* char0.png in Resources */,
@@ -817,6 +819,7 @@
 				5212FF6F21568BD300579B08 /* AppState.swift in Sources */,
 				5212FF6C21568BD300579B08 /* LineSegment.swift in Sources */,
 				52A54D3C2186244100DF0ADD /* ListMaker.swift in Sources */,
+				52BBE34A21C589BD0084CD4F /* EditNameCommand.swift in Sources */,
 				5252293321A4B2920043E599 /* ListItemModel.swift in Sources */,
 				5212FF6B21568BD300579B08 /* LineList.swift in Sources */,
 				5212FF5821568B5D00579B08 /* TextEntryController.swift in Sources */,
@@ -833,6 +836,7 @@
 				5212FF7521568BD300579B08 /* IndexUtils.swift in Sources */,
 				52A54D2D2186077700DF0ADD /* Manager.swift in Sources */,
 				5212FF5721568B5D00579B08 /* ListController.swift in Sources */,
+				52BBE34721C57C1E0084CD4F /* EditNameViewController.swift in Sources */,
 				523CA96E215C21E9001BE9E0 /* DesignViewController.swift in Sources */,
 				5212FF6E21568BD300579B08 /* AppReducer.swift in Sources */,
 				5276A911217CE015004F6047 /* FileState.swift in Sources */,

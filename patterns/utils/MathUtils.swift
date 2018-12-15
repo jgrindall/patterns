@@ -201,6 +201,31 @@ class MathUtils {
 		}
 		return GroupP3M1.getTrans(origin:origin, size:size, frame:frame)
 	}
+	
+	public static func colorToArray(_ c:UIColor) -> [Int]{
+		var fRed : CGFloat = 0
+		var fGreen : CGFloat = 0
+		var fBlue : CGFloat = 0
+		var fAlpha: CGFloat = 0
+		c.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha)
+		let iRed = Int(fRed * 255.0)
+		let iGreen = Int(fGreen * 255.0)
+		let iBlue = Int(fBlue * 255.0)
+		return [iRed, iGreen, iBlue]
+	}
+	
+	public static func arrayToColor(_ c:[Int]) -> UIColor{
+		return UIColor(red: CGFloat(c[0])/255.0, green: CGFloat(c[1])/255.0, blue: CGFloat(c[2])/255.0, alpha: 1)
+	}
+	
+	public static func getGray(_ c:UIColor) -> CGFloat{
+		var fRed : CGFloat = 0
+		var fGreen : CGFloat = 0
+		var fBlue : CGFloat = 0
+		var fAlpha: CGFloat = 0
+		c.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha)
+		return fRed*0.3 + fGreen*0.59 + fBlue * 0.11
+	}
 
 }
 

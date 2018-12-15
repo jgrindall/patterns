@@ -5,7 +5,7 @@ import RSClipperWrapper
 class DrawingView : UIView{
 	
 	private var polygons:[Polygon] = []
-	private var drawingConfigState:DrawingConfigState = DrawingConfigState(bg: Constants.COLORS.DARK_COLOR, fg: .white)
+	private var drawingConfigState:DrawingConfigState = DrawingConfigState(bg: Constants.COLORS.DARK_COLOR, fg: .white, width:2.0)
 	
 	override init(frame:CGRect){
 		super.init(frame: frame)
@@ -26,7 +26,7 @@ class DrawingView : UIView{
 	}
 	
 	private func drawPolygon(context:CGContext, p:Polygon){
-		context.setLineWidth(6.0)
+		context.setLineWidth(self.drawingConfigState.width)
 		context.setStrokeColor(self.drawingConfigState.fg.cgColor)
 		context.setLineCap(.square)
 		for i in 0..<p.count{

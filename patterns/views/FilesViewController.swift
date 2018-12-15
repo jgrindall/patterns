@@ -15,6 +15,11 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	private var newButton:UIButton = UIButton(frame:CGRect())
 	private var newConstraints:[NSLayoutConstraint] = []
 	
+	private var newButtonImg:UIImageView = UIImageView(image: UIImage(named: "add.png"))
+	private var newButtonImgConstraints:[NSLayoutConstraint] = []
+	private var openButtonImg:UIImageView = UIImageView(image: UIImage(named: "tick2.png"))
+	private var openButtonImgConstraints:[NSLayoutConstraint] = []
+	
 	required init(){
 		let flowLayout = UICollectionViewFlowLayout()
 		flowLayout.itemSize = CGSize(width: Constants.SIZE.FILE_CELL_WIDTH, height: Constants.SIZE.FILE_CELL_HEIGHT)
@@ -46,13 +51,26 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	override func viewDidLoad() {
 		displayContentController(container: self, content: detailController)
 		displayContentController(container: self, content: listController)
-		openButton.setTitle("Open", for: .normal)
 		openButton.addTarget(self, action: #selector(FilesViewController.openButtonClicked(_:)), for: .touchUpInside)
-		openButton.backgroundColor = .green
-		self.view.addSubview(openButton)
-		newButton.setTitle("New", for: .normal)
 		newButton.addTarget(self, action: #selector(FilesViewController.newButtonClicked(_:)), for: .touchUpInside)
-		newButton.backgroundColor = .green
+		
+		newButton.layer.masksToBounds = true
+		newButton.backgroundColor = .white
+		newButton.layer.cornerRadius = Constants.SIZE.BUTTON_HEIGHT/2
+		newButton.layer.borderWidth = 3
+		newButton.layer.borderColor = UIColor.gray.cgColor
+		newButtonImg.isUserInteractionEnabled = false
+		newButton.addSubview(newButtonImg)
+		
+		openButton.layer.masksToBounds = true
+		openButton.backgroundColor = .white
+		openButton.layer.cornerRadius = Constants.SIZE.BUTTON_HEIGHT/2
+		openButton.layer.borderWidth = 3
+		openButton.layer.borderColor = UIColor.gray.cgColor
+		openButtonImg.isUserInteractionEnabled = false
+		openButton.addSubview(openButtonImg)
+		
+		self.view.addSubview(openButton)
 		self.view.addSubview(newButton)
 		self.loadFiles()
 		super.viewDidLoad()
@@ -69,17 +87,20 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 		NSLayoutConstraint.activate(self.detailConstraints)
 		
 		self.newButton.translatesAutoresizingMaskIntoConstraints = false
-		self.newConstraints = LayoutUtils.bottomLeft(v: self.newButton, parent: self.view, margin:10, width:Constants.SIZE.BUTTON_HEIGHT, height:Constants.SIZE.BUTTON_HEIGHT)
+		self.newConstraints = LayoutUtils.bottomLeftWithMargins(v: self.newButton, parent: self.view, marginBottom:10, width:Constants.SIZE.BUTTON_HEIGHT, height:Constants.SIZE.BUTTON_HEIGHT, marginLeft: Constants.SIZE.FILES_WIDTH - Constants.SIZE.BUTTON_HEIGHT - 10)
 		NSLayoutConstraint.activate(self.newConstraints)
 		
 		self.openButton.translatesAutoresizingMaskIntoConstraints = false
 		self.openConstraints = LayoutUtils.bottomRight(v: self.openButton, parent: self.view, margin:10, width:Constants.SIZE.BUTTON_HEIGHT, height:Constants.SIZE.BUTTON_HEIGHT)
 		NSLayoutConstraint.activate(self.openConstraints)
 		
-		newButton.layer.masksToBounds = true
-		newButton.layer.cornerRadius = Constants.SIZE.BUTTON_HEIGHT/2
-		openButton.layer.masksToBounds = true
-		openButton.layer.cornerRadius = Constants.SIZE.BUTTON_HEIGHT/2
+		self.newButtonImg.translatesAutoresizingMaskIntoConstraints = false
+		self.newButtonImgConstraints = LayoutUtils.layoutFull(v: newButtonImg, parent: newButton)
+		NSLayoutConstraint.activate(self.newButtonImgConstraints)
+		
+		self.openButtonImg.translatesAutoresizingMaskIntoConstraints = false
+		self.openButtonImgConstraints = LayoutUtils.layoutFull(v: openButtonImg, parent: openButton)
+		NSLayoutConstraint.activate(self.openButtonImgConstraints)
 
 	}
 
@@ -100,7 +121,7 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	}
 	
 	func save(){
-		let file:FileModel = FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"", data:[])
+		let file:FileModel = FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"", data:[], bgColor:[200,100,200], fgColor:[250,250,250])
 		_ = Files.save(name: "name34", fileModel: file)
 	}
 	

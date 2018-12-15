@@ -12,6 +12,10 @@ struct SetFgStateAction: Action {
 	let payload: UIColor
 }
 
+struct SetLineWidthStateAction: Action {
+	let payload: CGFloat
+}
+
 struct SetCodeStateAction: Action {
 	let payload: CodeState
 }
@@ -62,6 +66,11 @@ struct SetTabsAction:Action{
 
 struct SetSelectedTabAction:Action{
 	let payload:Int
+}
+
+struct EditNameAction:Action{
+	let index:Int
+	let newName:String
 }
 
 struct AddTabAction:Action{

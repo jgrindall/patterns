@@ -2,16 +2,26 @@
 import UIKit
 import ReSwift
 
-protocol PLineWidthDelegate{
-	func widthChosen(width: CGFloat)
+protocol PEditNameDelegate{
+	func nameChosen(name: String)
 }
 
-class LineWidthViewController:UIViewController{
+class EditNameViewController:UIViewController{
 	
-	private var textField:UILabel = UILabel(frame: CGRect())
-	private var textConstraints:[NSLayoutConstraint] = []
+	private var textField:UITextField = UITextField(frame: CGRect())
 	private  var okButton:UIButton = UIButton(type: UIButtonType.system)
-	var delegate : PLineWidthDelegate?
+	private var textConstraints:[NSLayoutConstraint] = []
+	private var text:String
+	var delegate : PEditNameDelegate?
+	
+	init(_ _text: String){
+		self.text = _text
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	override func viewDidLoad() {
 		self.view.backgroundColor = UIColor.orange
@@ -19,10 +29,12 @@ class LineWidthViewController:UIViewController{
 		okButton.setTitle("Ok", for: UIControlState.normal)
 		textField.backgroundColor = UIColor.white
 		textField.font = UIFont(name: "Verdana", size: 18)
+		textField.text = text
 		self.view.addSubview(textField)
 		self.view.addSubview(okButton)
-		okButton.addTarget(self, action: #selector(LineWidthViewController.buttonClicked(_:)), for: .touchUpInside)
+		okButton.addTarget(self, action: #selector(EditNameViewController.buttonClicked(_:)), for: .touchUpInside)
 		self.initLayout()
+		textField.becomeFirstResponder()
 	}
 	
 	private func initLayout(){
@@ -34,7 +46,7 @@ class LineWidthViewController:UIViewController{
 	
 	@objc func buttonClicked(_ sender: AnyObject?){
 		if (self.delegate) != nil{
-			delegate?.widthChosen(width: 7.0)
+			delegate?.nameChosen(name: textField.text!)
 		}
 		self.dismiss(animated: false, completion: nil)
 	}

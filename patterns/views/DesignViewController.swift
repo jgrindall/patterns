@@ -41,17 +41,30 @@ class DesignViewController: UIViewController, PPageViewController, PColorPickerD
 		else if(input == "2"){
 			store.dispatch(SetFgStateAction(payload: color))
 		}
-		self.dismiss(animated: true, completion: nil)
+		self.dismiss(animated: false, completion: nil)
 	}
 	
 	func widthChosen(width: CGFloat) {
-		print(width)
+		if(input == "1"){
+			store.dispatch(SetLineWidthStateAction(payload: width))
+		}
+		self.dismiss(animated: false, completion: nil)
 	}
 	
 	func didReceiveConfig(input: String){
 		self.input = input
 		if(input == "2" || input == "3"){
 			let editor = ColorPickerViewController()
+			editor.delegate = self
+			editor.preferredContentSize = CGSize(width: Constants.SIZE.COLOR_SWATCH_SIZE*2.0, height: 350)
+			editor.modalPresentationStyle = .popover
+			let popover = editor.popoverPresentationController
+			popover?.sourceView = self.view
+			popover?.sourceRect = (config?.frame)!
+			self.present(editor, animated: true, completion: nil)
+		}
+		else{
+			let editor = LineWidthViewController()
 			editor.delegate = self
 			editor.preferredContentSize = CGSize(width: 500, height: 500)
 			editor.modalPresentationStyle = .popover
@@ -89,7 +102,7 @@ class DesignViewController: UIViewController, PPageViewController, PColorPickerD
 	}
 	
 	private func addNavButtons(){
-		self.config = ConfigView(frame: CGRect.init(x: 0, y: 0, width: 180, height: 40))
+		self.config = ConfigView(frame: CGRect.init(x: 0, y: 0, width: 240.0, height: 40.0))
 		self.config?.delegate = self
 		let rightBarButton = UIBarButtonItem(customView: self.config!)
 		self.navigationItem.rightBarButtonItem = rightBarButton
