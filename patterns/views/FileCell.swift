@@ -17,7 +17,6 @@ class FileCell: UICollectionViewCell {
 	
 	private func initLayout(){
 		let PADDING_X:CGFloat = 5.0;
-		let TEXT_HEIGHT:CGFloat = 40.0;
 		self.textView.translatesAutoresizingMaskIntoConstraints = false
 		self.textConstraints = LayoutUtils.layoutExact(v: self.textView, parent: self, x: PADDING_X + Constants.SIZE.FILE_MARKER_SIZE + PADDING_X, y: 5, width: 100, height: 40)
 		NSLayoutConstraint.activate(self.textConstraints)
