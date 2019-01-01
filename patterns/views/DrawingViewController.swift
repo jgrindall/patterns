@@ -68,7 +68,8 @@ class DrawingViewController: UIViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		//store.unsubscribe(self)
+		store.unsubscribe(self.state1Subscriber)
+		store.unsubscribe(self.state2Subscriber)
 	}
 	
 	private func play(_ itemsState:DragItemsState){
