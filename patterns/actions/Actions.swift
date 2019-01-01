@@ -1,7 +1,11 @@
 import ReSwift
 
-struct SetUIStateAction:Action{
-	let payload: UIState
+struct SetUITabStateAction:Action{
+	let payload: UITabState
+}
+
+struct SetUISymmStateAction:Action{
+	let payload: UITabState
 }
 
 struct SetBgStateAction: Action {
