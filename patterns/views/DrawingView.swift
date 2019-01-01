@@ -1,6 +1,5 @@
 
 import UIKit
-import RSClipperWrapper
 
 class DrawingView : UIView{
 	
