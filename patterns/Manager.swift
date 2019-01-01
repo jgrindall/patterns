@@ -24,6 +24,7 @@ class Manager: StoreSubscriber {
 			store.dispatch(SetBgStateAction(payload: MathUtils.arrayToColor(fileModel.bgColor)))
 			store.dispatch(SetFgStateAction(payload: MathUtils.arrayToColor(fileModel.fgColor)))
 			store.dispatch(SetSelectedTabAction(payload: 0))
+			store.dispatch(SetUISymmStateAction(payload: .hide))
 		}
 	}
 	

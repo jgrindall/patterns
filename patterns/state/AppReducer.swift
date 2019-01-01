@@ -32,8 +32,10 @@ func configReducer(action: Action, state: DrawingConfigState) -> DrawingConfigSt
 func uiReducer(action: Action, state: UIState) -> UIState {
 	let state = state
 	switch action {
-	case let action as SetUIStateAction:
-		return action.payload
+	case let action as SetUITabStateAction:
+		return UIState(tabs: action.payload, symm: action.payload == .show ? .hide : state.symm)
+	case let action as SetUISymmStateAction:
+		return UIState(tabs: action.payload == .show ? .hide : state.tabs, symm: action.payload)
 	default:
 		return state
 	}
