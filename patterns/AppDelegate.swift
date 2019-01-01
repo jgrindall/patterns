@@ -27,23 +27,48 @@ func hideContentController(container:UIViewController, content: UIViewController
 	content.removeFromParentViewController()
 }
 
+func animateTop(_ view:UIView, _ top:CGFloat){
+	let c:NSLayoutConstraint? = getC(view, NSLayoutAttribute.top)
+	if(c != nil){
+		c?.constant = top
+		UIView.animate(withDuration: Constants.ANIM.ANIM_TIME, animations: {
+			view.superview?.layoutIfNeeded()
+		}, completion: nil)
+	}
+}
+
+func animateBottom(_ view:UIView, _ bottom:CGFloat){
+	let c:NSLayoutConstraint? = getC(view, NSLayoutAttribute.bottom)
+	if(c != nil){
+		c?.constant = bottom
+		UIView.animate(withDuration: Constants.ANIM.ANIM_TIME, animations: {
+			view.superview?.layoutIfNeeded()
+		}, completion: nil)
+	}
+}
+
+func getC(_ child:UIView, _ type:NSLayoutAttribute) -> NSLayoutConstraint?{
+	let con:[NSLayoutConstraint] = (child.superview?.constraints)!
+	for c:NSLayoutConstraint in con{
+		if((c.firstItem as! UIView == child) && c.firstAttribute.rawValue == type.rawValue){
+			return c
+		}
+	}
+	return nil
+}
+
 func setupC(children:[UIView], constraints:[[NSLayoutConstraint]], parent:UIView){
-	
 	assert(children.count == constraints.count)
-	
 	for constraint in parent.constraints{
 		parent.removeConstraint(constraint)
 	}
-	
 	for child in children{
 		child.translatesAutoresizingMaskIntoConstraints = false
 	}
-	
 	for con:[NSLayoutConstraint] in constraints{
 		parent.addConstraints(con)
 		NSLayoutConstraint.activate(con)
 	}
-	
 	assert(parent.constraints.count == 4*children.count)
 }
 
