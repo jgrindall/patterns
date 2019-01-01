@@ -27,7 +27,25 @@ func hideContentController(container:UIViewController, content: UIViewController
 	content.removeFromParentViewController()
 }
 
-
+func setupC(children:[UIView], constraints:[[NSLayoutConstraint]], parent:UIView){
+	
+	assert(children.count == constraints.count)
+	
+	for constraint in parent.constraints{
+		parent.removeConstraint(constraint)
+	}
+	
+	for child in children{
+		child.translatesAutoresizingMaskIntoConstraints = false
+	}
+	
+	for con:[NSLayoutConstraint] in constraints{
+		parent.addConstraints(con)
+		NSLayoutConstraint.activate(con)
+	}
+	
+	assert(parent.constraints.count == 4*children.count)
+}
 
 
 @UIApplicationMain
