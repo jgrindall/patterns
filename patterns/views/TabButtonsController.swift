@@ -1,6 +1,5 @@
 
 import UIKit
-import RSClipperWrapper
 import ReSwift
 
 class TabButtonsController: UIViewController, StoreSubscriber, PEditNameDelegate {
