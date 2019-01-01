@@ -15,9 +15,16 @@ class DetailViewController: UIViewController {
 	}
 	
 	func initLayout(){
-		self.imgView.translatesAutoresizingMaskIntoConstraints = false
 		self.imgConstraints = LayoutUtils.layoutFull(v: self.imgView, parent: self.view)
-		NSLayoutConstraint.activate(self.imgConstraints)
+		setupC(
+			children: [
+				imgView
+			],
+			constraints: [
+				imgConstraints
+			],
+			parent: self.view
+		)
 	}
 	
 	func loadFile(f:FileModel){

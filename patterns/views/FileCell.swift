@@ -17,15 +17,22 @@ class FileCell: UICollectionViewCell {
 	
 	private func initLayout(){
 		let PADDING_X:CGFloat = 5.0;
-		self.textView.translatesAutoresizingMaskIntoConstraints = false
 		self.textConstraints = LayoutUtils.layoutExact(v: self.textView, parent: self, x: PADDING_X + Constants.SIZE.FILE_MARKER_SIZE + PADDING_X, y: 5, width: 100, height: 40)
-		NSLayoutConstraint.activate(self.textConstraints)
-		self.tickView.translatesAutoresizingMaskIntoConstraints = false
 		self.tickConstraints = LayoutUtils.layoutExact(v: tickView, parent: self, x: PADDING_X, y: (Constants.SIZE.FILE_CELL_HEIGHT - Constants.SIZE.FILE_MARKER_SIZE)/2, width: Constants.SIZE.FILE_MARKER_SIZE, height: Constants.SIZE.FILE_MARKER_SIZE)
-		NSLayoutConstraint.activate(self.tickConstraints)
-		self.markerView.translatesAutoresizingMaskIntoConstraints = false
 		self.markerConstraints = LayoutUtils.layoutExact(v: markerView, parent: self, x: PADDING_X, y: (Constants.SIZE.FILE_CELL_HEIGHT - Constants.SIZE.FILE_MARKER_SIZE)/2, width: Constants.SIZE.FILE_MARKER_SIZE, height: Constants.SIZE.FILE_MARKER_SIZE)
-		NSLayoutConstraint.activate(self.markerConstraints)
+		setupC(
+			children: [
+				textView,
+				tickView,
+				markerView
+			],
+			constraints: [
+				textConstraints,
+				tickConstraints,
+				markerConstraints
+			],
+			parent: self
+		)
 	}
 	
 	override var isSelected: Bool{

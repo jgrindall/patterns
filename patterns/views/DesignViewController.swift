@@ -1,15 +1,18 @@
 
 import UIKit
-import RSClipperWrapper
 import ReSwift
 
-class DesignViewController: UIViewController, PPageViewController, PColorPickerDelegate, PLineWidthDelegate, UIPopoverPresentationControllerDelegate, ConfigDelegate {
+class DesignViewController: UIViewController, PPageViewController, PColorPickerDelegate, PForegroundConfigDelegate, PLineWidthDelegate, UIPopoverPresentationControllerDelegate, ConfigDelegate {
 	
 	private var drawingController:DrawingViewController
 	private var drawingConstraints:[NSLayoutConstraint] = []
+	private var symmPathController:SymmPathViewController
+	private var symmPathConstraints:[NSLayoutConstraint] = []
 	private var textEntryController:TextEntryController
 	private var tabController:TabController
 	private var tabConstraints:[NSLayoutConstraint] = []
+	private var symmController:SymmController
+	private var symmConstraints:[NSLayoutConstraint] = []
 	private var openButton:UIButton = UIButton(frame: CGRect())
 	private var openConstraints:[NSLayoutConstraint] = []
 	private var selectedColor:UIColor?
@@ -29,9 +32,15 @@ class DesignViewController: UIViewController, PPageViewController, PColorPickerD
 	required init(){
 		self.tabController = TabController()
 		self.drawingController = DrawingViewController()
+		self.symmPathController = SymmPathViewController()
 		self.textEntryController = TextEntryController()
+		self.symmController = SymmController()
 		super.init(nibName: nil, bundle: nil)
 		self.title = "Edit your file"
+	}
+	
+	func dataChosen(data: CGFloat) {
+		print(data)
 	}
 	
 	func colorChosen(color: UIColor) {
@@ -53,25 +62,28 @@ class DesignViewController: UIViewController, PPageViewController, PColorPickerD
 	
 	func didReceiveConfig(input: String){
 		self.input = input
-		if(input == "2" || input == "3"){
-			let editor = ColorPickerViewController()
-			editor.delegate = self
-			editor.preferredContentSize = CGSize(width: Constants.SIZE.COLOR_SWATCH_SIZE*2.0, height: 350)
-			editor.modalPresentationStyle = .popover
+		if(input == "1" || input == "2"){
+			var editor:UIViewController
+			if(input == "1"){
+				editor = ColorPickerViewController()
+				(editor as! ColorPickerViewController).delegate = self
+				editor.preferredContentSize = CGSize(width: Constants.SIZE.COLOR_SWATCH_SIZE*2.0, height: 350)
+				editor.modalPresentationStyle = .popover
+			}
+			else {
+				editor = ForegroundConfigController()
+				(editor as! ForegroundConfigController).delegate = self
+				editor.preferredContentSize = CGSize(width: 500, height: 500)
+				editor.modalPresentationStyle = .popover
+			}
 			let popover = editor.popoverPresentationController
 			popover?.sourceView = self.view
-			popover?.sourceRect = (config?.frame)!
+			popover?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+			popover?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
 			self.present(editor, animated: true, completion: nil)
 		}
 		else{
-			let editor = LineWidthViewController()
-			editor.delegate = self
-			editor.preferredContentSize = CGSize(width: 500, height: 500)
-			editor.modalPresentationStyle = .popover
-			let popover = editor.popoverPresentationController
-			popover?.sourceView = self.view
-			popover?.sourceRect = (config?.frame)!
-			self.present(editor, animated: true, completion: nil)
+			store.dispatch(SetUISymmStateAction(payload: (store.state.uiState.symm == .show ? .hide : .show)))
 		}
 	}
 
@@ -89,13 +101,15 @@ class DesignViewController: UIViewController, PPageViewController, PColorPickerD
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		print("symm disp")
 		displayContentController(container: self, content: drawingController)
+		displayContentController(container: self, content: symmPathController)
 		displayContentController(container: self, content: textEntryController)
 		displayContentController(container: self, content: tabController)
+		displayContentController(container: self, content: symmController)
 		openButton.setTitle("OPEN", for: .normal)
 		openButton.addTarget(self, action: #selector(DesignViewController.openButtonClicked(_:)), for: .touchUpInside)
 		self.view.addSubview(openButton)
-		self.initLayout()
 		let g = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
 		self.view.addGestureRecognizer(g)
 		self.addNavButtons()
@@ -109,32 +123,44 @@ class DesignViewController: UIViewController, PPageViewController, PColorPickerD
 	}
 	
 	@objc func openButtonClicked(_ sender:UITapGestureRecognizer){
-		store.dispatch(SetUIStateAction(payload: .up))
+		store.dispatch(SetUITabStateAction(payload: .show))
 	}
 	
 	@objc func someAction(_ sender:UITapGestureRecognizer){
-		store.dispatch(SetUIStateAction(payload: .down))
+		store.dispatch(SetUITabStateAction(payload: .hide))
+		store.dispatch(SetUISymmStateAction(payload: .hide))
 	}
 	
 	func initLayout(){
 		drawingConstraints = LayoutUtils.layoutFull(v: self.drawingController.view, parent: self.view)
+		symmPathConstraints = LayoutUtils.layoutFull(v: self.symmPathController.view, parent: self.view)
 		tabConstraints = LayoutUtils.layoutToBottom(v: self.tabController.view, parent: self.view, multiplier: 0.5)
 		openConstraints = LayoutUtils.bottomRight(v: self.openButton, parent: self.view, margin: 0, width: 50, height: 50)
+		symmConstraints = LayoutUtils.layoutExact(v: self.symmController.view, parent: self.view, x: 900, y: 50, width: 100, height:400)
 		
-		self.drawingController.view.translatesAutoresizingMaskIntoConstraints = false
-		self.tabController.view.translatesAutoresizingMaskIntoConstraints = false
-		openButton.translatesAutoresizingMaskIntoConstraints = false
-		
-		NSLayoutConstraint.activate(drawingConstraints)
-		NSLayoutConstraint.activate(tabConstraints)
-		NSLayoutConstraint.activate(openConstraints)
-		
-		//LayoutUtils.layoutToTop(v: self.textEntryController.view, parent: self.view, multiplier: 0)
+		setupC(
+			children: [
+				self.drawingController.view,
+				self.symmPathController.view,
+				self.tabController.view,
+				openButton,
+				self.symmController.view
+			],
+			constraints: [
+				drawingConstraints,
+				symmPathConstraints,
+				tabConstraints,
+				openConstraints,
+				symmConstraints
+			],
+			parent: self.view
+		)
 		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		self.initLayout()
 		store.subscribe(self.state1Subscriber) { state in
 			state.select { state in state.selectedTabState }
 				.skipRepeats({(lhs:Int, rhs:Int) -> Bool in
@@ -151,7 +177,9 @@ class DesignViewController: UIViewController, PPageViewController, PColorPickerD
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		//store.unsubscribe(self)
+		store.unsubscribe(self.state1Subscriber)
+		store.unsubscribe(self.state2Subscriber)
+		store.unsubscribe(self.state3Subscriber)
 	}
 	
 	func newState(state: Int) {
@@ -159,7 +187,8 @@ class DesignViewController: UIViewController, PPageViewController, PColorPickerD
 	}
 	
 	func newState(state: UIState) {
-		self.openButton.isHidden = (state == .up)
+		self.symmPathController.view.isHidden = (state.symm == .hide)
+		self.openButton.isHidden = (state.tabs == .show)
 	}
 	
 	func newState(state: DrawingConfigState) {

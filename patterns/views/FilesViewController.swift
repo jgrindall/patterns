@@ -77,30 +77,45 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	}
 	
 	func initLayout(){
-		self.listController.view.translatesAutoresizingMaskIntoConstraints = false
 		self.listConstraints = LayoutUtils.layoutToLeftWithWidthAndTopMargin(v: self.listController.view, parent: self.view, width: Constants.SIZE.FILES_WIDTH, topMargin: self.navigationController!.navigationBar.frame.size.height)
-		NSLayoutConstraint.activate(self.listConstraints)
-		
-		self.detailController.view.translatesAutoresizingMaskIntoConstraints = false
 		self.detailConstraints = LayoutUtils.layoutFull(v: self.detailController.view, parent: self.view)
-		NSLayoutConstraint.activate(self.detailConstraints)
-		
-		self.newButton.translatesAutoresizingMaskIntoConstraints = false
 		self.newConstraints = LayoutUtils.bottomLeftWithMargins(v: self.newButton, parent: self.view, marginBottom:10, width:Constants.SIZE.BUTTON_HEIGHT, height:Constants.SIZE.BUTTON_HEIGHT, marginLeft: Constants.SIZE.FILES_WIDTH - Constants.SIZE.BUTTON_HEIGHT - 10)
-		NSLayoutConstraint.activate(self.newConstraints)
-		
-		self.openButton.translatesAutoresizingMaskIntoConstraints = false
 		self.openConstraints = LayoutUtils.bottomRight(v: self.openButton, parent: self.view, margin:10, width:Constants.SIZE.BUTTON_HEIGHT, height:Constants.SIZE.BUTTON_HEIGHT)
-		NSLayoutConstraint.activate(self.openConstraints)
-		
-		self.newButtonImg.translatesAutoresizingMaskIntoConstraints = false
+		setupC(
+			children: [
+				listController.view,
+				detailController.view,
+				newButton,
+				openButton
+			],
+			constraints: [
+				listConstraints,
+				detailConstraints,
+				newConstraints,
+				openConstraints
+			],
+			parent: self.view
+		)
 		self.newButtonImgConstraints = LayoutUtils.layoutFull(v: newButtonImg, parent: newButton)
-		NSLayoutConstraint.activate(self.newButtonImgConstraints)
-		
-		self.openButtonImg.translatesAutoresizingMaskIntoConstraints = false
 		self.openButtonImgConstraints = LayoutUtils.layoutFull(v: openButtonImg, parent: openButton)
-		NSLayoutConstraint.activate(self.openButtonImgConstraints)
-
+		setupC(
+			children: [
+				newButtonImg
+			],
+			constraints: [
+				newButtonImgConstraints
+			],
+			parent: newButton
+		)
+		setupC(
+			children: [
+				openButtonImg
+			],
+			constraints: [
+				openButtonImgConstraints
+			],
+			parent: openButton
+		)
 	}
 
 	private func open(_ file:FileModel?){

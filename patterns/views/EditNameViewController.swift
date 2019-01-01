@@ -39,9 +39,16 @@ class EditNameViewController:UIViewController{
 	
 	private func initLayout(){
 		let PADDING:CGFloat = 10.0
-		self.textField.translatesAutoresizingMaskIntoConstraints = false
-		self.textConstraints = LayoutUtils.layoutExact(v: textField, parent: self.view, x: PADDING, y: PADDING, width: 200, height: 200)
-		NSLayoutConstraint.activate(self.textConstraints)
+		textConstraints = LayoutUtils.layoutExact(v: textField, parent: self.view, x: PADDING, y: PADDING, width: 200, height: 200)
+		setupC(
+			children: [
+				textField
+			],
+			constraints: [
+				textConstraints
+			],
+			parent: self.view
+		)
 	}
 	
 	@objc func buttonClicked(_ sender: AnyObject?){

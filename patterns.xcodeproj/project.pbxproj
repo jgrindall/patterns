@@ -36,6 +36,8 @@
 		5218DCC521BC396900CEF010 /* DrawingConfigState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5218DCC421BC396900CEF010 /* DrawingConfigState.swift */; };
 		5232D9A821BC6AD500980051 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232D9A721BC6AD500980051 /* ConfigView.swift */; };
 		5232D9AA21BC6B1500980051 /* BlockSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232D9A921BC6B1500980051 /* BlockSubscriber.swift */; };
+		52399DF321CE4C73002BE807 /* ForegroundConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52399DF221CE4C72002BE807 /* ForegroundConfigView.swift */; };
+		52399DF521CE5FFE002BE807 /* SymmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52399DF421CE5FFE002BE807 /* SymmController.swift */; };
 		523CA96E215C21E9001BE9E0 /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523CA96D215C21E9001BE9E0 /* DesignViewController.swift */; };
 		5252292F21A4AA640043E599 /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252292E21A4AA630043E599 /* UIState.swift */; };
 		5252293121A4AB4D0043E599 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252293021A4AB4D0043E599 /* TabController.swift */; };
@@ -134,6 +136,8 @@
 		52A54D3C2186244100DF0ADD /* ListMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A54D3B2186244100DF0ADD /* ListMaker.swift */; };
 		52BBE34721C57C1E0084CD4F /* EditNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BBE34621C57C1E0084CD4F /* EditNameViewController.swift */; };
 		52BBE34A21C589BD0084CD4F /* EditNameCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BBE34921C589BD0084CD4F /* EditNameCommand.swift */; };
+		52C8380E21DBF391002E037B /* SymmPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8380D21DBF391002E037B /* SymmPathViewController.swift */; };
+		52C8381021DBF542002E037B /* SymmPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8380F21DBF542002E037B /* SymmPathView.swift */; };
 		52CE633D20F9F3DC003278E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE633C20F9F3DC003278E9 /* AppDelegate.swift */; };
 		52CE634220F9F3DC003278E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CE634020F9F3DC003278E9 /* Main.storyboard */; };
 		52CE634420F9F3DC003278E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CE634320F9F3DC003278E9 /* Assets.xcassets */; };
@@ -187,6 +191,8 @@
 		5218DCC421BC396900CEF010 /* DrawingConfigState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingConfigState.swift; sourceTree = "<group>"; };
 		5232D9A721BC6AD500980051 /* ConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		5232D9A921BC6B1500980051 /* BlockSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockSubscriber.swift; sourceTree = "<group>"; };
+		52399DF221CE4C72002BE807 /* ForegroundConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForegroundConfigView.swift; sourceTree = "<group>"; };
+		52399DF421CE5FFE002BE807 /* SymmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymmController.swift; sourceTree = "<group>"; };
 		523CA96D215C21E9001BE9E0 /* DesignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
 		5252292E21A4AA630043E599 /* UIState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
 		5252293021A4AB4D0043E599 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -285,6 +291,8 @@
 		52A54D3B2186244100DF0ADD /* ListMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMaker.swift; sourceTree = "<group>"; };
 		52BBE34621C57C1E0084CD4F /* EditNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNameViewController.swift; sourceTree = "<group>"; };
 		52BBE34921C589BD0084CD4F /* EditNameCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNameCommand.swift; sourceTree = "<group>"; };
+		52C8380D21DBF391002E037B /* SymmPathViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymmPathViewController.swift; sourceTree = "<group>"; };
+		52C8380F21DBF542002E037B /* SymmPathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymmPathView.swift; sourceTree = "<group>"; };
 		52CE633920F9F3DC003278E9 /* patterns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = patterns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52CE633C20F9F3DC003278E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52CE634120F9F3DC003278E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -333,6 +341,10 @@
 		5212FF4921568B5C00579B08 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				52C8380F21DBF542002E037B /* SymmPathView.swift */,
+				52C8380D21DBF391002E037B /* SymmPathViewController.swift */,
+				52399DF421CE5FFE002BE807 /* SymmController.swift */,
+				52399DF221CE4C72002BE807 /* ForegroundConfigView.swift */,
 				52BBE34621C57C1E0084CD4F /* EditNameViewController.swift */,
 				52F5C19C21BD6AE90099229C /* LineWidthViewController.swift */,
 				52F5C19A21BD699D0099229C /* ColorPickerViewController.swift */,
@@ -808,12 +820,15 @@
 				5212FF6D21568BD300579B08 /* MinMax.swift in Sources */,
 				52A54D3721861F6800DF0ADD /* TabButtonsController.swift in Sources */,
 				520D34932160ED8400AE8AE0 /* DetailViewController.swift in Sources */,
+				52C8380E21DBF391002E037B /* SymmPathViewController.swift in Sources */,
 				525229D021A4B58B0043E599 /* ListItemView.swift in Sources */,
+				52C8381021DBF542002E037B /* SymmPathView.swift in Sources */,
 				52A54D2B2185EC5B00DF0ADD /* FileMaker.swift in Sources */,
 				5212FF7921568BF600579B08 /* Actions.swift in Sources */,
 				5232D9A821BC6AD500980051 /* ConfigView.swift in Sources */,
 				5218DCC521BC396900CEF010 /* DrawingConfigState.swift in Sources */,
 				5212FF7D21568CCE00579B08 /* ItemCell.swift in Sources */,
+				52399DF521CE5FFE002BE807 /* SymmController.swift in Sources */,
 				5232D9AA21BC6B1500980051 /* BlockSubscriber.swift in Sources */,
 				5212FF5221568B5D00579B08 /* ConnectedController.swift in Sources */,
 				5212FF6F21568BD300579B08 /* AppState.swift in Sources */,
@@ -842,6 +857,7 @@
 				5276A911217CE015004F6047 /* FileState.swift in Sources */,
 				5212FF7621568BD300579B08 /* MathUtils.swift in Sources */,
 				5272C69021A0C7D6000ACED1 /* LayoutUtils.swift in Sources */,
+				52399DF321CE4C73002BE807 /* ForegroundConfigView.swift in Sources */,
 				52A54D3A21861FD700DF0ADD /* TabContentController.swift in Sources */,
 				5212FF5521568B5D00579B08 /* DrawingViewController.swift in Sources */,
 				5252292F21A4AA640043E599 /* UIState.swift in Sources */,

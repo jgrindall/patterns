@@ -116,22 +116,25 @@ class ConnectedController: UIViewController, PDragDelegate, StoreSubscriber {
 	}
 	
 	private func initLayout(){
-		self.dragController.view.translatesAutoresizingMaskIntoConstraints = false
 		self.dragConstraints = LayoutUtils.layoutToTop(v: dragController.view, parent: self.view, multiplier: 0.5)
-		NSLayoutConstraint.activate(self.dragConstraints)
-		
-		self.listController.view.translatesAutoresizingMaskIntoConstraints = false
 		self.listConstraints = LayoutUtils.layoutToBottom(v: listController.view, parent: self.view, multiplier: 0.5)
-		NSLayoutConstraint.activate(self.listConstraints)
-		
-		self.delButton.translatesAutoresizingMaskIntoConstraints = false
 		self.delConstraints = LayoutUtils.centreRight(v: delButton, parent: self.view, margin: 10, width: 50, height: 50)
-		NSLayoutConstraint.activate(self.delConstraints)
-		
-		self.label.translatesAutoresizingMaskIntoConstraints = false
 		self.labelConstraints = LayoutUtils.centreRight(v: label, parent: self.view, margin: 50, width: 150, height: 50)
-		NSLayoutConstraint.activate(self.labelConstraints)
-		
+		setupC(
+			children: [
+				dragController.view,
+				listController.view,
+				delButton,
+				label
+			],
+			constraints: [
+				dragConstraints,
+				listConstraints,
+				delConstraints,
+				labelConstraints
+			],
+			parent: self.view
+		)
 	}
 	
 	public func setItems(state: DragItems){

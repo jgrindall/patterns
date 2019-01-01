@@ -1,6 +1,5 @@
 
 import UIKit
-import RSClipperWrapper
 import ReSwift
 
 class TabController: UIViewController, StoreSubscriber {
@@ -28,30 +27,27 @@ class TabController: UIViewController, StoreSubscriber {
 	}
 	
 	private func down(){
-		let height:CGFloat = self.view.frame.height
-		self.view.constraints[2].constant = height + Constants.SIZE.BUTTON_HEIGHT
-		UIView.animate(withDuration: Constants.ANIM.ANIM_TIME, animations: {
-			self.view.layoutIfNeeded()
-		}, completion: nil)
+		animateBottom(self.view, self.view.frame.height + Constants.SIZE.BUTTON_HEIGHT)
 	}
 	
 	private func up(){
-		self.view.constraints[2].constant = Constants.SIZE.BUTTON_HEIGHT
-		UIView.animate(withDuration: Constants.ANIM.ANIM_TIME, animations: {
-			self.view.layoutIfNeeded()
-		}, completion: nil)
+		animateBottom(self.view, Constants.SIZE.BUTTON_HEIGHT)
 	}
 	
 	func initLayout(){
 		tabContentConstraints = LayoutUtils.layoutToTopWithMargin(v: self.tabContentController.view, parent: self.view, margin: 60)
-		tabButtonsConstraints = LayoutUtils.layoutAboveWithHeight(v: self.tabButtonsController.view, viewToBeAbove: self.tabContentController.view, height: 60)
-		
-		self.tabContentController.view.translatesAutoresizingMaskIntoConstraints = false
-		self.tabButtonsController.view.translatesAutoresizingMaskIntoConstraints = false
-		
-		NSLayoutConstraint.activate(tabContentConstraints)
-		NSLayoutConstraint.activate(tabButtonsConstraints)
-		
+		tabButtonsConstraints = LayoutUtils.layoutToTopWithHeight(v: self.tabButtonsController.view, parent: self.view, height: 60)
+		setupC(
+			children: [
+				tabContentController.view,
+				tabButtonsController.view
+			],
+			constraints: [
+				tabContentConstraints,
+				tabButtonsConstraints
+			],
+			parent: self.view
+		)
 	}
 	
 	public func setSelected(_ i:Int){
@@ -76,7 +72,7 @@ class TabController: UIViewController, StoreSubscriber {
 	}
 	
 	func newState(state: UIState) {
-		if(state == .down){
+		if(state.tabs == .hide){
 			self.down()
 		}
 		else{

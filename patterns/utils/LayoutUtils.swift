@@ -120,6 +120,15 @@ class LayoutUtils {
 		]
 	}
 	
+	public static func layoutToTopWithHeight(v:UIView, parent:UIView, height:CGFloat)->[NSLayoutConstraint]  {
+		return [
+			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
+			v.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+			v.topAnchor.constraint(equalTo: parent.topAnchor),
+			v.heightAnchor.constraint(equalToConstant: height)
+		]
+	}
+	
 	public static func layoutToBottom(v:UIView, parent:UIView, multiplier:CGFloat, constant:CGFloat = 0.0)->[NSLayoutConstraint] {
 		return [
 			v.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
@@ -132,16 +141,6 @@ class LayoutUtils {
 	public static func layoutFull(v:UIView, parent:UIView)->[NSLayoutConstraint]  {
 		return LayoutUtils.layoutToTop(v: v, parent: parent, multiplier: 1)
 	}
-	
-	public static func layoutAboveWithHeight(v:UIView, viewToBeAbove:UIView, height:CGFloat)->[NSLayoutConstraint]  {
-		return [
-			v.leadingAnchor.constraint(equalTo: viewToBeAbove.leadingAnchor),
-			v.trailingAnchor.constraint(equalTo: viewToBeAbove.trailingAnchor),
-			v.bottomAnchor.constraint(equalTo: viewToBeAbove.topAnchor),
-			v.heightAnchor.constraint(equalToConstant: height)
-		]
-	}
-	
 	
 }
 

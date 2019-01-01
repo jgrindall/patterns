@@ -32,8 +32,7 @@ class DrawingViewController: UIViewController {
 	
 	func initLayout(){
 		self.drawingConstraints = LayoutUtils.layoutFull(v: self.drawingView, parent: self.view)
-		self.drawingView.translatesAutoresizingMaskIntoConstraints = false
-		NSLayoutConstraint.activate(drawingConstraints)
+		setupC(children: [drawingView], constraints: [drawingConstraints], parent: self.view)
 	}
 	
 	@objc func someAction(_ sender:UITapGestureRecognizer){

@@ -31,15 +31,20 @@ class ItemCell: UICollectionViewCell {
 	}
 	
 	func initLayout(){
-		self.imgView.translatesAutoresizingMaskIntoConstraints = false
 		self.imgConstraints = LayoutUtils.layoutFull(v: imgView, parent: self)
-		NSLayoutConstraint.activate(self.imgConstraints)
-		
-		self.label.translatesAutoresizingMaskIntoConstraints = false
 		self.labelConstraints = LayoutUtils.layoutFull(v: label, parent: self)
-		NSLayoutConstraint.activate(self.labelConstraints)
+		setupC(
+			children: [
+				self.imgView,
+				self.label
+			],
+			constraints: [
+				imgConstraints,
+				labelConstraints
+			],
+			parent: self
+		)
 	}
-	
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
