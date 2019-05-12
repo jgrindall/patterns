@@ -26,8 +26,8 @@ class Files {
 		let dummyModel2 = FileModel(
 			userId: 1,
 			id: 1,
-			title: "title1",
-			body: "title1",
+			title: "title2",
+			body: "title2",
 			imageSrc: "pat2.jpg",
 			data:[[
 				CGPoint(x:300, y:300),

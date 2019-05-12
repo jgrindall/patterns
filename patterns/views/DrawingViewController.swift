@@ -36,6 +36,10 @@ class DrawingViewController: UIViewController {
 		print("TAP")
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		self.play(store.state.items)
+	}
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		store.subscribe(self.state1Subscriber) { state in
@@ -60,17 +64,11 @@ class DrawingViewController: UIViewController {
 		store.unsubscribe(self.state1Subscriber)
 	}
 	
-	private func play(_ pathsState:Any){
-		/*
-		var commands:[String] = []
-		for (_, items) in pathsState {
-			for item in items{
-				commands.append(item.type + " " + item.content)
-			}
-		}
-		geom.setText(commands.joined(separator: " ")).update()
-		self.drawingView.setPolygons(ps: geom.getPolygons()).update(store.state.drawingConfigState)
-		*/
+	private func play(_ polygons:Polygons){
+		geom.setPolygons(polygons).update()
+		let allPolygons = geom.getPolygons()
+		//store.state.drawingConfigState
+		self.drawingView.setPolygons(allPolygons).update()
 	}
 	
 	@objc func draggedView(_ sender:UIPanGestureRecognizer){

@@ -13,7 +13,7 @@ class DrawingView : UIView{
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	public func setPolygons(ps:[Polygon]) -> DrawingView{
+	public func setPolygons(_ ps:[Polygon]) -> DrawingView{
 		polygons = ps
 		return self
 	}
@@ -33,13 +33,19 @@ class DrawingView : UIView{
 		context.addLine(to: p[0])
 		context.strokePath()
 	}
+	
+	public func update(){
+		//self.drawingConfigState = state
+		self.setNeedsDisplay()
+	}
 
 	public override func draw(_ rect: CGRect) {
 		super.draw(rect)
 		let context:CGContext? = UIGraphicsGetCurrentContext()
 		context?.clear(self.frame)
-		UIColor.black.setFill()
+		Constants.COLORS.DARK_COLOR.setFill()
 		UIRectFill(self.frame)
+		print(polygons)
 		for i in 0..<polygons.count{
 			drawPolygon(context: context!, p: polygons[i])
 		}
