@@ -9,6 +9,11 @@ class DrawingViewController: UIViewController {
 	private var geom:Geom = Geom()
 	private var drawingView:DrawingView = DrawingView(frame: CGRect())
 	private var drawingConstraints:[NSLayoutConstraint] = []
+	private var blobViews:[BlobView] = []
+	private var blobConstraints:[[NSLayoutConstraint]] = []
+	private var draggedBlob:BlobView? = nil
+	private var draggedIndex:Int = -1
+	private var polygons:Polygons = []
 	
 	private lazy var state1Subscriber: BlockSubscriber<CodeState> = BlockSubscriber(block: {state in
 		self.newState(state: state)
@@ -37,7 +42,8 @@ class DrawingViewController: UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		self.play(store.state.items)
+		self.polygons = store.state.items
+		self.play()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +58,8 @@ class DrawingViewController: UIViewController {
 	
 	func newState(state: CodeState) {
 		if(state == .started){
-			self.play(store.state.items)
+			self.polygons = store.state.items
+			self.play()
 			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 				store.dispatch(SetCodeStateAction(payload: CodeState.stopped))
 			}
@@ -64,30 +71,82 @@ class DrawingViewController: UIViewController {
 		store.unsubscribe(self.state1Subscriber)
 	}
 	
-	private func play(_ polygons:Polygons){
-		geom.setPolygons(polygons).update()
+	private func play(){
+		geom.setPolygons(self.polygons).update()
 		let allPolygons = geom.getPolygons()
-		//store.state.drawingConfigState
 		self.drawingView.setPolygons(allPolygons).update()
+		self.updateBlobs(polygons)
+	}
+	
+	private func removeBlobs(){
+		for view in self.blobViews as [BlobView]{
+			//let i = self.blobViews.index(of: view)
+			view.removeFromSuperview()
+			//self.view.removeConstraints(self.blobConstraints[i!])
+		}
+	}
+	
+	private func addBlob(_ p:CGPoint){
+		let b = BlobView(frame: CGRect(x: p.x, y: p.y, width: 25.0, height: 25.0))
+		self.view.addSubview(b)
+		//let cs:[NSLayoutConstraint]  = LayoutUtils.absolute(v: b, parent: self.view, rect: CGRect(x: p.x, y: p.y, width: 25.0, height: 25.0))
+		//self.blobConstraints.append(cs)
+		//self.view.addConstraints(cs)
+		self.blobViews.append(b)
+	}
+	
+	private func updateBlobs(_ polygons:Polygons){
+		self.removeBlobs()
+		for p:Polygon in polygons{
+			for pt:CGPoint in p{
+				self.addBlob(pt)
+			}
+		}
+	}
+	
+	private func updatePolygon(_ i:Int, _ j:Int, _ p:CGPoint){
+		self.polygons[i][j] = p
 	}
 	
 	@objc func draggedView(_ sender:UIPanGestureRecognizer){
 		let pos:CGPoint = sender.location(in: self.view)
-		print("c", pos)
 		if(sender.state == .began){
-			print("c", pos)
+			self.draggedBlob = self.getBlob(pos)
+			if(self.draggedBlob != nil){
+				self.draggedIndex = self.blobViews.index(of: self.draggedBlob!)!
+			}
+			else{
+				self.draggedIndex = -1
+			}
 		}
 		else if(sender.state == .changed){
-			print("c", pos)
+			if(self.draggedBlob != nil){
+				self.draggedBlob?.frame = CGRect(x: pos.x, y: pos.y, width: 25.0, height: 25.0)
+				self.updatePolygon(0, self.draggedIndex, pos)
+				self.play()
+			}
 		}
 		else if(sender.state == .ended){
-			print("c", pos)
+			self.draggedBlob = nil
+			// commit the change
 		}
 		self.view.setNeedsDisplay()
 	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
+	
+	private func getBlob(_ p:CGPoint)->BlobView?{
+		var dists = self.blobViews.map{
+			return self.getDistBlobSqr(p, $0)
+		}
+		print(dists)
+		let minIndex:Int = MathUtils.getMinIndex(dists)
+		if(dists[minIndex] < 1000){
+			return self.blobViews[minIndex]
+		}
+		return nil
+	}
+	
+	private func getDistBlobSqr(_ p:CGPoint, _ b:UIView)->CGFloat{
+		return (p.x - b.frame.minX)*(p.x - b.frame.minX) + (p.y - b.frame.minY)*(p.y - b.frame.minY)
 	}
 
 }

@@ -226,6 +226,18 @@ class MathUtils {
 		c.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha)
 		return fRed*0.3 + fGreen*0.59 + fBlue * 0.11
 	}
+	
+	public static func getMinIndex(_ a:[CGFloat])->Int{
+		var minVal:CGFloat = CGFloat.infinity
+		var minIndex:Int = 0
+		for i in 0..<a.count{
+			if(a[i] < minVal){
+				minVal = a[i]
+				minIndex = i
+			}
+		}
+		return minIndex
+	}
 
 }
 

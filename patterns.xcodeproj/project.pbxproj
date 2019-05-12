@@ -27,6 +27,7 @@
 		5232D9A821BC6AD500980051 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232D9A721BC6AD500980051 /* ConfigView.swift */; };
 		5232D9AA21BC6B1500980051 /* BlockSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232D9A921BC6B1500980051 /* BlockSubscriber.swift */; };
 		52384B6322883D8A0069A838 /* MinMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52384B6222883D8A0069A838 /* MinMax.swift */; };
+		52384B6522887AC90069A838 /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52384B6422887AC90069A838 /* BlobView.swift */; };
 		52399DF321CE4C73002BE807 /* ForegroundConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52399DF221CE4C72002BE807 /* ForegroundConfigView.swift */; };
 		52399DF521CE5FFE002BE807 /* SymmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52399DF421CE5FFE002BE807 /* SymmController.swift */; };
 		523CA96E215C21E9001BE9E0 /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523CA96D215C21E9001BE9E0 /* DesignViewController.swift */; };
@@ -167,6 +168,7 @@
 		5232D9A721BC6AD500980051 /* ConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		5232D9A921BC6B1500980051 /* BlockSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockSubscriber.swift; sourceTree = "<group>"; };
 		52384B6222883D8A0069A838 /* MinMax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinMax.swift; sourceTree = "<group>"; };
+		52384B6422887AC90069A838 /* BlobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
 		52399DF221CE4C72002BE807 /* ForegroundConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForegroundConfigView.swift; sourceTree = "<group>"; };
 		52399DF421CE5FFE002BE807 /* SymmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymmController.swift; sourceTree = "<group>"; };
 		523CA96D215C21E9001BE9E0 /* DesignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 		5212FF4921568B5C00579B08 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				52384B6422887AC90069A838 /* BlobView.swift */,
 				521DC3DA21E151A100A033A2 /* MarkerView.swift */,
 				52C8380F21DBF542002E037B /* SymmPathView.swift */,
 				52C8380D21DBF391002E037B /* SymmPathViewController.swift */,
@@ -795,6 +798,7 @@
 				5212FF5521568B5D00579B08 /* DrawingViewController.swift in Sources */,
 				5252292F21A4AA640043E599 /* UIState.swift in Sources */,
 				5276A915217CE053004F6047 /* NavState.swift in Sources */,
+				52384B6522887AC90069A838 /* BlobView.swift in Sources */,
 				52384B6322883D8A0069A838 /* MinMax.swift in Sources */,
 				52F5C19D21BD6AE90099229C /* LineWidthViewController.swift in Sources */,
 				520D348D2160EA2600AE8AE0 /* FileListController.swift in Sources */,
