@@ -10,19 +10,33 @@ class Files {
 	
 	public static func loadAll() -> [FileModel]{
 		let fileManager = FileManager.default
-		let dummyModel1 = FileModel(userId: 1, id: 1, title: "title1", body: "title1", imageSrc: "pat1.jpg", data:[
-			Flow(name: "page0", data: [1, 2, 3, 4]),
-			Flow(name: "page1", data: [8, 6, 5, 1])
-			], bgColor:[200,20,20], fgColor:[200,200,150])
-		let dummyModel2 = FileModel(userId: 1, id: 2, title: "title2", body: "title2", imageSrc: "pat2.jpg", data:[
-			Flow(name: "page0", data: [11, 2, 13, -4]),
-			Flow(name: "page1", data: [4, 16, 15, 1])
-		], bgColor:[60,20,160], fgColor:[200,200,150])
-		let dummyModel3 = FileModel(userId: 1, id: 2, title: "title2", body: "title3", imageSrc: "pat1.jpg", data:[
-			Flow(name: "page0", data: [11, 2, 13, -4]),
-			Flow(name: "page1", data: [4, 16, 15, 1])
-		], bgColor:[200,200,150], fgColor:[200,200,150])
-		var files:[FileModel] = [dummyModel1, dummyModel2, dummyModel3]
+		let dummyModel1 = FileModel(
+			userId: 1,
+			id: 1,
+			title: "title1",
+			body: "title1",
+			imageSrc: "pat1.jpg",
+			data:[[
+				CGPoint(x:300, y:300),
+				CGPoint(x:200, y:300),
+				CGPoint(x:800, y:500)
+			]],
+			bgColor:[20,20,200]
+		)
+		let dummyModel2 = FileModel(
+			userId: 1,
+			id: 1,
+			title: "title1",
+			body: "title1",
+			imageSrc: "pat2.jpg",
+			data:[[
+				CGPoint(x:300, y:300),
+				CGPoint(x:200, y:300),
+				CGPoint(x:800, y:500)
+			]],
+			bgColor:[20,20,200]
+		)
+		var files:[FileModel] = [dummyModel1, dummyModel2]
 		let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
 		do {
 			let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
@@ -55,7 +69,7 @@ class Files {
 	}
 	
 	public static func save(name:String, fileModel:FileModel) -> Bool{
-		let file:FileModel = FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"", data:[], bgColor:[20,20,200], fgColor:[200,200,200])
+		let file:FileModel = FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"", data:[], bgColor:[20,20,200])
 		do {
 			try Disk.save(file, to: .documents, as: _getFile(name))
 		}
@@ -68,7 +82,7 @@ class Files {
 	}
 	
 	public static func getBlank() -> FileModel{
-		return FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"", data:[], bgColor:[20,200,70], fgColor:[200,200,200])
+		return FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"", data:[], bgColor:[20,200,70])
 	}
 
 }

@@ -1,23 +1,7 @@
 import ReSwift
 
-struct SetUITabStateAction:Action{
-	let payload: UITabState
-}
-
 struct SetUISymmStateAction:Action{
 	let payload: UITabState
-}
-
-struct SetBgStateAction: Action {
-	let payload: UIColor
-}
-
-struct SetFgStateAction: Action {
-	let payload: UIColor
-}
-
-struct SetLineWidthStateAction: Action {
-	let payload: CGFloat
 }
 
 struct SetCodeStateAction: Action {
@@ -26,31 +10,6 @@ struct SetCodeStateAction: Action {
 
 struct EditTextAction: Action {
 	let payload: String
-}
-
-struct InsertItemAction:Action {
-	let payload: Insert
-}
-
-struct Edit{
-	let index:Int
-	let model:DragItemModel
-	let key:String
-}
-
-struct Insert{
-	let key:String
-	let model:ListItemModel
-	let index:Int
-}
-
-struct UpdateItemAction:Action{
-	let payload:Edit
-}
-
-struct DeleteItemAction:Action{
-	let key:String
-	let index:Int
 }
 
 struct LoadFilesAction:Action{
@@ -64,37 +23,8 @@ struct LoadFilesAction:Action{
 	}
 }
 
-struct SetTabsAction:Action{
-	let payload:[String]
-}
-
-struct SetSelectedTabAction:Action{
-	let payload:Int
-}
-
-struct EditNameAction:Action{
-	let index:Int
-	let newName:String
-}
-
-struct AddTabAction:Action{
-	let name:String
-}
-
-struct DeleteTabAction:Action{
-	let key:String
-}
-
 struct SetItemsAction:Action{
-	let payload:DragItemsState
-}
-
-struct AddFlowAction:Action{
-	let name:String
-}
-
-struct DeleteFlowAction:Action{
-	let key:String
+	let payload:Polygons
 }
 
 struct SetFilesAction:Action{

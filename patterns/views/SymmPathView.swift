@@ -5,6 +5,8 @@ class SymmPathView : UIView{
 	
 	override init(frame:CGRect){
 		super.init(frame: frame)
+		self.isOpaque = false
+		self.backgroundColor = .clear
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -19,7 +21,6 @@ class SymmPathView : UIView{
 		super.draw(rect)
 		let context:CGContext? = UIGraphicsGetCurrentContext()
 		context?.clear(self.frame)
-		UIColor.black.setStroke()
 		let ctx = UIGraphicsGetCurrentContext()!
 		ctx.setStrokeColor(UIColor.red.cgColor)
 		let circleRect = CGRect(x: 0, y: 0, width: 420, height: 250)

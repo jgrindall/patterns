@@ -52,23 +52,8 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 		displayContentController(container: self, content: listController)
 		openButton.addTarget(self, action: #selector(FilesViewController.openButtonClicked(_:)), for: .touchUpInside)
 		newButton.addTarget(self, action: #selector(FilesViewController.newButtonClicked(_:)), for: .touchUpInside)
-		
-		newButton.layer.masksToBounds = true
-		newButton.backgroundColor = .white
-		newButton.layer.cornerRadius = Constants.SIZE.BUTTON_HEIGHT/2
-		newButton.layer.borderWidth = 3
-		newButton.layer.borderColor = UIColor.gray.cgColor
-		newButtonImg.isUserInteractionEnabled = false
-		newButton.addSubview(newButtonImg)
-		
-		openButton.layer.masksToBounds = true
-		openButton.backgroundColor = .white
-		openButton.layer.cornerRadius = Constants.SIZE.BUTTON_HEIGHT/2
-		openButton.layer.borderWidth = 3
-		openButton.layer.borderColor = UIColor.gray.cgColor
-		openButtonImg.isUserInteractionEnabled = false
-		openButton.addSubview(openButtonImg)
-		
+		newButton.setUpRoundButton(newButtonImg)
+		openButton.setUpRoundButton(openButtonImg)
 		self.view.addSubview(openButton)
 		self.view.addSubview(newButton)
 		self.loadFiles()
@@ -77,7 +62,7 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	}
 	
 	func initLayout(){
-		self.listConstraints = LayoutUtils.layoutToLeftWithWidthAndTopMargin(v: self.listController.view, parent: self.view, width: Constants.SIZE.FILES_WIDTH, topMargin: self.navigationController!.navigationBar.frame.size.height)
+		self.listConstraints = LayoutUtils.layoutToLeftWithWidthAndTopMargin(v: self.listController.view, parent: self.view, width: Constants.SIZE.FILES_WIDTH, topMargin: self.getNavHeight())
 		self.detailConstraints = LayoutUtils.layoutFull(v: self.detailController.view, parent: self.view)
 		self.newConstraints = LayoutUtils.bottomLeftWithMargins(v: self.newButton, parent: self.view, marginBottom:10, width:Constants.SIZE.BUTTON_HEIGHT, height:Constants.SIZE.BUTTON_HEIGHT, marginLeft: Constants.SIZE.FILES_WIDTH - Constants.SIZE.BUTTON_HEIGHT - 10)
 		self.openConstraints = LayoutUtils.bottomRight(v: self.openButton, parent: self.view, margin:10, width:Constants.SIZE.BUTTON_HEIGHT, height:Constants.SIZE.BUTTON_HEIGHT)
@@ -135,7 +120,7 @@ class FilesViewController: UIViewController, StoreSubscriber, PPageViewControlle
 	}
 	
 	func save(){
-		let file:FileModel = FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"", data:[], bgColor:[200,100,200], fgColor:[250,250,250])
+		let file:FileModel = FileModel(userId: 123, id: 123, title: "title", body: "body body body body", imageSrc:"", data:[], bgColor:[200,100,200])
 		_ = Files.save(name: "name34", fileModel: file)
 	}
 	

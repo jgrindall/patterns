@@ -21,7 +21,6 @@ class ColorPickerRainbow : UIView{
 	override func draw(_ rect: CGRect) {
 		print("draw")
 		backgroundColor = .green
-		//self.transform = CGAffineTransform(rotationAngle: -0.1)
 		self.setupGradient()
 	}
 	
@@ -104,34 +103,30 @@ class ColorPickerViewController:UIViewController{
 	private var rainbowConstraints:[NSLayoutConstraint] = []
 	private var colorSliderConstraints:[NSLayoutConstraint] = []
 	private var rainbowSliderConstraints:[NSLayoutConstraint] = []
+	private var okConstraints:[NSLayoutConstraint] = []
 	private var swatchConstraints:[NSLayoutConstraint] = []
 	private var sqrConstraints:[NSLayoutConstraint] = []
 	private var swatch:UIView = UIView()
 	private var dragging:String = ""
+	private var openButtonImg:UIImageView = UIImageView(image: UIImage(named: "tick2.png"))
 	
 	var delegate : PColorPickerDelegate?
 	
 	override func viewDidLoad() {
 		self.view.backgroundColor = UIColor.orange
-		okButton.frame = CGRect(x: 0, y: 290, width: 50, height: 20)
 		okButton.setTitle("Ok", for: UIControlState.normal)
+		okButton.setUpRoundButton(openButtonImg)
+		
 		textField.backgroundColor = UIColor.white
 		textField.font = UIFont(name: "Verdana", size: 18)
 		okButton.addTarget(self, action: #selector(ColorPickerViewController.buttonClicked(_:)), for: .touchUpInside)
-
 		colorSlider = UIView()
-		colorSlider.layer.borderColor = UIColor.black.cgColor
-		colorSlider.layer.borderWidth = 2.0
-		colorSlider.layer.cornerRadius = Constants.SIZE.COLOR_SLIDER_SIZE/2.0
-		colorSlider.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+		colorSlider.setUpRoundButton(nil, Constants.SIZE.COLOR_SLIDER_SIZE/2.0, UIColor.white.withAlphaComponent(0.6), UIColor.black, 2.0)
 		colorSlider.alpha = 0.5
 		colorSlider.isUserInteractionEnabled = false
 		
 		rainbowSlider = UIView()
-		rainbowSlider.layer.borderColor = UIColor.black.cgColor
-		rainbowSlider.layer.borderWidth = 2.0
-		rainbowSlider.layer.cornerRadius = Constants.SIZE.COLOR_SLIDER_SIZE/2.0
-		rainbowSlider.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+		colorSlider.setUpRoundButton(nil, Constants.SIZE.COLOR_SLIDER_SIZE/2.0, UIColor.white.withAlphaComponent(0.6), UIColor.black, 2.0)
 		rainbowSlider.alpha = 0.5
 		rainbowSlider.isUserInteractionEnabled = false
 		
@@ -155,44 +150,49 @@ class ColorPickerViewController:UIViewController{
 	}
 	
 	private func initLayout(){
-		let PADDING:CGFloat = 10.0
-		self.colorSliderConstraints = LayoutUtils.layoutExact(v: colorSlider, parent: self.view, x: PADDING, y: PADDING, width: Constants.SIZE.COLOR_SLIDER_SIZE, height: Constants.SIZE.COLOR_SLIDER_SIZE)
-		self.swatchConstraints = LayoutUtils.layoutExact(v: swatch, parent: self.view, x: 2*PADDING + Constants.SIZE.COLOR_SWATCH_SIZE, y: 10, width: Constants.SIZE.COLOR_SWATCH_SIZE, height: Constants.SIZE.COLOR_SWATCH_SIZE)
-		self.sqrConstraints = LayoutUtils.layoutExact(v: colorSqr, parent: self.view, x: PADDING, y: PADDING, width: Constants.SIZE.COLOR_SWATCH_SIZE, height: Constants.SIZE.COLOR_SWATCH_SIZE)
-		self.rainbowConstraints = LayoutUtils.layoutExact(v: colorRainbow, parent: self.view, x: PADDING, y: 2*PADDING + Constants.SIZE.COLOR_SWATCH_SIZE, width: PADDING + 2*Constants.SIZE.COLOR_SWATCH_SIZE, height: 40)
+		self.colorSliderConstraints = LayoutUtils.layoutExact(v: colorSlider, parent: self.view, x: Constants.SIZE.COLOR_PADDING, y: Constants.SIZE.COLOR_PADDING, width: Constants.SIZE.COLOR_SLIDER_SIZE, height: Constants.SIZE.COLOR_SLIDER_SIZE)
+		self.swatchConstraints = LayoutUtils.layoutExact(v: swatch, parent: self.view, x: 2*Constants.SIZE.COLOR_PADDING + Constants.SIZE.COLOR_SWATCH_SIZE, y: 10, width: Constants.SIZE.COLOR_SWATCH_SIZE, height: Constants.SIZE.COLOR_SWATCH_SIZE)
+		self.sqrConstraints = LayoutUtils.layoutExact(v: colorSqr, parent: self.view, x: Constants.SIZE.COLOR_PADDING, y: Constants.SIZE.COLOR_PADDING, width: Constants.SIZE.COLOR_SWATCH_SIZE, height: Constants.SIZE.COLOR_SWATCH_SIZE)
+		self.rainbowConstraints = LayoutUtils.layoutExact(v: colorRainbow, parent: self.view, x: Constants.SIZE.COLOR_PADDING, y: 2*Constants.SIZE.COLOR_PADDING + Constants.SIZE.COLOR_SWATCH_SIZE, width: Constants.SIZE.COLOR_PADDING + 2*Constants.SIZE.COLOR_SWATCH_SIZE, height: 40)
 		self.rainbowSliderConstraints = LayoutUtils.layoutExact(v: rainbowSlider, parent: self.view, x: 10, y: 250, width: Constants.SIZE.COLOR_SLIDER_SIZE, height: Constants.SIZE.COLOR_SLIDER_SIZE)
-
+		self.okConstraints = LayoutUtils.layoutExact(v: okButton, parent: self.view, x: 200, y: 290, width: Constants.SIZE.BUTTON_HEIGHT, height: Constants.SIZE.BUTTON_HEIGHT)
+		
 		setupC(
 			children: [
 				colorSlider,
 				swatch,
 				colorSqr,
 				colorRainbow,
-				rainbowSlider
+				rainbowSlider,
+				okButton
 			],
 			constraints: [
 				colorSliderConstraints,
 				swatchConstraints,
 				sqrConstraints,
 				rainbowConstraints,
-				rainbowSliderConstraints
+				rainbowSliderConstraints,
+				okConstraints
 			],
 			parent: self.view
 		)
 	}
 	
 	private func posColorSlider(_ t:CGPoint){
-		colorSliderConstraints[0].constant = max(0.0, min(t.x, Constants.SIZE.COLOR_SWATCH_SIZE))
-		colorSliderConstraints[1].constant = max(0.0, min(t.y, Constants.SIZE.COLOR_SWATCH_SIZE))
+		positionTopLeft(colorSlider,
+			max(0.0, min(t.y, Constants.SIZE.COLOR_SWATCH_SIZE)),
+			max(0.0, min(t.x, Constants.SIZE.COLOR_SWATCH_SIZE))
+		)
 	}
 	
 	private func posRainbowSlider(_ t:CGPoint){
-		rainbowConstraints[0].constant = max(0.0, min(t.x, Constants.SIZE.COLOR_SWATCH_SIZE))
-		rainbowConstraints[1].constant = t.y
+		positionTopLeft(rainbowSlider,
+			max(0.0, min(t.y, Constants.SIZE.COLOR_SWATCH_SIZE)),
+			max(0.0, min(t.x, Constants.SIZE.COLOR_SWATCH_SIZE))
+		)
 	}
 	
 	private func updateSwatch(){
-		print(self.rainbowSlider.frame);
 		let hue:CGColor = self.colorRainbow.layer.colorOfPoint(point: CGPoint(x: self.rainbowSlider.frame.minX - self.colorRainbow.frame.minX, y: self.rainbowSlider.frame.minY - self.colorRainbow.frame.minY))
 		swatch.backgroundColor = UIColor(cgColor: hue)
 		colorSqr.backgroundColor = UIColor(cgColor: hue)

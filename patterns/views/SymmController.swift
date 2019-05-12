@@ -19,11 +19,11 @@ class SymmController: UIViewController, StoreSubscriber {
 	}
 	
 	private func down(){
-		animateTop(self.view, Constants.SIZE.BUTTON_HEIGHT)
+		animateTop(self.view, self.getNavHeight())
 	}
 	
 	private func up(){
-		animateTop(self.view, Constants.SIZE.BUTTON_HEIGHT - self.view.frame.height)
+		animateTop(self.view, -self.getNavHeight() - self.view.frame.height)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

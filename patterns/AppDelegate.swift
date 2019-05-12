@@ -11,7 +11,11 @@ let loggingMiddleware: Middleware<Any> = { dispatch, getState in
 	}
 }
 
-var store:Store = Store<AppState>(reducer: appReducer, state: AppState(), middleware: [loggingMiddleware])
+var s:AppState = AppState()
+
+var store:Store = Store<AppState>(reducer: appReducer, state:s)
+
+//var store:Store = Store<AppState>(reducer: appReducer, state: AppState(), middleware: [loggingMiddleware])
 
 var manager:Manager?
 
@@ -25,6 +29,41 @@ func hideContentController(container:UIViewController, content: UIViewController
 	content.willMove(toParentViewController: nil)
 	content.view.removeFromSuperview()
 	content.removeFromParentViewController()
+}
+
+func positionTopLeft(_ view:UIView, _ top:CGFloat, _ left:CGFloat){
+	let c1:NSLayoutConstraint? = getC(view, NSLayoutAttribute.leading)
+	if(c1 != nil){
+		c1?.constant = left
+	}
+	let c2:NSLayoutConstraint? = getC(view, NSLayoutAttribute.top)
+	if(c2 != nil){
+		c2?.constant = top
+	}
+}
+
+func positionLeft(_ view:UIView, _ left:CGFloat){
+	let c:NSLayoutConstraint? = getC(view, NSLayoutAttribute.leading)
+	if(c != nil){
+		c?.constant = left
+	}
+}
+
+func positionTop(_ view:UIView, _ top:CGFloat){
+	let c:NSLayoutConstraint? = getC(view, NSLayoutAttribute.top)
+	if(c != nil){
+		c?.constant = top
+	}
+}
+
+func animateLeft(_ view:UIView, _ left:CGFloat){
+	let c:NSLayoutConstraint? = getC(view, NSLayoutAttribute.leading)
+	if(c != nil){
+		c?.constant = left
+		UIView.animate(withDuration: Constants.ANIM.ANIM_TIME, animations: {
+			view.superview?.layoutIfNeeded()
+		}, completion: nil)
+	}
 }
 
 func animateTop(_ view:UIView, _ top:CGFloat){
@@ -83,6 +122,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UIApplication.shared.isStatusBarHidden = true
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		let navController = NavViewController()
+		Constants.SIZE.CONFIG_MARKER_SIZE = navController.navigationBar.frame.size.height - 2
+		print(navController.navigationBar.frame.size.height)
 		navController.viewControllers = []
 		navController.navigationBar.shadowImage = UIImage()
 		

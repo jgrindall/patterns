@@ -26,7 +26,4 @@ class SymmPathViewController: UIViewController {
 		//
 	}
 	
-	func newState(state: DrawingConfigState) {
-		//drawingView.update(state)
-	}
 }

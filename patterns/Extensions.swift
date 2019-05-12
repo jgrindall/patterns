@@ -3,6 +3,33 @@ import CoreGraphics
 import UIKit
 
 typealias Polygon = [CGPoint]
+typealias Polygons = [Polygon]
+
+func ==(lhs: Polygon, rhs: Polygon) -> Bool {
+	if (lhs.count != rhs.count){
+		return false
+	}
+	for i in 0..<(lhs.count){
+		let eq = (lhs[i] == rhs[i])
+		if(!eq){
+			return false
+		}
+	}
+	return true
+}
+
+func ==(lhs: Polygons, rhs: Polygons) -> Bool {
+	if (lhs.count != rhs.count){
+		return false
+	}
+	for i in 0..<lhs.count{
+		let eq = (lhs[i] == rhs[i])
+		if(!eq){
+			return false
+		}
+	}
+	return true
+}
 
 func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
 	return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
@@ -78,6 +105,20 @@ public extension CGAffineTransform{
 	
 }
 
+public extension UIView{
+	func setUpRoundButton(_ icon:UIImageView?, _ rad:CGFloat = 30.0, _ bgClr:UIColor = .white, _ borderClr:UIColor = UIColor.gray, _ borderWidth:CGFloat = 3.0){
+		self.layer.masksToBounds = true
+		self.backgroundColor = bgClr
+		self.layer.cornerRadius = rad
+		self.layer.borderWidth = borderWidth
+		self.layer.borderColor = borderClr.cgColor
+		if(icon != nil){
+			self.addSubview(icon!)
+			icon?.isUserInteractionEnabled = false
+		}
+	}
+}
+
 public extension UIButton {
 	func setBackgroundColor(color: UIColor, forState: UIControlState) {
 		UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
@@ -86,6 +127,12 @@ public extension UIButton {
 		let colorImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		self.setBackgroundImage(colorImage, for: forState)
+	}
+}
+
+public extension UIViewController{
+	func getNavHeight() ->CGFloat{
+		return self.navigationController!.navigationBar.frame.size.height
 	}
 }
 

@@ -13,9 +13,6 @@ class DrawingViewController: UIViewController {
 	private lazy var state1Subscriber: BlockSubscriber<CodeState> = BlockSubscriber(block: {state in
 		self.newState(state: state)
 	})
-	private lazy var state2Subscriber: BlockSubscriber<DrawingConfigState> = BlockSubscriber(block: {state in
-		self.newState(state: state)
-	})
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -47,9 +44,6 @@ class DrawingViewController: UIViewController {
 					return lhs == rhs
 				})
 		}
-		store.subscribe(self.state2Subscriber) { state in
-			state.select { state in state.drawingConfigState }
-		}
 	}
 	
 	func newState(state: CodeState) {
@@ -61,28 +55,36 @@ class DrawingViewController: UIViewController {
 		}
 	}
 	
-	func newState(state: DrawingConfigState) {
-		drawingView.update(state)
-	}
-	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		store.unsubscribe(self.state1Subscriber)
-		store.unsubscribe(self.state2Subscriber)
 	}
 	
-	private func play(_ itemsState:DragItemsState){
+	private func play(_ pathsState:Any){
+		/*
 		var commands:[String] = []
-		for (_, items) in itemsState {
+		for (_, items) in pathsState {
 			for item in items{
 				commands.append(item.type + " " + item.content)
 			}
 		}
 		geom.setText(commands.joined(separator: " ")).update()
 		self.drawingView.setPolygons(ps: geom.getPolygons()).update(store.state.drawingConfigState)
+		*/
 	}
 	
 	@objc func draggedView(_ sender:UIPanGestureRecognizer){
+		let pos:CGPoint = sender.location(in: self.view)
+		print("c", pos)
+		if(sender.state == .began){
+			print("c", pos)
+		}
+		else if(sender.state == .changed){
+			print("c", pos)
+		}
+		else if(sender.state == .ended){
+			print("c", pos)
+		}
 		self.view.setNeedsDisplay()
 	}
 
